@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ActivityMapViewController.swift
 //  WoDoTri
 //
 //  Created by Markus Staas on 11/10/17.
@@ -7,17 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
-    
-    
-    
+class ActivityMapViewController: UIViewController, MKMapViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
+        // Do any additional setup after loading the view.
+    }
+    
 
 }
-

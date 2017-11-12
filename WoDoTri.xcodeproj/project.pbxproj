@@ -9,19 +9,31 @@
 /* Begin PBXBuildFile section */
 		2895089F1FB570B400353860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895089E1FB570B400353860 /* AppDelegate.swift */; };
 		289508A11FB570B400353860 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508A01FB570B400353860 /* ViewController.swift */; };
-		289508A41FB570B400353860 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289508A21FB570B400353860 /* Main.storyboard */; };
 		289508A61FB570B400353860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289508A51FB570B400353860 /* Assets.xcassets */; };
 		289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289508A71FB570B400353860 /* LaunchScreen.storyboard */; };
+		289508B81FB575D200353860 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B71FB575D200353860 /* ActivityViewController.swift */; };
+		289508BA1FB5761A00353860 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B91FB5761A00353860 /* SettingsViewController.swift */; };
+		289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508BB1FB57A5600353860 /* ActivityMapViewController.swift */; };
+		28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B321FB705DB009384C2 /* StopWatch.swift */; };
+		28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* FinishViewController.swift */; };
+		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
+		28CD5B831FB83664009384C2 /* SpeedoMat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B821FB83664009384C2 /* SpeedoMat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2895089B1FB570B400353860 /* WoDoTri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoDoTri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2895089E1FB570B400353860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		289508A01FB570B400353860 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		289508A31FB570B400353860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		289508A51FB570B400353860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289508A81FB570B400353860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		289508AA1FB570B400353860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		289508B71FB575D200353860 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		289508B91FB5761A00353860 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		289508BB1FB57A5600353860 /* ActivityMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityMapViewController.swift; sourceTree = "<group>"; };
+		28CD5B321FB705DB009384C2 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		28CD5B341FB82209009384C2 /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		28CD5B361FB83034009384C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		28CD5B821FB83664009384C2 /* SpeedoMat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedoMat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,52 @@
 		2895089D1FB570B400353860 /* WoDoTri */ = {
 			isa = PBXGroup;
 			children = (
+				289508B21FB570FE00353860 /* Controller */,
+				289508B11FB570F500353860 /* View */,
+				289508B01FB570ED00353860 /* Model */,
 				2895089E1FB570B400353860 /* AppDelegate.swift */,
-				289508A01FB570B400353860 /* ViewController.swift */,
-				289508A21FB570B400353860 /* Main.storyboard */,
 				289508A51FB570B400353860 /* Assets.xcassets */,
-				289508A71FB570B400353860 /* LaunchScreen.storyboard */,
 				289508AA1FB570B400353860 /* Info.plist */,
 			);
 			path = WoDoTri;
+			sourceTree = "<group>";
+		};
+		289508B01FB570ED00353860 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				28CD5B381FB833EC009384C2 /* Clients */,
+				28CD5B321FB705DB009384C2 /* StopWatch.swift */,
+				28CD5B821FB83664009384C2 /* SpeedoMat.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		289508B11FB570F500353860 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28CD5B361FB83034009384C2 /* Main.storyboard */,
+				289508A71FB570B400353860 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		289508B21FB570FE00353860 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				289508A01FB570B400353860 /* ViewController.swift */,
+				289508B71FB575D200353860 /* ActivityViewController.swift */,
+				289508B91FB5761A00353860 /* SettingsViewController.swift */,
+				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
+				28CD5B341FB82209009384C2 /* FinishViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		28CD5B381FB833EC009384C2 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Clients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +174,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28CD5B371FB83034009384C2 /* Main.storyboard in Resources */,
 				289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */,
 				289508A61FB570B400353860 /* Assets.xcassets in Resources */,
-				289508A41FB570B400353860 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,20 +189,18 @@
 			files = (
 				289508A11FB570B400353860 /* ViewController.swift in Sources */,
 				2895089F1FB570B400353860 /* AppDelegate.swift in Sources */,
+				289508B81FB575D200353860 /* ActivityViewController.swift in Sources */,
+				28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */,
+				28CD5B831FB83664009384C2 /* SpeedoMat.swift in Sources */,
+				28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */,
+				289508BA1FB5761A00353860 /* SettingsViewController.swift in Sources */,
+				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		289508A21FB570B400353860 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				289508A31FB570B400353860 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		289508A71FB570B400353860 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -300,6 +348,7 @@
 				289508AF1FB570B400353860 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
