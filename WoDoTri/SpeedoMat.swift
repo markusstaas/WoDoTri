@@ -18,6 +18,7 @@ class SpeedoMat{
    // var switchSpeed = "KPH"
     var startLocation:CLLocation!
     var lastLocation: CLLocation!
+    
     var traveledDistance:Double = 0
     var arrayMPH: [Double]! = []
     var arrayKPH: [Double]! = []
