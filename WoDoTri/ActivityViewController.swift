@@ -12,6 +12,8 @@ class ActivityViewController: UIViewController {
     
     let stopwatch = StopWatch()
     let speedo = SpeedoMat()
+    @IBOutlet weak var startButt: UIButton!
+    
     
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     
@@ -20,12 +22,21 @@ class ActivityViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
-        stopwatch.start()
+        if stopwatch.stopwatchStatus == "Stopped" || stopwatch.stopwatchStatus == "Paused"{
+            stopwatch.start()
+            startButt.backgroundColor = UIColor.orange
+            startButt.setTitle("Pause", for: .normal)
+        }else{
+            stopwatch.stop()
+            startButt.backgroundColor = UIColor.green
+            startButt.setTitle("Start", for: .normal)
+        }
     }
  
     @IBAction func stopButtonPressed(_ sender: Any) {
         stopwatch.stop()
           performSegue(withIdentifier: "FinishView", sender: self)
+        print(stopwatch.stopwatchStatus)
     }
     
 
@@ -34,10 +45,7 @@ class ActivityViewController: UIViewController {
         super.viewDidLoad()
         tick()
         stopwatch.callback = self.tick
-        print(speedo.test)
         
-        
-
         // Do any additional setup after loading the view.
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

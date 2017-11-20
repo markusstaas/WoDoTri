@@ -14,17 +14,21 @@ class StopWatch: NSObject{
     private var displayLink: CADisplayLink!
     private let formatter = DateFormatter()
     
+    
     var callback: (() -> Void)?
     var elapsedTime: CFTimeInterval!
+    var stopwatchStatus: String = "Stopped"
     
     override init() {
         super.init()
-       self.displayLink = CADisplayLink(target: self, selector: #selector(tick(sender:)))
+        self.displayLink = CADisplayLink(target: self, selector: #selector(tick(sender:)))
         displayLink.isPaused = true
         displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
         self.elapsedTime = 0.0
+        formatter.timeZone = TimeZone(abbreviation: "GMT")!
         formatter.dateFormat = "HH:mm:ss"
     }
+    
     convenience init(withCallback callback: @escaping () -> Void) {
         self.init()
         self.callback = callback
@@ -40,10 +44,17 @@ class StopWatch: NSObject{
     
     func start() {
         displayLink.isPaused = false
+        stopwatchStatus = "Started"
     }
     
     func stop() {
         displayLink.isPaused = true
+        stopwatchStatus = "Stopped"
+    }
+    
+    func paused(){
+        displayLink.isPaused = true
+        stopwatchStatus = "Paused"
     }
     
     func reset() {

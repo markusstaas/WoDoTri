@@ -9,9 +9,9 @@
 import UIKit
 
 class FinishViewController: UIViewController {
+    let stopwatch = StopWatch()
     
     var elapsedTime = "0.0"
-    
     
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     
@@ -24,6 +24,7 @@ class FinishViewController: UIViewController {
     }
 
     @IBAction func discardButtonPressed(_ sender: Any) {
+        stopwatch.reset()
     }
 
 }
