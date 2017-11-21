@@ -14,7 +14,6 @@ class StopWatch: NSObject{
     private var displayLink: CADisplayLink!
     private let formatter = DateFormatter()
     
-    
     var callback: (() -> Void)?
     var elapsedTime: CFTimeInterval!
     var stopwatchStatus: String = "Stopped"
@@ -37,7 +36,7 @@ class StopWatch: NSObject{
         displayLink.invalidate()
     }
     
-    func tick(sender: CADisplayLink) {
+    @objc func tick(sender: CADisplayLink) {
         elapsedTime = elapsedTime + displayLink.duration
         callback?()
     }

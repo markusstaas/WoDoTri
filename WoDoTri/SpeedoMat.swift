@@ -23,7 +23,4 @@ class SpeedoMat{
     var arrayMPH: [Double]! = []
     var arrayKPH: [Double]! = []
     
-    
-    
-    
 }

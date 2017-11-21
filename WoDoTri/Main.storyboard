@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZnC-G8-Xrf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZnC-G8-Xrf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -107,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="820" y="904"/>
         </scene>
-        <!--Data-->
+        <!--Activity View Controller-->
         <scene sceneID="lYW-CY-MvB">
             <objects>
                 <viewController id="Gbz-Ug-PPR" customClass="ActivityViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,40 +119,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZT7-gk-dsu">
-                                <rect key="frame" x="16" y="84" width="343" height="254"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZT7-gk-dsu">
+                                <rect key="frame" x="16" y="64" width="343" height="254"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDr-VJ-Hoh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDr-VJ-Hoh">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="37.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tS-4s-0Zv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="37.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tS-4s-0Zv">
                                         <rect key="frame" x="0.0" y="24" width="343" height="72"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
                                         <color key="textColor" red="1" green="0.98815489860000005" blue="0.99344001510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP5-eY-eie">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP5-eY-eie">
                                         <rect key="frame" x="0.0" y="96" width="343" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="143.75" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohd-4n-fkv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="143.75" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohd-4n-fkv">
                                         <rect key="frame" x="0.0" y="120" width="343" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                         <color key="textColor" red="1" green="0.98815489860000005" blue="0.99344001510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Avg. Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4y1-bI-Xv8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avg. Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4y1-bI-Xv8">
                                         <rect key="frame" x="0.0" y="175" width="343" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="32.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yB4-cr-dIz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yB4-cr-dIz">
                                         <rect key="frame" x="0.0" y="199" width="343" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                         <color key="textColor" red="1" green="0.98815489860000005" blue="0.99344001510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -184,26 +184,39 @@
                                     <constraint firstAttribute="height" constant="100" id="6oh-67-dYe"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhH-Yr-Sgz">
+                                <rect key="frame" x="16" y="64" width="343" height="449"/>
+                                <color key="backgroundColor" red="0.14074643780000001" green="0.14074643780000001" blue="0.14074643780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.35102713108062744" green="0.42891889810562134" blue="0.90706640481948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Hei-fk-qe3" firstAttribute="top" secondItem="yhH-Yr-Sgz" secondAttribute="bottom" id="0bB-7B-fmN"/>
                             <constraint firstItem="Hei-fk-qe3" firstAttribute="leading" secondItem="ONj-D3-H6D" secondAttribute="leadingMargin" id="2VV-cr-sxS"/>
                             <constraint firstItem="FbT-Yr-nPE" firstAttribute="top" secondItem="Hei-fk-qe3" secondAttribute="bottom" constant="5" id="BsY-eQ-df2"/>
+                            <constraint firstItem="yhH-Yr-Sgz" firstAttribute="leading" secondItem="ONj-D3-H6D" secondAttribute="leadingMargin" id="UVB-zh-Gyo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZT7-gk-dsu" secondAttribute="trailing" id="hWl-vk-fpu"/>
+                            <constraint firstItem="yhH-Yr-Sgz" firstAttribute="top" secondItem="qOW-bu-W2E" secondAttribute="bottom" id="lec-u0-uxM"/>
                             <constraint firstItem="ZT7-gk-dsu" firstAttribute="leading" secondItem="ONj-D3-H6D" secondAttribute="leadingMargin" id="oUx-6g-zwW"/>
+                            <constraint firstItem="ZT7-gk-dsu" firstAttribute="top" secondItem="qOW-bu-W2E" secondAttribute="bottom" id="q2J-J6-k6g"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hei-fk-qe3" secondAttribute="trailing" id="wQp-FF-mWT"/>
+                            <constraint firstItem="yhH-Yr-Sgz" firstAttribute="trailing" secondItem="ONj-D3-H6D" secondAttribute="trailingMargin" id="xcj-db-hGh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Data" id="HsK-6p-jML"/>
+                    <navigationItem key="navigationItem" id="GAN-n0-T2p"/>
                     <connections>
                         <outlet property="elapsedTimeLabel" destination="ohd-4n-fkv" id="h9Q-o5-etp"/>
+                        <outlet property="pausedLabel" destination="yhH-Yr-Sgz" id="awr-29-0AR"/>
                         <outlet property="startButt" destination="AlP-tt-FER" id="XmV-Gu-DD5"/>
                         <segue destination="YLS-lw-Kci" kind="show" identifier="FinishView" id="bhu-wD-DA5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KU7-MV-4AT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2598" y="36"/>
+            <point key="canvasLocation" x="2936.8000000000002" y="35.532233883058474"/>
         </scene>
         <!--Map-->
         <scene sceneID="9Dk-7h-scf">
@@ -254,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufW-7H-ehM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3455" y="36"/>
+            <point key="canvasLocation" x="3792.8000000000002" y="35.532233883058474"/>
         </scene>
         <!--Finish View Controller-->
         <scene sceneID="zZl-eu-qHq">
@@ -314,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykc-b6-CY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4399" y="36"/>
+            <point key="canvasLocation" x="4736.8000000000002" y="35.532233883058474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qqm-y6-Hg6">
@@ -345,13 +358,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Gbz-Ug-PPR" kind="relationship" relationship="viewControllers" id="RHS-wq-zQx"/>
+                        <segue destination="hA3-xi-3Eh" kind="relationship" relationship="viewControllers" id="RHS-wq-zQx"/>
                         <segue destination="2ak-hm-mQJ" kind="relationship" relationship="viewControllers" id="nIq-bu-xDb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kc1-k6-rcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="36"/>
+            <point key="canvasLocation" x="1583" y="36"/>
+        </scene>
+        <!--Data-->
+        <scene sceneID="4ZK-aw-hK7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hA3-xi-3Eh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Data" id="HsK-6p-jML"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jag-O9-koZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gbz-Ug-PPR" kind="relationship" relationship="rootViewController" id="qBo-TJ-xEN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dV0-Kv-ond" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2257" y="36"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
