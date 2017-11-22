@@ -24,6 +24,7 @@ class FinishViewController: UIViewController {
     }
 
     @IBAction func discardButtonPressed(_ sender: Any) {
+         
         stopwatch.reset()
     }
 
