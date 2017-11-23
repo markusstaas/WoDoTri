@@ -35,14 +35,8 @@ struct FormatDisplay {
         let speedMagnitude = seconds != 0 ? distance.value / Double(seconds) : 0
         let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
         return formatter.string(from: speed.converted(to: outputUnit))
-        
     }
     
-    static func avgPace(){
-        
-        
-        
-    }
     
     static func date(_ timestamp: Date?) -> String {
         guard let timestamp = timestamp as Date? else { return "" }

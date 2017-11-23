@@ -17,12 +17,12 @@
 		28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B321FB705DB009384C2 /* StopWatch.swift */; };
 		28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* FinishViewController.swift */; };
 		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
-		28CD5B831FB83664009384C2 /* SpeedoMat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B821FB83664009384C2 /* SpeedoMat.swift */; };
 		65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65084EB41FC5124100EDA74A /* Model.xcdatamodeld */; };
 		65A684A81FC514B400B0A7C8 /* UnitCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */; };
 		65A684AA1FC5151A00B0A7C8 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */; };
 		65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */; };
 		65A684B01FC51A9C00B0A7C8 /* ActivityViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684AF1FC51A9C00B0A7C8 /* ActivityViewExtensions.swift */; };
+		65CDD9611FC63FB8002F6D40 /* UIControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD9601FC63FB8002F6D40 /* UIControls.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,12 +38,12 @@
 		28CD5B321FB705DB009384C2 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		28CD5B341FB82209009384C2 /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		28CD5B361FB83034009384C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		28CD5B821FB83664009384C2 /* SpeedoMat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedoMat.swift; sourceTree = "<group>"; };
 		65084EB51FC5124100EDA74A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCalculations.swift; sourceTree = "<group>"; };
 		65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLManagerShare.swift; sourceTree = "<group>"; };
 		65A684AF1FC51A9C00B0A7C8 /* ActivityViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewExtensions.swift; sourceTree = "<group>"; };
+		65CDD9601FC63FB8002F6D40 /* UIControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControls.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,6 @@
 				65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */,
 				65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */,
 				65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */,
-				28CD5B821FB83664009384C2 /* SpeedoMat.swift */,
 				65084EB41FC5124100EDA74A /* Model.xcdatamodeld */,
 			);
 			name = Model;
@@ -118,6 +117,7 @@
 				289508B91FB5761A00353860 /* SettingsViewController.swift */,
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* FinishViewController.swift */,
+				65CDD9601FC63FB8002F6D40 /* UIControls.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -211,9 +211,9 @@
 				289508A11FB570B400353860 /* ViewController.swift in Sources */,
 				2895089F1FB570B400353860 /* AppDelegate.swift in Sources */,
 				289508B81FB575D200353860 /* ActivityViewController.swift in Sources */,
+				65CDD9611FC63FB8002F6D40 /* UIControls.swift in Sources */,
 				28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */,
 				65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */,
-				28CD5B831FB83664009384C2 /* SpeedoMat.swift in Sources */,
 				65A684B01FC51A9C00B0A7C8 /* ActivityViewExtensions.swift in Sources */,
 				65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */,
 				28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */,

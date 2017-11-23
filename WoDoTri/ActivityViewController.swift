@@ -12,10 +12,8 @@ import CoreLocation
 class ActivityViewController: UIViewController {
     
     var activity: Activity!
-    var activityActive: Bool! = false
-    
+    var activityState: String! = "Stopped"
     let locationManager = LocationManager.shared
-    //var seconds = 0
 
     var distance = Measurement(value: 0, unit: UnitLength.meters)
 
@@ -30,10 +28,17 @@ class ActivityViewController: UIViewController {
     func tick() {
         elapsedTimeLabel.text = stopwatch.elapsedTimeAsString()
         updateDisplay()
+        
     }
     
-    @IBAction func startButtonPressed(_ sender: Any) {
-        !activityActive ? startActivity() : pauseActivity()
+    @IBAction func startButtonPressed(_ sender: Any){
+        if activityState == "Stopped"{
+            startActivity()
+        } else if activityState == "Paused"{
+            restartActivity()
+        } else if activityState == "Started"{
+            pauseActivity()
+        }
         
     }
     @IBAction func stopButtonPressed(_ sender: Any) {
@@ -42,49 +47,62 @@ class ActivityViewController: UIViewController {
     
     private func startActivity(){
         stopwatch.start()
-        activityActive = true
+        activityState = "Started"
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
         updateDisplay()
         startLocationUpdates()
         startButt.backgroundColor = UIColor.orange
         startButt.setTitle("Pause", for: .normal)
+        tick()
+        stopwatch.callback = self.tick
     }
+    
     private func restartActivity(){
+        activityState = "Started"
         stopwatch.start()
         updateDisplay()
-        startLocationUpdates()
-        startButt.backgroundColor = UIColor.green
+        locationManager.startUpdatingLocation()
+        startButt.backgroundColor = UIColor.orange
         startButt.setTitle("Pause", for: .normal)
     }
     
     private func stopActivity(){
+        activityState = "Stopped"
         stopwatch.stop()
+        locationManager.stopUpdatingLocation()
         performSegue(withIdentifier: "FinishView", sender: self)
+       
     }
     
     private func pauseActivity(){
         stopwatch.stop()
+        activityState = "Paused"
+        locationManager.stopUpdatingLocation()
         startButt.backgroundColor = UIColor.green
         startButt.setTitle("Continue", for: .normal)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tick()
-        stopwatch.callback = self.tick
-
-        locationManager.stopUpdatingLocation()
+        
     }
     
-    private func updateDisplay() {
+     func updateDisplay() {
         let formattedDistance = FormatDisplay.distance(distance)
        // let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerMile)
-        
         distanceLabel.text = formattedDistance
        //timeLabel.text = "Time:  \(formattedTime)"
         paceLabel.text = formattedPace
+    }
+    
+
+    private func startLocationUpdates() {
+        locationManager.delegate = self
+        locationManager.activityType = .fitness
+        locationManager.distanceFilter = 10
+        locationManager.startUpdatingLocation()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -92,12 +110,6 @@ class ActivityViewController: UIViewController {
             let viewController = segue.destination as! FinishViewController
             viewController.elapsedTime = stopwatch.elapsedTimeAsString()
         }
-    }
-    private func startLocationUpdates() {
-        locationManager.delegate = self
-        locationManager.activityType = .fitness
-        locationManager.distanceFilter = 10
-        locationManager.startUpdatingLocation()
     }
 
 }
