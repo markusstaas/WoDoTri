@@ -14,7 +14,6 @@ class ActivityViewController: UIViewController {
     var activity: Activity!
     var activityState: String! = "Stopped"
     let locationManager = LocationManager.shared
-
     var distance = Measurement(value: 0, unit: UnitLength.meters)
 
     var locationList: [CLLocation] = []
@@ -24,11 +23,12 @@ class ActivityViewController: UIViewController {
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var averagePaceLabel: UILabel!
+    
     
     func tick() {
         elapsedTimeLabel.text = stopwatch.elapsedTimeAsString()
         updateDisplay()
-        
     }
     
     @IBAction func startButtonPressed(_ sender: Any){
@@ -39,12 +39,12 @@ class ActivityViewController: UIViewController {
         } else if activityState == "Started"{
             pauseActivity()
         }
-        
     }
     @IBAction func stopButtonPressed(_ sender: Any) {
        stopActivity()
     }
     
+
     private func startActivity(){
         stopwatch.start()
         activityState = "Started"
@@ -85,18 +85,14 @@ class ActivityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
      func updateDisplay() {
         let formattedDistance = FormatDisplay.distance(distance)
-       // let formattedTime = FormatDisplay.time(seconds)
         let formattedPace = FormatDisplay.pace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerMile)
         distanceLabel.text = formattedDistance
-       //timeLabel.text = "Time:  \(formattedTime)"
         paceLabel.text = formattedPace
     }
-    
 
     private func startLocationUpdates() {
         locationManager.delegate = self
@@ -108,8 +104,16 @@ class ActivityViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "FinishView") {
             let viewController = segue.destination as! FinishViewController
-            viewController.elapsedTime = stopwatch.elapsedTimeAsString()
+            viewController.finalDistance = distance.value
+            viewController.finalDuration = Int16(stopwatch.elapsedTime)
+            viewController.activityDuration = stopwatch.elapsedTimeAsString()
+            viewController.finalTimestamp = Date()
+            viewController.locationList = locationList
         }
     }
+    
+    
+    
+
 
 }

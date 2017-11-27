@@ -12,12 +12,14 @@
 		289508A61FB570B400353860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289508A51FB570B400353860 /* Assets.xcassets */; };
 		289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289508A71FB570B400353860 /* LaunchScreen.storyboard */; };
 		289508B81FB575D200353860 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B71FB575D200353860 /* ActivityViewController.swift */; };
-		289508BA1FB5761A00353860 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B91FB5761A00353860 /* SettingsViewController.swift */; };
+		289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B91FB5761A00353860 /* HistoryViewController.swift */; };
 		289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508BB1FB57A5600353860 /* ActivityMapViewController.swift */; };
 		28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B321FB705DB009384C2 /* StopWatch.swift */; };
 		28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* FinishViewController.swift */; };
 		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
 		65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65084EB41FC5124100EDA74A /* Model.xcdatamodeld */; };
+		651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */; };
+		65A35C061FCC23EC000023D1 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A35C051FCC23EC000023D1 /* Helpers.swift */; };
 		65A684A81FC514B400B0A7C8 /* UnitCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */; };
 		65A684AA1FC5151A00B0A7C8 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */; };
 		65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */; };
@@ -33,12 +35,14 @@
 		289508A81FB570B400353860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		289508AA1FB570B400353860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		289508B71FB575D200353860 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		289508B91FB5761A00353860 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		289508B91FB5761A00353860 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		289508BB1FB57A5600353860 /* ActivityMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityMapViewController.swift; sourceTree = "<group>"; };
 		28CD5B321FB705DB009384C2 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		28CD5B341FB82209009384C2 /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		28CD5B361FB83034009384C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		65084EB51FC5124100EDA74A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		65A35C051FCC23EC000023D1 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCalculations.swift; sourceTree = "<group>"; };
 		65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLManagerShare.swift; sourceTree = "<group>"; };
@@ -94,7 +98,9 @@
 				65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */,
 				65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */,
 				65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */,
+				65A35C051FCC23EC000023D1 /* Helpers.swift */,
 				65084EB41FC5124100EDA74A /* Model.xcdatamodeld */,
+				651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -114,7 +120,7 @@
 				289508A01FB570B400353860 /* ViewController.swift */,
 				289508B71FB575D200353860 /* ActivityViewController.swift */,
 				65A684AF1FC51A9C00B0A7C8 /* ActivityViewExtensions.swift */,
-				289508B91FB5761A00353860 /* SettingsViewController.swift */,
+				289508B91FB5761A00353860 /* HistoryViewController.swift */,
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* FinishViewController.swift */,
 				65CDD9601FC63FB8002F6D40 /* UIControls.swift */,
@@ -215,11 +221,13 @@
 				28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */,
 				65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */,
 				65A684B01FC51A9C00B0A7C8 /* ActivityViewExtensions.swift in Sources */,
+				651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */,
 				65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */,
 				28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */,
-				289508BA1FB5761A00353860 /* SettingsViewController.swift in Sources */,
+				289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */,
 				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
 				65A684A81FC514B400B0A7C8 /* UnitCalculations.swift in Sources */,
+				65A35C061FCC23EC000023D1 /* Helpers.swift in Sources */,
 				65A684AA1FC5151A00B0A7C8 /* FormatDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
