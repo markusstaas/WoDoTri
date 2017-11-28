@@ -12,11 +12,14 @@ import CoreData
 
 class FinishViewController: UIViewController {
     var activity: Activity!
+    var subContext = CoreDataStack.context
     
     let stopwatch = StopWatch()
     var locationList: [CLLocation] = []
     var finalDistance = 0.000
+    var finalDistanceFormatted: String!
     var finalDuration: Int16!
+    var avgPace: String!
     var activityDuration: String?
     var finalTimestamp: Date?
 
@@ -29,6 +32,9 @@ class FinishViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         elapsedTimeLabel.text = activityDuration
+        completedDistanceLabel.text = finalDistanceFormatted
+        avgPaceLabel.text = avgPace
+        NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSNotification.Name.NSManagedObjectContextDidSave, object: subContext)
     }
 
     @IBAction func finishButtonPressed(_ sender: Any) {
@@ -38,6 +44,20 @@ class FinishViewController: UIViewController {
     @IBAction func discardButtonPressed(_ sender: Any) {
         stopwatch.reset()
     }
+    
+    @objc func managedObjectContextDidSave(notification: NSNotification) {
+        if notification.name == NSNotification.Name.NSManagedObjectContextDidSave {
+            let alert = UIAlertController(title: "Workout Saved", message: "Your workout has been saved. Tap OK to return to the start screen", preferredStyle: .actionSheet)
+            let savedAction = UIAlertAction(title: "OK", style: .default) { [unowned self] action in
+                self.performSegue(withIdentifier: "homeSegue", sender: self)
+                self.navigationController?.popViewController(animated: false)
+            }
+            alert.addAction(savedAction)
+            present(alert, animated: true)
+
+        }
+    }
+
     
     //////Core Data
     private func saveActivity() {
@@ -55,7 +75,10 @@ class FinishViewController: UIViewController {
         }
         CoreDataStack.saveContext()
         activity = newActivity
+      
     }
+    
+    
    
 
 }

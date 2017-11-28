@@ -88,10 +88,18 @@ class ActivityViewController: UIViewController {
     }
     
      func updateDisplay() {
+        let locale = NSLocale.current
+        let isMetric = locale.usesMetricSystem
+        if !isMetric{
+            let formattedPace = FormatDisplay.pace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerMile)
+            paceLabel.text = formattedPace
+        } else{
+            let formattedPace = FormatDisplay.pace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerKilometer)
+            paceLabel.text = formattedPace
+        }
         let formattedDistance = FormatDisplay.distance(distance)
-        let formattedPace = FormatDisplay.pace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerMile)
         distanceLabel.text = formattedDistance
-        paceLabel.text = formattedPace
+        
     }
 
     private func startLocationUpdates() {
@@ -105,15 +113,12 @@ class ActivityViewController: UIViewController {
         if (segue.identifier == "FinishView") {
             let viewController = segue.destination as! FinishViewController
             viewController.finalDistance = distance.value
+            viewController.finalDistanceFormatted = FormatDisplay.distance(distance)
             viewController.finalDuration = Int16(stopwatch.elapsedTime)
             viewController.activityDuration = stopwatch.elapsedTimeAsString()
+            viewController.avgPace = FormatDisplay.avgPace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerMile)
             viewController.finalTimestamp = Date()
             viewController.locationList = locationList
         }
     }
-    
-    
-    
-
-
 }

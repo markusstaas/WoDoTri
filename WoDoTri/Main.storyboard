@@ -301,7 +301,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Discard"/>
                                 <connections>
-                                    <segue destination="OD2-Dk-TVh" kind="show" id="Gig-xx-Cin"/>
+                                    <segue destination="OD2-Dk-TVh" kind="showDetail" identifier="homeSegue" action="showViewController:sender:" id="Gig-xx-Cin"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SC-QC-jD1">
