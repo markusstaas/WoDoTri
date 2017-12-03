@@ -13,7 +13,7 @@ import CoreData
 class FinishViewController: UIViewController {
     var activity: Activity!
     var subContext = CoreDataStack.context
-    
+    var activityType: String!
     let stopwatch = StopWatch()
     var locationList: [CLLocation] = []
     var finalDistance = 0.000
@@ -64,6 +64,7 @@ class FinishViewController: UIViewController {
         let newActivity = Activity(context: CoreDataStack.context)
         newActivity.distance = finalDistance
         newActivity.duration = finalDuration
+        newActivity.type = activityType
         newActivity.timestamp = Date()
 
         for location in locationList {
@@ -77,8 +78,7 @@ class FinishViewController: UIViewController {
         activity = newActivity
       
     }
-    
-    
+
    
 
 }

@@ -43,17 +43,15 @@ class StopWatch: NSObject{
     
     func start() {
         displayLink.isPaused = false
-        stopwatchStatus = "Started"
     }
     
     func stop() {
         displayLink.isPaused = true
-        stopwatchStatus = "Stopped"
     }
     
     func paused(){
         displayLink.isPaused = true
-        stopwatchStatus = "Paused"
+        
     }
     
     func reset() {

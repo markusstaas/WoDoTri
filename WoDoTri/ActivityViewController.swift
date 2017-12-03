@@ -12,19 +12,18 @@ import CoreLocation
 class ActivityViewController: UIViewController {
     
     var activity: Activity!
-    var activityState: String! = "Stopped"
+    //var activityState: String! = "Stopped"
+    var activityState = WorkoutState.notStarted
     let locationManager = LocationManager.shared
     var distance = Measurement(value: 0, unit: UnitLength.meters)
-
     var locationList: [CLLocation] = []
     let stopwatch = StopWatch()
-    var activityType = "Running"
+    var activityType = "Run"
     @IBOutlet weak var startButt: UIButton!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var averagePaceLabel: UILabel!
-    
     
     func tick() {
         elapsedTimeLabel.text = stopwatch.elapsedTimeAsString()
@@ -32,25 +31,25 @@ class ActivityViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(_ sender: Any){
-        if activityState == "Stopped"{
-            startActivity()
-        } else if activityState == "Paused"{
-            restartActivity()
-        } else if activityState == "Started"{
-            pauseActivity()
+        
+        switch activityState{
+            case .notStarted: startActivity()
+            case .stopped: startActivity()
+            case .paused: restartActivity()
+            case .started: pauseActivity()
+            case .restarted: pauseActivity()
         }
+        
     }
     @IBAction func stopButtonPressed(_ sender: Any) {
-       stopActivity()
+        stopActivity()
     }
-    
-
+ 
     private func startActivity(){
         stopwatch.start()
-        activityState = "Started"
+        activityState = .started
         distance = Measurement(value: 0, unit: UnitLength.meters)
         locationList.removeAll()
-        updateDisplay()
         startLocationUpdates()
         startButt.backgroundColor = UIColor.orange
         startButt.setTitle("Pause", for: .normal)
@@ -59,28 +58,27 @@ class ActivityViewController: UIViewController {
     }
     
     private func restartActivity(){
-        activityState = "Started"
+        activityState = .restarted
         stopwatch.start()
-        updateDisplay()
-        locationManager.startUpdatingLocation()
+        tick()
+        startLocationUpdates()
         startButt.backgroundColor = UIColor.orange
         startButt.setTitle("Pause", for: .normal)
     }
     
-    private func stopActivity(){
-        activityState = "Stopped"
-        stopwatch.stop()
-        locationManager.stopUpdatingLocation()
-        performSegue(withIdentifier: "FinishView", sender: self)
-       
-    }
-    
     private func pauseActivity(){
-        stopwatch.stop()
-        activityState = "Paused"
+        stopwatch.paused()
+        activityState = .paused
         locationManager.stopUpdatingLocation()
         startButt.backgroundColor = UIColor.green
         startButt.setTitle("Continue", for: .normal)
+    }
+    
+    private func stopActivity(){
+        activityState = .stopped
+        stopwatch.stop()
+        locationManager.stopUpdatingLocation()
+        performSegue(withIdentifier: "FinishView", sender: self)
     }
     
     override func viewDidLoad() {
@@ -99,7 +97,6 @@ class ActivityViewController: UIViewController {
         }
         let formattedDistance = FormatDisplay.distance(distance)
         distanceLabel.text = formattedDistance
-        
     }
 
     private func startLocationUpdates() {
@@ -119,6 +116,7 @@ class ActivityViewController: UIViewController {
             viewController.avgPace = FormatDisplay.avgPace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerMile)
             viewController.finalTimestamp = Date()
             viewController.locationList = locationList
+            viewController.activityType = activityType
         }
     }
 }
