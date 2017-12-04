@@ -12,13 +12,12 @@ import CoreLocation
 class ActivityViewController: UIViewController {
     
     var activity: Activity!
-    //var activityState: String! = "Stopped"
     var activityState = WorkoutState.notStarted
     let locationManager = LocationManager.shared
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
     let stopwatch = StopWatch()
-    var activityType = "Run"
+    var activityType = ActivityType.run
     @IBOutlet weak var startButt: UIButton!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!

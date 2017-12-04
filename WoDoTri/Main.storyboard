@@ -32,6 +32,9 @@
                                         <state key="normal" title="SWIM">
                                             <color key="titleColor" red="1" green="0.98815489863877803" blue="0.99344001510289148" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="swimButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lai-zk-RuT"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1J-sf-9xL">
                                         <rect key="frame" x="0.0" y="149" width="375" height="148.5"/>
@@ -41,7 +44,7 @@
                                             <color key="titleColor" red="0.9051570595854922" green="0.83953374629980293" blue="0.84737760487020264" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="UuY-nm-15R" kind="show" id="NWR-tr-8ej"/>
+                                            <action selector="bikeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Goo-S4-Jon"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-Yp-w0O">
@@ -50,6 +53,9 @@
                                         <state key="normal" title="RUN">
                                             <color key="titleColor" red="0.35342702190000003" green="0.42852468519999998" blue="0.90515705960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="runButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eaT-IM-UvH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jls-wb-HF9">
                                         <rect key="frame" x="0.0" y="446.5" width="375" height="148.5"/>
@@ -74,6 +80,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NUA-2I-zxz"/>
+                    <connections>
+                        <segue destination="UuY-nm-15R" kind="show" identifier="activityView" id="Nlg-us-xwj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -329,22 +338,28 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d6J-JO-j8D">
-                                <rect key="frame" x="16" y="174" width="343" height="61.5"/>
+                                <rect key="frame" x="16" y="174" width="343" height="82"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWC-C2-G5g">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY6-D9-rcG">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny8-4R-7Ab">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWC-C2-G5g">
                                         <rect key="frame" x="0.0" y="20.5" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NS6-CW-cvU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny8-4R-7Ab">
                                         <rect key="frame" x="0.0" y="41" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NS6-CW-cvU">
+                                        <rect key="frame" x="0.0" y="61.5" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -363,6 +378,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityTypeLabel" destination="RY6-D9-rcG" id="HiL-Bi-ius"/>
                         <outlet property="avgPaceLabel" destination="Ny8-4R-7Ab" id="jdf-tU-sxQ"/>
                         <outlet property="completedDistanceLabel" destination="NS6-CW-cvU" id="jfp-no-fCZ"/>
                         <outlet property="elapsedTimeLabel" destination="IWC-C2-G5g" id="tbR-yD-tFF"/>

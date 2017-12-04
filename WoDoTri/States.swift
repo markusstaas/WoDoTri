@@ -9,11 +9,23 @@
 import Foundation
 
 enum WorkoutState{
-    
     case notStarted
     case started
     case paused
     case restarted
     case stopped
+}
+
+enum ActivityType{
+    case swim
+    case bike
+    case run
     
+    var description : String {
+        switch self {
+        case .swim: return "Swim";
+        case .bike: return "Bike Ride";
+        case .run: return "Run";
+        }
+    }
 }

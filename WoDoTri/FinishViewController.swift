@@ -13,7 +13,7 @@ import CoreData
 class FinishViewController: UIViewController {
     var activity: Activity!
     var subContext = CoreDataStack.context
-    var activityType: String!
+    var activityType = ActivityType.run
     let stopwatch = StopWatch()
     var locationList: [CLLocation] = []
     var finalDistance = 0.000
@@ -24,6 +24,7 @@ class FinishViewController: UIViewController {
     var finalTimestamp: Date?
 
     
+    @IBOutlet weak var activityTypeLabel: UILabel!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var avgPaceLabel: UILabel!
     @IBOutlet weak var completedDistanceLabel: UILabel!
@@ -31,9 +32,10 @@ class FinishViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        elapsedTimeLabel.text = activityDuration
-        completedDistanceLabel.text = finalDistanceFormatted
-        avgPaceLabel.text = avgPace
+        activityTypeLabel.text = activityType.description
+        elapsedTimeLabel.text = "Duration: \(activityDuration!)"
+        completedDistanceLabel.text = "Distance: \(finalDistanceFormatted!)"
+        avgPaceLabel.text = "Average speed: \(avgPace!)"
         NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSNotification.Name.NSManagedObjectContextDidSave, object: subContext)
     }
 
@@ -57,14 +59,12 @@ class FinishViewController: UIViewController {
 
         }
     }
-
-    
     //////Core Data
     private func saveActivity() {
         let newActivity = Activity(context: CoreDataStack.context)
         newActivity.distance = finalDistance
         newActivity.duration = finalDuration
-        newActivity.type = activityType
+        newActivity.type = activityType.description
         newActivity.timestamp = Date()
 
         for location in locationList {
