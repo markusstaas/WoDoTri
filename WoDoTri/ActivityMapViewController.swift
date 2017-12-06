@@ -10,12 +10,18 @@ import UIKit
 import MapKit
 
 class ActivityMapViewController: UIViewController, MKMapViewDelegate{
-
+    
+    var activity: Activity!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
     
 
 }
