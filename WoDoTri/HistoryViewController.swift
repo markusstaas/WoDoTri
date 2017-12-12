@@ -57,12 +57,7 @@ class HistoryViewController: UITableViewController{
             let viewController = segue.destination as! ActivityDetailViewController
             viewController.activity = activities[selectedRow]
         }
-        
-      
     }
-
-    
-
 }
 
 

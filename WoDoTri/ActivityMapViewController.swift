@@ -26,7 +26,6 @@ class ActivityMapViewController: UIViewController{
     
     func tick() {
         updateDisplay()
-        print(workoutData.locationList)
     }
     
     @IBAction func startButtonPressed(_ sender: Any){

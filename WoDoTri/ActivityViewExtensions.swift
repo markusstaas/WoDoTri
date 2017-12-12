@@ -27,6 +27,7 @@ extension ActivityViewController: CLLocationManagerDelegate {
                 }
             }
             workoutData.locationList.append(newLocation)
+           
         }
     }
 

@@ -22,7 +22,6 @@
 		651AA5E01FDE1F4500B63DEA /* StravaUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651AA5DF1FDE1F4500B63DEA /* StravaUpload.swift */; };
 		651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */; };
 		652768FC1FD5070500353CC9 /* ActivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652768FB1FD5070500353CC9 /* ActivityDetailViewController.swift */; };
-		656B518B1FD79020002CBFDD /* MultiColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B518A1FD79020002CBFDD /* MultiColor.swift */; };
 		656B518D1FD79E7C002CBFDD /* WorkoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656B518C1FD79E7C002CBFDD /* WorkoutData.swift */; };
 		65A684A81FC514B400B0A7C8 /* UnitCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */; };
 		65A684AA1FC5151A00B0A7C8 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */; };
@@ -54,7 +53,6 @@
 		651AA5DF1FDE1F4500B63DEA /* StravaUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaUpload.swift; sourceTree = "<group>"; };
 		651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		652768FB1FD5070500353CC9 /* ActivityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailViewController.swift; sourceTree = "<group>"; };
-		656B518A1FD79020002CBFDD /* MultiColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiColor.swift; sourceTree = "<group>"; };
 		656B518C1FD79E7C002CBFDD /* WorkoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutData.swift; sourceTree = "<group>"; };
 		65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCalculations.swift; sourceTree = "<group>"; };
 		65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				65FFABF41FD3CF6B006D6435 /* WorkoutStates.swift */,
 				65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */,
 				65CDD9601FC63FB8002F6D40 /* UIControls.swift */,
-				656B518A1FD79020002CBFDD /* MultiColor.swift */,
 				65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */,
 				65084EB41FC5124100EDA74A /* Model.xcdatamodeld */,
 				651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */,
@@ -331,7 +328,6 @@
 				65A684B01FC51A9C00B0A7C8 /* ActivityViewExtensions.swift in Sources */,
 				651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */,
 				65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */,
-				656B518B1FD79020002CBFDD /* MultiColor.swift in Sources */,
 				28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */,
 				289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */,
 				65FFABF51FD3CF6B006D6435 /* WorkoutStates.swift in Sources */,

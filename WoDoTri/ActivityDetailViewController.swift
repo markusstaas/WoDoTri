@@ -67,20 +67,7 @@ class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
         let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3, longitudeDelta: (maxLong - minLong) * 1.3)
         return MKCoordinateRegion(center: center, span: span)
     }
-    
-    private func polyLine() -> MKPolyline {
-        
-        guard let locations = activity.locations else {
-            return MKPolyline()
-        }
-        let coords: [CLLocationCoordinate2D] = locations.map { location in
-            let location = location as! Location
-            return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        }
 
-        return MKPolyline(coordinates: coords, count: coords.count)
-        
-    }
     private func loadMap() {
         guard
             let locations = activity.locations,
@@ -96,13 +83,30 @@ class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
         mapView.setRegion(region, animated: true)
         mapView.add(polyLine())
     }
+    
+    private func polyLine() -> MKPolyline {
+
+        guard let locations = activity.locations else {
+            return MKPolyline()
+        }
+        let locationsDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
+        let sortedLocations = locations.sortedArray(using: [locationsDescriptor])
+        
+        let coords: [CLLocationCoordinate2D] = sortedLocations.map { location in
+            let location = location as! Location
+            return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        }
+   
+        return MKPolyline(coordinates: coords, count: coords.count)
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyline = overlay as? MKPolyline else {
             return MKOverlayRenderer(overlay: overlay)
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = .purple
-        renderer.lineWidth = 4
+        renderer.strokeColor = .black
+        renderer.lineWidth = 3
         return renderer
     }
 }
