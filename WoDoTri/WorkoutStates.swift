@@ -1,8 +1,8 @@
 //
-//  States.swift
+//  WorkoutStates.swift
 //  WoDoTri
 //
-//  Created by Markus Staas (Lazada eLogistics Group) on 12/3/17.
+//  Created by Markus Staas on 12/3/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
 //
 

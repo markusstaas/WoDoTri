@@ -2,7 +2,7 @@
 //  FormatDisplay.swift
 //  WoDoTri
 //
-//  Created by Markus Staas (Lazada eLogistics Group) on 11/22/17.
+//  Created by Markus Staas on 11/22/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
 //
 
@@ -21,14 +21,6 @@ struct FormatDisplay {
         formatter.numberFormatter.maximumFractionDigits = 2
         return formatter.string(from: distance)
     }
-    
-    /*static func time(_ seconds: Int) -> String {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .positional
-        formatter.zeroFormattingBehavior = .pad
-        return formatter.string(from: TimeInterval(seconds))!
-    }*/
     
     static func pace(distance: Measurement<UnitLength>, seconds: Int, outputUnit: UnitSpeed) -> String {
         let formatter = MeasurementFormatter()
@@ -49,7 +41,6 @@ struct FormatDisplay {
         let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
         return formatter.string(from: speed.converted(to: outputUnit))
     }
-        
     
     static func date(_ timestamp: Date?) -> String {
         guard let timestamp = timestamp as Date? else { return "" }

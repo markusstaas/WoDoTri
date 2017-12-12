@@ -14,19 +14,13 @@ import MapKit
 class FinishViewController: UIViewController, MKMapViewDelegate {
     
     var activity: Activity!
+    let workoutData = WorkoutData.shared
     var subContext = CoreDataStack.context
-    var activityType = ActivityType.run
     let stopwatch = StopWatch()
-    var locationList: [CLLocation] = []
-    var finalDistance = 0.000
-    var finalDistanceFormatted: String!
-    var finalDuration: Int16!
-    var avgPace: String!
+    //var avgPace: String!
     var activityDuration: String?
     var finalTimestamp: Date?
-    
 
-    
     @IBOutlet weak var activityTypeLabel: UILabel!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var avgPaceLabel: UILabel!
@@ -37,13 +31,14 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityTypeLabel.text = activityType.description
-        elapsedTimeLabel.text = "Duration: \(activityDuration!)"
-        completedDistanceLabel.text = "Distance: \(finalDistanceFormatted!)"
-        avgPaceLabel.text = "Average speed: \(avgPace!)"
+        activityTypeLabel.text = workoutData.activityType.description
+        elapsedTimeLabel.text = "Duration: \(workoutData.duration)"
+        completedDistanceLabel.text = "Distance: \(workoutData.distanceString())"
+        avgPaceLabel.text = "Average speed: \(workoutData.avgPaceString())"
+       
         NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSNotification.Name.NSManagedObjectContextDidSave, object: subContext)
-        print(locationList)
         //loadMap()
+        
     }
 
     @IBAction func finishButtonPressed(_ sender: Any) {
@@ -69,12 +64,12 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
     //////Core Data
     private func saveActivity() {
         let newActivity = Activity(context: CoreDataStack.context)
-        newActivity.distance = finalDistance
-        newActivity.duration = finalDuration
-        newActivity.type = activityType.description
+        newActivity.distance = workoutData.distance.value
+        newActivity.duration = workoutData.duration
+        newActivity.type = workoutData.activityType.description
         newActivity.timestamp = Date()
 
-        for location in locationList {
+        for location in workoutData.locationList {
             let locationObject = Location(context: CoreDataStack.context)
             locationObject.timestamp = location.timestamp
             locationObject.latitude = location.coordinate.latitude
@@ -83,7 +78,6 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         }
         CoreDataStack.saveContext()
         activity = newActivity
-      
     }
 
     private func mapRegion() -> MKCoordinateRegion? {

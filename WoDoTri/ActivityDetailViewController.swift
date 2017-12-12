@@ -2,7 +2,7 @@
 //  ActivityDetailViewController.swift
 //  WoDoTri
 //
-//  Created by Markus Staas (Lazada eLogistics Group) on 12/4/17.
+//  Created by Markus Staas on 12/4/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
 //
 
@@ -77,6 +77,7 @@ class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
             let location = location as! Location
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
+
         return MKPolyline(coordinates: coords, count: coords.count)
         
     }

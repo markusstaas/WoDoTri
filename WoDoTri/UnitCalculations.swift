@@ -2,7 +2,7 @@
 //  UnitCalculations.swift
 //  WoDoTri
 //
-//  Created by Markus Staas (Lazada eLogistics Group) on 11/22/17.
+//  Created by Markus Staas on 11/22/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
 // Based on https://www.raywenderlich.com/155772/make-app-like-runkeeper-part-1-2
 
