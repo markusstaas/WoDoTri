@@ -10,21 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     let workoutData = WorkoutData.shared
-     //var activityType = ActivityType.run
-    
-    @IBAction func swimButtonPressed(_ sender: Any) {
-       // workoutData.activityType = .swim
-       // performSegue(withIdentifier: "activityView", sender: self)
-    }
     
     @IBAction func bikeButtonPressed(_ sender: Any) {
         workoutData.activityType = .bike
-        performSegue(withIdentifier: "activityView", sender: self)
+        performSegue(withIdentifier: "ActivityViewController", sender: self)
     }
     
     @IBAction func runButtonPressed(_ sender: Any) {
         workoutData.activityType = .run
-        performSegue(withIdentifier: "activityView", sender: self)
+        performSegue(withIdentifier: "ActivityViewController", sender: self)
     }
     
     override func viewDidLoad() {

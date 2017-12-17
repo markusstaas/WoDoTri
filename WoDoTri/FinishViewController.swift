@@ -11,13 +11,15 @@ import CoreLocation
 import CoreData
 import MapKit
 
-class FinishViewController: UIViewController, MKMapViewDelegate {
+class FinishViewController: UIViewController, MKMapViewDelegate, OverlayViewController {
+    
+    let overlaySize: CGSize? = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+ 
     
     var activity: Activity!
     let workoutData = WorkoutData.shared
     var subContext = CoreDataStack.context
     let stopwatch = StopWatch()
-    //var avgPace: String!
     var activityDuration: String?
     var finalTimestamp: Date?
     var coords = [CLLocationCoordinate2D]()
@@ -43,11 +45,13 @@ class FinishViewController: UIViewController, MKMapViewDelegate {
         }
          loadMap()
     }
-
+    @IBAction func continueButtonPressed() {
+        dismissOverlay()
+    }
+    
     @IBAction func finishButtonPressed(_ sender: Any) {
         saveActivity()
     }
-
     @IBAction func discardButtonPressed(_ sender: Any) {
         stopwatch.reset()
     }

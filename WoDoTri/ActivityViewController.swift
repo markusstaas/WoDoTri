@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ActivityViewController: UIViewController {
+class ActivityViewController: UIViewController, OverlayHost {
     var activity: Activity!
     let locationManager = LocationManager.shared
     let workoutData = WorkoutData.shared
@@ -27,19 +27,26 @@ class ActivityViewController: UIViewController {
         workoutData.duration = stopwatch.elapsedTime
         updateDisplay()
     }
-    
-    @IBAction func startButtonPressed(_ sender: Any){
-        switch workoutData.activityState{
-            case .notStarted: startActivity()
-            case .stopped: startActivity()
-            case .paused: restartActivity()
-            case .started: pauseActivity()
-            case .restarted: pauseActivity()
-        }
+    func assignBackground(){
+        let background = UIImage(named: "backgroundrunner")
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.frame)
+        imageView.contentMode =  UIViewContentMode.center
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
     }
     
-    @IBAction func stopButtonPressed(_ sender: Any) {
-        stopActivity()
+    @IBAction func startButtonPressed(_ sender: Any){
+       startActivity()
+        startButt.isHidden = true
+    }
+    
+    @IBAction func pauseButtonPressed(_ sender: Any) {
+        pauseActivity()
+        showOverlay(type: FinishViewController.self, fromStoryboardWithName: "Main")
     }
  
     private func startActivity(){
@@ -48,8 +55,6 @@ class ActivityViewController: UIViewController {
         workoutData.distance = Measurement(value: 0, unit: UnitLength.meters)
         workoutData.locationList.removeAll()
         startLocationUpdates()
-        startButt.backgroundColor = UIColor.orange
-        startButt.setTitle("Pause", for: .normal)
         tick()
         stopwatch.callback = self.tick
     }
@@ -59,27 +64,17 @@ class ActivityViewController: UIViewController {
         stopwatch.start()
         tick()
         startLocationUpdates()
-        startButt.backgroundColor = UIColor.orange
-        startButt.setTitle("Pause", for: .normal)
     }
     
     private func pauseActivity(){
         stopwatch.paused()
         workoutData.activityState = .paused
         locationManager.stopUpdatingLocation()
-        startButt.backgroundColor = UIColor.green
-        startButt.setTitle("Continue", for: .normal)
-    }
-    
-    private func stopActivity(){
-        workoutData.activityState = .stopped
-        stopwatch.stop()
-        locationManager.stopUpdatingLocation()
-        performSegue(withIdentifier: "FinishView", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        assignBackground()
     }
     
      func updateDisplay() {
@@ -110,4 +105,5 @@ class ActivityViewController: UIViewController {
             viewController.finalTimestamp = Date()
         }
     }
+
 }

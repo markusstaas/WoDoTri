@@ -37,8 +37,8 @@ class ActivityMapViewController: UIViewController{
         case .restarted: pauseActivity()
         }
     }
-    @IBAction func stopButtonPressed(_ sender: Any) {
-        stopActivity()
+    @IBAction func pauseButtonPressed(_ sender: Any) {
+        pauseActivity()
     }
     
     private func startActivity(){
@@ -47,8 +47,6 @@ class ActivityMapViewController: UIViewController{
         workoutData.distance = Measurement(value: 0, unit: UnitLength.meters)
         workoutData.locationList.removeAll()
         startLocationUpdates()
-        startButt.backgroundColor = UIColor.orange
-        startButt.setTitle("Pause", for: .normal)
         tick()
         stopwatch.callback = self.tick
     }
@@ -58,24 +56,14 @@ class ActivityMapViewController: UIViewController{
         stopwatch.start()
         tick()
         startLocationUpdates()
-        startButt.backgroundColor = UIColor.orange
-        startButt.setTitle("Pause", for: .normal)
     }
     
     private func pauseActivity(){
         stopwatch.paused()
         workoutData.activityState = .paused
         locationManager.stopUpdatingLocation()
-        startButt.backgroundColor = UIColor.green
-        startButt.setTitle("Continue", for: .normal)
     }
     
-    private func stopActivity(){
-        workoutData.activityState = .stopped
-        stopwatch.stop()
-        locationManager.stopUpdatingLocation()
-       // performSegue(withIdentifier: "FinishView", sender: self)
-    }
     
     private func startLocationUpdates() {
         locationManager.delegate = self
@@ -84,21 +72,6 @@ class ActivityMapViewController: UIViewController{
         locationManager.startUpdatingLocation()
     }
     
-    func checkActivityStatus(){
-       let currentStatus = workoutData.activityState
-        switch currentStatus{
-        case .notStarted: print("not started")
-            
-        case .paused: print("paused")
-            
-        case .restarted: print("restarted")
-            
-        case .stopped: print("stopped")
-            
-        case .started: print(" started")
-        }
-        
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "FinishView") {
@@ -125,12 +98,8 @@ class ActivityMapViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkActivityStatus()
         // Do any additional setup after loading the view.
     }
-    
-   
-
 }
 
 extension ActivityMapViewController: MKMapViewDelegate {

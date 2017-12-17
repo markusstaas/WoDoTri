@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		286CF1331FE68466002D9E49 /* OverLayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CF1321FE68466002D9E49 /* OverLayViewController.swift */; };
 		2895089F1FB570B400353860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895089E1FB570B400353860 /* AppDelegate.swift */; };
 		289508A11FB570B400353860 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508A01FB570B400353860 /* ViewController.swift */; };
 		289508A61FB570B400353860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289508A51FB570B400353860 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		19B1C90D0844C028CE982DC0 /* Pods_WoDoTri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoDoTri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		286CF1321FE68466002D9E49 /* OverLayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverLayViewController.swift; sourceTree = "<group>"; };
 		2895089B1FB570B400353860 /* WoDoTri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoDoTri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2895089E1FB570B400353860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		289508A01FB570B400353860 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +117,6 @@
 				65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */,
 				65FFABF41FD3CF6B006D6435 /* WorkoutStates.swift */,
 				65A684A71FC514B400B0A7C8 /* UnitCalculations.swift */,
-				65CDD9601FC63FB8002F6D40 /* UIControls.swift */,
 				65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */,
 				65084EB41FC5124100EDA74A /* Model.xcdatamodeld */,
 				651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */,
@@ -144,6 +145,8 @@
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* FinishViewController.swift */,
 				65FDDB3E1FDE25CC00F9F792 /* StravaAuthViewController.swift */,
+				65CDD9601FC63FB8002F6D40 /* UIControls.swift */,
+				286CF1321FE68466002D9E49 /* OverLayViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */,
 				28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */,
 				289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */,
+				286CF1331FE68466002D9E49 /* OverLayViewController.swift in Sources */,
 				65FFABF51FD3CF6B006D6435 /* WorkoutStates.swift in Sources */,
 				652768FC1FD5070500353CC9 /* ActivityDetailViewController.swift in Sources */,
 				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
