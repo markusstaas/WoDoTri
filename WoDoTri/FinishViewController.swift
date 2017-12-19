@@ -11,10 +11,9 @@ import CoreLocation
 import CoreData
 import MapKit
 
-class FinishViewController: UIViewController, MKMapViewDelegate, OverlayViewController {
+class FinishViewController: UIControls, MKMapViewDelegate, OverlayViewController{
     
     let overlaySize: CGSize? = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
- 
     
     var activity: Activity!
     let workoutData = WorkoutData.shared
@@ -56,18 +55,7 @@ class FinishViewController: UIViewController, MKMapViewDelegate, OverlayViewCont
         stopwatch.reset()
     }
     
-    @objc func managedObjectContextDidSave(notification: NSNotification) {
-        if notification.name == NSNotification.Name.NSManagedObjectContextDidSave {
-            let alert = UIAlertController(title: "Workout Saved", message: "Your workout has been saved. Tap OK to return to the start screen", preferredStyle: .actionSheet)
-            let savedAction = UIAlertAction(title: "OK", style: .default) { [unowned self] action in
-                self.performSegue(withIdentifier: "homeSegue", sender: self)
-                self.navigationController?.popViewController(animated: false)
-            }
-            alert.addAction(savedAction)
-            present(alert, animated: true)
 
-        }
-    }
     //////Core Data
     private func saveActivity() {
         let newActivity = Activity(context: CoreDataStack.context)
