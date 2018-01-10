@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 import MapKit
 
-class FinishViewController: UIControls, MKMapViewDelegate, OverlayViewController{
+class FinishViewController: UIControls, MKMapViewDelegate{
     
     let overlaySize: CGSize? = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     
@@ -45,7 +45,7 @@ class FinishViewController: UIControls, MKMapViewDelegate, OverlayViewController
          loadMap()
     }
     @IBAction func continueButtonPressed() {
-        dismissOverlay()
+       
     }
     
     @IBAction func finishButtonPressed(_ sender: Any) {
@@ -80,13 +80,11 @@ class FinishViewController: UIControls, MKMapViewDelegate, OverlayViewController
   
         let latitudes = coords.map { location -> Double in
             let location = location
-            print(location.latitude)
             return location.latitude
         }
         
         let longitudes = coords.map { location -> Double in
             let location = location
-            print(location.longitude)
             return location.longitude
         }
         

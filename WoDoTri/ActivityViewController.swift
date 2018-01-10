@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ActivityViewController: UIViewController, OverlayHost {
+class ActivityViewController: UIViewController {
     var activity: Activity!
     let locationManager = LocationManager.shared
     let workoutData = WorkoutData.shared
@@ -46,7 +46,7 @@ class ActivityViewController: UIViewController, OverlayHost {
     
     @IBAction func pauseButtonPressed(_ sender: Any) {
         pauseActivity()
-        showOverlay(type: FinishViewController.self, fromStoryboardWithName: "Main")
+        
     }
  
     private func startActivity(){

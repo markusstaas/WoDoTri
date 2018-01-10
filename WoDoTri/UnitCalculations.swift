@@ -4,7 +4,7 @@
 //
 //  Created by Markus Staas on 11/22/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-// Based on https://www.raywenderlich.com/155772/make-app-like-runkeeper-part-1-2
+//  Based on https://www.raywenderlich.com/155772/make-app-like-runkeeper-part-1-2
 
 import Foundation
 

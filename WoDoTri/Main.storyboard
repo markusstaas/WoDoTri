@@ -79,7 +79,7 @@
                     <navigationItem key="navigationItem" title="WDATri" id="NUA-2I-zxz"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
-                        <segue destination="Gbz-Ug-PPR" kind="show" identifier="ActivityViewController" id="WKE-Iy-UWd"/>
+                        <segue destination="PRQ-hC-DaC" kind="show" identifier="ActivityPageViewController" id="5AS-II-SjN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,7 +134,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOM-gw-slI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1498" y="815"/>
+            <point key="canvasLocation" x="1454" y="816"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ZmM-om-9cQ">
@@ -147,37 +147,8 @@
                     <view key="view" contentMode="scaleToFill" id="hgq-hl-mSH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V07-wu-G95">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsCell" id="hKm-Le-ExX">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hKm-Le-ExX" id="maO-jT-lnO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="yPA-bE-4zl" id="Qai-aT-Q7c"/>
-                                    <outlet property="delegate" destination="yPA-bE-4zl" id="9xj-yD-drD"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="V07-wu-G95" secondAttribute="trailing" id="3mI-Xc-Hjl"/>
-                            <constraint firstItem="tzy-nn-9wu" firstAttribute="top" secondItem="V07-wu-G95" secondAttribute="bottom" id="7Jo-5D-bF6"/>
-                            <constraint firstItem="V07-wu-G95" firstAttribute="leading" secondItem="hgq-hl-mSH" secondAttribute="leading" id="DRo-5I-ZpO"/>
-                            <constraint firstItem="V07-wu-G95" firstAttribute="top" secondItem="hgq-hl-mSH" secondAttribute="top" id="Qj3-ss-d4g"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="V07-wu-G95" id="xHf-xa-wQF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Go-fk-Mdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -270,12 +241,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GV8-Uq-ZZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="1576"/>
+            <point key="canvasLocation" x="1454" y="1584"/>
         </scene>
         <!--Activity View Controller-->
         <scene sceneID="lYW-CY-MvB">
             <objects>
-                <viewController id="Gbz-Ug-PPR" customClass="ActivityViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gbz-Ug-PPR" customClass="ActivityViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qOW-bu-W2E"/>
                         <viewControllerLayoutGuide type="bottom" id="FbT-Yr-nPE"/>
@@ -347,11 +318,12 @@
                                             <action selector="startButtonPressed:" destination="Gbz-Ug-PPR" eventType="touchUpInside" id="ETW-za-p0a"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lia-uF-f47">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lia-uF-f47" userLabel="Pause Button">
                                         <rect key="frame" x="179" y="0.0" width="164" height="130"/>
                                         <state key="normal" image="Pause button"/>
                                         <connections>
                                             <action selector="pauseButtonPressed:" destination="Gbz-Ug-PPR" eventType="touchUpInside" id="wB5-0h-Rst"/>
+                                            <segue destination="YLS-lw-Kci" kind="presentation" identifier="finishScreen" id="ERa-gf-weA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -359,10 +331,6 @@
                                     <constraint firstAttribute="height" constant="130" id="6oh-67-dYe"/>
                                 </constraints>
                             </stackView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Sj3-Vc-kYs">
-                                <rect key="frame" x="183" y="428" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -389,10 +357,18 @@
             </objects>
             <point key="canvasLocation" x="2508" y="35.532233883058474"/>
         </scene>
+        <!--Activity Page View Controller-->
+        <scene sceneID="vrB-Dt-deM">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PRQ-hC-DaC" customClass="UIActivityPageViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RpM-1G-ioC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2954" y="-705"/>
+        </scene>
         <!--Map-->
         <scene sceneID="9Dk-7h-scf">
             <objects>
-                <viewController id="2ak-hm-mQJ" customClass="ActivityMapViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityMapView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2ak-hm-mQJ" customClass="ActivityMapViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kWF-2m-7gM"/>
                         <viewControllerLayoutGuide type="bottom" id="57I-H9-l3m"/>
@@ -417,11 +393,12 @@
                                             <action selector="startButtonPressed:" destination="2ak-hm-mQJ" eventType="touchUpInside" id="VsW-j5-8K2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIO-gL-ckV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIO-gL-ckV" userLabel="Pause Button">
                                         <rect key="frame" x="179" y="0.0" width="164" height="130"/>
                                         <state key="normal" image="Pause button"/>
                                         <connections>
                                             <action selector="pauseButtonPressed:" destination="2ak-hm-mQJ" eventType="touchUpInside" id="AuD-AE-IIM"/>
+                                            <segue destination="YLS-lw-Kci" kind="presentation" id="4bf-Cl-VC1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -545,6 +522,7 @@
                         <outlet property="completedDistanceLabel" destination="NS6-CW-cvU" id="jfp-no-fCZ"/>
                         <outlet property="elapsedTimeLabel" destination="IWC-C2-G5g" id="tbR-yD-tFF"/>
                         <outlet property="mapView" destination="acw-j9-16S" id="yda-JP-6ka"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="homeSegue" id="VZi-7w-tT9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykc-b6-CY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -579,6 +557,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RTQ-Zw-CjJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vd9-Ew-Mxr"/>
                     </connections>
@@ -595,4 +576,8 @@
         <image name="Start  Button" width="93" height="93"/>
         <image name="settings" width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4bf-Cl-VC1"/>
+        <segue reference="vd9-Ew-Mxr"/>
+    </inferredMetricsTieBreakers>
 </document>

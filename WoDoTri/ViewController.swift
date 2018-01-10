@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     
     @IBAction func bikeButtonPressed(_ sender: Any) {
         workoutData.activityType = .bike
-        performSegue(withIdentifier: "ActivityViewController", sender: self)
+        performSegue(withIdentifier: "ActivityPageViewController", sender: self)
     }
     
     @IBAction func runButtonPressed(_ sender: Any) {
         workoutData.activityType = .run
-        performSegue(withIdentifier: "ActivityViewController", sender: self)
+        performSegue(withIdentifier: "ActivityPageViewController", sender: self)
     }
     
     override func viewDidLoad() {

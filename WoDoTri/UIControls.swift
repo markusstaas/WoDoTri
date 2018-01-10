@@ -14,12 +14,11 @@ class UIControls: UIViewController {
         if notification.name == NSNotification.Name.NSManagedObjectContextDidSave {
             let alert = UIAlertController(title: "Workout Saved", message: "Your workout has been saved. Tap OK to return to the start screen", preferredStyle: .actionSheet)
             let savedAction = UIAlertAction(title: "OK", style: .default) { [unowned self] action in
-                self.performSegue(withIdentifier: "homeSegue", sender: self)
                 self.navigationController?.popViewController(animated: false)
+                self.performSegue(withIdentifier: "homeSegue", sender: self)
             }
             alert.addAction(savedAction)
             present(alert, animated: true)
-            
         }
     }
     
