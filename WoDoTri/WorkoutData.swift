@@ -12,7 +12,7 @@ import CoreLocation
 class WorkoutData{
     
     static let shared = WorkoutData()
-    
+    var stopwatch = StopWatch()
     var activityType = ActivityType.run
     var activityState = WorkoutState.notStarted
     var distance = Measurement(value: 0, unit: UnitLength.meters)

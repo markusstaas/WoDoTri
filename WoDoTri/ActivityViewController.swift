@@ -16,6 +16,7 @@ class ActivityViewController: UIViewController {
     let stopwatch = StopWatch()
     
     
+    @IBOutlet weak var pauseButt: UIButton!
     @IBOutlet weak var startButt: UIButton!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
@@ -27,6 +28,16 @@ class ActivityViewController: UIViewController {
         workoutData.duration = stopwatch.elapsedTime
         updateDisplay()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if workoutData.activityState == .started || workoutData.activityState == .restarted{
+            restartActivity()
+        }
+        if workoutData.activityState == .stopped || workoutData.activityState == .notStarted {
+            pauseButt.isHidden = true
+        }
+    }
+    
     func assignBackground(){
         let background = UIImage(named: "backgroundrunner")
         var imageView : UIImageView!
@@ -41,12 +52,11 @@ class ActivityViewController: UIViewController {
     
     @IBAction func startButtonPressed(_ sender: Any){
        startActivity()
-        startButt.isHidden = true
+        
     }
     
     @IBAction func pauseButtonPressed(_ sender: Any) {
         pauseActivity()
-        
     }
  
     private func startActivity(){
@@ -57,6 +67,8 @@ class ActivityViewController: UIViewController {
         startLocationUpdates()
         tick()
         stopwatch.callback = self.tick
+        startButt.isHidden = true
+        pauseButt.isHidden = false
     }
     
     private func restartActivity(){
@@ -64,6 +76,9 @@ class ActivityViewController: UIViewController {
         stopwatch.start()
         tick()
         startLocationUpdates()
+        stopwatch.callback = self.tick
+        startButt.isHidden = true
+        pauseButt.isHidden = false
     }
     
     private func pauseActivity(){

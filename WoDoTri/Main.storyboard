@@ -349,6 +349,7 @@
                         <outlet property="distanceLabel" destination="SFU-MU-C9o" id="9LN-mU-3de"/>
                         <outlet property="elapsedTimeLabel" destination="ohd-4n-fkv" id="h9Q-o5-etp"/>
                         <outlet property="paceLabel" destination="hOU-1K-PVX" id="r1p-PK-zRU"/>
+                        <outlet property="pauseButt" destination="lia-uF-f47" id="lGP-SV-xUM"/>
                         <outlet property="startButt" destination="AlP-tt-FER" id="XmV-Gu-DD5"/>
                         <segue destination="2ak-hm-mQJ" kind="show" identifier="ActivityMapViewController" id="atn-R8-oHQ"/>
                     </connections>
@@ -421,6 +422,7 @@
                     <tabBarItem key="tabBarItem" title="Map" id="VGW-Nn-T1B"/>
                     <connections>
                         <outlet property="mapView" destination="kxJ-ja-KbO" id="dVj-Mj-6aw"/>
+                        <outlet property="pauseButt" destination="WIO-gL-ckV" id="jST-ax-weq"/>
                         <outlet property="startButt" destination="2u2-1T-uXP" id="zT0-a2-M90"/>
                     </connections>
                 </viewController>
@@ -577,7 +579,7 @@
         <image name="settings" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4bf-Cl-VC1"/>
+        <segue reference="ERa-gf-weA"/>
         <segue reference="vd9-Ew-Mxr"/>
     </inferredMetricsTieBreakers>
 </document>

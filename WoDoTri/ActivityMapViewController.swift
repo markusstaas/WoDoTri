@@ -17,6 +17,7 @@ class ActivityMapViewController: UIViewController{
     let locationManager = LocationManager.shared
     let stopwatch = StopWatch()
     
+    @IBOutlet weak var pauseButt: UIButton!
     @IBOutlet weak var startButt: UIButton!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
@@ -29,13 +30,7 @@ class ActivityMapViewController: UIViewController{
     }
     
     @IBAction func startButtonPressed(_ sender: Any){
-    switch workoutData.activityState{
-        case .notStarted: startActivity()
-        case .stopped: startActivity()
-        case .paused: restartActivity()
-        case .started: pauseActivity()
-        case .restarted: pauseActivity()
-        }
+        startActivity()
     }
     @IBAction func pauseButtonPressed(_ sender: Any) {
         pauseActivity()
@@ -49,6 +44,8 @@ class ActivityMapViewController: UIViewController{
         startLocationUpdates()
         tick()
         stopwatch.callback = self.tick
+        startButt.isHidden = true
+        pauseButt.isHidden = false
     }
     
     private func restartActivity(){
@@ -56,6 +53,9 @@ class ActivityMapViewController: UIViewController{
         stopwatch.start()
         tick()
         startLocationUpdates()
+        stopwatch.callback = self.tick
+        startButt.isHidden = true
+        pauseButt.isHidden = false
     }
     
     private func pauseActivity(){
@@ -99,6 +99,18 @@ class ActivityMapViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // replace with swtich
+        if workoutData.activityState == .started || workoutData.activityState == .restarted{
+            restartActivity()
+        }
+        if workoutData.activityState == .stopped || workoutData.activityState == .notStarted {
+            pauseButt.isHidden = true
+        }
+        
     }
 }
 
