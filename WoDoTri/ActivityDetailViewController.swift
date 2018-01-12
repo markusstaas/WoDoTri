@@ -30,12 +30,12 @@ class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
         let seconds = Int(activity.duration)
         let formattedDistance = FormatDisplay.distance(distance)
         let formattedDate = FormatDisplay.date(activity.timestamp)
-        let formattedTime = activity.duration
+        let formattedTime = activity.durationString
         let formattedPace = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
         activityTypeLabel.text = activity.type
         completedDistanceLabel.text = "Distance:  \(formattedDistance)"
         dateLabel.text = formattedDate
-        elapsedTimeLabel.text = "Time:  \(formattedTime)"
+        elapsedTimeLabel.text = "Time:  \(formattedTime!)"
         avgPaceLabel.text = "Pace:  \(formattedPace)"
         loadMap()
     }

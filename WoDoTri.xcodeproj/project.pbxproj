@@ -223,6 +223,7 @@
 				TargetAttributes = {
 					2895089A1FB570B400353860 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5552KJHMG4;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -470,7 +471,7 @@
 			baseConfigurationReference = 62E9C52040660FC1E1C4841E /* Pods-WoDoTri.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5552KJHMG4;
 				INFOPLIST_FILE = WoDoTri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -486,7 +487,7 @@
 			baseConfigurationReference = 87D63C9C18850D1A35196B81 /* Pods-WoDoTri.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5552KJHMG4;
 				INFOPLIST_FILE = WoDoTri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

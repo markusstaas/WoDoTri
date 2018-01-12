@@ -32,7 +32,7 @@ class FinishViewController: UIControls, MKMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         activityTypeLabel.text = workoutData.activityType.description
-        elapsedTimeLabel.text = "Duration: \(workoutData.duration)"
+        elapsedTimeLabel.text = "Duration: \(workoutData.durationString)"
         completedDistanceLabel.text = "Distance: \(workoutData.distanceString())"
         avgPaceLabel.text = "Average speed: \(workoutData.avgPaceString())"
        
@@ -50,9 +50,11 @@ class FinishViewController: UIControls, MKMapViewDelegate{
     
     @IBAction func finishButtonPressed(_ sender: Any) {
         saveActivity()
+        workoutData.activityState = .notStarted
     }
     @IBAction func discardButtonPressed(_ sender: Any) {
         stopwatch.reset()
+        workoutData.activityState = .notStarted
     }
     
 
@@ -61,6 +63,7 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         let newActivity = Activity(context: CoreDataStack.context)
         newActivity.distance = workoutData.distance.value
         newActivity.duration = workoutData.duration
+        newActivity.durationString = workoutData.durationString
         newActivity.type = workoutData.activityType.description
         newActivity.timestamp = Date()
 
@@ -116,8 +119,6 @@ class FinishViewController: UIControls, MKMapViewDelegate{
                 present(alert, animated: true)
                 return
         }
-        
-        
         mapView.setRegion(region, animated: true)
         mapView.add(polyLine())
     }

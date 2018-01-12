@@ -20,10 +20,12 @@ class WorkoutData{
     var avgPace: String
     var locationList: [CLLocation] = []
     var duration = 0.00
+    var durationString = ""
     
     init() {
         self.distanceFormatted = ""
         self.avgPace = ""
+        self.durationString = stopwatch.elapsedTimeAsString()
     }
     func distanceString() -> String{
         self.distanceFormatted = FormatDisplay.distance(distance)
@@ -34,6 +36,6 @@ class WorkoutData{
         return avgPace
     }
   
-    
+
     
 }

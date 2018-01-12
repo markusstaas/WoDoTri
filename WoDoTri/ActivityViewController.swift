@@ -15,7 +15,6 @@ class ActivityViewController: UIViewController {
     let workoutData = WorkoutData.shared
     let stopwatch = StopWatch()
     
-    
     @IBOutlet weak var pauseButt: UIButton!
     @IBOutlet weak var startButt: UIButton!
     @IBOutlet weak var elapsedTimeLabel: UILabel!
@@ -24,12 +23,15 @@ class ActivityViewController: UIViewController {
     @IBOutlet weak var averagePaceLabel: UILabel!
     
     func tick() {
-        elapsedTimeLabel.text = stopwatch.elapsedTimeAsString()
-        workoutData.duration = stopwatch.elapsedTime
         updateDisplay()
+        workoutData.durationString = stopwatch.elapsedTimeAsString()
+        workoutData.duration = stopwatch.elapsedTime
+        elapsedTimeLabel.text = workoutData.durationString
+        //print("from actv -------------- \(stopwatch.elapsedTimeAsString())")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print(workoutData.activityState)
         if workoutData.activityState == .started || workoutData.activityState == .restarted{
             restartActivity()
         }
@@ -74,6 +76,7 @@ class ActivityViewController: UIViewController {
     private func restartActivity(){
         workoutData.activityState = .restarted
         stopwatch.start()
+        stopwatch.elapsedTime = workoutData.duration
         tick()
         startLocationUpdates()
         stopwatch.callback = self.tick

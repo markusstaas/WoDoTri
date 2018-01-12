@@ -27,6 +27,8 @@ class ActivityMapViewController: UIViewController{
     
     func tick() {
         updateDisplay()
+        workoutData.durationString = stopwatch.elapsedTimeAsString()
+        workoutData.duration = stopwatch.elapsedTime
     }
     
     @IBAction func startButtonPressed(_ sender: Any){
@@ -51,6 +53,7 @@ class ActivityMapViewController: UIViewController{
     private func restartActivity(){
         workoutData.activityState = .restarted
         stopwatch.start()
+        stopwatch.elapsedTime = workoutData.duration
         tick()
         startLocationUpdates()
         stopwatch.callback = self.tick
