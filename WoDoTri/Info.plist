@@ -23,7 +23,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>oauth-swift</string>
+				<string>com.starkusmaas.WoDoTri</string>
 			</array>
 		</dict>
 	</array>

@@ -17,7 +17,7 @@
 		28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B321FB705DB009384C2 /* StopWatch.swift */; };
 		28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* FinishViewController.swift */; };
 		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
-		28CE66081FE91BDA00330A83 /* SettingsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CE66071FE91BDA00330A83 /* SettingsMainViewController.swift */; };
+		28F33378200C53F400272462 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F33377200C53F400272462 /* SettingsTableViewController.swift */; };
 		28F7B7682005BF2100B9A344 /* UIActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7B7672005BF2100B9A344 /* UIActivityPageViewController.swift */; };
 		65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65084EB41FC5124100EDA74A /* Model.xcdatamodeld */; };
 		651AA5DE1FDE1EFD00B63DEA /* StravaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651AA5DD1FDE1EFD00B63DEA /* StravaConstants.swift */; };
@@ -30,7 +30,6 @@
 		65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */; };
 		65A684B01FC51A9C00B0A7C8 /* ActivityViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684AF1FC51A9C00B0A7C8 /* ActivityViewExtensions.swift */; };
 		65CDD9611FC63FB8002F6D40 /* UIControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CDD9601FC63FB8002F6D40 /* UIControls.swift */; };
-		65FDDB3F1FDE25CC00F9F792 /* StravaAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDDB3E1FDE25CC00F9F792 /* StravaAuthViewController.swift */; };
 		65FFABF51FD3CF6B006D6435 /* WorkoutStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFABF41FD3CF6B006D6435 /* WorkoutStates.swift */; };
 		D13A1D430E40D402A63B26EE /* Pods_WoDoTri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B1C90D0844C028CE982DC0 /* Pods_WoDoTri.framework */; };
 /* End PBXBuildFile section */
@@ -49,7 +48,7 @@
 		28CD5B321FB705DB009384C2 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		28CD5B341FB82209009384C2 /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		28CD5B361FB83034009384C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		28CE66071FE91BDA00330A83 /* SettingsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMainViewController.swift; sourceTree = "<group>"; };
+		28F33377200C53F400272462 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		28F7B7672005BF2100B9A344 /* UIActivityPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityPageViewController.swift; sourceTree = "<group>"; };
 		62E9C52040660FC1E1C4841E /* Pods-WoDoTri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoDoTri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WoDoTri/Pods-WoDoTri.debug.xcconfig"; sourceTree = "<group>"; };
 		65084EB51FC5124100EDA74A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -63,7 +62,6 @@
 		65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLManagerShare.swift; sourceTree = "<group>"; };
 		65A684AF1FC51A9C00B0A7C8 /* ActivityViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewExtensions.swift; sourceTree = "<group>"; };
 		65CDD9601FC63FB8002F6D40 /* UIControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControls.swift; sourceTree = "<group>"; };
-		65FDDB3E1FDE25CC00F9F792 /* StravaAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StravaAuthViewController.swift; sourceTree = "<group>"; };
 		65FFABF41FD3CF6B006D6435 /* WorkoutStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStates.swift; sourceTree = "<group>"; };
 		87D63C9C18850D1A35196B81 /* Pods-WoDoTri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoDoTri.release.xcconfig"; path = "Pods/Target Support Files/Pods-WoDoTri/Pods-WoDoTri.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,10 +144,9 @@
 				289508B91FB5761A00353860 /* HistoryViewController.swift */,
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* FinishViewController.swift */,
-				65FDDB3E1FDE25CC00F9F792 /* StravaAuthViewController.swift */,
 				65CDD9601FC63FB8002F6D40 /* UIControls.swift */,
-				28CE66071FE91BDA00330A83 /* SettingsMainViewController.swift */,
 				28F7B7672005BF2100B9A344 /* UIActivityPageViewController.swift */,
+				28F33377200C53F400272462 /* SettingsTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -336,16 +333,15 @@
 				65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */,
 				28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */,
 				289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */,
-				28CE66081FE91BDA00330A83 /* SettingsMainViewController.swift in Sources */,
 				65FFABF51FD3CF6B006D6435 /* WorkoutStates.swift in Sources */,
 				652768FC1FD5070500353CC9 /* ActivityDetailViewController.swift in Sources */,
+				28F33378200C53F400272462 /* SettingsTableViewController.swift in Sources */,
 				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
 				65A684A81FC514B400B0A7C8 /* UnitCalculations.swift in Sources */,
 				651AA5E01FDE1F4500B63DEA /* StravaUpload.swift in Sources */,
 				651AA5DE1FDE1EFD00B63DEA /* StravaConstants.swift in Sources */,
 				28F7B7682005BF2100B9A344 /* UIActivityPageViewController.swift in Sources */,
 				65A684AA1FC5151A00B0A7C8 /* FormatDisplay.swift in Sources */,
-				65FDDB3F1FDE25CC00F9F792 /* StravaAuthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +471,7 @@
 				INFOPLIST_FILE = WoDoTri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = starkusmaas.WoDoTri;
+				PRODUCT_BUNDLE_IDENTIFIER = com.starkusmaas.WoDoTri;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -491,7 +487,7 @@
 				INFOPLIST_FILE = WoDoTri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = starkusmaas.WoDoTri;
+				PRODUCT_BUNDLE_IDENTIFIER = com.starkusmaas.WoDoTri;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;

@@ -57,7 +57,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oeD-Ar-VZT"/>
                                     <barButtonItem image="settings" id="WE1-N3-KAW">
                                         <connections>
-                                            <segue destination="yPA-bE-4zl" kind="show" id="OMv-dB-9aY"/>
+                                            <segue destination="ieh-DX-kMa" kind="show" id="yWa-bP-l4o"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -136,23 +136,71 @@
             </objects>
             <point key="canvasLocation" x="1454" y="816"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="ZmM-om-9cQ">
+        <!--Settings Table View Controller-->
+        <scene sceneID="GLc-9X-Bbn">
             <objects>
-                <viewController title="Settings" id="yPA-bE-4zl" customClass="SettingsMainViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tOE-Um-jyR"/>
-                        <viewControllerLayoutGuide type="bottom" id="tzy-nn-9wu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hgq-hl-mSH">
+                <tableViewController id="ieh-DX-kMa" customClass="SettingsTableViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="m9z-sw-F3V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Go-fk-Mdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <sections>
+                            <tableViewSection headerTitle="Sharing" id="Pw2-3a-5Tl">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Jt1-MW-2Yi">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jt1-MW-2Yi" id="egS-pR-Efg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strava" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anB-rv-KVL">
+                                                    <rect key="frame" x="16" y="12" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vNT-EV-IKn">
+                                                    <rect key="frame" x="312" y="7" width="49" height="31"/>
+                                                    <connections>
+                                                        <action selector="stravaSwitchToggled:" destination="ieh-DX-kMa" eventType="valueChanged" id="Mqk-je-J4A"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="anB-rv-KVL" firstAttribute="leading" secondItem="egS-pR-Efg" secondAttribute="leading" constant="16" id="O0K-SH-ldn"/>
+                                                <constraint firstItem="vNT-EV-IKn" firstAttribute="top" secondItem="egS-pR-Efg" secondAttribute="top" constant="7" id="TTh-Ma-SWM"/>
+                                                <constraint firstAttribute="trailing" secondItem="vNT-EV-IKn" secondAttribute="trailing" constant="16" id="UuP-Az-qK6"/>
+                                                <constraint firstItem="anB-rv-KVL" firstAttribute="top" secondItem="egS-pR-Efg" secondAttribute="top" constant="12" id="UzA-t9-AI9"/>
+                                                <constraint firstAttribute="trailing" secondItem="anB-rv-KVL" secondAttribute="trailing" constant="310" id="dvA-mG-Aqg"/>
+                                                <constraint firstItem="vNT-EV-IKn" firstAttribute="leading" secondItem="egS-pR-Efg" secondAttribute="leading" constant="312" id="r9U-Ow-Eez"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EGX-Ay-5Ve">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EGX-Ay-5Ve" id="GLT-I9-UOR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="ieh-DX-kMa" id="Mke-WW-t7P"/>
+                            <outlet property="delegate" destination="ieh-DX-kMa" id="SJR-uu-YOE"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="stravaSwitch" destination="vNT-EV-IKn" id="wZB-8w-Jtj"/>
+                        <segue destination="8dV-2U-aqo" kind="show" identifier="StravaAuthViewController" id="yCu-Pb-jPL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E13-KW-5EQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2494" y="830"/>
+            <point key="canvasLocation" x="2505" y="828"/>
         </scene>
         <!--Activity Detail View Controller-->
         <scene sceneID="yDC-8e-i7w">
@@ -540,14 +588,14 @@
                         <viewControllerLayoutGuide type="bottom" id="Rba-FU-ld1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tlr-G9-t2y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYX-EX-721" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="-842"/>
+            <point key="canvasLocation" x="2505" y="1584"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dkB-gF-AxX">
