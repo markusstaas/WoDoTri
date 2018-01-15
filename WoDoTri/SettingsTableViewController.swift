@@ -10,12 +10,12 @@ import UIKit
 import OAuthSwift
 
 class SettingsTableViewController: UITableViewController {
-     var oauthswift: OAuth2Swift!
+    var oauthswift: OAuth2Swift!
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var stravaSwitch: UISwitch!
     
     //todo: - check if already authorized and set swithc state
-    //- implement deauthorize
     //- create GPX file from workout
     //- upload GPX file to Strava
     
@@ -37,7 +37,8 @@ class SettingsTableViewController: UITableViewController {
                 scope: "write", state:"mystate",
                 success: { credential, response, parameters in
                     print(credential.oauthToken)
-                    
+                    self.defaults.set(true, forKey: "ShareWithStrava")
+                    self.stravaSwitch.isOn = true
                     // Do your request
             },
                 failure: { error in
@@ -45,14 +46,18 @@ class SettingsTableViewController: UITableViewController {
             }
             )
         }else{
-            //send to deauthorize
+            defaults.set(false, forKey: "ShareWithStrava")
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let shareWithStrava = defaults.bool(forKey: "ShareWithStrava")
+        if  shareWithStrava == true{
+            stravaSwitch.isOn = true
+        }else{
+            stravaSwitch.isOn = false
+        }
     }
 
 }

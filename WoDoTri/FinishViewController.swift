@@ -78,6 +78,12 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         CoreDataStack.saveContext()
         activity = newActivity
     }
+    private func createStravaFile(){
+        
+    }
+    private func uploadToStrave(){
+        
+    }
 
     private func mapRegion() -> MKCoordinateRegion? {
   
