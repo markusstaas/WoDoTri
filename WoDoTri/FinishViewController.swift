@@ -45,9 +45,9 @@ class FinishViewController: UIControls, MKMapViewDelegate{
          loadMap()
     }
     @IBAction func continueButtonPressed() {
-       
+       self.dismiss(animated: true, completion: nil)
+        workoutData.activityState = .restarted
     }
-    
     @IBAction func finishButtonPressed(_ sender: Any) {
         saveActivity()
         workoutData.activityState = .notStarted
@@ -80,26 +80,13 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         createStravaFile()
     }
     private func createStravaFile(){
-        let fileName = "stravatempupload.GPX"
-        var filePath = ""
-        let dirs : [String] = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
-      
+  
         let timeStampFormatter = DateFormatter()
         timeStampFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
-    
-        
-        if dirs.count > 0 {
-            let dir = dirs[0] //documents directory
-            filePath = dir.appending("/" + fileName)
-            print("Local path = \(filePath)")
-        } else {
-            print("Could not find local directory to store file")
-            return
-        }
         
         // Set the contents
-        var gpxText : String = String("<?xml version=\"1.0\" encoding=\"UTF-8\"?><gpx version=\"1.1\" creator=\"yourAppNameHere\" xmlns=\"http://www.topografix.com/GPX/1/1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gte=\"http://www.gpstrackeditor.com/xmlschemas/General/1\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">")
-        gpxText.append("<trk><trkseg>")
+        var gpxText : String = String("<?xml version=\"1.0\" encoding=\"UTF-8\"?><gpx version=\"1.1\" creator=\"WoDoTri\" xmlns=\"http://www.topografix.com/GPX/1/1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gte=\"http://www.gpstrackeditor.com/xmlschemas/General/1\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">")
+        gpxText.append("<trk><activity_type>\"Ride\"</activity_type><trkseg>")
         for locations in workoutData.locationList{
             //let formattedTimeStamp = timeStampFormatter.date(from: String(describing: locations.timestamp))
             let formattedTimeStamp = timeStampFormatter.string(from: locations.timestamp)
@@ -108,35 +95,21 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         }
         gpxText.append("</trkseg></trk></gpx>")
         
-        
         do {
-            // Write contents to file
-            try gpxText.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
-        }
-        catch let error as NSError {
-            print("Could not create file \(error)")
-        }
-        
-        do {
-            // Read file content
-            let contentFromFile = try NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue)
-            
-            print(contentFromFile)
-            
             let stravaToken = defaults.value(forKey: "StravaToken")
-            print(stravaToken)
             let uploadUrl = "https://www.strava.com/api/v3/uploads" /* your API url */
             let headers: HTTPHeaders = [
                 "Authorization": "Bearer \(stravaToken!)"
             ]
             let parameters: Parameters = [
-                "activity_type" : workoutData.activityType,
+              "activity_type" : workoutData.activityType.description,
                 "file" : "@file.gpx",
                 "data_type" : "gpx"
             ]
             Alamofire.upload(multipartFormData: { (multipartFormData) in
                 for (key, value) in parameters {
                     multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+                    
                 }
                 if let gpxSubmitData = gpxText.data(using: .utf8){
                     multipartFormData.append(gpxSubmitData, withName: "file", fileName: "file.gpx", mimeType: "application/gpx")
@@ -146,13 +119,11 @@ class FinishViewController: UIControls, MKMapViewDelegate{
                 switch result{
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
-                        print("Succesfully uploaded")
                         print(response.description)
                         if let err = response.error{
                             print(err)
                             return
                         }
-                       // onCompletion?(nil)
                     }
                 case .failure(let error):
                     print("Error in upload: \(error.localizedDescription)")
@@ -160,15 +131,8 @@ class FinishViewController: UIControls, MKMapViewDelegate{
                 }
             }
         }
-        catch let error as NSError {
-            print("An error took place: \(error)")
-        }
-        
         
     }
-    
-
-
     private func mapRegion() -> MKCoordinateRegion? {
   
         let latitudes = coords.map { location -> Double in
@@ -192,9 +156,7 @@ class FinishViewController: UIControls, MKMapViewDelegate{
     }
     
     private func polyLine() -> MKPolyline {
-        
         return MKPolyline(coordinates: coords, count: coords.count)
-        
     }
     private func loadMap() {
         

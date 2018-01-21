@@ -115,6 +115,7 @@ class ActivityMapViewController: UIViewController{
         }
         
     }
+ 
 }
 
 extension ActivityMapViewController: MKMapViewDelegate {

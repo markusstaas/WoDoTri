@@ -27,7 +27,6 @@ class ActivityViewController: UIViewController {
         workoutData.durationString = stopwatch.elapsedTimeAsString()
         workoutData.duration = stopwatch.elapsedTime
         elapsedTimeLabel.text = workoutData.durationString
-        //print("from actv -------------- \(stopwatch.elapsedTimeAsString())")
     }
     
     override func viewWillAppear(_ animated: Bool) {
