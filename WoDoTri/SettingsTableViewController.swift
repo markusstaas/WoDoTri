@@ -38,8 +38,9 @@ class SettingsTableViewController: UITableViewController {
                 success: { credential, response, parameters in
                     print(credential.oauthToken)
                     self.defaults.set(true, forKey: "ShareWithStrava")
+                    self.defaults.set(credential.oauthToken, forKey: "StravaToken")
                     self.stravaSwitch.isOn = true
-                    // Do your request
+                   
             },
                 failure: { error in
                     print(error.localizedDescription)
