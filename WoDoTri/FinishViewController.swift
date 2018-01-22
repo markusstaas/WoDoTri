@@ -55,6 +55,7 @@ class FinishViewController: UIControls, MKMapViewDelegate{
     @IBAction func discardButtonPressed(_ sender: Any) {
         stopwatch.reset()
         workoutData.activityState = .notStarted
+        self.dismiss(animated: true, completion: nil)
     }
     
 
@@ -79,6 +80,7 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         activity = newActivity
         createStravaFile()
     }
+    
     private func createStravaFile(){
   
         let timeStampFormatter = DateFormatter()
@@ -159,7 +161,6 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         return MKPolyline(coordinates: coords, count: coords.count)
     }
     private func loadMap() {
-        
         guard
             coords.count > 0,
             let region = mapRegion()

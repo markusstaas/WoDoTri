@@ -202,6 +202,38 @@
             </objects>
             <point key="canvasLocation" x="2505" y="828"/>
         </scene>
+        <!--Map Child View Controller-->
+        <scene sceneID="uB2-Q0-JX6">
+            <objects>
+                <viewController storyboardIdentifier="MapChildViewController" id="oL1-DD-Xei" customClass="MapChildViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zz2-Gh-XEN"/>
+                        <viewControllerLayoutGuide type="bottom" id="mfn-7D-Abg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LZl-zD-2OK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dxf-7t-EcX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dxf-7t-EcX" secondAttribute="trailing" id="MT7-2E-JUG"/>
+                            <constraint firstItem="mfn-7D-Abg" firstAttribute="top" secondItem="dxf-7t-EcX" secondAttribute="bottom" id="R68-TD-BHy"/>
+                            <constraint firstItem="dxf-7t-EcX" firstAttribute="leading" secondItem="LZl-zD-2OK" secondAttribute="leading" id="ck5-Uv-x9p"/>
+                            <constraint firstItem="dxf-7t-EcX" firstAttribute="top" secondItem="LZl-zD-2OK" secondAttribute="top" id="mlx-4Q-ie5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="dxf-7t-EcX" id="ORf-D9-6CR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jvc-Bf-AHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3333" y="832"/>
+        </scene>
         <!--Activity Detail View Controller-->
         <scene sceneID="yDC-8e-i7w">
             <objects>
@@ -426,12 +458,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kxJ-ja-KbO">
-                                <rect key="frame" x="0.0" y="50" width="375" height="413"/>
-                                <connections>
-                                    <outlet property="delegate" destination="2ak-hm-mQJ" id="7Lh-Yb-ypG"/>
-                                </connections>
-                            </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="p5P-Ck-Fch">
                                 <rect key="frame" x="16" y="468" width="343" height="130"/>
                                 <subviews>
@@ -455,21 +481,25 @@
                                     <constraint firstAttribute="height" constant="130" id="7eV-dN-Jwc"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBR-yG-dFS">
+                                <rect key="frame" x="21" y="50" width="333" height="318"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="SBR-yG-dFS" firstAttribute="top" secondItem="kWF-2m-7gM" secondAttribute="bottom" constant="50" id="2Wi-S3-lY7"/>
+                            <constraint firstItem="SBR-yG-dFS" firstAttribute="leading" secondItem="4nd-w8-xeF" secondAttribute="leadingMargin" constant="5" id="3Uj-UL-QeK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SBR-yG-dFS" secondAttribute="trailing" constant="5" id="4Tx-mK-Jde"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p5P-Ck-Fch" secondAttribute="trailing" id="Ing-r3-Tpi"/>
-                            <constraint firstItem="kxJ-ja-KbO" firstAttribute="leading" secondItem="4nd-w8-xeF" secondAttribute="leading" id="SHa-av-hVj"/>
-                            <constraint firstAttribute="trailing" secondItem="kxJ-ja-KbO" secondAttribute="trailing" id="d0w-wl-isj"/>
+                            <constraint firstItem="p5P-Ck-Fch" firstAttribute="top" secondItem="SBR-yG-dFS" secondAttribute="bottom" constant="100" id="cnk-K0-Fi7"/>
                             <constraint firstItem="57I-H9-l3m" firstAttribute="top" secondItem="p5P-Ck-Fch" secondAttribute="bottom" constant="5" id="ju6-s3-O8k"/>
-                            <constraint firstItem="kxJ-ja-KbO" firstAttribute="top" secondItem="kWF-2m-7gM" secondAttribute="bottom" constant="50" id="t4F-zq-qT0"/>
-                            <constraint firstItem="p5P-Ck-Fch" firstAttribute="top" secondItem="kxJ-ja-KbO" secondAttribute="bottom" constant="5" id="uhp-hA-LvO"/>
                             <constraint firstItem="p5P-Ck-Fch" firstAttribute="leading" secondItem="4nd-w8-xeF" secondAttribute="leadingMargin" id="yS1-ii-8IP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="VGW-Nn-T1B"/>
                     <connections>
-                        <outlet property="mapView" destination="kxJ-ja-KbO" id="dVj-Mj-6aw"/>
+                        <outlet property="mapContainerView" destination="SBR-yG-dFS" id="y5n-2b-RlH"/>
                         <outlet property="pauseButt" destination="WIO-gL-ckV" id="jST-ax-weq"/>
                         <outlet property="startButt" destination="2u2-1T-uXP" id="zT0-a2-M90"/>
                     </connections>

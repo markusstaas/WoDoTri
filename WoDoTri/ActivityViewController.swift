@@ -10,10 +10,7 @@ import UIKit
 import CoreLocation
 
 class ActivityViewController: UIViewController {
-    var activity: Activity!
-    let locationManager = LocationManager.shared
-    let workoutData = WorkoutData.shared
-    let stopwatch = StopWatch()
+    
     
     @IBOutlet weak var pauseButt: UIButton!
     @IBOutlet weak var startButt: UIButton!
@@ -27,10 +24,11 @@ class ActivityViewController: UIViewController {
         workoutData.durationString = stopwatch.elapsedTimeAsString()
         workoutData.duration = stopwatch.elapsedTime
         elapsedTimeLabel.text = workoutData.durationString
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(workoutData.activityState)
+        
         if workoutData.activityState == .started || workoutData.activityState == .restarted{
             restartActivity()
         }
@@ -60,34 +58,7 @@ class ActivityViewController: UIViewController {
         pauseActivity()
     }
  
-    private func startActivity(){
-        stopwatch.start()
-        workoutData.activityState = .started
-        workoutData.distance = Measurement(value: 0, unit: UnitLength.meters)
-        workoutData.locationList.removeAll()
-        startLocationUpdates()
-        tick()
-        stopwatch.callback = self.tick
-        startButt.isHidden = true
-        pauseButt.isHidden = false
-    }
-    
-    private func restartActivity(){
-        workoutData.activityState = .restarted
-        stopwatch.start()
-        stopwatch.elapsedTime = workoutData.duration
-        tick()
-        startLocationUpdates()
-        stopwatch.callback = self.tick
-        startButt.isHidden = true
-        pauseButt.isHidden = false
-    }
-    
-    private func pauseActivity(){
-        stopwatch.paused()
-        workoutData.activityState = .paused
-        locationManager.stopUpdatingLocation()
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()

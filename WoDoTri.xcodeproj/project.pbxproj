@@ -14,6 +14,8 @@
 		289508B81FB575D200353860 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B71FB575D200353860 /* ActivityViewController.swift */; };
 		289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B91FB5761A00353860 /* HistoryViewController.swift */; };
 		289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508BB1FB57A5600353860 /* ActivityMapViewController.swift */; };
+		28B06B9D20159739004050C1 /* MapChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B06B9C20159739004050C1 /* MapChildViewController.swift */; };
+		28BA0CB92015C65B000AD068 /* UIButtonControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BA0CB82015C65B000AD068 /* UIButtonControls.swift */; };
 		28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B321FB705DB009384C2 /* StopWatch.swift */; };
 		28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* FinishViewController.swift */; };
 		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 		289508B71FB575D200353860 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		289508B91FB5761A00353860 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		289508BB1FB57A5600353860 /* ActivityMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityMapViewController.swift; sourceTree = "<group>"; };
+		28B06B9C20159739004050C1 /* MapChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapChildViewController.swift; sourceTree = "<group>"; };
+		28BA0CB82015C65B000AD068 /* UIButtonControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonControls.swift; sourceTree = "<group>"; };
 		28CD5B321FB705DB009384C2 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		28CD5B341FB82209009384C2 /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		28CD5B361FB83034009384C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -145,8 +149,10 @@
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* FinishViewController.swift */,
 				65CDD9601FC63FB8002F6D40 /* UIControls.swift */,
+				28BA0CB82015C65B000AD068 /* UIButtonControls.swift */,
 				28F7B7672005BF2100B9A344 /* UIActivityPageViewController.swift */,
 				28F33377200C53F400272462 /* SettingsTableViewController.swift */,
+				28B06B9C20159739004050C1 /* MapChildViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -325,10 +331,12 @@
 			files = (
 				289508A11FB570B400353860 /* ViewController.swift in Sources */,
 				2895089F1FB570B400353860 /* AppDelegate.swift in Sources */,
+				28B06B9D20159739004050C1 /* MapChildViewController.swift in Sources */,
 				289508B81FB575D200353860 /* ActivityViewController.swift in Sources */,
 				65CDD9611FC63FB8002F6D40 /* UIControls.swift in Sources */,
 				28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */,
 				656B518D1FD79E7C002CBFDD /* WorkoutData.swift in Sources */,
+				28BA0CB92015C65B000AD068 /* UIButtonControls.swift in Sources */,
 				65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */,
 				65A684B01FC51A9C00B0A7C8 /* ActivityViewExtensions.swift in Sources */,
 				651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */,

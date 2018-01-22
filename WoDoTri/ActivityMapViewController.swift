@@ -23,7 +23,25 @@ class ActivityMapViewController: UIViewController{
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var averagePaceLabel: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapContainerView: UIView!
+    
+    func addReusableViewController() {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: String(describing: MapChildViewController.self)) as? MapChildViewController else { return }
+        vc.willMove(toParentViewController: self)
+        addChildViewController(vc)
+        mapContainerView.addSubview(vc.view)
+        constraintViewEqual(view1: mapContainerView, view2: vc.view)
+        vc.didMove(toParentViewController: self)
+    }
+    /// Sticks child view (view1) to the parent view (view2) using constraints.
+    private func constraintViewEqual(view1: UIView, view2: UIView) {
+        view2.translatesAutoresizingMaskIntoConstraints = false
+        let constraint1 = NSLayoutConstraint(item: view1, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: view2, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 0.0)
+        let constraint2 = NSLayoutConstraint(item: view1, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: view2, attribute: NSLayoutAttribute.trailing, multiplier: 1.0, constant: 0.0)
+        let constraint3 = NSLayoutConstraint(item: view1, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: view2, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 0.0)
+        let constraint4 = NSLayoutConstraint(item: view1, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: view2, attribute: NSLayoutAttribute.leading, multiplier: 1.0, constant: 0.0)
+        view1.addConstraints([constraint1, constraint2, constraint3, constraint4])
+    }
     
     func tick() {
         updateDisplay()
@@ -102,7 +120,7 @@ class ActivityMapViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
+        addReusableViewController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,17 +136,7 @@ class ActivityMapViewController: UIViewController{
  
 }
 
-extension ActivityMapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        guard let polyline = overlay as? MKPolyline else {
-            return MKOverlayRenderer(overlay: overlay)
-        }
-        let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = .blue
-        renderer.lineWidth = 3
-        return renderer
-    }
-}
+
 
 extension ActivityMapViewController: CLLocationManagerDelegate {
     
@@ -141,9 +149,9 @@ extension ActivityMapViewController: CLLocationManagerDelegate {
                 let delta = newLocation.distance(from: lastLocation)
                 workoutData.distance = workoutData.distance + Measurement(value: delta, unit: UnitLength.meters)
                 let coordinates = [lastLocation.coordinate, newLocation.coordinate]
-                mapView.add(MKPolyline(coordinates: coordinates, count: 2))
+                //mapView.add(MKPolyline(coordinates: coordinates, count: 2))
                 let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
-                mapView.setRegion(region, animated: true)
+               // mapView.setRegion(region, animated: true)
             }
             workoutData.locationList.append(newLocation)
         }
