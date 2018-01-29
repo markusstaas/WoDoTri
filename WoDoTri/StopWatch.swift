@@ -9,7 +9,7 @@
 import Foundation
 import QuartzCore
 
-class StopWatch: NSObject{
+class StopWatch: NSObject {
     
     private var displayLink: CADisplayLink!
     private let formatter = DateFormatter()

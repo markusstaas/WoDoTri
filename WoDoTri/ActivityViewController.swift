@@ -54,7 +54,7 @@ class ActivityViewController: UIViewController {
         pauseButt.isHidden = false
     }
     
-    private func pauseActivity(){
+    private func pauseActivity() {
         stopwatch.paused()
         workoutData.activityState = .paused
         locationManager.stopUpdatingLocation()
@@ -70,7 +70,7 @@ class ActivityViewController: UIViewController {
         }
     }
     
-    func assignBackground(){
+    func assignBackground() {
         let background = UIImage(named: "backgroundrunner")
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.frame)
@@ -82,7 +82,7 @@ class ActivityViewController: UIViewController {
         self.view.sendSubview(toBack: imageView)
     }
     
-    @IBAction func startButtonPressed(_ sender: Any){
+    @IBAction func startButtonPressed(_ sender: Any) {
        startActivity()
         
     }
@@ -101,10 +101,10 @@ class ActivityViewController: UIViewController {
      func updateDisplay() {
         let locale = NSLocale.current
         let isMetric = locale.usesMetricSystem
-        if !isMetric{
+        if !isMetric {
             let formattedPace = FormatDisplay.pace(distance: workoutData.distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerMile)
             paceLabel.text = formattedPace
-        } else{
+        } else {
             let formattedPace = FormatDisplay.pace(distance: workoutData.distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerKilometer)
             paceLabel.text = formattedPace
         }

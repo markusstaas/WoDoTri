@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum WorkoutState{
+enum WorkoutState {
     case notStarted
     case started
     case paused
@@ -16,7 +16,7 @@ enum WorkoutState{
     case stopped
 }
 
-enum ActivityType{
+enum ActivityType {
    // case swim
     case bike
     case run
