@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     let workoutData = WorkoutData.shared
     
     @IBAction func bikeButtonPressed(_ sender: Any) {
