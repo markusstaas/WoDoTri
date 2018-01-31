@@ -9,29 +9,33 @@
 import UIKit
 import MapKit
 
-class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
-    
-    @IBOutlet weak var activityTypeLabel: UILabel!
-    @IBOutlet weak var elapsedTimeLabel: UILabel!
-    @IBOutlet weak var avgPaceLabel: UILabel!
-    @IBOutlet weak var completedDistanceLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
-    
+final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
+
+    @IBOutlet private weak var activityTypeLabel: UILabel!
+    @IBOutlet private weak var elapsedTimeLabel: UILabel!
+    @IBOutlet private weak var avgPaceLabel: UILabel!
+    @IBOutlet private weak var completedDistanceLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var mapView: MKMapView!
+
     var activity: Activity!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
-    
+
     private func configureView() {
         let distance = Measurement(value: activity.distance, unit: UnitLength.meters)
         let seconds = Int(activity.duration)
         let formattedDistance = FormatDisplay.distance(distance)
         let formattedDate = FormatDisplay.date(activity.timestamp)
         let formattedTime = activity.durationString
-        let formattedPace = FormatDisplay.pace(distance: distance, seconds: seconds, outputUnit: UnitSpeed.minutesPerMile)
+        let formattedPace = FormatDisplay.pace(
+            distance: distance,
+            seconds: seconds,
+            outputUnit: UnitSpeed.minutesPerMile
+        )
         activityTypeLabel.text = activity.type
         completedDistanceLabel.text = "Distance:  \(formattedDistance)"
         dateLabel.text = formattedDate
@@ -39,7 +43,7 @@ class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
         avgPaceLabel.text = "Pace:  \(formattedPace)"
         loadMap()
     }
-    
+
     private func mapRegion() -> MKCoordinateRegion? {
         guard
             let locations = activity.locations,
@@ -48,21 +52,13 @@ class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
                 print("No locations found")
                 return nil
         }
-        let latitudes = locations.map { location -> Double in
-            let location = location as! Location
-            return location.latitude
-        }
-        
-        let longitudes = locations.map { location -> Double in
-            let location = location as! Location
-            return location.longitude
-        }
-        
+        let latitudes = locations.map { $0.latitude }
+        let longitudes = locations.map { $0.longitude }
+
         let maxLat = latitudes.max()!
         let minLat = latitudes.min()!
         let maxLong = longitudes.max()!
         let minLong = longitudes.min()!
-        
         let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2, longitude: (minLong + maxLong) / 2)
         let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3, longitudeDelta: (maxLong - minLong) * 1.3)
         return MKCoordinateRegion(center: center, span: span)
@@ -74,7 +70,11 @@ class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
             locations.count > 0,
             let region = mapRegion()
             else {
-                let alert = UIAlertController(title: "Error", message: "Sorry, this run has no locations saved", preferredStyle: .alert)
+                let alert = UIAlertController(
+                    title: "Error",
+                    message: "Sorry, this run has no locations saved",
+                    preferredStyle: .alert
+                )
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                 present(alert, animated: true)
                 return
@@ -89,11 +89,10 @@ class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
         guard let locations = activity.locations else {
             return MKPolyline()
         }
-        let locationsDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
-        let sortedLocations = locations.sortedArray(using: [locationsDescriptor])
+
+       // let sortedLocations = locations.sorted { $0.timestamp > $1.timestamp }
         
         let coords: [CLLocationCoordinate2D] = sortedLocations.map { location in
-            let location = location as! Location
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
    

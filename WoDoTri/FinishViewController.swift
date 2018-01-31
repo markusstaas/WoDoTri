@@ -12,22 +12,23 @@ import CoreData
 import MapKit
 import Alamofire
 
-class FinishViewController: UIControls, MKMapViewDelegate{
-    
-    let defaults = UserDefaults.standard
-    var activity: Activity!
-    let workoutData = WorkoutData.shared
-    var subContext = CoreDataStack.context
-    let stopwatch = StopWatch()
+final class FinishViewController: UIControls, MKMapViewDelegate {
+
     var activityDuration: String?
     var finalTimestamp: Date?
-    var coords = [CLLocationCoordinate2D]()
 
-    @IBOutlet weak var activityTypeLabel: UILabel!
-    @IBOutlet weak var elapsedTimeLabel: UILabel!
-    @IBOutlet weak var avgPaceLabel: UILabel!
-    @IBOutlet weak var completedDistanceLabel: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
+    private let defaults = UserDefaults.standard
+    private var activity: Activity!
+    private let workoutData = WorkoutData.shared
+    private var subContext = CoreDataStack.context
+    private let stopwatch = StopWatch()
+    private var coords = [CLLocationCoordinate2D]()
+
+    @IBOutlet private weak var activityTypeLabel: UILabel!
+    @IBOutlet private weak var elapsedTimeLabel: UILabel!
+    @IBOutlet private weak var avgPaceLabel: UILabel!
+    @IBOutlet private weak var completedDistanceLabel: UILabel!
+    @IBOutlet private weak var mapView: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,22 +38,22 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         avgPaceLabel.text = "Average speed: \(workoutData.avgPaceString())"
        
         NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSNotification.Name.NSManagedObjectContextDidSave, object: subContext)
-       
+
         for location in workoutData.locationList {
             let coordItem: CLLocationCoordinate2D = location.coordinate
             coords.append(coordItem)
         }
          loadMap()
     }
-    @IBAction func continueButtonPressed() {
+    @IBAction private func continueButtonPressed() {
        self.dismiss(animated: true, completion: nil)
         workoutData.activityState = .restarted
     }
-    @IBAction func finishButtonPressed(_ sender: Any) {
+    @IBAction private func finishButtonPressed(_ sender: Any) {
         saveActivity()
         workoutData.activityState = .notStarted
     }
-    @IBAction func discardButtonPressed(_ sender: Any) {
+    @IBAction private func discardButtonPressed(_ sender: Any) {
         stopwatch.reset()
         workoutData.activityState = .notStarted
         self.dismiss(animated: true, completion: nil)
@@ -81,7 +82,7 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         createStravaFile()
     }
     
-    private func createStravaFile(){
+    private func createStravaFile() {
   
         let timeStampFormatter = DateFormatter()
         timeStampFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
@@ -89,7 +90,7 @@ class FinishViewController: UIControls, MKMapViewDelegate{
         // Set the contents
         var gpxText : String = String("<?xml version=\"1.0\" encoding=\"UTF-8\"?><gpx version=\"1.1\" creator=\"WoDoTri\" xmlns=\"http://www.topografix.com/GPX/1/1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gte=\"http://www.gpstrackeditor.com/xmlschemas/General/1\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">")
         gpxText.append("<trk><activity_type>\"Ride\"</activity_type><trkseg>")
-        for locations in workoutData.locationList{
+        for locations in workoutData.locationList {
             //let formattedTimeStamp = timeStampFormatter.date(from: String(describing: locations.timestamp))
             let formattedTimeStamp = timeStampFormatter.string(from: locations.timestamp)
             let newLine : String = String("<trkpt lat=\"\(String(format:"%.6f", locations.coordinate.latitude))\" lon=\"\(String(format:"%.6f", locations.coordinate.longitude))\"><time>\(formattedTimeStamp)</time></trkpt>")

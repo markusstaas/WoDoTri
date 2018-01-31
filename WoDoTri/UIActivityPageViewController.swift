@@ -8,10 +8,11 @@
 
 import UIKit
 
-class UIActivityPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-    
-    let pages = ["ActivityView", "ActivityMapView"]
-    
+final class UIActivityPageViewController: UIPageViewController,
+UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+
+    private let pages = ["ActivityView", "ActivityMapView"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -21,10 +22,8 @@ class UIActivityPageViewController: UIPageViewController, UIPageViewControllerDa
             direction: .forward,
             animated: true,
             completion: nil)
- 
     }
-    
-    
+
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let identifier = viewController.restorationIdentifier {
@@ -36,7 +35,7 @@ class UIActivityPageViewController: UIPageViewController, UIPageViewControllerDa
         }
         return nil
     }
-    
+
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let identifier = viewController.restorationIdentifier {
@@ -48,7 +47,7 @@ class UIActivityPageViewController: UIPageViewController, UIPageViewControllerDa
         }
         return nil
     }
-    
+
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return pages.count
     }
@@ -61,7 +60,4 @@ class UIActivityPageViewController: UIPageViewController, UIPageViewControllerDa
         }
         return 0
     }
-
-    
-
 }

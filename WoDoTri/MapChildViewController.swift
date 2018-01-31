@@ -10,27 +10,27 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapChildViewController: UIViewController {
-    
-    var activity: Activity!
-    let workoutData = WorkoutData.shared
-    let locationManager = LocationManager.shared
+final class MapChildViewController: UIViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
-    
+    private var activity: Activity!
+    private let workoutData = WorkoutData.shared
+    private let locationManager = LocationManager.shared
+
+    @IBOutlet weak private var mapView: MKMapView!
+
     private func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         startLocationUpdates()
         // Do any additional setup after loading the view.
     }
-    
+
 }
 
 extension MapChildViewController: MKMapViewDelegate {
@@ -46,12 +46,11 @@ extension MapChildViewController: MKMapViewDelegate {
 }
 
 extension MapChildViewController: CLLocationManagerDelegate {
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for newLocation in locations {
             let howRecent = newLocation.timestamp.timeIntervalSinceNow
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
-            
             if let lastLocation = workoutData.locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 workoutData.distance = workoutData.distance + Measurement(value: delta, unit: UnitLength.meters)

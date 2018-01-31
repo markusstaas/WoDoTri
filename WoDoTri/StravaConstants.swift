@@ -8,9 +8,5 @@
 
 import Foundation
 
-struct StravaConstants{
-    
-    
-    
-    
+struct StravaConstants {
 }

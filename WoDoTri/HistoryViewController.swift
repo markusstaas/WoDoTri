@@ -9,17 +9,16 @@
 import UIKit
 import CoreData
 
-class HistoryViewController: UITableViewController{
-    
-    @IBOutlet var historyTableView: UITableView!
-    var activities: [Activity] = []
-    
+final class HistoryViewController: UITableViewController {
+
+    @IBOutlet private var historyTableView: UITableView!
+    private var activities: [Activity] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Past Workouts"
         historyTableView.register(UITableViewCell.self, forCellReuseIdentifier: "historyCell")
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let entity = NSEntityDescription.entity(forEntityName: "Activity", in: CoreDataStack.context)
@@ -27,16 +26,15 @@ class HistoryViewController: UITableViewController{
         fetchRequest.entity = entity
         let sortDescriptor = NSSortDescriptor(key: #keyPath(Activity.timestamp), ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        
+
         do {
             activities = try CoreDataStack.context.fetch(fetchRequest)
-            
-        } catch  let error{
+
+        } catch  let error {
             //handle error
             print(error)
         }
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activities.count
     }
@@ -52,12 +50,10 @@ class HistoryViewController: UITableViewController{
         performSegue(withIdentifier: "ActivityDetailSegue", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow{
-            let selectedRow = indexPath.row
-            let viewController = segue.destination as! ActivityDetailViewController
-            viewController.activity = activities[selectedRow]
+        if let indexPath = tableView.indexPathForSelectedRow {
+         //   let selectedRow = indexPath.row
+          //  let viewController = segue.destination as! ActivityDetailViewController
+         //   viewController.activity = activities[selectedRow]
         }
     }
 }
-
-

@@ -9,7 +9,7 @@
 import UIKit
 
 class UIControls: UIViewController {
-    
+
     @objc func managedObjectContextDidSave(notification: NSNotification) {
         if notification.name == NSNotification.Name.NSManagedObjectContextDidSave {
             let alert = UIAlertController(title: "Workout Saved", message: "Your workout has been saved. Tap OK to return to the start screen", preferredStyle: .actionSheet)
@@ -21,5 +21,4 @@ class UIControls: UIViewController {
             present(alert, animated: true)
         }
     }
-    
 }

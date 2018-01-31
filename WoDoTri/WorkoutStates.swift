@@ -20,12 +20,11 @@ enum ActivityType {
    // case swim
     case bike
     case run
-    
-    var description : String {
+    var description: String {
         switch self {
        // case .swim: return "Swim";
-        case .bike: return "Ride";
-        case .run: return "Run";
+        case .bike: return "Ride"
+        case .run: return "Run"
         }
     }
 }
