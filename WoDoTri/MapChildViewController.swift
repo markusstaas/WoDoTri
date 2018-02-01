@@ -53,6 +53,7 @@ extension MapChildViewController: CLLocationManagerDelegate {
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
             if let lastLocation = workoutData.locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
+                 // swiftlint:disable:next shorthand_operator
                 workoutData.distance = workoutData.distance + Measurement(value: delta, unit: UnitLength.meters)
                 let coordinates = [lastLocation.coordinate, newLocation.coordinate]
                 mapView.add(MKPolyline(coordinates: coordinates, count: 2))

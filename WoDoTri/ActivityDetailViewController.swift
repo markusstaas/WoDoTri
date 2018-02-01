@@ -52,9 +52,10 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
                 print("No locations found")
                 return nil
         }
-        let latitudes = locations.map { $0.latitude }
-        let longitudes = locations.map { $0.longitude }
-
+        // swiftlint:disable force_cast
+        let latitudes = locations.map { ($0 as! CLLocationCoordinate2D).latitude }
+        let longitudes = locations.map { ($0 as! CLLocationCoordinate2D).longitude }
+        // swiftlint:enable force_cast
         let maxLat = latitudes.max()!
         let minLat = latitudes.min()!
         let maxLong = longitudes.max()!
@@ -79,26 +80,24 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
                 present(alert, animated: true)
                 return
         }
-        
         mapView.setRegion(region, animated: true)
         mapView.add(polyLine())
     }
-    
+
     private func polyLine() -> MKPolyline {
 
         guard let locations = activity.locations else {
             return MKPolyline()
         }
-
-       // let sortedLocations = locations.sorted { $0.timestamp > $1.timestamp }
-        
+        //let sortedLocations = locations.sorted { $0.timestamp > $1.timestamp }
+        // swiftlint:disable force_cast
+        let sortedLocations = (locations.allObjects as! [Location]).sorted(by: { $0.timestamp < $1.timestamp })
+        // swiftlint:enable force_cast
         let coords: [CLLocationCoordinate2D] = sortedLocations.map { location in
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
-   
         return MKPolyline(coordinates: coords, count: coords.count)
     }
-    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyline = overlay as? MKPolyline else {
             return MKOverlayRenderer(overlay: overlay)

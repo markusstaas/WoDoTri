@@ -131,11 +131,13 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
             if let lastLocation = workoutData.locationList.last {
                 if workoutData.activityState == .started {
                     let delta = newLocation.distance(from: lastLocation)
+                     // swiftlint:disable:next shorthand_operator
                     workoutData.distance = workoutData.distance + Measurement(value: delta, unit: UnitLength.meters)
                 }
                 if workoutData.activityState == .restarted {
                     // out of pause state, Delta to 0 because
                     //we dont want to use the distance traveled during pause state
+                     // swiftlint:disable:next shorthand_operator
                     workoutData.distance = workoutData.distance + Measurement(value: 0.0, unit: UnitLength.meters)
                     workoutData.activityState = .started
                 }

@@ -36,8 +36,11 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
         elapsedTimeLabel.text = "Duration: \(workoutData.durationString)"
         completedDistanceLabel.text = "Distance: \(workoutData.distanceString())"
         avgPaceLabel.text = "Average speed: \(workoutData.avgPaceString())"
-       
-        NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSNotification.Name.NSManagedObjectContextDidSave, object: subContext)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(managedObjectContextDidSave),
+            name: NSNotification.Name.NSManagedObjectContextDidSave,
+            object: subContext)
 
         for location in workoutData.locationList {
             let coordItem: CLLocationCoordinate2D = location.coordinate
@@ -58,8 +61,6 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
         workoutData.activityState = .notStarted
         self.dismiss(animated: true, completion: nil)
     }
-    
-
     //////Core Data
     private func saveActivity() {
         let newActivity = Activity(context: CoreDataStack.context)
@@ -75,55 +76,60 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
             locationObject.latitude = location.coordinate.latitude
             locationObject.longitude = location.coordinate.longitude
             newActivity.addToLocations(locationObject)
-            
         }
         CoreDataStack.saveContext()
         activity = newActivity
         createStravaFile()
     }
-    
     private func createStravaFile() {
-  
         let timeStampFormatter = DateFormatter()
         timeStampFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
-        
-        // Set the contents
-        var gpxText : String = String("<?xml version=\"1.0\" encoding=\"UTF-8\"?><gpx version=\"1.1\" creator=\"WoDoTri\" xmlns=\"http://www.topografix.com/GPX/1/1\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:gte=\"http://www.gpstrackeditor.com/xmlschemas/General/1\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">")
-        gpxText.append("<trk><activity_type>\"Ride\"</activity_type><trkseg>")
+        var gpxText: String = String("""
+            <?xml version=\"1.0\" encoding=\"UTF-8\"?><gpx version=\"1.1\"
+            creator=\"WoDoTri\" xmlns=\"http://www.topografix.com/GPX/1/1\"
+            xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+            xmlns:gte=\"http://www.gpstrackeditor.com/xmlschemas/General/1\"
+            xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">
+            <trk><activity_type>\"Ride\"</activity_type><trkseg>
+            """)
         for locations in workoutData.locationList {
             //let formattedTimeStamp = timeStampFormatter.date(from: String(describing: locations.timestamp))
             let formattedTimeStamp = timeStampFormatter.string(from: locations.timestamp)
-            let newLine : String = String("<trkpt lat=\"\(String(format:"%.6f", locations.coordinate.latitude))\" lon=\"\(String(format:"%.6f", locations.coordinate.longitude))\"><time>\(formattedTimeStamp)</time></trkpt>")
+            let newLine: String = String("""
+                <trkpt lat=\"\(String(format: "%.6f", locations.coordinate.latitude))\
+                " lon=\"\(String(format: "%.6f", locations.coordinate.longitude))\">
+                <time>\(formattedTimeStamp)</time></trkpt>
+                """)
             gpxText.append(contentsOf: newLine)
         }
         gpxText.append("</trkseg></trk></gpx>")
-        
         do {
             let stravaToken = defaults.value(forKey: "StravaToken")
             let uploadUrl = "https://www.strava.com/api/v3/uploads" /* your API url */
-            let headers: HTTPHeaders = [
-                "Authorization": "Bearer \(stravaToken!)"
-            ]
+            let headers: HTTPHeaders = [ "Authorization": "Bearer \(stravaToken!)"]
             let parameters: Parameters = [
-              "activity_type" : workoutData.activityType.description,
-                "file" : "@file.gpx",
-                "data_type" : "gpx"
+              "activity_type": workoutData.activityType.description,
+                "file": "@file.gpx",
+                "data_type": "gpx"
             ]
             Alamofire.upload(multipartFormData: { (multipartFormData) in
                 for (key, value) in parameters {
                     multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-                    
                 }
-                if let gpxSubmitData = gpxText.data(using: .utf8){
-                    multipartFormData.append(gpxSubmitData, withName: "file", fileName: "file.gpx", mimeType: "application/gpx")
+                if let gpxSubmitData = gpxText.data(using: .utf8) {
+                    multipartFormData.append(
+                        gpxSubmitData,
+                        withName: "file",
+                        fileName: "file.gpx",
+                        mimeType: "application/gpx"
+                    )
                 }
-                
             }, usingThreshold: UInt64.init(), to: uploadUrl, method: .post, headers: headers) { (result) in
-                switch result{
+                switch result {
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
                         print(response.description)
-                        if let err = response.error{
+                        if let err = response.error {
                             print(err)
                             return
                         }
@@ -134,20 +140,17 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
                 }
             }
         }
-        
     }
     private func mapRegion() -> MKCoordinateRegion? {
-  
         let latitudes = coords.map { location -> Double in
             let location = location
             return location.latitude
         }
-        
         let longitudes = coords.map { location -> Double in
             let location = location
             return location.longitude
         }
-        
+
         let maxLat = latitudes.max()!
         let minLat = latitudes.min()!
         let maxLong = longitudes.max()!
@@ -157,7 +160,6 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
 
         return MKCoordinateRegion(center: center, span: span)
     }
-    
     private func polyLine() -> MKPolyline {
         return MKPolyline(coordinates: coords, count: coords.count)
     }
@@ -165,9 +167,12 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
         guard
             coords.count > 0,
             let region = mapRegion()
-            
             else {
-                let alert = UIAlertController(title: "Error", message: "Sorry, this activity has no locations saved", preferredStyle: .alert)
+                let alert = UIAlertController(
+                    title: "Error",
+                    message: "Sorry, this activity has no locations saved",
+                    preferredStyle: .alert
+                )
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel))
                 present(alert, animated: true)
                 return

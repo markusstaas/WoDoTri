@@ -31,6 +31,7 @@ final class StopWatch: NSObject {
         displayLink.invalidate()
     }
     @objc private func tick(sender: CADisplayLink) {
+         // swiftlint:disable:next shorthand_operator
         elapsedTime = elapsedTime + displayLink.duration
         callback?()
     }
@@ -54,7 +55,7 @@ final class StopWatch: NSObject {
     }
 
     func elapsedTimeAsString() -> String {
-        return formatter.string(from: Date(timeIntervalSinceReferenceDate:elapsedTime))
+        return formatter.string(from: Date(timeIntervalSinceReferenceDate: elapsedTime))
     }
 
 }

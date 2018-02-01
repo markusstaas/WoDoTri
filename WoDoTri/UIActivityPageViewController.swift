@@ -51,7 +51,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return pages.count
     }
-    
+
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         if let identifier = viewControllers?.first?.restorationIdentifier {
             if let index = pages.index(of: identifier) {

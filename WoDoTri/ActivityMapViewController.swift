@@ -37,10 +37,42 @@ final class ActivityMapViewController: UIViewController {
     /// Sticks child view (view1) to the parent view (view2) using constraints.
     private func constraintViewEqual(view1: UIView, view2: UIView) {
         view2.translatesAutoresizingMaskIntoConstraints = false
-        let constraint1 = NSLayoutConstraint(item: view1, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: view2, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 0.0)
-        let constraint2 = NSLayoutConstraint(item: view1, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: view2, attribute: NSLayoutAttribute.trailing, multiplier: 1.0, constant: 0.0)
-        let constraint3 = NSLayoutConstraint(item: view1, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: view2, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 0.0)
-        let constraint4 = NSLayoutConstraint(item: view1, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: view2, attribute: NSLayoutAttribute.leading, multiplier: 1.0, constant: 0.0)
+        let constraint1 = NSLayoutConstraint(
+            item: view1,
+            attribute: NSLayoutAttribute.top,
+            relatedBy: NSLayoutRelation.equal,
+            toItem: view2,
+            attribute: NSLayoutAttribute.top,
+            multiplier: 1.0,
+            constant: 0.0
+        )
+        let constraint2 = NSLayoutConstraint(
+            item: view1,
+            attribute: NSLayoutAttribute.trailing,
+            relatedBy: NSLayoutRelation.equal,
+            toItem: view2,
+            attribute: NSLayoutAttribute.trailing,
+            multiplier: 1.0,
+            constant: 0.0
+        )
+        let constraint3 = NSLayoutConstraint(
+            item: view1,
+            attribute: NSLayoutAttribute.bottom,
+            relatedBy: NSLayoutRelation.equal,
+            toItem: view2,
+            attribute: NSLayoutAttribute.bottom,
+            multiplier: 1.0,
+            constant: 0.0
+        )
+        let constraint4 = NSLayoutConstraint(
+            item: view1,
+            attribute: NSLayoutAttribute.leading,
+            relatedBy: NSLayoutRelation.equal,
+            toItem: view2,
+            attribute: NSLayoutAttribute.leading,
+            multiplier: 1.0,
+            constant: 0.0
+        )
         view1.addConstraints([constraint1, constraint2, constraint3, constraint4])
     }
 
@@ -98,16 +130,24 @@ final class ActivityMapViewController: UIViewController {
         let locale = NSLocale.current
         let isMetric = locale.usesMetricSystem
         if !isMetric {
-         //   let formattedPace = FormatDisplay.pace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerMile)
-            //paceLabel.text = formattedPace
+         /*  let formattedPace = FormatDisplay.pace(
+            distance: distance,
+            seconds: Int(stopwatch.elapsedTime),
+            outputUnit: UnitSpeed.minutesPerMile)
+            paceLabel.text = formattedPace
         } else {
-         //   let formattedPace = FormatDisplay.pace(distance: distance, seconds: Int(stopwatch.elapsedTime), outputUnit: UnitSpeed.minutesPerKilometer)
+          let formattedPace = FormatDisplay.pace(
+            distance: distance,
+            seconds: Int(stopwatch.elapsedTime),
+            outputUnit: UnitSpeed.minutesPerKilometer
+            )
            // paceLabel.text = formattedPace
         }
       //  let formattedDistance = FormatDisplay.distance(distance)
        // distanceLabel.text = formattedDistance
+ */
     }
-
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
