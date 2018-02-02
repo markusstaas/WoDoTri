@@ -17,8 +17,8 @@ final class HistoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Past Workouts"
-        historyTableView.register(UITableViewCell.self, forCellReuseIdentifier: "historyCell")
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let entity = NSEntityDescription.entity(forEntityName: "Activity", in: CoreDataStack.context)
@@ -35,25 +35,28 @@ final class HistoryViewController: UITableViewController {
             print(error)
         }
     }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activities.count
     }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let workout = activities[indexPath.row]
-        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "historyCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
         cell.textLabel?.text = FormatDisplay.date(workout.value(forKey: "timestamp") as? Date)
         cell.detailTextLabel?.text = workout.value(forKey: "type") as? String
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ActivityDetailSegue", sender: self)
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow {
-         //   let selectedRow = indexPath.row
-          //  let viewController = segue.destination as! ActivityDetailViewController
-         //   viewController.activity = activities[selectedRow]
+        guard let activityDetailViewController = segue.destination as? ActivityDetailViewController else {
+            preconditionFailure("Unknown segue")
         }
+        activityDetailViewController.activity = selectedActivity!
+    }
+
+    private var selectedActivity: Activity? {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
+        return activities[indexPath.row]
     }
 }

@@ -6,7 +6,7 @@
         <attribute name="durationString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="activity" inverseEntity="Location" syncable="YES"/>
+        <relationship name="locations" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="activity" inverseEntity="Location" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="latitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>

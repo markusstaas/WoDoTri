@@ -26,6 +26,7 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
     }
 
     private func configureView() {
+
         let distance = Measurement(value: activity.distance, unit: UnitLength.meters)
         let seconds = Int(activity.duration)
         let formattedDistance = FormatDisplay.distance(distance)
@@ -45,17 +46,12 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
     }
 
     private func mapRegion() -> MKCoordinateRegion? {
-        guard
-            let locations = activity.locations,
-            locations.count > 0
-            else {
-                print("No locations found")
-                return nil
+        guard activity.locations.count > 0 else {
+            print("No locations found")
+            return nil
         }
-        // swiftlint:disable force_cast
-        let latitudes = locations.map { ($0 as! CLLocationCoordinate2D).latitude }
-        let longitudes = locations.map { ($0 as! CLLocationCoordinate2D).longitude }
-        // swiftlint:enable force_cast
+        let latitudes = activity.locations.map { $0.latitude }
+        let longitudes = activity.locations.map { $0.longitude }
         let maxLat = latitudes.max()!
         let minLat = latitudes.min()!
         let maxLong = longitudes.max()!
@@ -66,9 +62,7 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
     }
 
     private func loadMap() {
-        guard
-            let locations = activity.locations,
-            locations.count > 0,
+        guard activity.locations.count > 0,
             let region = mapRegion()
             else {
                 let alert = UIAlertController(
@@ -85,14 +79,7 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
     }
 
     private func polyLine() -> MKPolyline {
-
-        guard let locations = activity.locations else {
-            return MKPolyline()
-        }
-        //let sortedLocations = locations.sorted { $0.timestamp > $1.timestamp }
-        // swiftlint:disable force_cast
-        let sortedLocations = (locations.allObjects as! [Location]).sorted(by: { $0.timestamp < $1.timestamp })
-        // swiftlint:enable force_cast
+        let sortedLocations = activity.locations.sorted { $0.timestamp < $1.timestamp }
         let coords: [CLLocationCoordinate2D] = sortedLocations.map { location in
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }

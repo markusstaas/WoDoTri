@@ -112,6 +112,7 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
                 "file": "@file.gpx",
                 "data_type": "gpx"
             ]
+
             Alamofire.upload(multipartFormData: { (multipartFormData) in
                 for (key, value) in parameters {
                     multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
@@ -124,7 +125,11 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
                         mimeType: "application/gpx"
                     )
                 }
-            }, usingThreshold: UInt64.init(), to: uploadUrl, method: .post, headers: headers) { (result) in
+            }, usingThreshold: UInt64.init(),
+               to: uploadUrl,
+               method: .post,
+               headers: headers,
+               encodingCompletion: { (result) in
                 switch result {
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
@@ -139,6 +144,7 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
                     print(error)
                 }
             }
+            )
         }
     }
     private func mapRegion() -> MKCoordinateRegion? {

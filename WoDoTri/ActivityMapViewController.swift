@@ -176,9 +176,9 @@ extension ActivityMapViewController: CLLocationManagerDelegate {
                 // swiftlint:disable:next shorthand_operator
                 workoutData.distance = workoutData.distance + Measurement(
                     value: delta, unit: UnitLength.meters)
-                let coordinates = [lastLocation.coordinate, newLocation.coordinate]
+//                let coordinates = [lastLocation.coordinate, newLocation.coordinate]
                 //mapView.add(MKPolyline(coordinates: coordinates, count: 2))
-                let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
+//                let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
                //mapView.setRegion(region, animated: true)
             }
             workoutData.locationList.append(newLocation)

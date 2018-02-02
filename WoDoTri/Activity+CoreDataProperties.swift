@@ -21,7 +21,7 @@ extension Activity {
     @NSManaged public var durationString: String?
     @NSManaged public var timestamp: Date?
     @NSManaged public var type: String?
-    @NSManaged public var locations: NSSet?
+    @NSManaged public var locations: Set<Location>
 
 }
 
