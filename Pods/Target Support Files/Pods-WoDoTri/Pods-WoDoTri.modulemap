@@ -1,0 +1,6 @@
+framework module Pods_WoDoTri {
+  umbrella header "Pods-WoDoTri-umbrella.h"
+
+  export *
+  module * { export * }
+}
