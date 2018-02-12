@@ -19,7 +19,7 @@
 		28A199A22022BC5500E7B715 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1999E2022BC5500E7B715 /* Location.swift */; };
 		28B06B9D20159739004050C1 /* MapChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B06B9C20159739004050C1 /* MapChildViewController.swift */; };
 		28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B321FB705DB009384C2 /* StopWatch.swift */; };
-		28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* FinishViewController.swift */; };
+		28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */; };
 		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
 		28F33378200C53F400272462 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F33377200C53F400272462 /* SettingsTableViewController.swift */; };
 		28F7B7682005BF2100B9A344 /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7B7672005BF2100B9A344 /* ActivityPageViewController.swift */; };
@@ -51,7 +51,7 @@
 		28A1999E2022BC5500E7B715 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		28B06B9C20159739004050C1 /* MapChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapChildViewController.swift; sourceTree = "<group>"; };
 		28CD5B321FB705DB009384C2 /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
-		28CD5B341FB82209009384C2 /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityFinishViewController.swift; sourceTree = "<group>"; };
 		28CD5B361FB83034009384C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		28F33377200C53F400272462 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		28F7B7672005BF2100B9A344 /* ActivityPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageViewController.swift; sourceTree = "<group>"; };
@@ -145,9 +145,9 @@
 				28F7B7672005BF2100B9A344 /* ActivityPageViewController.swift */,
 				289508B71FB575D200353860 /* ActivityViewController.swift */,
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
+				28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */,
 				289508B91FB5761A00353860 /* HistoryViewController.swift */,
 				652768FB1FD5070500353CC9 /* ActivityDetailViewController.swift */,
-				28CD5B341FB82209009384C2 /* FinishViewController.swift */,
 				65CDD9601FC63FB8002F6D40 /* UIControls.swift */,
 				28F33377200C53F400272462 /* SettingsTableViewController.swift */,
 				28B06B9C20159739004050C1 /* MapChildViewController.swift */,
@@ -332,7 +332,7 @@
 				28B06B9D20159739004050C1 /* MapChildViewController.swift in Sources */,
 				289508B81FB575D200353860 /* ActivityViewController.swift in Sources */,
 				65CDD9611FC63FB8002F6D40 /* UIControls.swift in Sources */,
-				28CD5B351FB82209009384C2 /* FinishViewController.swift in Sources */,
+				28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */,
 				656B518D1FD79E7C002CBFDD /* WorkoutData.swift in Sources */,
 				65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */,
 				651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */,

@@ -114,14 +114,6 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
         locationManager.startUpdatingLocation()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "FinishView" {
-            //let viewController = segue.destination as! FinishViewController
-          //  viewController.activityDuration = stopwatch.elapsedTimeAsString()
-           // viewController.finalTimestamp = Date()
-        }
-    }
-
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for newLocation in locations {
             let howRecent = newLocation.timestamp.timeIntervalSinceNow

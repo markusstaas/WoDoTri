@@ -6,7 +6,7 @@ import CoreData
 import MapKit
 import Alamofire
 
-final class FinishViewController: UIControls, MKMapViewDelegate {
+final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
 
     var activityDuration: String?
     var finalTimestamp: Date?
