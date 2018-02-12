@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1454" y="816"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="GLc-9X-Bbn">
             <objects>
-                <tableViewController id="ieh-DX-kMa" customClass="SettingsTableViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ieh-DX-kMa" customClass="SettingsViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="m9z-sw-F3V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

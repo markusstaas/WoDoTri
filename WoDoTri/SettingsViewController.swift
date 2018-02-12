@@ -3,7 +3,7 @@
 import UIKit
 import OAuthSwift
 
-final class SettingsTableViewController: UITableViewController {
+final class SettingsViewController: UITableViewController {
 
     private var oauthswift: OAuth2Swift!
     private let defaults = UserDefaults.standard
