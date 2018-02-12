@@ -439,7 +439,7 @@
         <!--Activity Page View Controller-->
         <scene sceneID="vrB-Dt-deM">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PRQ-hC-DaC" customClass="UIActivityPageViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PRQ-hC-DaC" customClass="ActivityPageViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RpM-1G-ioC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2954" y="-705"/>
