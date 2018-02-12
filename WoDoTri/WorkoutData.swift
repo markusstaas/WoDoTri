@@ -1,10 +1,4 @@
-//
-//  WorkoutData.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 12/6/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import Foundation
 import CoreLocation
@@ -13,6 +7,7 @@ final class WorkoutData {
 
     static let shared = WorkoutData()
     private var stopwatch = StopWatch()
+
     var activityType = ActivityType.run
     var activityState = WorkoutState.notStarted
     var distance = Measurement(value: 0, unit: UnitLength.meters)
@@ -21,15 +16,18 @@ final class WorkoutData {
     var locationList: [CLLocation] = []
     var duration = 0.00
     var durationString = ""
+
     init() {
         self.distanceFormatted = ""
         self.avgPace = ""
         self.durationString = stopwatch.elapsedTimeAsString()
     }
+
     func distanceString() -> String {
         self.distanceFormatted = FormatDisplay.distance(distance)
         return distanceFormatted
     }
+
     func avgPaceString() -> String {
         self.avgPace = FormatDisplay.avgPace(
             distance: distance,

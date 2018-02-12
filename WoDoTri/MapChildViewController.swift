@@ -1,10 +1,4 @@
-//
-//  MapChildViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 1/22/18.
 //  Copyright © 2018 Markus Staas. All rights reserved.
-//
 
 import UIKit
 import MapKit
@@ -30,7 +24,6 @@ final class MapChildViewController: UIViewController {
         startLocationUpdates()
         // Do any additional setup after loading the view.
     }
-
 }
 
 extension MapChildViewController: MKMapViewDelegate {

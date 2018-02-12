@@ -1,10 +1,4 @@
-//
-//  UIControls.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/23/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import UIKit
 
@@ -20,8 +14,10 @@ class UIControls: UIViewController {
                 self.navigationController?.popViewController(animated: false)
                 self.performSegue(withIdentifier: "homeSegue", sender: self)
             }
+
             alert.addAction(savedAction)
             present(alert, animated: true)
         }
     }
+
 }

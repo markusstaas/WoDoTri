@@ -1,10 +1,4 @@
-//
-//  ViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/10/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import UIKit
 

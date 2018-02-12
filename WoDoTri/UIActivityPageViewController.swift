@@ -1,15 +1,9 @@
-//
-//  UIActivityPageViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 1/10/18.
 //  Copyright © 2018 Markus Staas. All rights reserved.
-//
 
 import UIKit
 
 final class UIActivityPageViewController: UIPageViewController,
-UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     private let pages = ["ActivityView", "ActivityMapView"]
 
@@ -60,4 +54,5 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
         }
         return 0
     }
+
 }

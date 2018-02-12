@@ -1,15 +1,11 @@
-//
-//  UnitCalculations.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/22/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//  Based on https://www.raywenderlich.com/155772/make-app-like-runkeeper-part-1-2
 
 import Foundation
 
 final class UnitConverterPace: UnitConverter {
+
     private let coefficient: Double
+
     init(coefficient: Double) {
         self.coefficient = coefficient
     }
@@ -26,18 +22,5 @@ final class UnitConverterPace: UnitConverter {
         guard value != 0 else { return 0 }
         return 1.0 / value
     }
-}
 
-extension UnitSpeed {
-    class var secondsPerMeter: UnitSpeed {
-        return UnitSpeed(symbol: "sec/m", converter: UnitConverterPace(coefficient: 1))
-    }
-
-    class var minutesPerKilometer: UnitSpeed {
-        return UnitSpeed(symbol: "min/km", converter: UnitConverterPace(coefficient: 60.0 / 1000.0))
-    }
-
-    class var minutesPerMile: UnitSpeed {
-        return UnitSpeed(symbol: "min/mi", converter: UnitConverterPace(coefficient: 60.0 / 1609.34))
-    }
 }

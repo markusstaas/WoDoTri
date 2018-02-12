@@ -1,10 +1,4 @@
-//
-//  ActivityMapViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/10/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import UIKit
 import MapKit
@@ -34,6 +28,7 @@ final class ActivityMapViewController: UIViewController {
         constraintViewEqual(view1: mapContainerView, view2: vc.view)
         vc.didMove(toParentViewController: self)
     }
+
     /// Sticks child view (view1) to the parent view (view2) using constraints.
     private func constraintViewEqual(view1: UIView, view2: UIView) {
         view2.translatesAutoresizingMaskIntoConstraints = false
@@ -46,6 +41,7 @@ final class ActivityMapViewController: UIViewController {
             multiplier: 1.0,
             constant: 0.0
         )
+
         let constraint2 = NSLayoutConstraint(
             item: view1,
             attribute: NSLayoutAttribute.trailing,
@@ -55,6 +51,7 @@ final class ActivityMapViewController: UIViewController {
             multiplier: 1.0,
             constant: 0.0
         )
+
         let constraint3 = NSLayoutConstraint(
             item: view1,
             attribute: NSLayoutAttribute.bottom,
@@ -64,6 +61,7 @@ final class ActivityMapViewController: UIViewController {
             multiplier: 1.0,
             constant: 0.0
         )
+
         let constraint4 = NSLayoutConstraint(
             item: view1,
             attribute: NSLayoutAttribute.leading,
@@ -73,6 +71,7 @@ final class ActivityMapViewController: UIViewController {
             multiplier: 1.0,
             constant: 0.0
         )
+
         view1.addConstraints([constraint1, constraint2, constraint3, constraint4])
     }
 
@@ -148,6 +147,7 @@ final class ActivityMapViewController: UIViewController {
  */
     }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -163,6 +163,7 @@ final class ActivityMapViewController: UIViewController {
             pauseButt.isHidden = true
         }
     }
+
 }
 
 extension ActivityMapViewController: CLLocationManagerDelegate {
@@ -184,4 +185,5 @@ extension ActivityMapViewController: CLLocationManagerDelegate {
             workoutData.locationList.append(newLocation)
         }
     }
+
 }

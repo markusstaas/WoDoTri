@@ -1,21 +1,14 @@
-//
-//  SettingsTableViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 1/15/18.
 //  Copyright © 2018 Markus Staas. All rights reserved.
-//
 
 import UIKit
 import OAuthSwift
 
 final class SettingsTableViewController: UITableViewController {
+
     private var oauthswift: OAuth2Swift!
     private let defaults = UserDefaults.standard
     @IBOutlet private weak var stravaSwitch: UISwitch!
-    //todo: - check if already authorized and set swithc state
-    //- create GPX file from workout
-    //- upload GPX file to Strava
+
     @IBAction private func stravaSwitchToggled(_ sender: Any) {
         if stravaSwitch.isOn {
             // Create OAuth Object
@@ -26,7 +19,9 @@ final class SettingsTableViewController: UITableViewController {
                 accessTokenUrl: "https://www.strava.com/oauth/token",
                 responseType: "code"
             )
+
             oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
+
             oauthswift.authorize(
                 withCallbackURL: URL(string: "com.starkusmaas.WoDoTri://oauth-callback/strava")!,
                 scope: "write",
@@ -41,6 +36,7 @@ final class SettingsTableViewController: UITableViewController {
                     print(error.localizedDescription)
             }
             )
+
         } else {
             defaults.set(false, forKey: "ShareWithStrava")
         }

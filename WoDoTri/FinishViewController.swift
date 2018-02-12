@@ -1,10 +1,4 @@
-//
-//  FinishViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/12/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import UIKit
 import CoreLocation
@@ -31,6 +25,7 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
     @IBOutlet private weak var mapView: MKMapView!
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
         activityTypeLabel.text = workoutData.activityType.description
         elapsedTimeLabel.text = "Duration: \(workoutData.durationString)"
@@ -48,19 +43,23 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
         }
          loadMap()
     }
+
     @IBAction private func continueButtonPressed() {
        self.dismiss(animated: true, completion: nil)
         workoutData.activityState = .restarted
     }
+
     @IBAction private func finishButtonPressed(_ sender: Any) {
         saveActivity()
         workoutData.activityState = .notStarted
     }
+
     @IBAction private func discardButtonPressed(_ sender: Any) {
         stopwatch.reset()
         workoutData.activityState = .notStarted
         self.dismiss(animated: true, completion: nil)
     }
+
     //////Core Data
     private func saveActivity() {
         let newActivity = Activity(context: CoreDataStack.context)
@@ -81,6 +80,7 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
         activity = newActivity
         createStravaFile()
     }
+
     private func createStravaFile() {
         let timeStampFormatter = DateFormatter()
         timeStampFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
@@ -92,6 +92,7 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
             xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">
             <trk><activity_type>\"Ride\"</activity_type><trkseg>
             """)
+
         for locations in workoutData.locationList {
             //let formattedTimeStamp = timeStampFormatter.date(from: String(describing: locations.timestamp))
             let formattedTimeStamp = timeStampFormatter.string(from: locations.timestamp)
@@ -102,7 +103,9 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
                 """)
             gpxText.append(contentsOf: newLine)
         }
+
         gpxText.append("</trkseg></trk></gpx>")
+
         do {
             let stravaToken = defaults.value(forKey: "StravaToken")
             let uploadUrl = "https://www.strava.com/api/v3/uploads" /* your API url */
@@ -147,11 +150,14 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
             )
         }
     }
+
     private func mapRegion() -> MKCoordinateRegion? {
+
         let latitudes = coords.map { location -> Double in
             let location = location
             return location.latitude
         }
+
         let longitudes = coords.map { location -> Double in
             let location = location
             return location.longitude
@@ -166,9 +172,11 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
 
         return MKCoordinateRegion(center: center, span: span)
     }
+
     private func polyLine() -> MKPolyline {
         return MKPolyline(coordinates: coords, count: coords.count)
     }
+
     private func loadMap() {
         guard
             coords.count > 0,
@@ -183,13 +191,16 @@ final class FinishViewController: UIControls, MKMapViewDelegate {
                 present(alert, animated: true)
                 return
         }
+
         mapView.setRegion(region, animated: true)
         mapView.add(polyLine())
     }
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyline = overlay as? MKPolyline else {
             return MKOverlayRenderer(overlay: overlay)
         }
+
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.strokeColor = .purple
         renderer.lineWidth = 4

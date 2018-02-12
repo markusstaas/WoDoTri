@@ -1,10 +1,4 @@
-//
-//  ActivityViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/10/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import UIKit
 import CoreLocation
@@ -22,6 +16,7 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
     @IBOutlet private weak var paceLabel: UILabel!
     @IBOutlet private weak var distanceLabel: UILabel!
     @IBOutlet private weak var averagePaceLabel: UILabel!
+
     private func tick() {
         updateDisplay()
         workoutData.durationString = stopwatch.elapsedTimeAsString()
@@ -66,6 +61,7 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
             pauseButt.isHidden = true
         }
     }
+
     private func assignBackground() {
         let background = UIImage(named: "backgroundrunner")
         var imageView: UIImageView!
@@ -91,7 +87,7 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
         assignBackground()
     }
 
-     private func updateDisplay() {
+    private func updateDisplay() {
         let locale = NSLocale.current
         let isMetric = locale.usesMetricSystem
         if !isMetric {
@@ -117,6 +113,7 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FinishView" {
             //let viewController = segue.destination as! FinishViewController
@@ -124,6 +121,7 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
            // viewController.finalTimestamp = Date()
         }
     }
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for newLocation in locations {
             let howRecent = newLocation.timestamp.timeIntervalSinceNow

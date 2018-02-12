@@ -1,10 +1,4 @@
-//
-//  HistoryViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/10/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import UIKit
 import CoreData
@@ -59,4 +53,5 @@ final class HistoryViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
         return activities[indexPath.row]
     }
+
 }

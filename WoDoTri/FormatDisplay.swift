@@ -1,11 +1,4 @@
-//
-//  FormatDisplay.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/22/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
-
 import Foundation
 
 struct FormatDisplay {
@@ -41,6 +34,7 @@ struct FormatDisplay {
         let speed = Measurement(value: speedMagnitude, unit: UnitSpeed.metersPerSecond)
         return formatter.string(from: speed.converted(to: outputUnit))
     }
+
     static func date(_ timestamp: Date?) -> String {
         guard let timestamp = timestamp as Date? else { return "" }
         let formatter = DateFormatter()
@@ -48,4 +42,5 @@ struct FormatDisplay {
         formatter.timeStyle = .medium
         return formatter.string(from: timestamp)
     }
+
 }

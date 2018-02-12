@@ -1,10 +1,4 @@
-//
-//  CoreDataStack.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 11/24/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import CoreData
 
@@ -21,6 +15,7 @@ final class CoreDataStack {
         }()
 
     static var context: NSManagedObjectContext { return persistentContainer.viewContext }
+
     static func saveContext () {
         let context = persistentContainer.viewContext
 
@@ -34,4 +29,5 @@ final class CoreDataStack {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
-    }
+
+}

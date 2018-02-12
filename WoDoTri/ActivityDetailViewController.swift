@@ -1,10 +1,4 @@
-//
-//  ActivityDetailViewController.swift
-//  WoDoTri
-//
-//  Created by Markus Staas on 12/4/17.
 //  Copyright © 2017 Markus Staas. All rights reserved.
-//
 
 import UIKit
 import MapKit
@@ -37,6 +31,7 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
             seconds: seconds,
             outputUnit: UnitSpeed.minutesPerMile
         )
+
         activityTypeLabel.text = activity.type
         completedDistanceLabel.text = "Distance:  \(formattedDistance)"
         dateLabel.text = formattedDate
@@ -85,6 +80,7 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
         }
         return MKPolyline(coordinates: coords, count: coords.count)
     }
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyline = overlay as? MKPolyline else {
             return MKOverlayRenderer(overlay: overlay)
@@ -94,4 +90,5 @@ final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
         renderer.lineWidth = 3
         return renderer
     }
+
 }
