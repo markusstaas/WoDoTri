@@ -7,7 +7,7 @@ import CoreLocation
 final class MapViewController: UIViewController {
 
     private var activity: Activity!
-    private let workoutData = WorkoutData.shared
+    private let workoutData = Workout.shared
     private let locationManager = LocationManager.shared
 
     @IBOutlet weak private var mapView: MKMapView!

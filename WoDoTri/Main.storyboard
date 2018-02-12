@@ -207,7 +207,7 @@
         <!--Map View Controller-->
         <scene sceneID="uB2-Q0-JX6">
             <objects>
-                <viewController storyboardIdentifier="MapChildViewController" id="oL1-DD-Xei" customClass="MapViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="oL1-DD-Xei" customClass="MapViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zz2-Gh-XEN"/>
                         <viewControllerLayoutGuide type="bottom" id="mfn-7D-Abg"/>

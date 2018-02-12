@@ -4,7 +4,7 @@ import UIKit
 
 final class ActivityPickerViewController: UIViewController {
 
-    private let workoutData = WorkoutData.shared
+    private let workoutData = Workout.shared
 
     @IBAction private func bikeButtonPressed(_ sender: Any) {
         workoutData.activityType = .bike

@@ -6,7 +6,7 @@ import CoreLocation
 final class ActivityViewController: UIViewController, CLLocationManagerDelegate {
 
     private var activity: Activity!
-    private let workoutData = WorkoutData.shared
+    private let workoutData = Workout.shared
     private let locationManager = LocationManager.shared
     private let stopwatch = StopWatch()
 

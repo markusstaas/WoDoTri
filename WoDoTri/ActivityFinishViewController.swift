@@ -13,7 +13,7 @@ final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
 
     private let defaults = UserDefaults.standard
     private var activity: Activity!
-    private let workoutData = WorkoutData.shared
+    private let workoutData = Workout.shared
     private var subContext = CoreDataStack.context
     private let stopwatch = StopWatch()
     private var coords = [CLLocationCoordinate2D]()
