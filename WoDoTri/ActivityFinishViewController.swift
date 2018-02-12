@@ -6,14 +6,14 @@ import CoreData
 import MapKit
 import Alamofire
 
-final class FinishViewController: UIControls, MKMapViewDelegate {
+final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
 
     var activityDuration: String?
     var finalTimestamp: Date?
 
     private let defaults = UserDefaults.standard
     private var activity: Activity!
-    private let workoutData = WorkoutData.shared
+    private let workoutData = Workout.shared
     private var subContext = CoreDataStack.context
     private let stopwatch = StopWatch()
     private var coords = [CLLocationCoordinate2D]()

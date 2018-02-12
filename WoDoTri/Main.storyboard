@@ -13,7 +13,7 @@
         <!--WDATri-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ActivityPickerViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1454" y="816"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="GLc-9X-Bbn">
             <objects>
-                <tableViewController id="ieh-DX-kMa" customClass="SettingsTableViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ieh-DX-kMa" customClass="SettingsViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="m9z-sw-F3V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="2505" y="828"/>
         </scene>
-        <!--Map Child View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="uB2-Q0-JX6">
             <objects>
-                <viewController storyboardIdentifier="MapChildViewController" id="oL1-DD-Xei" customClass="MapChildViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="oL1-DD-Xei" customClass="MapViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zz2-Gh-XEN"/>
                         <viewControllerLayoutGuide type="bottom" id="mfn-7D-Abg"/>
@@ -236,10 +236,10 @@
             </objects>
             <point key="canvasLocation" x="3333" y="832"/>
         </scene>
-        <!--Activity Detail View Controller-->
+        <!--History Detail View Controller-->
         <scene sceneID="yDC-8e-i7w">
             <objects>
-                <viewController id="rSn-eo-b4j" customClass="ActivityDetailViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rSn-eo-b4j" customClass="HistoryDetailViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZaS-Yt-0GT"/>
                         <viewControllerLayoutGuide type="bottom" id="bnh-mc-G45"/>
@@ -443,7 +443,7 @@
         <!--Activity Page View Controller-->
         <scene sceneID="vrB-Dt-deM">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PRQ-hC-DaC" customClass="UIActivityPageViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PRQ-hC-DaC" customClass="ActivityPageViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RpM-1G-ioC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2954" y="-705"/>
@@ -510,10 +510,10 @@
             </objects>
             <point key="canvasLocation" x="3703.1999999999998" y="35.532233883058474"/>
         </scene>
-        <!--Finish View Controller-->
+        <!--Activity Finish View Controller-->
         <scene sceneID="zZl-eu-qHq">
             <objects>
-                <viewController storyboardIdentifier="FinishViewController" id="YLS-lw-Kci" customClass="FinishViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YLS-lw-Kci" customClass="ActivityFinishViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AlW-JF-Pcc"/>
                         <viewControllerLayoutGuide type="bottom" id="3EE-i6-juT"/>
@@ -656,6 +656,6 @@
         <image name="settings" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ERa-gf-weA"/>
+        <segue reference="4bf-Cl-VC1"/>
     </inferredMetricsTieBreakers>
 </document>

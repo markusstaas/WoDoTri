@@ -2,7 +2,7 @@
 
 import UIKit
 
-final class UIActivityPageViewController: UIPageViewController,
+final class ActivityPageViewController: UIPageViewController,
     UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     private let pages = ["ActivityView", "ActivityMapView"]

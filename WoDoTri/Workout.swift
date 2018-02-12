@@ -3,12 +3,12 @@
 import Foundation
 import CoreLocation
 
-final class WorkoutData {
+final class Workout {
 
-    static let shared = WorkoutData()
+    static let shared = Workout()
     private var stopwatch = StopWatch()
 
-    var activityType = ActivityType.run
+    var activityType = WorkoutType.run
     var activityState = WorkoutState.notStarted
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var distanceFormatted: String
@@ -32,7 +32,8 @@ final class WorkoutData {
         self.avgPace = FormatDisplay.avgPace(
             distance: distance,
             seconds: Int(duration),
-            outputUnit: UnitSpeed.minutesPerMile)
+            outputUnit: UnitSpeed.minutesPerMile
+        )
         return avgPace
     }
 

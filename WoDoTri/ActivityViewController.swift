@@ -6,7 +6,7 @@ import CoreLocation
 final class ActivityViewController: UIViewController, CLLocationManagerDelegate {
 
     private var activity: Activity!
-    private let workoutData = WorkoutData.shared
+    private let workoutData = Workout.shared
     private let locationManager = LocationManager.shared
     private let stopwatch = StopWatch()
 
@@ -112,14 +112,6 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
         locationManager.activityType = .fitness
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "FinishView" {
-            //let viewController = segue.destination as! FinishViewController
-          //  viewController.activityDuration = stopwatch.elapsedTimeAsString()
-           // viewController.finalTimestamp = Date()
-        }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
