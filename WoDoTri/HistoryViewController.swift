@@ -43,7 +43,7 @@ final class HistoryViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let activityDetailViewController = segue.destination as? ActivityDetailViewController else {
+        guard let activityDetailViewController = segue.destination as? HistoryDetailViewController else {
             preconditionFailure("Unknown segue")
         }
         activityDetailViewController.activity = selectedActivity!

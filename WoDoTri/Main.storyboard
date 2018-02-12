@@ -236,10 +236,10 @@
             </objects>
             <point key="canvasLocation" x="3333" y="832"/>
         </scene>
-        <!--Activity Detail View Controller-->
+        <!--History Detail View Controller-->
         <scene sceneID="yDC-8e-i7w">
             <objects>
-                <viewController id="rSn-eo-b4j" customClass="ActivityDetailViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rSn-eo-b4j" customClass="HistoryDetailViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZaS-Yt-0GT"/>
                         <viewControllerLayoutGuide type="bottom" id="bnh-mc-G45"/>

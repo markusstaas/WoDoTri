@@ -3,7 +3,7 @@
 import UIKit
 import MapKit
 
-final class ActivityDetailViewController: UIViewController, MKMapViewDelegate {
+final class HistoryDetailViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet private weak var activityTypeLabel: UILabel!
     @IBOutlet private weak var elapsedTimeLabel: UILabel!
