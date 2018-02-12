@@ -2,7 +2,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class ActivityPickerViewController: UIViewController {
 
     private let workoutData = WorkoutData.shared
 
