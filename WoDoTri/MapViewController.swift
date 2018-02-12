@@ -4,7 +4,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-final class MapChildViewController: UIViewController {
+final class MapViewController: UIViewController {
 
     private var activity: Activity!
     private let workoutData = WorkoutData.shared
@@ -26,7 +26,7 @@ final class MapChildViewController: UIViewController {
     }
 }
 
-extension MapChildViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let polyline = overlay as? MKPolyline else {
             return MKOverlayRenderer(overlay: overlay)
@@ -38,7 +38,7 @@ extension MapChildViewController: MKMapViewDelegate {
     }
 }
 
-extension MapChildViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for newLocation in locations {

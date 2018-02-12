@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="2505" y="828"/>
         </scene>
-        <!--Map Child View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="uB2-Q0-JX6">
             <objects>
-                <viewController storyboardIdentifier="MapChildViewController" id="oL1-DD-Xei" customClass="MapChildViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapChildViewController" id="oL1-DD-Xei" customClass="MapViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zz2-Gh-XEN"/>
                         <viewControllerLayoutGuide type="bottom" id="mfn-7D-Abg"/>
@@ -656,6 +656,6 @@
         <image name="settings" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ERa-gf-weA"/>
+        <segue reference="4bf-Cl-VC1"/>
     </inferredMetricsTieBreakers>
 </document>

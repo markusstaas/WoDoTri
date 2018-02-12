@@ -21,7 +21,7 @@ final class ActivityMapViewController: UIViewController {
 
     private func addReusableViewController() {
         guard let vc = storyboard?.instantiateViewController(
-            withIdentifier: String(describing: MapChildViewController.self)) as? MapChildViewController else { return }
+            withIdentifier: String(describing: MapViewController.self)) as? MapViewController else { return }
         vc.willMove(toParentViewController: self)
         addChildViewController(vc)
         mapContainerView.addSubview(vc.view)
