@@ -46,8 +46,8 @@ extension MapViewController: CLLocationManagerDelegate {
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
             if let lastLocation = workoutData.locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
-                 // swiftlint:disable:next shorthand_operator
-                workoutData.distance = workoutData.distance + Measurement(value: delta, unit: UnitLength.meters)
+                let deltaMeasurement = Measurement(value: delta, unit: UnitLength.meters)
+                workoutData.addDistance(deltaMeasurement)
                 let coordinates = [lastLocation.coordinate, newLocation.coordinate]
                 mapView.add(MKPolyline(coordinates: coordinates, count: 2))
                 let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
