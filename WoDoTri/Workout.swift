@@ -10,22 +10,19 @@ final class Workout {
 
     var activityType = WorkoutType.run
     var activityState = WorkoutState.notStarted
-    var distance = Measurement(value: 0, unit: UnitLength.meters)
-    var distanceFormatted: String
     var avgPace: String
     var locationList: [CLLocation] = []
     var duration = 0.00
     var durationString = ""
 
+    private(set) var distance = Workout.initialDistance
+    private(set) var distanceText = Workout.makeDistanceText(for: Workout.initialDistance)
+
+    private static let initialDistance = Measurement(value: 0, unit: UnitLength.meters)
+
     init() {
-        self.distanceFormatted = ""
         self.avgPace = ""
         self.durationString = stopwatch.elapsedTimeAsString()
-    }
-
-    func distanceString() -> String {
-        self.distanceFormatted = FormatDisplay.distance(distance)
-        return distanceFormatted
     }
 
     func avgPaceString() -> String {
@@ -35,6 +32,28 @@ final class Workout {
             outputUnit: UnitSpeed.minutesPerMile
         )
         return avgPace
+    }
+
+    // MARK: - Updating distance
+
+    func addDistance(_ newDistance: Measurement<UnitLength>) {
+        setDistance(distance + newDistance)
+    }
+
+    func resetDistance() {
+        setDistance(Workout.initialDistance)
+    }
+
+    private func setDistance(_ newDistance: Measurement<UnitLength>) {
+        distance = newDistance
+        distanceText = Workout.makeDistanceText(for: newDistance)
+    }
+
+    static func makeDistanceText(for distance: Measurement<UnitLength>) -> String {
+        let formatter = MeasurementFormatter()
+        formatter.numberFormatter.minimumFractionDigits = 2
+        formatter.numberFormatter.maximumFractionDigits = 2
+        return formatter.string(from: distance)
     }
 
 }

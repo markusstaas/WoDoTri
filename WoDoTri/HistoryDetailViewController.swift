@@ -23,7 +23,7 @@ final class HistoryDetailViewController: UIViewController, MKMapViewDelegate {
 
         let distance = Measurement(value: activity.distance, unit: UnitLength.meters)
         let seconds = Int(activity.duration)
-        let formattedDistance = FormatDisplay.distance(distance)
+        let formattedDistance = Workout.makeDistanceText(for: distance)
         let formattedDate = FormatDisplay.date(activity.timestamp)
         let formattedTime = activity.durationString
         let formattedPace = FormatDisplay.pace(

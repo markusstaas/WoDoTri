@@ -27,7 +27,7 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
     private func startActivity() {
         stopwatch.start()
         workoutData.activityState = .started
-        workoutData.distance = Measurement(value: 0, unit: UnitLength.meters)
+        workoutData.resetDistance()
         workoutData.locationList.removeAll()
         startLocationUpdates()
         tick()
@@ -103,8 +103,7 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
                 outputUnit: UnitSpeed.minutesPerKilometer)
             paceLabel.text = formattedPace
         }
-        let formattedDistance = FormatDisplay.distance(workoutData.distance)
-        distanceLabel.text = formattedDistance
+        distanceLabel.text = workoutData.distanceText
     }
 
     private func startLocationUpdates() {
@@ -121,14 +120,12 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
             if let lastLocation = workoutData.locationList.last {
                 if workoutData.activityState == .started {
                     let delta = newLocation.distance(from: lastLocation)
-                     // swiftlint:disable:next shorthand_operator
-                    workoutData.distance = workoutData.distance + Measurement(value: delta, unit: UnitLength.meters)
+                    let deltaMeasurement = Measurement(value: delta, unit: UnitLength.meters)
+                    workoutData.addDistance(deltaMeasurement)
                 }
                 if workoutData.activityState == .restarted {
                     // out of pause state, Delta to 0 because
                     //we dont want to use the distance traveled during pause state
-                     // swiftlint:disable:next shorthand_operator
-                    workoutData.distance = workoutData.distance + Measurement(value: 0.0, unit: UnitLength.meters)
                     workoutData.activityState = .started
                 }
             }

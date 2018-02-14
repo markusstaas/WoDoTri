@@ -29,7 +29,7 @@ final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
         super.viewDidLoad()
         activityTypeLabel.text = workoutData.activityType.description
         elapsedTimeLabel.text = "Duration: \(workoutData.durationString)"
-        completedDistanceLabel.text = "Distance: \(workoutData.distanceString())"
+        completedDistanceLabel.text = "Distance: \(workoutData.distanceText)"
         avgPaceLabel.text = "Average speed: \(workoutData.avgPaceString())"
         NotificationCenter.default.addObserver(
             self,
