@@ -604,10 +604,11 @@
                         <outlet property="completedDistanceLabel" destination="NS6-CW-cvU" id="jfp-no-fCZ"/>
                         <outlet property="elapsedTimeLabel" destination="IWC-C2-G5g" id="tbR-yD-tFF"/>
                         <outlet property="mapView" destination="acw-j9-16S" id="yda-JP-6ka"/>
-                        <segue destination="lKn-Up-Abv" kind="show" identifier="homeSegue" id="VZi-7w-tT9"/>
+                        <segue destination="gPp-gr-gGE" kind="unwind" identifier="Dismiss" unwindAction="unwindToActivityPickerViewControllerWith:" id="Y9a-XI-yus"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykc-b6-CY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gPp-gr-gGE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4623.1999999999998" y="35.532233883058474"/>
         </scene>
@@ -645,7 +646,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXe-St-EzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="36"/>
+            <point key="canvasLocation" x="975" y="36"/>
         </scene>
     </scenes>
     <resources>

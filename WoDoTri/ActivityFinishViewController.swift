@@ -6,7 +6,7 @@ import CoreData
 import MapKit
 import Alamofire
 
-final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
+final class ActivityFinishViewController: UIViewController, MKMapViewDelegate {
 
     var activityDuration: String?
     var finalTimestamp: Date?
@@ -29,12 +29,6 @@ final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
         elapsedTimeLabel.text = "Duration: \(workoutData.durationString)"
         completedDistanceLabel.text = "Distance: \(workoutData.distanceText)"
         avgPaceLabel.text = "Average speed: \(workoutData.avgPaceString())"
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(managedObjectContextDidSave),
-            name: NSNotification.Name.NSManagedObjectContextDidSave,
-            object: CoreDataStack.context
-        )
         for location in workoutData.locationList {
             let coordItem: CLLocationCoordinate2D = location.coordinate
             coords.append(coordItem)
@@ -74,9 +68,23 @@ final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
             locationObject.longitude = location.coordinate.longitude
             newActivity.addToLocations(locationObject)
         }
-        CoreDataStack.saveContext()
+
         activity = newActivity
         createStravaFile()
+        CoreDataStack.saveContext()
+        presentWorkoutSavedAlert()
+    }
+
+    private func presentWorkoutSavedAlert() {
+        let alertTitle = NSLocalizedString("Workout Saved", comment: "")
+        let alertMessage = NSLocalizedString("Your workout has been saved.", comment: "")
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .actionSheet)
+        let actionTitle = NSLocalizedString("OK", comment: "")
+        let action = UIAlertAction(title: actionTitle, style: .default) { [weak self] _ in
+            self?.performSegue(withIdentifier: "Dismiss", sender: self)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 
     private func createStravaFile() {

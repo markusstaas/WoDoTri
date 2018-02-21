@@ -16,7 +16,7 @@ final class CoreDataStack {
 
     static var context: NSManagedObjectContext { return persistentContainer.viewContext }
 
-    static func saveContext () {
+    static func saveContext() {
         let context = persistentContainer.viewContext
         guard context.hasChanges else {
             return
