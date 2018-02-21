@@ -14,7 +14,6 @@ final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
     private let defaults = UserDefaults.standard
     private var activity: Activity!
     private let workoutData = Workout.shared
-    private var subContext = CoreDataStack.context
     private let stopwatch = StopWatch()
     private var coords = [CLLocationCoordinate2D]()
 
@@ -25,7 +24,6 @@ final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
     @IBOutlet private weak var mapView: MKMapView!
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
         activityTypeLabel.text = workoutData.activityType.description
         elapsedTimeLabel.text = "Duration: \(workoutData.durationString)"
@@ -35,13 +33,13 @@ final class ActivityFinishViewController: UIControls, MKMapViewDelegate {
             self,
             selector: #selector(managedObjectContextDidSave),
             name: NSNotification.Name.NSManagedObjectContextDidSave,
-            object: subContext)
-
+            object: CoreDataStack.context
+        )
         for location in workoutData.locationList {
             let coordItem: CLLocationCoordinate2D = location.coordinate
             coords.append(coordItem)
         }
-         loadMap()
+        loadMap()
     }
 
     @IBAction private func continueButtonPressed() {
