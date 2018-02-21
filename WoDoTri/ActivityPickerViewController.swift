@@ -16,4 +16,6 @@ final class ActivityPickerViewController: UIViewController {
         performSegue(withIdentifier: "ActivityPageViewController", sender: self)
     }
 
+    @IBAction private func unwindToActivityPickerViewController(with segue: UIStoryboardSegue) {}
+
 }
