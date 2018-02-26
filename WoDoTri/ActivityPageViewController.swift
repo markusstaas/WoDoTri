@@ -2,13 +2,22 @@
 
 import UIKit
 
-final class ActivityPageViewController: UIPageViewController,
-    UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+protocol ActivityPageViewControllerWorkoutDelegate: class {
+
+    func workoutType(for activityPageViewController: ActivityPageViewController) -> WorkoutType
+
+}
+
+
+final class ActivityPageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     private let pages = ["ActivityView", "ActivityMapView"]
 
+    weak var workoutDelegate: ActivityPageViewControllerWorkoutDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        Workout.shared.activityType = workoutDelegate!.workoutType(for: self)
         self.delegate = self
         self.dataSource = self
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ActivityView")
