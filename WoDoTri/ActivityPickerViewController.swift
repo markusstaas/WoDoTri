@@ -4,7 +4,6 @@ import UIKit
 
 final class ActivityPickerViewController: UIViewController, ActivityPageViewControllerWorkoutDelegate {
 
-    private let workout = Workout.shared
     private var selectedWorkoutType: WorkoutType?
 
     @IBOutlet private var workoutTypeButtonBike: UIButton!
