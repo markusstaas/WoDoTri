@@ -13,7 +13,7 @@ final class ActivityFinishViewController: UIViewController, MKMapViewDelegate {
 
     private let defaults = UserDefaults.standard
     private var activity: Activity!
-    private let workoutData = Workout.shared
+    private let workout = Workout.shared
     private let stopwatch = StopWatch()
     private var coords = [CLLocationCoordinate2D]()
 
@@ -25,11 +25,11 @@ final class ActivityFinishViewController: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityTypeLabel.text = workoutData.activityType.description
-        elapsedTimeLabel.text = "Duration: \(workoutData.durationString)"
-        completedDistanceLabel.text = "Distance: \(workoutData.distanceText)"
-        avgPaceLabel.text = "Average speed: \(workoutData.avgPaceString())"
-        for location in workoutData.locationList {
+        activityTypeLabel.text = workout.activityType.description
+        elapsedTimeLabel.text = "Duration: \(workout.durationString)"
+        completedDistanceLabel.text = "Distance: \(workout.distanceText)"
+        avgPaceLabel.text = "Average speed: \(workout.avgPaceString())"
+        for location in workout.locationList {
             let coordItem: CLLocationCoordinate2D = location.coordinate
             coords.append(coordItem)
         }
@@ -38,30 +38,30 @@ final class ActivityFinishViewController: UIViewController, MKMapViewDelegate {
 
     @IBAction private func continueButtonPressed() {
        self.dismiss(animated: true, completion: nil)
-        workoutData.activityState = .restarted
+        workout.activityState = .restarted
     }
 
     @IBAction private func finishButtonPressed(_ sender: Any) {
         saveActivity()
-        workoutData.activityState = .notStarted
+        workout.activityState = .notStarted
     }
 
     @IBAction private func discardButtonPressed(_ sender: Any) {
         stopwatch.reset()
-        workoutData.activityState = .notStarted
+        workout.activityState = .notStarted
         self.dismiss(animated: true, completion: nil)
     }
 
     //////Core Data
     private func saveActivity() {
         let newActivity = Activity(context: CoreDataStack.context)
-        newActivity.distance = workoutData.distance.value
-        newActivity.duration = workoutData.duration
-        newActivity.durationString = workoutData.durationString
-        newActivity.type = workoutData.activityType.description
+        newActivity.distance = workout.distance.value
+        newActivity.duration = workout.duration
+        newActivity.durationString = workout.durationString
+        newActivity.type = workout.activityType.description
         newActivity.timestamp = Date()
 
-        for location in workoutData.locationList {
+        for location in workout.locationList {
             let locationObject = Location(context: CoreDataStack.context)
             locationObject.timestamp = location.timestamp
             locationObject.latitude = location.coordinate.latitude
@@ -99,7 +99,7 @@ final class ActivityFinishViewController: UIViewController, MKMapViewDelegate {
             <trk><activity_type>\"Ride\"</activity_type><trkseg>
             """)
 
-        for locations in workoutData.locationList {
+        for locations in workout.locationList {
             //let formattedTimeStamp = timeStampFormatter.date(from: String(describing: locations.timestamp))
             let formattedTimeStamp = timeStampFormatter.string(from: locations.timestamp)
             let newLine: String = String("""
@@ -117,7 +117,7 @@ final class ActivityFinishViewController: UIViewController, MKMapViewDelegate {
             let uploadUrl = "https://www.strava.com/api/v3/uploads" /* your API url */
             let headers: HTTPHeaders = [ "Authorization": "Bearer \(stravaToken!)"]
             let parameters: Parameters = [
-              "activity_type": workoutData.activityType.description,
+              "activity_type": workout.activityType.description,
                 "file": "@file.gpx",
                 "data_type": "gpx"
             ]

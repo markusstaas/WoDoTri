@@ -7,7 +7,7 @@ import CoreLocation
 final class MapViewController: UIViewController {
 
     private var activity: Activity!
-    private let workoutData = Workout.shared
+    private let workout = Workout.shared
     private let locationManager = LocationManager.shared
 
     @IBOutlet weak private var mapView: MKMapView!
@@ -44,16 +44,16 @@ extension MapViewController: CLLocationManagerDelegate {
         for newLocation in locations {
             let howRecent = newLocation.timestamp.timeIntervalSinceNow
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
-            if let lastLocation = workoutData.locationList.last {
+            if let lastLocation = workout.locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 let deltaMeasurement = Measurement(value: delta, unit: UnitLength.meters)
-                workoutData.addDistance(deltaMeasurement)
+                workout.addDistance(deltaMeasurement)
                 let coordinates = [lastLocation.coordinate, newLocation.coordinate]
                 mapView.add(MKPolyline(coordinates: coordinates, count: 2))
                 let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
                 mapView.setRegion(region, animated: true)
             }
-            workoutData.locationList.append(newLocation)
+            workout.locationList.append(newLocation)
         }
     }
 

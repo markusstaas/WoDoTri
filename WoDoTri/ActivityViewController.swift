@@ -6,7 +6,7 @@ import CoreLocation
 final class ActivityViewController: UIViewController, CLLocationManagerDelegate {
 
     private var activity: Activity!
-    private let workoutData = Workout.shared
+    private let workout = Workout.shared
     private let locationManager = LocationManager.shared
     private let stopwatch = StopWatch()
 
@@ -19,16 +19,16 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
 
     private func tick() {
         updateDisplay()
-        workoutData.durationString = stopwatch.elapsedTimeAsString()
-        workoutData.duration = stopwatch.elapsedTime
-        elapsedTimeLabel.text = workoutData.durationString
+        workout.durationString = stopwatch.elapsedTimeAsString()
+        workout.duration = stopwatch.elapsedTime
+        elapsedTimeLabel.text = workout.durationString
     }
 
     private func startActivity() {
         stopwatch.start()
-        workoutData.activityState = .started
-        workoutData.resetDistance()
-        workoutData.locationList.removeAll()
+        workout.activityState = .started
+        workout.resetDistance()
+        workout.locationList.removeAll()
         startLocationUpdates()
         tick()
         stopwatch.callback = self.tick
@@ -37,9 +37,9 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
     }
 
     private func restartActivity() {
-        workoutData.activityState = .restarted
+        workout.activityState = .restarted
         stopwatch.start()
-        stopwatch.elapsedTime = workoutData.duration
+        stopwatch.elapsedTime = workout.duration
         tick()
         startLocationUpdates()
         stopwatch.callback = self.tick
@@ -49,15 +49,15 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
 
     private func pauseActivity() {
         stopwatch.pause()
-        workoutData.activityState = .paused
+        workout.activityState = .paused
         locationManager.stopUpdatingLocation()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if workoutData.activityState == .started || workoutData.activityState == .restarted {
+        if workout.activityState == .started || workout.activityState == .restarted {
             restartActivity()
         }
-        if workoutData.activityState == .stopped || workoutData.activityState == .notStarted {
+        if workout.activityState == .stopped || workout.activityState == .notStarted {
             pauseButt.isHidden = true
         }
     }
@@ -92,18 +92,18 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
         let isMetric = locale.usesMetricSystem
         if !isMetric {
             let formattedPace = FormatDisplay.pace(
-                distance: workoutData.distance,
+                distance: workout.distance,
                 seconds: Int(stopwatch.elapsedTime),
                 outputUnit: UnitSpeed.minutesPerMile)
             paceLabel.text = formattedPace
         } else {
             let formattedPace = FormatDisplay.pace(
-                distance: workoutData.distance,
+                distance: workout.distance,
                 seconds: Int(stopwatch.elapsedTime),
                 outputUnit: UnitSpeed.minutesPerKilometer)
             paceLabel.text = formattedPace
         }
-        distanceLabel.text = workoutData.distanceText
+        distanceLabel.text = workout.distanceText
     }
 
     private func startLocationUpdates() {
@@ -117,19 +117,19 @@ final class ActivityViewController: UIViewController, CLLocationManagerDelegate 
         for newLocation in locations {
             let howRecent = newLocation.timestamp.timeIntervalSinceNow
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
-            if let lastLocation = workoutData.locationList.last {
-                if workoutData.activityState == .started {
+            if let lastLocation = workout.locationList.last {
+                if workout.activityState == .started {
                     let delta = newLocation.distance(from: lastLocation)
                     let deltaMeasurement = Measurement(value: delta, unit: UnitLength.meters)
-                    workoutData.addDistance(deltaMeasurement)
+                    workout.addDistance(deltaMeasurement)
                 }
-                if workoutData.activityState == .restarted {
+                if workout.activityState == .restarted {
                     // out of pause state, Delta to 0 because
                     //we dont want to use the distance traveled during pause state
-                    workoutData.activityState = .started
+                    workout.activityState = .started
                 }
             }
-            workoutData.locationList.append(newLocation)
+            workout.locationList.append(newLocation)
         }
     }
 
