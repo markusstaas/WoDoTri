@@ -7,7 +7,7 @@ import CoreLocation
 final class ActivityMapViewController: UIViewController {
 
     private var activity: Activity!
-    private let workoutData = Workout.shared
+    private let workout = Workout.shared
     private let locationManager = LocationManager.shared
     private let stopwatch = StopWatch()
 
@@ -77,8 +77,8 @@ final class ActivityMapViewController: UIViewController {
 
     private func tick() {
         updateDisplay()
-        workoutData.durationString = stopwatch.elapsedTimeAsString()
-        workoutData.duration = stopwatch.elapsedTime
+        workout.durationString = stopwatch.elapsedTimeAsString()
+        workout.duration = stopwatch.elapsedTime
     }
 
     @IBAction private func startButtonPressed(_ sender: Any) {
@@ -91,9 +91,9 @@ final class ActivityMapViewController: UIViewController {
 
     private func startActivity() {
         stopwatch.start()
-        workoutData.activityState = .started
-        workoutData.resetDistance()
-        workoutData.locationList.removeAll()
+        workout.activityState = .started
+        workout.resetDistance()
+        workout.locationList.removeAll()
         startLocationUpdates()
         tick()
         stopwatch.callback = self.tick
@@ -102,9 +102,9 @@ final class ActivityMapViewController: UIViewController {
     }
 
     private func restartActivity() {
-        workoutData.activityState = .restarted
+        workout.activityState = .restarted
         stopwatch.start()
-        stopwatch.elapsedTime = workoutData.duration
+        stopwatch.elapsedTime = workout.duration
         tick()
         startLocationUpdates()
         stopwatch.callback = self.tick
@@ -114,7 +114,7 @@ final class ActivityMapViewController: UIViewController {
 
     private func pauseActivity() {
         stopwatch.pause()
-        workoutData.activityState = .paused
+        workout.activityState = .paused
         locationManager.stopUpdatingLocation()
     }
 
@@ -156,10 +156,10 @@ final class ActivityMapViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         // replace with swtich
-        if workoutData.activityState == .started || workoutData.activityState == .restarted {
+        if workout.activityState == .started || workout.activityState == .restarted {
             restartActivity()
         }
-        if workoutData.activityState == .stopped || workoutData.activityState == .notStarted {
+        if workout.activityState == .stopped || workout.activityState == .notStarted {
             pauseButt.isHidden = true
         }
     }
@@ -171,16 +171,16 @@ extension ActivityMapViewController: CLLocationManagerDelegate {
         for newLocation in locations {
             let howRecent = newLocation.timestamp.timeIntervalSinceNow
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
-            if let lastLocation = workoutData.locationList.last {
+            if let lastLocation = workout.locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 let deltaMeasurement = Measurement(value: delta, unit: UnitLength.meters)
-                workoutData.addDistance(deltaMeasurement)
+                workout.addDistance(deltaMeasurement)
 //                let coordinates = [lastLocation.coordinate, newLocation.coordinate]
                 //mapView.add(MKPolyline(coordinates: coordinates, count: 2))
 //                let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
                //mapView.setRegion(region, animated: true)
             }
-            workoutData.locationList.append(newLocation)
+            workout.locationList.append(newLocation)
         }
     }
 
