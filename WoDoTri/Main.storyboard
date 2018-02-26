@@ -30,7 +30,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="Bike"/>
                                         <connections>
-                                            <action selector="bikeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Goo-S4-Jon"/>
+                                            <action selector="userDidTapWorkoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NF7-Qg-cXd"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-Yp-w0O">
@@ -38,7 +38,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="Runner"/>
                                         <connections>
-                                            <action selector="runButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eaT-IM-UvH"/>
+                                            <action selector="userDidTapWorkoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6V1-RZ-ez7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -79,6 +79,8 @@
                     <navigationItem key="navigationItem" title="WDATri" id="NUA-2I-zxz"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="workoutTypeButtonBike" destination="M1J-sf-9xL" id="Tts-e1-9D9"/>
+                        <outlet property="workoutTypeButtonRun" destination="WUk-Yp-w0O" id="NkB-wE-1F4"/>
                         <segue destination="PRQ-hC-DaC" kind="show" identifier="ActivityPageViewController" id="5AS-II-SjN"/>
                     </connections>
                 </viewController>
