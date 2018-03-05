@@ -13,7 +13,7 @@
         <!--WDATri-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ActivityPickerViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WorkoutTypeViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -30,7 +30,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="Bike"/>
                                         <connections>
-                                            <action selector="userDidTapWorkoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NF7-Qg-cXd"/>
+                                            <segue destination="qiF-n6-Fe5" kind="show" id="846-lm-UUh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-Yp-w0O">
@@ -38,7 +38,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="Runner"/>
                                         <connections>
-                                            <action selector="userDidTapWorkoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6V1-RZ-ez7"/>
+                                            <segue destination="qiF-n6-Fe5" kind="show" id="JRh-FH-pWo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -81,7 +81,6 @@
                     <connections>
                         <outlet property="workoutTypeButtonBike" destination="M1J-sf-9xL" id="Tts-e1-9D9"/>
                         <outlet property="workoutTypeButtonRun" destination="WUk-Yp-w0O" id="NkB-wE-1F4"/>
-                        <segue destination="PRQ-hC-DaC" kind="show" identifier="ActivityPageViewController" id="5AS-II-SjN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -442,13 +441,83 @@
             </objects>
             <point key="canvasLocation" x="2847.1999999999998" y="35.532233883058474"/>
         </scene>
-        <!--Activity Page View Controller-->
-        <scene sceneID="vrB-Dt-deM">
+        <!--Workout View Controller-->
+        <scene sceneID="hlY-S4-EYJ">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PRQ-hC-DaC" customClass="ActivityPageViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RpM-1G-ioC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="qiF-n6-Fe5" customClass="WorkoutViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="duC-ON-o2o"/>
+                        <viewControllerLayoutGuide type="bottom" id="r5a-ue-l8G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O28-2l-q22">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i5Y-Oh-nub">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-7o-Wzt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8W6-Uz-sEZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="750" height="494"/>
+                                                <subviews>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09U-8Z-8DL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
+                                                        <connections>
+                                                            <segue destination="or2-Sd-IO1" kind="embed" id="U6u-xz-0Nw"/>
+                                                        </connections>
+                                                    </containerView>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnU-u1-7eQ">
+                                                        <rect key="frame" x="375" y="0.0" width="375" height="494"/>
+                                                        <connections>
+                                                            <segue destination="L6w-08-HP5" kind="embed" id="a9I-Zh-Rxh"/>
+                                                        </connections>
+                                                    </containerView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="8W6-Uz-sEZ" firstAttribute="leading" secondItem="cCp-7o-Wzt" secondAttribute="leading" id="0Yt-J0-3QA"/>
+                                            <constraint firstItem="09U-8Z-8DL" firstAttribute="height" secondItem="cCp-7o-Wzt" secondAttribute="height" id="QaU-9Y-9Ur"/>
+                                            <constraint firstAttribute="trailing" secondItem="8W6-Uz-sEZ" secondAttribute="trailing" id="Zqp-11-XCb"/>
+                                            <constraint firstAttribute="bottom" secondItem="8W6-Uz-sEZ" secondAttribute="bottom" id="eNw-6J-QOz"/>
+                                            <constraint firstItem="8W6-Uz-sEZ" firstAttribute="top" secondItem="cCp-7o-Wzt" secondAttribute="top" id="jJd-ZW-GVO"/>
+                                            <constraint firstItem="09U-8Z-8DL" firstAttribute="width" secondItem="cCp-7o-Wzt" secondAttribute="width" id="ycF-ew-IYW"/>
+                                        </constraints>
+                                    </scrollView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-Zh-I58">
+                                        <rect key="frame" x="0.0" y="494" width="375" height="109"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaZ-Gy-Tit">
+                                                <rect key="frame" x="141.5" y="8" width="93" height="93"/>
+                                                <state key="normal" image="Start  Button"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="NaZ-Gy-Tit" secondAttribute="bottom" id="XHN-Z8-uct"/>
+                                            <constraint firstItem="NaZ-Gy-Tit" firstAttribute="top" secondItem="dhH-Zh-I58" secondAttribute="topMargin" id="Xa6-fm-yQo"/>
+                                            <constraint firstItem="NaZ-Gy-Tit" firstAttribute="centerX" secondItem="dhH-Zh-I58" secondAttribute="centerX" id="tU2-Md-jBS"/>
+                                            <constraint firstItem="NaZ-Gy-Tit" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dhH-Zh-I58" secondAttribute="leadingMargin" id="umc-fQ-jgw"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="NaZ-Gy-Tit" secondAttribute="trailing" id="vUk-nu-7mC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="i5Y-Oh-nub" firstAttribute="leading" secondItem="O28-2l-q22" secondAttribute="leading" id="B3w-uo-LT0"/>
+                            <constraint firstAttribute="bottom" secondItem="i5Y-Oh-nub" secondAttribute="bottom" id="Zrc-c0-iUW"/>
+                            <constraint firstItem="i5Y-Oh-nub" firstAttribute="top" secondItem="O28-2l-q22" secondAttribute="top" id="bN1-B5-txc"/>
+                            <constraint firstAttribute="trailing" secondItem="i5Y-Oh-nub" secondAttribute="trailing" id="vv2-9h-9Jd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGk-HI-bgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2954" y="-705"/>
+            <point key="canvasLocation" x="2847" y="-682"/>
         </scene>
         <!--Map-->
         <scene sceneID="9Dk-7h-scf">
@@ -650,6 +719,42 @@
             </objects>
             <point key="canvasLocation" x="975" y="36"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="AxF-jC-gWU">
+            <objects>
+                <viewController id="or2-Sd-IO1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eR9-Ob-588"/>
+                        <viewControllerLayoutGuide type="bottom" id="tl7-D9-gSf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VFe-7d-MoJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MMm-PQ-zv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5038" y="-1376"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="k4f-jy-vCK">
+            <objects>
+                <viewController id="L6w-08-HP5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LTR-vg-MRF"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZVZ-pV-V19"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DFF-2y-TJc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZT4-Ho-YzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5038" y="-682"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Bike" width="187" height="161"/>
@@ -660,5 +765,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4bf-Cl-VC1"/>
+        <segue reference="846-lm-UUh"/>
     </inferredMetricsTieBreakers>
 </document>

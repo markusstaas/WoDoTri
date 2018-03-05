@@ -5,36 +5,61 @@ import CoreLocation
 
 final class Workout {
 
-    static let shared = Workout()
-    private var stopwatch = StopWatch()
+    // TODO: Look at locationList API below
+    // TODO: Make this class into value type
+    // TODO: Delete stop watch and workout state
+    // TODO: Handle start of started and pause of paused
 
-    var activityType = WorkoutType.run
-    var activityState = WorkoutState.notStarted
-    var avgPace: String
+    let workoutType: WorkoutType
     var locationList: [CLLocation] = []
-    var duration = 0.00
-    var durationString = ""
+
+    private var startDate: Date?
+    private var previousDuration = Measurement(value: 0, unit: UnitDuration.seconds)
 
     private(set) var distance = Workout.initialDistance
     private(set) var distanceText = Workout.makeDistanceText(for: Workout.initialDistance)
 
     private static let initialDistance = Measurement(value: 0, unit: UnitLength.meters)
 
-    init() {
-        self.avgPace = ""
-        self.durationString = stopwatch.elapsedTimeAsString()
+    // MARK: - Initializing Workout
+
+    init(workoutType: WorkoutType) {
+        self.workoutType = workoutType
     }
 
-    func avgPaceString() -> String {
-        self.avgPace = FormatDisplay.avgPace(
-            distance: distance,
-            seconds: Int(duration),
-            outputUnit: UnitSpeed.minutesPerMile
-        )
-        return avgPace
+    // MARK: - Starting and Pausing Workout
+
+    func start() {
+        startDate = Date()
     }
 
-    // MARK: - Updating distance
+    func pause() {
+        previousDuration = duration
+        startDate = nil
+    }
+
+    // MARK: - Managing Duration
+
+    var duration: Measurement<UnitDuration> {
+        guard let startDate = startDate else { return previousDuration }
+        let currentDurationInSeconds = Date().timeIntervalSince(startDate)
+        let currentDuration = Measurement(value: currentDurationInSeconds, unit: UnitDuration.seconds)
+        return previousDuration + currentDuration
+    }
+
+    var durationText: String {
+        return Workout.makeDurationText(for: duration)
+    }
+
+    static func makeDurationText(for duration: Measurement<UnitDuration>) -> String {
+        let seconds = duration.converted(to: UnitDuration.seconds).value
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+        return formatter.string(from: seconds)!
+    }
+
+    // MARK: - Managing Distance
 
     func addDistance(_ newDistance: Measurement<UnitLength>) {
         setDistance(distance + newDistance)

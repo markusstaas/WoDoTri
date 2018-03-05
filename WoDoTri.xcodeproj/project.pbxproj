@@ -3,14 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		280BB6282031BA7300EFB864 /* WorkoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280BB6272031BA7300EFB864 /* WorkoutState.swift */; };
 		281C07C8202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */; };
+		28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28329D7920459A6E008DF038 /* WorkoutViewController.swift */; };
+		2839F4CC2046E2CD0065D0B0 /* WorkoutMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */; };
+		2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */; };
 		2895089F1FB570B400353860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895089E1FB570B400353860 /* AppDelegate.swift */; };
-		289508A11FB570B400353860 /* ActivityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508A01FB570B400353860 /* ActivityPickerViewController.swift */; };
+		289508A11FB570B400353860 /* WorkoutTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508A01FB570B400353860 /* WorkoutTypeViewController.swift */; };
 		289508A61FB570B400353860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289508A51FB570B400353860 /* Assets.xcassets */; };
 		289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289508A71FB570B400353860 /* LaunchScreen.storyboard */; };
 		289508B81FB575D200353860 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B71FB575D200353860 /* ActivityViewController.swift */; };
@@ -39,9 +42,12 @@
 		19B1C90D0844C028CE982DC0 /* Pods_WoDoTri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoDoTri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		280BB6272031BA7300EFB864 /* WorkoutState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutState.swift; sourceTree = "<group>"; };
 		281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnitSpeed+CustomUnits.swift"; sourceTree = "<group>"; };
+		28329D7920459A6E008DF038 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapViewController.swift; sourceTree = "<group>"; };
+		2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataViewController.swift; sourceTree = "<group>"; };
 		2895089B1FB570B400353860 /* WoDoTri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoDoTri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2895089E1FB570B400353860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		289508A01FB570B400353860 /* ActivityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPickerViewController.swift; sourceTree = "<group>"; };
+		289508A01FB570B400353860 /* WorkoutTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeViewController.swift; sourceTree = "<group>"; };
 		289508A51FB570B400353860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		289508A81FB570B400353860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		289508AA1FB570B400353860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,7 +148,10 @@
 		289508B21FB570FE00353860 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				289508A01FB570B400353860 /* ActivityPickerViewController.swift */,
+				289508A01FB570B400353860 /* WorkoutTypeViewController.swift */,
+				28329D7920459A6E008DF038 /* WorkoutViewController.swift */,
+				2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */,
+				2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */,
 				28F7B7672005BF2100B9A344 /* ActivityPageViewController.swift */,
 				289508B71FB575D200353860 /* ActivityViewController.swift */,
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
@@ -220,7 +229,7 @@
 				};
 			};
 			buildConfigurationList = 289508961FB570B400353860 /* Build configuration list for PBXProject "WoDoTri" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -327,13 +336,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				281C07C8202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift in Sources */,
-				289508A11FB570B400353860 /* ActivityPickerViewController.swift in Sources */,
+				289508A11FB570B400353860 /* WorkoutTypeViewController.swift in Sources */,
 				2895089F1FB570B400353860 /* AppDelegate.swift in Sources */,
 				28B06B9D20159739004050C1 /* MapViewController.swift in Sources */,
 				289508B81FB575D200353860 /* ActivityViewController.swift in Sources */,
 				28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */,
 				656B518D1FD79E7C002CBFDD /* Workout.swift in Sources */,
 				65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */,
+				2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */,
 				651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */,
 				65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */,
 				28CD5B331FB705DB009384C2 /* StopWatch.swift in Sources */,
@@ -343,6 +353,8 @@
 				28A199A12022BC5500E7B715 /* Activity.swift in Sources */,
 				652768FC1FD5070500353CC9 /* HistoryDetailViewController.swift in Sources */,
 				280BB6282031BA7300EFB864 /* WorkoutState.swift in Sources */,
+				2839F4CC2046E2CD0065D0B0 /* WorkoutMapViewController.swift in Sources */,
+				28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */,
 				28F33378200C53F400272462 /* SettingsViewController.swift in Sources */,
 				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
 				65A684A81FC514B400B0A7C8 /* UnitConverterPace.swift in Sources */,
