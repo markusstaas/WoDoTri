@@ -5,13 +5,17 @@ import CoreLocation
 
 final class Workout {
 
-    // TODO: Look at locationList API below
     // TODO: Make this class into value type
     // TODO: Delete stop watch and workout state
     // TODO: Handle start of started and pause of paused
+    // TODO: Make addDistance and co private?
+    // TODO: Rename startDate to currentLapStartDate
+    // TODO: Rename previousDuration to durationOfPreviousLaps
 
     let workoutType: WorkoutType
-    var locationList: [CLLocation] = []
+
+    private var locationsForCurrentLap: Set<CLLocation> = []
+    private var locationsForPreviousLaps: Set<CLLocation> = []
 
     private var startDate: Date?
     private var previousDuration = Measurement(value: 0, unit: UnitDuration.seconds)
@@ -21,7 +25,7 @@ final class Workout {
 
     private static let initialDistance = Measurement(value: 0, unit: UnitLength.meters)
 
-    // MARK: - Initializing Workout
+    // MARK: - Creating Workout
 
     init(workoutType: WorkoutType) {
         self.workoutType = workoutType
@@ -35,7 +39,27 @@ final class Workout {
 
     func pause() {
         previousDuration = duration
+        locationsForPreviousLaps.formUnion(locationsForCurrentLap)
+        locationsForCurrentLap.removeAll()
         startDate = nil
+    }
+
+    // MARK: - Managing Locations
+
+    func addLocation(_ location: CLLocation) {
+        let sortedLocationsForCurrentLap = locationsForCurrentLap.sorted { location, otherLocation in
+            location.timestamp > otherLocation.timestamp
+        }
+        if let lastLocation = sortedLocationsForCurrentLap.last, startDate != nil {
+            let delta = location.distance(from: lastLocation)
+            let deltaMeasurement = Measurement(value: delta, unit: UnitLength.meters)
+            addDistance(deltaMeasurement)
+        }
+        locationsForCurrentLap.insert(location)
+    }
+
+    var locations: Set<CLLocation> {
+        return locationsForCurrentLap.union(locationsForPreviousLaps)
     }
 
     // MARK: - Managing Duration
