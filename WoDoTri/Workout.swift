@@ -12,11 +12,11 @@ final class Workout: NSManagedObject {
     @NSManaged private var distance: Double
     @NSManaged private var duration: Double
     @NSManaged private var lastUpdatedAt: Date
-
     @NSManaged private var lastLatitude: Double
     @NSManaged private var lastLongitude: Double
-
     @NSManaged private var locations: Set<WorkoutLocation>
+
+    private static var distanceFormatter = makeDistanceFormatter()
 
 //    // MARK: - Creating Workout
 //
@@ -45,12 +45,24 @@ final class Workout: NSManagedObject {
         lastUpdatedAt = Date()
     }
 
-//    var locations: Set<CLLocation> {
-//        return locationsForCurrentLap.union(locationsForPreviousLaps)
-//    }
-//
-//    // MARK: - Managing Duration
-//
+    // MARK: - Managing Distance
+
+    var distanceText: String {
+        let distanceMeasurement = Measurement(value: distance, unit: UnitLength.meters)
+        let distanceFormatter = Workout.distanceFormatter
+        return distanceFormatter.string(from: distanceMeasurement)
+    }
+
+    private static func makeDistanceFormatter() -> MeasurementFormatter {
+        let formatter = MeasurementFormatter()
+        formatter.numberFormatter.minimumFractionDigits = 2
+        formatter.numberFormatter.maximumFractionDigits = 2
+        return formatter
+    }
+
+    // MARK: - Managing Duration
+
+
 //    var duration: Measurement<UnitDuration> {
 //        guard let startDate = startDate else { return previousDuration }
 //        let currentDurationInSeconds = Date().timeIntervalSince(startDate)
@@ -68,28 +80,6 @@ final class Workout: NSManagedObject {
 //        formatter.allowedUnits = [.hour, .minute, .second]
 //        formatter.zeroFormattingBehavior = .pad
 //        return formatter.string(from: seconds)!
-//    }
-//
-//    // MARK: - Managing Distance
-//
-//    mutating func addDistance(_ newDistance: Measurement<UnitLength>) {
-//        setDistance(distance + newDistance)
-//    }
-//
-//    mutating func resetDistance() {
-//        setDistance(Workout.initialDistance)
-//    }
-//
-//    private mutating func setDistance(_ newDistance: Measurement<UnitLength>) {
-//        distance = newDistance
-//        distanceText = Workout.makeDistanceText(for: newDistance)
-//    }
-//
-//    static func makeDistanceText(for distance: Measurement<UnitLength>) -> String {
-//        let formatter = MeasurementFormatter()
-//        formatter.numberFormatter.minimumFractionDigits = 2
-//        formatter.numberFormatter.maximumFractionDigits = 2
-//        return formatter.string(from: distance)
 //    }
 
 }
