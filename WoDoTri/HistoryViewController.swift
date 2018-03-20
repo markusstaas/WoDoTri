@@ -6,7 +6,7 @@ import CoreData
 final class HistoryViewController: UITableViewController {
 
     @IBOutlet private var historyTableView: UITableView!
-    private var activities: [Activity] = []
+    private var activities: [Workout] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +16,9 @@ final class HistoryViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let entity = NSEntityDescription.entity(forEntityName: "Activity", in: CoreDataStack.context)
-        let fetchRequest: NSFetchRequest<Activity> = Activity.fetchRequest()
+        let fetchRequest: NSFetchRequest<Workout> = Activity.fetchRequest()
         fetchRequest.entity = entity
-        let sortDescriptor = NSSortDescriptor(key: #keyPath(Activity.timestamp), ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: #keyPath(Workout.timestamp), ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
 
         do {
@@ -49,7 +49,7 @@ final class HistoryViewController: UITableViewController {
         activityDetailViewController.activity = selectedActivity!
     }
 
-    private var selectedActivity: Activity? {
+    private var selectedActivity: Workout? {
         guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
         return activities[indexPath.row]
     }

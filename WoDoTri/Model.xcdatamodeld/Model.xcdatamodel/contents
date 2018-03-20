@@ -4,6 +4,8 @@
         <attribute name="distance" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="duration" attributeType="Double" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isPaused" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastLatitude" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastLongitude" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastUpdatedAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="type" attributeType="String" minValueString="1" syncable="YES"/>
         <relationship name="locations" toMany="YES" deletionRule="Cascade" destinationEntity="WorkoutLocation" inverseName="workout" inverseEntity="WorkoutLocation" syncable="YES"/>
@@ -16,7 +18,7 @@
         <relationship name="workout" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="locations" inverseEntity="Workout" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Workout" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="Workout" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="WorkoutLocation" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

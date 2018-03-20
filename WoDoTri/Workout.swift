@@ -1,42 +1,23 @@
 //  Copyright © 2018 Markus Staas. All rights reserved.
 
 import CoreData
+import CoreLocation
 
 final class Workout: NSManagedObject {
 
     private static let entityName = String(describing: self)
 
     @NSManaged private var type: String
-    @NSManaged private var isPaused: Bool
+    @NSManaged private(set) var isPaused: Bool
     @NSManaged private var distance: Double
     @NSManaged private var duration: Double
     @NSManaged private var lastUpdatedAt: Date
-    @NSManaged private var locations: Set<Location>
 
-    // add location -> update lastUpdatedAt, add location to the list
-    // start / pause
+    @NSManaged private var lastLatitude: Double
+    @NSManaged private var lastLongitude: Double
 
+    @NSManaged private var locations: Set<WorkoutLocation>
 
-    // TODO: Make addDistance and co private?
-    // TODO: Figure out addLocation/locations vs what happensaddDistance
-    // when the user is on a threadmill for example (i.e. how to update duration?)
-    // consider using the Delegate pattern, maybe
-
-
-
-//    let workoutType: WorkoutType
-//
-//    private var locationsForCurrentLap: Set<CLLocation> = []
-//    private var locationsForPreviousLaps: Set<CLLocation> = []
-//
-//    private var startDate: Date?
-//    private var previousDuration = Measurement(value: 0, unit: UnitDuration.seconds)
-//
-//    private(set) var distance = Workout.initialDistance
-//    private(set) var distanceText = Workout.makeDistanceText(for: Workout.initialDistance)
-//
-//    private static let initialDistance = Measurement(value: 0, unit: UnitLength.meters)
-//
 //    // MARK: - Creating Workout
 //
 //    init(workoutType: WorkoutType) {
@@ -51,20 +32,19 @@ final class Workout: NSManagedObject {
         lastUpdatedAt = Date()
     }
 
-//    // MARK: - Managing Locations
-//
-//    mutating func addLocation(_ location: CLLocation) {
-//        let sortedLocationsForCurrentLap = locationsForCurrentLap.sorted { location, otherLocation in
-//            location.timestamp > otherLocation.timestamp
-//        }
-//        if let lastLocation = sortedLocationsForCurrentLap.last, startDate != nil {
-//            let delta = location.distance(from: lastLocation)
-//            let deltaMeasurement = Measurement(value: delta, unit: UnitLength.meters)
-//            addDistance(deltaMeasurement)
-//        }
-//        locationsForCurrentLap.insert(location)
-//    }
-//
+    // MARK: - Managing Locations
+
+    func addLocation(_ location: CLLocation) {
+        WorkoutLocation.insert(into: self, location: location)
+        if !isPaused && !locations.isEmpty {
+            let lastLocation = CLLocation(latitude: lastLatitude, longitude: lastLongitude)
+            distance += location.distance(from: lastLocation)
+        }
+        lastLatitude = location.coordinate.latitude
+        lastLongitude = location.coordinate.longitude
+        lastUpdatedAt = Date()
+    }
+
 //    var locations: Set<CLLocation> {
 //        return locationsForCurrentLap.union(locationsForPreviousLaps)
 //    }
@@ -111,25 +91,5 @@ final class Workout: NSManagedObject {
 //        formatter.numberFormatter.maximumFractionDigits = 2
 //        return formatter.string(from: distance)
 //    }
-
-
-
-
-
-    @objc(addLocationsObject:)
-    @NSManaged private func addToLocations(_ value: Location)
-
-    @objc(removeLocationsObject:)
-    @NSManaged private func removeFromLocations(_ value: Location)
-
-    @objc(addLocations:)
-    @NSManaged private func addToLocations(_ values: Set<Location>)
-
-    @objc(removeLocations:)
-    @NSManaged private func removeFromLocations(_ values: Set<Location>)
-
-    static func fetchRequest() -> NSFetchRequest<Activity> {
-        return NSFetchRequest<Activity>(entityName: entityName)
-    }
 
 }

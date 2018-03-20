@@ -12,7 +12,7 @@ final class HistoryDetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var mapView: MKMapView!
 
-    var activity: Activity!
+    var activity: Workout!
 
     override func viewDidLoad() {
         super.viewDidLoad()
