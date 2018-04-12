@@ -8,16 +8,28 @@ final class WorkoutLocation: NSManagedObject {
     @NSManaged private(set) var isWorkoutPaused: Bool
     @NSManaged private(set) var latitude: Double
     @NSManaged private(set) var longitude: Double
-    @NSManaged private(set) var date: Date
+    @NSManaged private(set) var timestamp: Date
+    @NSManaged private(set) var currentInWorkout: Workout?
     @NSManaged private(set) var workout: Workout
 
-    static func insert(into workout: Workout, location: CLLocation) {
-        let workoutLocation = WorkoutLocation(entity: entity(), insertInto: workout.managedObjectContext)
-        workoutLocation.isWorkoutPaused = workout.isPaused
-        workoutLocation.latitude = location.coordinate.latitude
-        workoutLocation.longitude = location.coordinate.longitude
-        workoutLocation.date = location.timestamp
-        workoutLocation.workout = workout
+    // MARK: - Creating Workout Location
+
+    convenience init(currentIn workout: Workout, location: CLLocation) {
+        self.init(entity: WorkoutLocation.entity(), insertInto: workout.managedObjectContext)
+        isWorkoutPaused = workout.isPaused
+        latitude = location.coordinate.latitude
+        longitude = location.coordinate.longitude
+        timestamp = location.timestamp
+        currentInWorkout = workout
+        self.workout = workout
+    }
+
+    // MARK: - Calculating Distances
+
+    func distance(from otherWorkoutLocation: WorkoutLocation) -> Double {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        let otherLocation = CLLocation(latitude: otherWorkoutLocation.latitude, longitude: otherWorkoutLocation.longitude)
+        return location.distance(from: otherLocation)
     }
 
 }

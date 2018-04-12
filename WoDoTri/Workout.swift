@@ -5,44 +5,45 @@ import CoreLocation
 
 final class Workout: NSManagedObject {
 
-    private static let entityName = String(describing: self)
-
-    @NSManaged private var type: String
+    @NSManaged private(set) var workoutType: String
+    @NSManaged private(set) var distance: Double
+    @NSManaged private(set) var duration: Double
     @NSManaged private(set) var isPaused: Bool
-    @NSManaged private var distance: Double
-    @NSManaged private var duration: Double
-    @NSManaged private var lastUpdatedAt: Date
-    @NSManaged private var lastLatitude: Double
-    @NSManaged private var lastLongitude: Double
-    @NSManaged private var locations: Set<WorkoutLocation>
+    @NSManaged private(set) var lastStartedAt: Date?
+    @NSManaged private(set) var currentLocation: WorkoutLocation?
+    @NSManaged private(set) var locationHistory: Set<WorkoutLocation>
 
-    private static var distanceFormatter = makeDistanceFormatter()
+    private static let distanceFormatter = makeDistanceFormatter()
+    private static let durationFormatter = makeDurationFormatter()
 
-//    // MARK: - Creating Workout
-//
-//    init(workoutType: WorkoutType) {
-//        self.workoutType = workoutType
-//    }
-//
+    // MARK: - Creating Workout
+
+    convenience init(workoutType: WorkoutType, managedObjectContext: NSManagedObjectContext) {
+        self.init(entity: Workout.entity(), insertInto: managedObjectContext)
+        self.workoutType = workoutType.rawValue
+    }
+
     // MARK: - Starting and Pausing Workout
 
-    func setWorkoutPaused(_ paused: Bool) {
-        precondition(isPaused != paused)
-        isPaused = paused
-        lastUpdatedAt = Date()
+    func startWorkout() {
+        lastStartedAt = Date()
+        isPaused = false
+    }
+
+    func pauseWorkout() {
+        guard let lastStartedAt = lastStartedAt else { return }
+        isPaused = true
+        duration += Date().timeIntervalSince(lastStartedAt)
     }
 
     // MARK: - Managing Locations
 
     func addLocation(_ location: CLLocation) {
-        WorkoutLocation.insert(into: self, location: location)
-        if !isPaused && !locations.isEmpty {
-            let lastLocation = CLLocation(latitude: lastLatitude, longitude: lastLongitude)
-            distance += location.distance(from: lastLocation)
-        }
-        lastLatitude = location.coordinate.latitude
-        lastLongitude = location.coordinate.longitude
-        lastUpdatedAt = Date()
+        let oldLocationIfAvailable = currentLocation
+        let newLocation = WorkoutLocation(currentIn: self, location: location)
+        guard !isPaused else { return }
+        guard let oldLocation = oldLocationIfAvailable else { return }
+        distance += newLocation.distance(from: oldLocation)
     }
 
     // MARK: - Managing Distance
@@ -62,24 +63,15 @@ final class Workout: NSManagedObject {
 
     // MARK: - Managing Duration
 
+    var durationText: String {
+        return Workout.durationFormatter.string(from: duration)!
+    }
 
-//    var duration: Measurement<UnitDuration> {
-//        guard let startDate = startDate else { return previousDuration }
-//        let currentDurationInSeconds = Date().timeIntervalSince(startDate)
-//        let currentDuration = Measurement(value: currentDurationInSeconds, unit: UnitDuration.seconds)
-//        return previousDuration + currentDuration
-//    }
-//
-//    var durationText: String {
-//        return Workout.makeDurationText(for: duration)
-//    }
-//
-//    static func makeDurationText(for duration: Measurement<UnitDuration>) -> String {
-//        let seconds = duration.converted(to: UnitDuration.seconds).value
-//        let formatter = DateComponentsFormatter()
-//        formatter.allowedUnits = [.hour, .minute, .second]
-//        formatter.zeroFormattingBehavior = .pad
-//        return formatter.string(from: seconds)!
-//    }
+    private static func makeDurationFormatter() -> DateComponentsFormatter {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .pad
+        return formatter
+    }
 
 }
