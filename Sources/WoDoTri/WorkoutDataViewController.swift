@@ -16,7 +16,6 @@ final class WorkoutDataViewController: UIViewController {
 //        displayLink.invalidate()
 //    }
 //    @objc private func tick(sender: CADisplayLink) {
-//        // swiftlint:disable:next shorthand_operator
 //        elapsedTime = elapsedTime + displayLink.duration
 //        callback?()
 //    }

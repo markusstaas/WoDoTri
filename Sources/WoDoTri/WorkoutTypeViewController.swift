@@ -16,7 +16,7 @@ final class WorkoutTypeViewController: UIViewController {
         }
         let workoutType: WorkoutType
         switch button {
-        case workoutTypeButtonBike: workoutType = .bike
+        case workoutTypeButtonBike: workoutType = .ride
         case workoutTypeButtonRun: workoutType = .run
         default: preconditionFailure()
         }
