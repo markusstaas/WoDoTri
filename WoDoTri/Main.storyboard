@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lKn-Up-Abv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lKn-Up-Abv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -457,19 +457,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-7o-Wzt">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8W6-Uz-sEZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="750" height="494"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="750" height="450"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09U-8Z-8DL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
                                                         <connections>
                                                             <segue destination="or2-Sd-IO1" kind="embed" id="U6u-xz-0Nw"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnU-u1-7eQ">
-                                                        <rect key="frame" x="375" y="0.0" width="375" height="494"/>
+                                                        <rect key="frame" x="375" y="0.0" width="375" height="450"/>
                                                         <connections>
                                                             <segue destination="L6w-08-HP5" kind="embed" id="a9I-Zh-Rxh"/>
                                                         </connections>
@@ -487,10 +487,10 @@
                                         </constraints>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-Zh-I58">
-                                        <rect key="frame" x="0.0" y="494" width="375" height="109"/>
+                                        <rect key="frame" x="0.0" y="450" width="375" height="153"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaZ-Gy-Tit">
-                                                <rect key="frame" x="141.5" y="8" width="93" height="93"/>
+                                                <rect key="frame" x="141.5" y="8" width="93" height="137"/>
                                                 <state key="normal" image="Start  Button"/>
                                             </button>
                                         </subviews>
@@ -711,6 +711,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g3a-YD-OTV">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gSe-ds-i70"/>
                     </connections>
@@ -728,7 +731,7 @@
                         <viewControllerLayoutGuide type="bottom" id="tl7-D9-gSf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VFe-7d-MoJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -746,7 +749,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ZVZ-pV-V19"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DFF-2y-TJc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="494"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>

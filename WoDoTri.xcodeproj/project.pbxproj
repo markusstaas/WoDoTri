@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		281C07C8202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */; };
+		2829DEEB20878C320000C6D5 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2829DEEA20878C320000C6D5 /* New.storyboard */; };
 		28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28329D7920459A6E008DF038 /* WorkoutViewController.swift */; };
 		2839F4CC2046E2CD0065D0B0 /* WorkoutMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */; };
 		2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		19B1C90D0844C028CE982DC0 /* Pods_WoDoTri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoDoTri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnitSpeed+CustomUnits.swift"; sourceTree = "<group>"; };
+		2829DEEA20878C320000C6D5 /* New.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		28329D7920459A6E008DF038 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapViewController.swift; sourceTree = "<group>"; };
 		2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				28CD5B361FB83034009384C2 /* Main.storyboard */,
 				289508A71FB570B400353860 /* LaunchScreen.storyboard */,
+				2829DEEA20878C320000C6D5 /* New.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				28CD5B371FB83034009384C2 /* Main.storyboard in Resources */,
 				289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */,
 				289508A61FB570B400353860 /* Assets.xcassets in Resources */,
+				2829DEEB20878C320000C6D5 /* New.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
