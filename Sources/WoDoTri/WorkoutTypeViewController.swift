@@ -1,28 +1,38 @@
-//  Copyright © 2017 Markus Staas. All rights reserved.
+//  Copyright © 2018 Markus Staas. All rights reserved.
 
 import UIKit
 
-final class WorkoutTypeViewController: UIViewController {
+// swiftlint:disable force_cast
 
-    @IBOutlet private var workoutTypeButtonBike: UIButton!
-    @IBOutlet private var workoutTypeButtonRun: UIButton!
+final class WorkoutTypeViewController: UIViewController, WorkoutViewControllerDelegate {
+
+    private var workoutType: WorkoutType?
+    private let workoutViewControllerSegueIdentifier = "Workout View Controller Segue"
+
+    // MARK: - Handling Interface Builder Actions
+
+    @IBAction private func pickWorkoutTypeRide() {
+        workoutType = .ride
+        performSegue(withIdentifier: workoutViewControllerSegueIdentifier, sender: self)
+    }
+
+    @IBAction private func pickWorkoutTypeRun() {
+        workoutType = .run
+        performSegue(withIdentifier: workoutViewControllerSegueIdentifier, sender: self)
+    }
+
+    // MARK: - Handling Storyboard Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard
-            let button = sender as? UIButton,
-            let workoutViewController = segue.destination as? WorkoutViewController else {
-            preconditionFailure()
-        }
-        let workoutType: WorkoutType
-        switch button {
-        case workoutTypeButtonBike: workoutType = .ride
-        case workoutTypeButtonRun: workoutType = .run
-        default: preconditionFailure()
-        }
-        workoutViewController.preconfigure(with: workoutType)
+        let workoutViewController = segue.destination as! WorkoutViewController
+        workoutViewController.delegate = self
     }
 
-    @IBAction private func unwindToActivityPickerViewController(with segue: UIStoryboardSegue) {}
+    // MARK: - Managing Workout View Controller
+
+    func workoutType(for workoutViewController: WorkoutViewController) -> WorkoutType {
+        return workoutType!
+    }
 
 }
