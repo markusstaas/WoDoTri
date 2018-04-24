@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2801996C208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801996B208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift */; };
 		281C07C8202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */; };
 		2829DEEB20878C320000C6D5 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2829DEEA20878C320000C6D5 /* New.storyboard */; };
 		28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28329D7920459A6E008DF038 /* WorkoutViewController.swift */; };
 		2839F4CC2046E2CD0065D0B0 /* WorkoutMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */; };
 		2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */; };
+		287F0812208E0C66001A99D3 /* MeasurementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F0811208E0C66001A99D3 /* MeasurementTableViewCell.swift */; };
+		287F0814208E0CC4001A99D3 /* MeasurementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287F0813208E0CC4001A99D3 /* MeasurementTableViewCell.xib */; };
 		2895089F1FB570B400353860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895089E1FB570B400353860 /* AppDelegate.swift */; };
 		289508A11FB570B400353860 /* WorkoutTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508A01FB570B400353860 /* WorkoutTypeViewController.swift */; };
 		289508A61FB570B400353860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289508A51FB570B400353860 /* Assets.xcassets */; };
@@ -38,11 +41,14 @@
 
 /* Begin PBXFileReference section */
 		19B1C90D0844C028CE982DC0 /* Pods_WoDoTri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoDoTri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2801996B208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+MonospacedDigits.swift"; sourceTree = "<group>"; };
 		281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnitSpeed+CustomUnits.swift"; sourceTree = "<group>"; };
 		2829DEEA20878C320000C6D5 /* New.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		28329D7920459A6E008DF038 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapViewController.swift; sourceTree = "<group>"; };
 		2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataViewController.swift; sourceTree = "<group>"; };
+		287F0811208E0C66001A99D3 /* MeasurementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementTableViewCell.swift; sourceTree = "<group>"; };
+		287F0813208E0CC4001A99D3 /* MeasurementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasurementTableViewCell.xib; sourceTree = "<group>"; };
 		2895089B1FB570B400353860 /* WoDoTri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoDoTri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2895089E1FB570B400353860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		289508A01FB570B400353860 /* WorkoutTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTypeViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 				28CD5B361FB83034009384C2 /* Main.storyboard */,
 				289508A71FB570B400353860 /* LaunchScreen.storyboard */,
 				2829DEEA20878C320000C6D5 /* New.storyboard */,
+				287F0811208E0C66001A99D3 /* MeasurementTableViewCell.swift */,
+				287F0813208E0CC4001A99D3 /* MeasurementTableViewCell.xib */,
+				2801996B208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28CD5B371FB83034009384C2 /* Main.storyboard in Resources */,
+				287F0814208E0CC4001A99D3 /* MeasurementTableViewCell.xib in Resources */,
 				289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */,
 				289508A61FB570B400353860 /* Assets.xcassets in Resources */,
 				2829DEEB20878C320000C6D5 /* New.storyboard in Resources */,
@@ -339,6 +349,7 @@
 				65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */,
 				2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */,
 				651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */,
+				287F0812208E0C66001A99D3 /* MeasurementTableViewCell.swift in Sources */,
 				65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */,
 				289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */,
 				28A199A22022BC5500E7B715 /* WorkoutLocation.swift in Sources */,
@@ -350,6 +361,7 @@
 				28F33378200C53F400272462 /* SettingsViewController.swift in Sources */,
 				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
 				65A684A81FC514B400B0A7C8 /* UnitConverterPace.swift in Sources */,
+				2801996C208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift in Sources */,
 				28F7B7682005BF2100B9A344 /* ActivityPageViewController.swift in Sources */,
 				65A684AA1FC5151A00B0A7C8 /* FormatDisplay.swift in Sources */,
 			);
