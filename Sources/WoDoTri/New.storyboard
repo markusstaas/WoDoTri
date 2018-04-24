@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -134,7 +135,7 @@
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJw-Nc-9GX">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                                                         <connections>
-                                                            <segue destination="mOa-i9-4NN" kind="embed" id="UWH-py-T8c"/>
+                                                            <segue destination="Moz-P9-F9P" kind="embed" id="pss-mM-0DP"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb7-Qr-DQI">
@@ -206,31 +207,79 @@
             </objects>
             <point key="canvasLocation" x="879" y="89"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="qet-70-Nu7">
+        <!--Workout Data View Controller-->
+        <scene sceneID="S5Q-bo-1cW">
             <objects>
-                <viewController id="mOa-i9-4NN" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FSk-PS-hfv">
+                <tableViewController id="Moz-P9-F9P" customClass="WorkoutDataViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vcw-lN-FFR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y6d-tK-UvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="Moz-P9-F9P" id="4sP-UF-rd2"/>
+                            <outlet property="delegate" destination="Moz-P9-F9P" id="BLN-8X-bbg"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="39D-Sd-bbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="-160"/>
+            <point key="canvasLocation" x="1821.5999999999999" y="-179.46026986506749"/>
         </scene>
-        <!--View Controller-->
+        <!--Workout Map View Controller-->
         <scene sceneID="E2q-1x-QqT">
             <objects>
-                <viewController id="sgl-sS-kJe" sceneMemberID="viewController">
+                <viewController id="sgl-sS-kJe" customClass="WorkoutMapViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rx7-m9-JAt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="jDW-sv-07q"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weq-Mt-7Mb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="TCP-AW-ujx">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PYP-xk-uSM">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ana-Mt-i7E">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huE-gw-2Ry">
+                                    <rect key="frame" x="0.0" y="20.5" width="375" height="48.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Km8-NV-cuI">
+                                            <rect key="frame" x="155.5" y="8" width="64" height="32.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPA-Gk-GXU">
+                                            <rect key="frame" x="227.5" y="27" width="14.5" height="8.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="hPA-Gk-GXU" firstAttribute="leading" secondItem="Km8-NV-cuI" secondAttribute="trailing" constant="8" symbolic="YES" id="4Cg-aZ-9Ra"/>
+                                        <constraint firstItem="Km8-NV-cuI" firstAttribute="centerX" secondItem="huE-gw-2Ry" secondAttribute="centerX" id="Ulq-x3-rd9"/>
+                                        <constraint firstItem="hPA-Gk-GXU" firstAttribute="firstBaseline" secondItem="Km8-NV-cuI" secondAttribute="firstBaseline" id="aHY-fq-rru"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Km8-NV-cuI" secondAttribute="bottom" id="fBF-7U-gkc"/>
+                                        <constraint firstItem="Km8-NV-cuI" firstAttribute="top" secondItem="huE-gw-2Ry" secondAttribute="topMargin" id="tjY-Lj-KAT"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Lvw-N3-HdO"/>
+                </stackView>
             </objects>
             <point key="canvasLocation" x="1822" y="430"/>
         </scene>

@@ -1,6 +1,6 @@
 import UIKit
 
-final class WorkoutDataViewController: UIViewController {
+final class WorkoutDataViewController: UITableViewController {
 
 //    override init() {
 //        super.init()
