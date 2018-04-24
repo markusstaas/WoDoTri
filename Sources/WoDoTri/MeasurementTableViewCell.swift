@@ -9,6 +9,7 @@ final class MeasurementTableViewCell: UITableViewCell {
     @IBOutlet private var measurementUnitLabel: UILabel!
 
     static let preferredReuseIdentifier = "Measurement Cell"
+    static let preferredNib = UINib(nibName: "MeasurementTableViewCell", bundle: nil)
 
     override func awakeFromNib() {
         super.awakeFromNib()
