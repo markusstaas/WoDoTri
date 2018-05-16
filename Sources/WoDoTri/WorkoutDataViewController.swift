@@ -3,20 +3,47 @@ import UIKit
 // swiftlint:disable force_cast
 // swiftlint:disable line_length
 
-final class WorkoutDataViewController: UITableViewController {
+protocol WorkoutDataViewControllerDataSource: AnyObject {
+
+    func workoutType(for workoutDataViewController: WorkoutDataViewController) -> WorkoutType
+    func workoutDistance(for workoutDataViewController: WorkoutDataViewController) -> Double
+    func workoutDuration(for workoutDataViewController: WorkoutDataViewController) -> Double
+
+}
+
+final class WorkoutDataViewController: UITableViewController, VelocityFormatterDataSource, VelocityFormatterDelegate {
+
+    weak var dataSource: WorkoutDataViewControllerDataSource!
+
+    private lazy var velocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(MeasurementTableViewCell.preferredNib, forCellReuseIdentifier: MeasurementTableViewCell.preferredReuseIdentifier)
     }
 
+    // MARK: - Managing Table View
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as! MeasurementTableViewCell
-        cell.updateMeasurement(property: "My cool property", value: "100", unit: "Cool")
+        switch indexPath.row {
+        case 0:
+            cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
+        case 1: //Time
+            break
+        case 2: //Avg. Speed
+            break
+        case 3: //Distance
+            break
+
+        default:
+            fatalError()
+        }
+
         return cell
     }
 
@@ -37,5 +64,25 @@ final class WorkoutDataViewController: UITableViewController {
 //        elapsedTime = elapsedTime + displayLink.duration
 //        callback?()
 //    }
+
+    // MARK: - Managing Velocity Formatter
+
+    func duration(for velocityFormatter: VelocityFormatter) -> Double {
+        return dataSource.workoutDuration(for: self)
+    }
+
+    func distance(for velocityFormatter: VelocityFormatter) -> Double {
+        return dataSource.workoutDistance(for: self)
+    }
+
+    func outputType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.OutputType {
+        let workoutType = dataSource.workoutType(for: self)
+        switch workoutType {
+        case .ride:
+            return .distancePerTime
+        case .run:
+            return .timePerDistance
+        }
+    }
 
 }

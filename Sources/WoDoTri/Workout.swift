@@ -5,7 +5,7 @@ import CoreLocation
 
 final class Workout: NSManagedObject {
 
-    @NSManaged private(set) var workoutType: String
+    @NSManaged private var workoutTypeDescription: String
     @NSManaged private(set) var distance: Double
     @NSManaged private(set) var duration: Double
     @NSManaged private(set) var isPaused: Bool
@@ -20,7 +20,13 @@ final class Workout: NSManagedObject {
 
     convenience init(workoutType: WorkoutType, managedObjectContext: NSManagedObjectContext) {
         self.init(entity: Workout.entity(), insertInto: managedObjectContext)
-        self.workoutType = workoutType.rawValue
+        workoutTypeDescription = workoutType.rawValue
+    }
+
+    // MARK: - Providing Workout Type
+
+    var workoutType: WorkoutType {
+        return WorkoutType(rawValue: workoutTypeDescription)!
     }
 
     // MARK: - Starting and Pausing Workout

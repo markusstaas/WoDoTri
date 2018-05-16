@@ -4,7 +4,7 @@ import UIKit
 
 // swiftlint:disable force_cast
 
-final class WorkoutTypeViewController: UIViewController, WorkoutViewControllerDelegate {
+final class WorkoutTypeViewController: UIViewController, WorkoutViewControllerDataSource {
 
     private var workoutType: WorkoutType?
     private let workoutViewControllerSegueIdentifier = "Workout View Controller Segue"

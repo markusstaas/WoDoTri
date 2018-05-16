@@ -13,6 +13,7 @@
 		28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28329D7920459A6E008DF038 /* WorkoutViewController.swift */; };
 		2839F4CC2046E2CD0065D0B0 /* WorkoutMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */; };
 		2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */; };
+		2867324F20AB012800D3152F /* VelocityFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2867324E20AB012800D3152F /* VelocityFormatter.swift */; };
 		287F0812208E0C66001A99D3 /* MeasurementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287F0811208E0C66001A99D3 /* MeasurementTableViewCell.swift */; };
 		287F0814208E0CC4001A99D3 /* MeasurementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287F0813208E0CC4001A99D3 /* MeasurementTableViewCell.xib */; };
 		2895089F1FB570B400353860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2895089E1FB570B400353860 /* AppDelegate.swift */; };
@@ -29,7 +30,7 @@
 		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
 		28F33378200C53F400272462 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F33377200C53F400272462 /* SettingsViewController.swift */; };
 		28F7B7682005BF2100B9A344 /* ActivityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7B7672005BF2100B9A344 /* ActivityPageViewController.swift */; };
-		65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65084EB41FC5124100EDA74A /* Model.xcdatamodeld */; };
+		65084EB61FC5124100EDA74A /* WorkoutLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65084EB41FC5124100EDA74A /* WorkoutLog.xcdatamodeld */; };
 		651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */; };
 		652768FC1FD5070500353CC9 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652768FB1FD5070500353CC9 /* HistoryDetailViewController.swift */; };
 		65A684A81FC514B400B0A7C8 /* UnitConverterPace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A71FC514B400B0A7C8 /* UnitConverterPace.swift */; };
@@ -47,6 +48,7 @@
 		28329D7920459A6E008DF038 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapViewController.swift; sourceTree = "<group>"; };
 		2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataViewController.swift; sourceTree = "<group>"; };
+		2867324E20AB012800D3152F /* VelocityFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityFormatter.swift; sourceTree = "<group>"; };
 		287F0811208E0C66001A99D3 /* MeasurementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementTableViewCell.swift; sourceTree = "<group>"; };
 		287F0813208E0CC4001A99D3 /* MeasurementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasurementTableViewCell.xib; sourceTree = "<group>"; };
 		2895089B1FB570B400353860 /* WoDoTri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WoDoTri.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +131,7 @@
 				65A684A71FC514B400B0A7C8 /* UnitConverterPace.swift */,
 				281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */,
 				65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */,
-				65084EB41FC5124100EDA74A /* Model.xcdatamodeld */,
+				65084EB41FC5124100EDA74A /* WorkoutLog.xcdatamodeld */,
 				651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */,
 			);
 			name = Model;
@@ -154,6 +156,7 @@
 				289508A01FB570B400353860 /* WorkoutTypeViewController.swift */,
 				28329D7920459A6E008DF038 /* WorkoutViewController.swift */,
 				2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */,
+				2867324E20AB012800D3152F /* VelocityFormatter.swift */,
 				2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */,
 				28F7B7672005BF2100B9A344 /* ActivityPageViewController.swift */,
 				289508B71FB575D200353860 /* ActivityViewController.swift */,
@@ -192,12 +195,12 @@
 			buildConfigurationList = 289508AD1FB570B400353860 /* Build configuration list for PBXNativeTarget "WoDoTri" */;
 			buildPhases = (
 				561CE1E78FF30E405398279D /* [CP] Check Pods Manifest.lock */,
+				284477AB201F44F2000787D2 /* Run SwiftLint */,
 				289508971FB570B400353860 /* Sources */,
 				289508981FB570B400353860 /* Frameworks */,
 				289508991FB570B400353860 /* Resources */,
 				947C7FE4DBA145DBB8784F35 /* [CP] Embed Pods Frameworks */,
 				674C8E434001E2DD6DD5333F /* [CP] Copy Pods Resources */,
-				284477AB201F44F2000787D2 /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -215,7 +218,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Markus Staas";
 				TargetAttributes = {
 					2895089A1FB570B400353860 = {
@@ -350,13 +353,14 @@
 				2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */,
 				651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */,
 				287F0812208E0C66001A99D3 /* MeasurementTableViewCell.swift in Sources */,
-				65084EB61FC5124100EDA74A /* Model.xcdatamodeld in Sources */,
+				65084EB61FC5124100EDA74A /* WorkoutLog.xcdatamodeld in Sources */,
 				289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */,
 				28A199A22022BC5500E7B715 /* WorkoutLocation.swift in Sources */,
 				65FFABF51FD3CF6B006D6435 /* WorkoutType.swift in Sources */,
 				28A199A12022BC5500E7B715 /* Workout.swift in Sources */,
 				652768FC1FD5070500353CC9 /* HistoryDetailViewController.swift in Sources */,
 				2839F4CC2046E2CD0065D0B0 /* WorkoutMapViewController.swift in Sources */,
+				2867324F20AB012800D3152F /* VelocityFormatter.swift in Sources */,
 				28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */,
 				28F33378200C53F400272462 /* SettingsViewController.swift in Sources */,
 				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
@@ -394,6 +398,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -401,6 +406,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -449,6 +455,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -456,6 +463,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -538,13 +546,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		65084EB41FC5124100EDA74A /* Model.xcdatamodeld */ = {
+		65084EB41FC5124100EDA74A /* WorkoutLog.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				65084EB51FC5124100EDA74A /* Model.xcdatamodel */,
 			);
 			currentVersion = 65084EB51FC5124100EDA74A /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			path = WorkoutLog.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

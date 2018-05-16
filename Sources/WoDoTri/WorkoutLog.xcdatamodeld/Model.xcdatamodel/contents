@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Workout" representedClassName=".Activity" syncable="YES">
+    <entity name="Workout" representedClassName=".Workout" syncable="YES">
         <attribute name="distance" attributeType="Double" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="duration" attributeType="Double" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isPaused" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastStartedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="workoutType" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="workoutTypeDescription" attributeType="String" minValueString="1" syncable="YES"/>
         <relationship name="currentLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutLocation" inverseName="currentInWorkout" inverseEntity="WorkoutLocation" syncable="YES"/>
         <relationship name="locationHistory" toMany="YES" deletionRule="Cascade" destinationEntity="WorkoutLocation" inverseName="workout" inverseEntity="WorkoutLocation" syncable="YES"/>
     </entity>
-    <entity name="WorkoutLocation" representedClassName=".Location" syncable="YES">
+    <entity name="WorkoutLocation" representedClassName=".WorkoutLocation" syncable="YES">
         <attribute name="isWorkoutPaused" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="latitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
