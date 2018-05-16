@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.7.0)
+  - Alamofire (4.7.2)
   - OAuthSwift (1.2.0)
-  - SwiftLint (0.25.0)
+  - SwiftLint (0.25.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -9,9 +9,9 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   OAuthSwift: 7fd6855b8e4d58eb5a30d156ea9bed7a8aecd1ca
-  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
 
 PODFILE CHECKSUM: b40a616715fc325d7f1c1f8835cf85611a6f5b77
 
