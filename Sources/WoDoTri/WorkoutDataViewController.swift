@@ -31,15 +31,14 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as! MeasurementTableViewCell
         switch indexPath.row {
-        case 0:
+        case 0: // Speed
+            break
+        case 1: // Time
+            break
+        case 2: // Avg. Speed
             cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
-        case 1: //Time
+        case 3: // Distance
             break
-        case 2: //Avg. Speed
-            break
-        case 3: //Distance
-            break
-
         default:
             fatalError()
         }
@@ -75,13 +74,17 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
         return dataSource.workoutDistance(for: self)
     }
 
-    func outputType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.OutputType {
+    func propertyType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.PropertyType {
+        return .averageVelocity
+    }
+
+    func unitType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.UnitType {
         let workoutType = dataSource.workoutType(for: self)
         switch workoutType {
         case .ride:
-            return .distancePerTime
+            return .distancePerDuration
         case .run:
-            return .timePerDistance
+            return .durationPerDistance
         }
     }
 

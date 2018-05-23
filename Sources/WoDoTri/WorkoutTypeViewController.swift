@@ -26,7 +26,7 @@ final class WorkoutTypeViewController: UIViewController, WorkoutViewControllerDa
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let workoutViewController = segue.destination as! WorkoutViewController
-        workoutViewController.delegate = self
+        workoutViewController.dataSource = self
     }
 
     // MARK: - Managing Workout View Controller
