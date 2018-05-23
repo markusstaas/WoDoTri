@@ -9,11 +9,17 @@ protocol VelocityFormatterDataSource: AnyObject {
 
 protocol VelocityFormatterDelegate: AnyObject {
 
+    func propertyType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.PropertyType
     func unitType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.UnitType
 
 }
 
 final class VelocityFormatter {
+
+    enum PropertyType {
+        case velocity
+        case averageVelocity
+    }
 
     enum UnitType {
         case distancePerDuration
@@ -35,13 +41,18 @@ final class VelocityFormatter {
     // MARK: - Providing Formatted Data
 
     var property: String {
+        let propertyType = delegate.propertyType(for: self)
         let unitType = delegate.unitType(for: self)
 
-        switch unitType {
-        case .distancePerDuration:
+        switch (propertyType, unitType) {
+        case (.velocity, .distancePerDuration):
             return NSLocalizedString("Speed", comment: "")
-        case .durationPerDistance:
+        case (.velocity, .durationPerDistance):
             return NSLocalizedString("Pace", comment: "")
+        case (.averageVelocity, .distancePerDuration):
+            return NSLocalizedString("Avg. Speed", comment: "")
+        case (.averageVelocity, .durationPerDistance):
+            return NSLocalizedString("Avg. Pace", comment: "")
         }
     }
 
