@@ -16,8 +16,8 @@ protocol VelocityFormatterDelegate: AnyObject {
 final class VelocityFormatter {
 
     enum UnitType {
-        case distancePerTime
-        case timePerDistance
+        case distancePerDuration
+        case durationPerDistance
     }
 
     unowned var dataSource: VelocityFormatterDataSource
@@ -38,9 +38,9 @@ final class VelocityFormatter {
         let unitType = delegate.unitType(for: self)
 
         switch unitType {
-        case .distancePerTime:
+        case .distancePerDuration:
             return NSLocalizedString("Speed", comment: "")
-        case .timePerDistance:
+        case .durationPerDistance:
             return NSLocalizedString("Pace", comment: "")
         }
     }
@@ -53,16 +53,16 @@ final class VelocityFormatter {
         let durationDivisor: Double
 
         switch (unitType, isMetric) {
-        case (.distancePerTime, true):
+        case (.distancePerDuration, true):
             distanceDivisor = 1000
             durationDivisor = 3600
-        case (.distancePerTime, false):
+        case (.distancePerDuration, false):
             distanceDivisor = 1609.344
             durationDivisor = 3600
-        case (.timePerDistance, true):
+        case (.durationPerDistance, true):
             distanceDivisor = 1000
             durationDivisor = 60
-        case (.timePerDistance, false):
+        case (.durationPerDistance, false):
             distanceDivisor = 1609.344
             durationDivisor = 60
         }
@@ -81,13 +81,13 @@ final class VelocityFormatter {
         let isMetric = Locale.current.usesMetricSystem
 
         switch (unitType, isMetric) {
-        case (.distancePerTime, true):
+        case (.distancePerDuration, true):
             return NSLocalizedString("km/h", comment: "")
-        case (.distancePerTime, false):
+        case (.distancePerDuration, false):
             return NSLocalizedString("mph", comment: "")
-        case (.timePerDistance, true):
+        case (.durationPerDistance, true):
             return NSLocalizedString("min/km", comment: "")
-        case (.timePerDistance, false):
+        case (.durationPerDistance, false):
             return NSLocalizedString("min/mile", comment: "")
         }
     }
