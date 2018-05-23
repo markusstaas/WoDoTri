@@ -9,13 +9,13 @@ protocol VelocityFormatterDataSource: AnyObject {
 
 protocol VelocityFormatterDelegate: AnyObject {
 
-    func outputType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.OutputType
+    func unitType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.UnitType
 
 }
 
 final class VelocityFormatter {
 
-    enum OutputType {
+    enum UnitType {
         case distancePerTime
         case timePerDistance
     }
@@ -35,9 +35,9 @@ final class VelocityFormatter {
     // MARK: - Providing Formatted Data
 
     var property: String {
-        let outputType = delegate.outputType(for: self)
+        let unitType = delegate.unitType(for: self)
 
-        switch outputType {
+        switch unitType {
         case .distancePerTime:
             return NSLocalizedString("Speed", comment: "")
         case .timePerDistance:
@@ -46,13 +46,13 @@ final class VelocityFormatter {
     }
 
     var value: String {
-        let outputType = delegate.outputType(for: self)
+        let unitType = delegate.unitType(for: self)
         let isMetric = Locale.current.usesMetricSystem
 
         let distanceDivisor: Double
         let durationDivisor: Double
 
-        switch (outputType, isMetric) {
+        switch (unitType, isMetric) {
         case (.distancePerTime, true):
             distanceDivisor = 1000
             durationDivisor = 3600
@@ -77,10 +77,10 @@ final class VelocityFormatter {
     }
 
     var unit: String {
-        let outputType = delegate.outputType(for: self)
+        let unitType = delegate.unitType(for: self)
         let isMetric = Locale.current.usesMetricSystem
 
-        switch (outputType, isMetric) {
+        switch (unitType, isMetric) {
         case (.distancePerTime, true):
             return NSLocalizedString("km/h", comment: "")
         case (.distancePerTime, false):
