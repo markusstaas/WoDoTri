@@ -9,19 +9,25 @@ protocol VelocityFormatterDataSource: AnyObject {
 
 protocol VelocityFormatterDelegate: AnyObject {
 
-    func outputType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.OutputType
+    func propertyType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.PropertyType
+    func unitType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.UnitType
 
 }
 
 final class VelocityFormatter {
 
-    enum OutputType {
-        case distancePerTime
-        case timePerDistance
+    enum PropertyType {
+        case velocity
+        case averageVelocity
     }
 
-    unowned var dataSource: VelocityFormatterDataSource
-    unowned var delegate: VelocityFormatterDelegate
+    enum UnitType {
+        case distancePerDuration
+        case durationPerDistance
+    }
+
+    weak var dataSource: VelocityFormatterDataSource?
+    weak var delegate: VelocityFormatterDelegate?
 
     private let valueFormatter = NumberFormatter()
 
@@ -35,34 +41,51 @@ final class VelocityFormatter {
     // MARK: - Providing Formatted Data
 
     var property: String {
-        let outputType = delegate.outputType(for: self)
+        guard let delegate = delegate else {
+            assertionFailure()
+            return ""
+        }
 
-        switch outputType {
-        case .distancePerTime:
+        let propertyType = delegate.propertyType(for: self)
+        let unitType = delegate.unitType(for: self)
+
+        switch (propertyType, unitType) {
+        case (.velocity, .distancePerDuration):
             return NSLocalizedString("Speed", comment: "")
-        case .timePerDistance:
+        case (.velocity, .durationPerDistance):
             return NSLocalizedString("Pace", comment: "")
+        case (.averageVelocity, .distancePerDuration):
+            return NSLocalizedString("Avg. Speed", comment: "")
+        case (.averageVelocity, .durationPerDistance):
+            return NSLocalizedString("Avg. Pace", comment: "")
         }
     }
 
     var value: String {
-        let outputType = delegate.outputType(for: self)
+        guard
+            let dataSource = dataSource,
+            let delegate = delegate else {
+                assertionFailure()
+                return ""
+        }
+
+        let unitType = delegate.unitType(for: self)
         let isMetric = Locale.current.usesMetricSystem
 
         let distanceDivisor: Double
         let durationDivisor: Double
 
-        switch (outputType, isMetric) {
-        case (.distancePerTime, true):
+        switch (unitType, isMetric) {
+        case (.distancePerDuration, true):
             distanceDivisor = 1000
             durationDivisor = 3600
-        case (.distancePerTime, false):
+        case (.distancePerDuration, false):
             distanceDivisor = 1609.344
             durationDivisor = 3600
-        case (.timePerDistance, true):
+        case (.durationPerDistance, true):
             distanceDivisor = 1000
             durationDivisor = 60
-        case (.timePerDistance, false):
+        case (.durationPerDistance, false):
             distanceDivisor = 1609.344
             durationDivisor = 60
         }
@@ -77,17 +100,22 @@ final class VelocityFormatter {
     }
 
     var unit: String {
-        let outputType = delegate.outputType(for: self)
+        guard let delegate = delegate else {
+            assertionFailure()
+            return ""
+        }
+
+        let unitType = delegate.unitType(for: self)
         let isMetric = Locale.current.usesMetricSystem
 
-        switch (outputType, isMetric) {
-        case (.distancePerTime, true):
+        switch (unitType, isMetric) {
+        case (.distancePerDuration, true):
             return NSLocalizedString("km/h", comment: "")
-        case (.distancePerTime, false):
+        case (.distancePerDuration, false):
             return NSLocalizedString("mph", comment: "")
-        case (.timePerDistance, true):
+        case (.durationPerDistance, true):
             return NSLocalizedString("min/km", comment: "")
-        case (.timePerDistance, false):
+        case (.durationPerDistance, false):
             return NSLocalizedString("min/mile", comment: "")
         }
     }
