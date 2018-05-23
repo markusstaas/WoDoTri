@@ -16,6 +16,7 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
     weak var dataSource: WorkoutDataViewControllerDataSource!
 
     private lazy var velocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
+    private lazy var averageVelocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +31,14 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as! MeasurementTableViewCell
+
         switch indexPath.row {
         case 0: // Speed
-            break
+             cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
         case 1: // Time
             break
         case 2: // Avg. Speed
-            cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
+            cell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
         case 3: // Distance
             break
         default:
@@ -75,7 +77,13 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
     }
 
     func propertyType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.PropertyType {
-        return .averageVelocity
+        if velocityFormatter === self.velocityFormatter {
+            return .velocity
+        } else if velocityFormatter === averageVelocityFormatter {
+            return .averageVelocity
+        } else {
+            fatalError()
+        }
     }
 
     func unitType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.UnitType {
