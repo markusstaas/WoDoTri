@@ -26,8 +26,8 @@ final class VelocityFormatter {
         case durationPerDistance
     }
 
-    unowned var dataSource: VelocityFormatterDataSource
-    unowned var delegate: VelocityFormatterDelegate
+    weak var dataSource: VelocityFormatterDataSource?
+    weak var delegate: VelocityFormatterDelegate?
 
     private let valueFormatter = NumberFormatter()
 
@@ -41,6 +41,11 @@ final class VelocityFormatter {
     // MARK: - Providing Formatted Data
 
     var property: String {
+        guard let delegate = delegate else {
+            assertionFailure()
+            return ""
+        }
+
         let propertyType = delegate.propertyType(for: self)
         let unitType = delegate.unitType(for: self)
 
@@ -57,6 +62,13 @@ final class VelocityFormatter {
     }
 
     var value: String {
+        guard
+            let dataSource = dataSource,
+            let delegate = delegate else {
+                assertionFailure()
+                return ""
+        }
+
         let unitType = delegate.unitType(for: self)
         let isMetric = Locale.current.usesMetricSystem
 
@@ -88,6 +100,11 @@ final class VelocityFormatter {
     }
 
     var unit: String {
+        guard let delegate = delegate else {
+            assertionFailure()
+            return ""
+        }
+
         let unitType = delegate.unitType(for: self)
         let isMetric = Locale.current.usesMetricSystem
 
