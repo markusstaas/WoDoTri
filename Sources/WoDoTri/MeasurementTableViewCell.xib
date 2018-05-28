@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Measurement Cell" rowHeight="182" id="gKw-0v-Zz5" customClass="MeasurementTableViewCell" customModule="WoDoTri" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="182"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gKw-0v-Zz5" id="gaI-ZR-tmI">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="181.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="78U-k7-oIa">
+                        <rect key="frame" x="16" y="11" width="343" height="69"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMx-Lq-7OB">
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxG-Ml-vsh">
+                                <rect key="frame" x="0.0" y="20.5" width="343" height="48.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEX-ax-PH6">
+                                        <rect key="frame" x="139.5" y="8" width="64" height="32.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjI-b3-H4M">
+                                        <rect key="frame" x="211.5" y="27" width="14.5" height="8.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="DEX-ax-PH6" firstAttribute="top" secondItem="DxG-Ml-vsh" secondAttribute="topMargin" id="OWb-L4-ci8"/>
+                                    <constraint firstItem="GjI-b3-H4M" firstAttribute="firstBaseline" secondItem="DEX-ax-PH6" secondAttribute="firstBaseline" id="Uaz-hK-pmx"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="DEX-ax-PH6" secondAttribute="bottom" id="eyY-PF-wTy"/>
+                                    <constraint firstItem="GjI-b3-H4M" firstAttribute="leading" secondItem="DEX-ax-PH6" secondAttribute="trailing" constant="8" symbolic="YES" id="iqC-wr-T0M"/>
+                                    <constraint firstItem="DEX-ax-PH6" firstAttribute="centerX" secondItem="DxG-Ml-vsh" secondAttribute="centerX" id="juR-hu-Zge"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="78U-k7-oIa" firstAttribute="top" secondItem="gaI-ZR-tmI" secondAttribute="topMargin" id="0qa-ZY-tiG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="78U-k7-oIa" secondAttribute="trailing" id="7LS-wS-xio"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="78U-k7-oIa" secondAttribute="bottom" id="7vt-ib-Ct9"/>
+                    <constraint firstItem="78U-k7-oIa" firstAttribute="leading" secondItem="gaI-ZR-tmI" secondAttribute="leadingMargin" id="HIs-db-391"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="measurementPropertyLabel" destination="NMx-Lq-7OB" id="pQe-Um-vOv"/>
+                <outlet property="measurementUnitLabel" destination="GjI-b3-H4M" id="Esp-4S-oXi"/>
+                <outlet property="measurementValueLabel" destination="DEX-ax-PH6" id="MdQ-8m-C0G"/>
+            </connections>
+            <point key="canvasLocation" x="-200" y="5"/>
+        </tableViewCell>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    </objects>
+</document>
