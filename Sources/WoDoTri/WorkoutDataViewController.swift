@@ -10,13 +10,14 @@ protocol WorkoutDataViewControllerDataSource: AnyObject {
 
 }
 
-final class WorkoutDataViewController: UITableViewController, VelocityFormatterDataSource, VelocityFormatterDelegate, DistanceFormatterDataSource {
+final class WorkoutDataViewController: UITableViewController, VelocityFormatterDataSource, VelocityFormatterDelegate, DistanceFormatterDataSource, DurationFormatterDataSource {
 
     weak var dataSource: WorkoutDataViewControllerDataSource!
 
     private lazy var velocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
     private lazy var averageVelocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
     private lazy var distanceFormatter = DistanceFormatter(dataSource: self)
+    private lazy var durationFormatter = DurationFormatter(dataSource: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
         case 0: // Speed
              cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
         case 1: // Time
-            break
+            cell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: durationFormatter.unit)
         case 2: // Avg. Speed
             cell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
         case 3: // Distance
@@ -100,6 +101,11 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
 
     func distance(for distanceFormatter: DistanceFormatter) -> Double {
         return dataSource.workoutDistance(for: self)
+    }
+
+    // MARK: - Managing Duration Formatter
+    func duration(for durationFormatter: DurationFormatter) -> Double {
+        return 60.00
     }
 
 }
