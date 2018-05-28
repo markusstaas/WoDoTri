@@ -49,5 +49,4 @@ final class Workout: NSManagedObject {
         distance += newLocation.distance(from: oldLocation)
     }
 
-
 }

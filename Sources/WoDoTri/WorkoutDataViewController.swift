@@ -105,7 +105,7 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
 
     // MARK: - Managing Duration Formatter
     func duration(for durationFormatter: DurationFormatter) -> Double {
-        return 60.00
+        return dataSource.workoutDuration(for: self)
     }
 
 }
