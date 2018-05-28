@@ -24,9 +24,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        let locationManager = LocationManager.shared
-        locationManager.requestWhenInUseAuthorization()
+
         return true
     }
 }
