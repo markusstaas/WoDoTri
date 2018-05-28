@@ -5,7 +5,7 @@ protocol DurationFormatterDataSource: AnyObject {
     func duration(for durationFormatter: DurationFormatter) -> Double
 }
 
-class DurationFormatter {
+final class DurationFormatter {
 
     weak var dataSource: DurationFormatterDataSource?
     let valueFormatter = DateComponentsFormatter()

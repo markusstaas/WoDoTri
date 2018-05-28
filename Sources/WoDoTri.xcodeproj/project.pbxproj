@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2801996C208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801996B208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift */; };
 		28191EBE20BC2DDB0090A8E8 /* DurationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28191EBD20BC2DDB0090A8E8 /* DurationFormatter.swift */; };
-		281C07C8202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */; };
 		2829DEEB20878C320000C6D5 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2829DEEA20878C320000C6D5 /* New.storyboard */; };
 		28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28329D7920459A6E008DF038 /* WorkoutViewController.swift */; };
 		2839F4CC2046E2CD0065D0B0 /* WorkoutMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */; };
@@ -35,9 +34,6 @@
 		65084EB61FC5124100EDA74A /* WorkoutLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65084EB41FC5124100EDA74A /* WorkoutLog.xcdatamodeld */; };
 		651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */; };
 		652768FC1FD5070500353CC9 /* HistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652768FB1FD5070500353CC9 /* HistoryDetailViewController.swift */; };
-		65A684A81FC514B400B0A7C8 /* UnitConverterPace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A71FC514B400B0A7C8 /* UnitConverterPace.swift */; };
-		65A684AA1FC5151A00B0A7C8 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */; };
-		65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */; };
 		65FFABF51FD3CF6B006D6435 /* WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FFABF41FD3CF6B006D6435 /* WorkoutType.swift */; };
 		D13A1D430E40D402A63B26EE /* Pods_WoDoTri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B1C90D0844C028CE982DC0 /* Pods_WoDoTri.framework */; };
 /* End PBXBuildFile section */
@@ -46,7 +42,6 @@
 		19B1C90D0844C028CE982DC0 /* Pods_WoDoTri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoDoTri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2801996B208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+MonospacedDigits.swift"; sourceTree = "<group>"; };
 		28191EBD20BC2DDB0090A8E8 /* DurationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationFormatter.swift; sourceTree = "<group>"; };
-		281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnitSpeed+CustomUnits.swift"; sourceTree = "<group>"; };
 		2829DEEA20878C320000C6D5 /* New.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		28329D7920459A6E008DF038 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapViewController.swift; sourceTree = "<group>"; };
@@ -75,9 +70,6 @@
 		65084EB51FC5124100EDA74A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		652768FB1FD5070500353CC9 /* HistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailViewController.swift; sourceTree = "<group>"; };
-		65A684A71FC514B400B0A7C8 /* UnitConverterPace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverterPace.swift; sourceTree = "<group>"; };
-		65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
-		65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLManagerShare.swift; sourceTree = "<group>"; };
 		65FFABF41FD3CF6B006D6435 /* WorkoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutType.swift; sourceTree = "<group>"; };
 		87D63C9C18850D1A35196B81 /* Pods-WoDoTri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoDoTri.release.xcconfig"; path = "Pods/Target Support Files/Pods-WoDoTri/Pods-WoDoTri.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,10 +123,6 @@
 				28A1999D2022BC5500E7B715 /* Workout.swift */,
 				28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */,
 				65FFABF41FD3CF6B006D6435 /* WorkoutType.swift */,
-				65A684AD1FC5157E00B0A7C8 /* CLManagerShare.swift */,
-				65A684A71FC514B400B0A7C8 /* UnitConverterPace.swift */,
-				281C07C7202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift */,
-				65A684A91FC5151A00B0A7C8 /* FormatDisplay.swift */,
 				65084EB41FC5124100EDA74A /* WorkoutLog.xcdatamodeld */,
 				651EC7AC1FC7CCDF00E12A9F /* CoreDataStack.swift */,
 			);
@@ -349,14 +337,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				281C07C8202DE0BF00BDFD25 /* UnitSpeed+CustomUnits.swift in Sources */,
 				289508A11FB570B400353860 /* WorkoutTypeViewController.swift in Sources */,
 				2895089F1FB570B400353860 /* AppDelegate.swift in Sources */,
 				28191EBE20BC2DDB0090A8E8 /* DurationFormatter.swift in Sources */,
 				28B06B9D20159739004050C1 /* MapViewController.swift in Sources */,
 				289508B81FB575D200353860 /* ActivityViewController.swift in Sources */,
 				28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */,
-				65A684AE1FC5157E00B0A7C8 /* CLManagerShare.swift in Sources */,
 				2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */,
 				651EC7AD1FC7CCDF00E12A9F /* CoreDataStack.swift in Sources */,
 				287F0812208E0C66001A99D3 /* MeasurementTableViewCell.swift in Sources */,
@@ -372,10 +358,8 @@
 				28F33378200C53F400272462 /* SettingsViewController.swift in Sources */,
 				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
 				28942E1420B5EC5900DC5628 /* DistanceFormatter.swift in Sources */,
-				65A684A81FC514B400B0A7C8 /* UnitConverterPace.swift in Sources */,
 				2801996C208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift in Sources */,
 				28F7B7682005BF2100B9A344 /* ActivityPageViewController.swift in Sources */,
-				65A684AA1FC5151A00B0A7C8 /* FormatDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
