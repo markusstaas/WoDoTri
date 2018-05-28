@@ -15,9 +15,9 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
     weak var dataSource: WorkoutDataViewControllerDataSource!
 
     private lazy var velocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
+    private lazy var durationFormatter = DurationFormatter(dataSource: self)
     private lazy var averageVelocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
     private lazy var distanceFormatter = DistanceFormatter(dataSource: self)
-    private lazy var durationFormatter = DurationFormatter(dataSource: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,16 +96,14 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
             return .durationPerDistance
         }
     }
+    // MARK: - Managing Duration Formatter
+    func duration(for durationFormatter: DurationFormatter) -> Double {
+        return dataSource.workoutDuration(for: self)
+    }
 
     // MARK: - Managing Distance Formatter
 
     func distance(for distanceFormatter: DistanceFormatter) -> Double {
         return dataSource.workoutDistance(for: self)
     }
-
-    // MARK: - Managing Duration Formatter
-    func duration(for durationFormatter: DurationFormatter) -> Double {
-        return dataSource.workoutDuration(for: self)
-    }
-
 }

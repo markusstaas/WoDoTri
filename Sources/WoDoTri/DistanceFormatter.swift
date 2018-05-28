@@ -30,10 +30,9 @@ final class DistanceFormatter {
             return ""
         }
 
-        let isMetric = Locale.current.usesMetricSystem
-        let distanceDivisor: Double
+        let distanceDivisor: Double!
 
-        if isMetric {
+        if Locale.current.usesMetricSystem {
             distanceDivisor = 1000
         } else {
             distanceDivisor = 1609.344
@@ -53,9 +52,7 @@ final class DistanceFormatter {
             return ""
         }
 
-        let isMetric = Locale.current.usesMetricSystem
-
-        if isMetric {
+        if Locale.current.usesMetricSystem {
             return NSLocalizedString("km", comment: "")
         } else {
             return NSLocalizedString("mi", comment: "")
