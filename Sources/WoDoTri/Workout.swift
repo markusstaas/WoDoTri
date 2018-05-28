@@ -13,9 +13,6 @@ final class Workout: NSManagedObject {
     @NSManaged private(set) var currentLocation: WorkoutLocation?
     @NSManaged private(set) var locationHistory: Set<WorkoutLocation>
 
-    private static let distanceFormatter = makeDistanceFormatter()
-    private static let durationFormatter = makeDurationFormatter()
-
     // MARK: - Creating Workout
 
     convenience init(workoutType: WorkoutType, managedObjectContext: NSManagedObjectContext) {
@@ -52,32 +49,5 @@ final class Workout: NSManagedObject {
         distance += newLocation.distance(from: oldLocation)
     }
 
-    // MARK: - Managing Distance
-
-    var distanceText: String {
-        let distanceMeasurement = Measurement(value: distance, unit: UnitLength.meters)
-        let distanceFormatter = Workout.distanceFormatter
-        return distanceFormatter.string(from: distanceMeasurement)
-    }
-
-    private static func makeDistanceFormatter() -> MeasurementFormatter {
-        let formatter = MeasurementFormatter()
-        formatter.numberFormatter.minimumFractionDigits = 2
-        formatter.numberFormatter.maximumFractionDigits = 2
-        return formatter
-    }
-
-    // MARK: - Managing Duration
-
-    var durationText: String {
-        return Workout.durationFormatter.string(from: duration)!
-    }
-
-    private static func makeDurationFormatter() -> DateComponentsFormatter {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.zeroFormattingBehavior = .pad
-        return formatter
-    }
 
 }

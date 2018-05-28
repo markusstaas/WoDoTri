@@ -42,6 +42,8 @@ final class DistanceFormatter {
         let distance = dataSource.distance(for: self) / distanceDivisor
         let valueNumber = NSNumber(value: distance)
         valueFormatter.numberStyle = .decimal
+        valueFormatter.minimumFractionDigits = 2
+        valueFormatter.maximumFractionDigits = 2
         return valueFormatter.string(from: valueNumber)!
     }
 
