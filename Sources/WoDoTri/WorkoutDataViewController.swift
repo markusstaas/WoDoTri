@@ -1,7 +1,6 @@
 import UIKit
 
 // swiftlint:disable force_cast
-// swiftlint:disable line_length
 
 protocol WorkoutDataViewControllerDataSource: AnyObject {
 
@@ -11,12 +10,13 @@ protocol WorkoutDataViewControllerDataSource: AnyObject {
 
 }
 
-final class WorkoutDataViewController: UITableViewController, VelocityFormatterDataSource, VelocityFormatterDelegate {
+final class WorkoutDataViewController: UITableViewController, VelocityFormatterDataSource, VelocityFormatterDelegate, DistanceFormatterDataSource {
 
     weak var dataSource: WorkoutDataViewControllerDataSource!
 
     private lazy var velocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
     private lazy var averageVelocityFormatter = VelocityFormatter(dataSource: self, delegate: self)
+    private lazy var distanceFormatter = DistanceFormatter(dataSource: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
         case 2: // Avg. Speed
             cell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
         case 3: // Distance
-            break
+            cell.updateMeasurement(property: distanceFormatter.property, value: distanceFormatter.value, unit: distanceFormatter.unit)
         default:
             fatalError()
         }
@@ -94,6 +94,12 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
         case .run:
             return .durationPerDistance
         }
+    }
+
+    // MARK: - Managing Distance Formatter
+
+    func distance(for distanceFormatter: DistanceFormatter) -> Double {
+        return dataSource.workoutDistance(for: self)
     }
 
 }
