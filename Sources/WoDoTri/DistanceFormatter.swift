@@ -17,10 +17,6 @@ final class DistanceFormatter {
     }
 
     var property: String {
-        guard dataSource != nil else {
-            assertionFailure()
-            return ""
-        }
         return NSLocalizedString("Distance", comment: "")
     }
 
@@ -29,15 +25,7 @@ final class DistanceFormatter {
             assertionFailure()
             return ""
         }
-
-        let distanceDivisor: Double!
-
-        if Locale.current.usesMetricSystem {
-            distanceDivisor = 1000
-        } else {
-            distanceDivisor = 1609.344
-        }
-
+        let distanceDivisor = Locale.current.usesMetricSystem ? 1000 : 1609.344
         let distance = dataSource.distance(for: self) / distanceDivisor
         let valueNumber = NSNumber(value: distance)
         valueFormatter.numberStyle = .decimal
@@ -47,16 +35,9 @@ final class DistanceFormatter {
     }
 
     var unit: String {
-        guard dataSource != nil else {
-            assertionFailure()
-            return ""
-        }
-
-        if Locale.current.usesMetricSystem {
-            return NSLocalizedString("km", comment: "")
-        } else {
-            return NSLocalizedString("mi", comment: "")
-        }
+        return Locale.current.usesMetricSystem
+            ? NSLocalizedString("km", comment: "")
+            : NSLocalizedString("mi", comment: "")
     }
 
 }
