@@ -10,7 +10,7 @@ protocol WorkoutDataViewControllerDataSource: AnyObject {
 
 }
 
-final class WorkoutDataViewController: UITableViewController, VelocityFormatterDataSource, VelocityFormatterDelegate, DistanceFormatterDataSource, DurationFormatterDataSource {
+final class WorkoutDataViewController: UITableViewController {
 
     weak var dataSource: WorkoutDataViewControllerDataSource!
 
@@ -60,7 +60,11 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
 //        callback?()
 //    }
 
-    // MARK: - Managing Velocity Formatter
+}
+
+// MARK: - Managing VelocityFormatter
+
+extension WorkoutDataViewController: VelocityFormatterDataSource {
 
     func duration(for velocityFormatter: VelocityFormatter) -> Double {
         return dataSource.workoutDuration(for: self)
@@ -69,6 +73,10 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
     func distance(for velocityFormatter: VelocityFormatter) -> Double {
         return dataSource.workoutDistance(for: self)
     }
+
+}
+
+extension WorkoutDataViewController: VelocityFormatterDelegate {
 
     func propertyType(for velocityFormatter: VelocityFormatter) -> VelocityFormatter.PropertyType {
         if velocityFormatter === self.velocityFormatter {
@@ -89,14 +97,25 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
             return .durationPerDistance
         }
     }
-    // MARK: - Managing Duration Formatter
-    func duration(for durationFormatter: DurationFormatter) -> Double {
-        return dataSource.workoutDuration(for: self)
-    }
 
-    // MARK: - Managing Distance Formatter
+}
+
+// MARK: - Managing DistanceFormatter
+
+extension WorkoutDataViewController: DistanceFormatterDataSource {
 
     func distance(for distanceFormatter: DistanceFormatter) -> Double {
         return dataSource.workoutDistance(for: self)
     }
+
+}
+
+// MARK: - Managing DurationFormatter
+
+extension WorkoutDataViewController: DurationFormatterDataSource {
+
+    func duration(for durationFormatter: DurationFormatter) -> Double {
+        return dataSource.workoutDuration(for: self)
+    }
+
 }
