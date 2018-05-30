@@ -94,7 +94,7 @@ final class VelocityFormatter {
         let value = duration != 0 ? distance / duration : 0
         let valueNumber = NSNumber(value: value)
 
-        return valueFormatter.string(from: valueNumber)!
+        return valueFormatter.string(from: valueNumber) ?? ""
     }
 
     var unit: String {
