@@ -32,20 +32,13 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as! MeasurementTableViewCell
-
         switch indexPath.row {
-        case 0: // Speed
-             cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
-        case 1: // Time
-            cell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)
-        case 2: // Avg. Speed
-            cell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
-        case 3: // Distance
-            cell.updateMeasurement(property: distanceFormatter.property, value: distanceFormatter.value, unit: distanceFormatter.unit)
-        default:
-            fatalError()
+        case 0: cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
+        case 1: cell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)
+        case 2: cell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
+        case 3: cell.updateMeasurement(property: distanceFormatter.property, value: distanceFormatter.value, unit: distanceFormatter.unit)
+        default: fatalError()
         }
-
         return cell
     }
 
