@@ -29,8 +29,4 @@ final class DurationFormatter {
         return valueFormatter.string(from: duration)!
     }
 
-    var unit: String {
-        return NSLocalizedString("HH:MM:SS", comment: "")
-    }
-
 }
