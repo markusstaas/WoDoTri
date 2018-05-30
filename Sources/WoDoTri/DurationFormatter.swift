@@ -25,7 +25,7 @@ final class DurationFormatter {
         }
         valueFormatter.allowedUnits = [.hour, .minute, .second]
         valueFormatter.zeroFormattingBehavior = .pad
-        return valueFormatter.string(from: duration)!
+        return valueFormatter.string(from: duration) ?? ""
     }
 
 }

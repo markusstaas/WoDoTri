@@ -30,7 +30,7 @@ final class DistanceFormatter {
         valueFormatter.numberStyle = .decimal
         valueFormatter.minimumFractionDigits = 2
         valueFormatter.maximumFractionDigits = 2
-        return valueFormatter.string(from: valueNumber)!
+        return valueFormatter.string(from: valueNumber) ?? ""
     }
 
     var unit: String {
