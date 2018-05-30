@@ -10,7 +10,9 @@ protocol WorkoutDataViewControllerDataSource: AnyObject {
 
 }
 
-final class WorkoutDataViewController: UITableViewController {
+final class WorkoutDataViewController: UIViewController {
+
+    @IBOutlet private var tableView: UITableView!
 
     weak var dataSource: WorkoutDataViewControllerDataSource!
 
@@ -22,24 +24,6 @@ final class WorkoutDataViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(MeasurementTableViewCell.preferredNib, forCellReuseIdentifier: MeasurementTableViewCell.preferredReuseIdentifier)
-    }
-
-    // MARK: - Managing Table View
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as! MeasurementTableViewCell
-        switch indexPath.row {
-        case 0: cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
-        case 1: cell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)
-        case 2: cell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
-        case 3: cell.updateMeasurement(property: distanceFormatter.property, value: distanceFormatter.value, unit: distanceFormatter.unit)
-        default: fatalError()
-        }
-        return cell
     }
 
 //    override init() {
@@ -55,10 +39,33 @@ final class WorkoutDataViewController: UITableViewController {
 //    deinit {
 //        displayLink.invalidate()
 //    }
+//
 //    @objc private func tick(sender: CADisplayLink) {
 //        elapsedTime = elapsedTime + displayLink.duration
 //        callback?()
 //    }
+
+}
+
+// MARK: - Managing UITableView
+
+extension WorkoutDataViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as! MeasurementTableViewCell
+        switch indexPath.row {
+        case 0: cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
+        case 1: cell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)
+        case 2: cell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
+        case 3: cell.updateMeasurement(property: distanceFormatter.property, value: distanceFormatter.value, unit: distanceFormatter.unit)
+        default: fatalError()
+        }
+        return cell
+    }
 
 }
 

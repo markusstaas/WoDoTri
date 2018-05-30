@@ -37,7 +37,7 @@ final class WorkoutViewController: UIViewController {
 
 }
 
-// MARK: - Managing ScrollView
+// MARK: - Managing UIScrollView
 
 extension WorkoutViewController: UIScrollViewDelegate {
 
