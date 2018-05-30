@@ -35,6 +35,10 @@ final class WorkoutViewController: UIViewController {
         }
     }
 
+    @IBAction private func startWorkout() {
+        workout.isPaused = false
+    }
+
 }
 
 // MARK: - Managing UIScrollView
@@ -64,7 +68,7 @@ extension WorkoutViewController: WorkoutDataViewControllerDataSource {
     }
 
     func workoutDuration(for workoutDataViewController: WorkoutDataViewController) -> Double {
-        return workout.duration
+        return workout.getDuration()
     }
 
 }

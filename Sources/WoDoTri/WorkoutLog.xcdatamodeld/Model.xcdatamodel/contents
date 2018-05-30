@@ -4,7 +4,7 @@
         <attribute name="distance" attributeType="Double" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="duration" attributeType="Double" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isPaused" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lastStartedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastUpdatedDurationAt" optional="YES" transient="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="workoutTypeDescription" attributeType="String" minValueString="1" syncable="YES"/>
         <relationship name="currentLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutLocation" inverseName="currentInWorkout" inverseEntity="WorkoutLocation" syncable="YES"/>
         <relationship name="locationHistory" toMany="YES" deletionRule="Cascade" destinationEntity="WorkoutLocation" inverseName="workout" inverseEntity="WorkoutLocation" syncable="YES"/>
