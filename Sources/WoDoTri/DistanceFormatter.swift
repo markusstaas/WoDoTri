@@ -26,7 +26,7 @@ final class DistanceFormatter {
             return ""
         }
 
-        let distanceDivisor: Double!
+        let distanceDivisor: Double
 
         if Locale.current.usesMetricSystem {
             distanceDivisor = 1000
