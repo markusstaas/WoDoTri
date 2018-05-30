@@ -42,7 +42,6 @@ final class VelocityFormatter {
 
     var property: String {
         guard let delegate = delegate else {
-            assertionFailure()
             return ""
         }
 
@@ -65,7 +64,6 @@ final class VelocityFormatter {
         guard
             let dataSource = dataSource,
             let delegate = delegate else {
-                assertionFailure()
                 return ""
         }
 
@@ -101,7 +99,6 @@ final class VelocityFormatter {
 
     var unit: String {
         guard let delegate = delegate else {
-            assertionFailure()
             return ""
         }
 
