@@ -1,7 +1,5 @@
 import UIKit
 
-// swiftlint:disable force_cast
-
 protocol WorkoutDataViewControllerDataSource: AnyObject {
 
     func workoutType(for workoutDataViewController: WorkoutDataViewController) -> WorkoutType
@@ -56,7 +54,9 @@ extension WorkoutDataViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as! MeasurementTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as? MeasurementTableViewCell else {
+            fatalError("Unknown table view cell.")
+        }
         switch indexPath.row {
         case 0: cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
         case 1: cell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)

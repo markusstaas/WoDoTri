@@ -2,8 +2,6 @@
 
 import UIKit
 
-// swiftlint:disable force_cast
-
 final class WorkoutTypeViewController: UIViewController {
 
     private var workoutType: WorkoutType?
@@ -25,8 +23,9 @@ final class WorkoutTypeViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        let workoutViewController = segue.destination as! WorkoutViewController
-        workoutViewController.dataSource = self
+        if let workoutViewController = segue.destination as? WorkoutViewController {
+            workoutViewController.dataSource = self
+        }
     }
 
 }
