@@ -22,7 +22,6 @@ final class DistanceFormatter {
 
     var value: String {
         guard let dataSource = dataSource else {
-            assertionFailure()
             return ""
         }
         let distanceDivisor = Locale.current.usesMetricSystem ? 1000 : 1609.344
