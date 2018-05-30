@@ -7,7 +7,7 @@ protocol WorkoutViewControllerDataSource: AnyObject {
 
 }
 
-final class WorkoutViewController: UIViewController, UIScrollViewDelegate, WorkoutDataViewControllerDataSource {
+final class WorkoutViewController: UIViewController {
 
     weak var dataSource: WorkoutViewControllerDataSource!
 
@@ -35,7 +35,11 @@ final class WorkoutViewController: UIViewController, UIScrollViewDelegate, Worko
         }
     }
 
-    // MARK: - Managing Scroll View
+}
+
+// MARK: - Managing ScrollView
+
+extension WorkoutViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         precondition(pageControl.numberOfPages == 2)
@@ -45,7 +49,11 @@ final class WorkoutViewController: UIViewController, UIScrollViewDelegate, Worko
         pageControl.currentPage = isPastMiddle ? 0 : 1
     }
 
-    // MARK: - Managing Workout Data View Controller
+}
+
+// MARK: - Managing WorkoutDataViewController
+
+extension WorkoutViewController: WorkoutDataViewControllerDataSource {
 
     func workoutType(for workoutDataViewController: WorkoutDataViewController) -> WorkoutType {
         return workout.workoutType
