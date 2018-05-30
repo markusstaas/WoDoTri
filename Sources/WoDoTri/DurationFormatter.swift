@@ -21,7 +21,6 @@ final class DurationFormatter {
 
     var value: String {
         guard let duration = dataSource?.duration(for: self) else {
-            assertionFailure()
             return ""
         }
         valueFormatter.allowedUnits = [.hour, .minute, .second]
