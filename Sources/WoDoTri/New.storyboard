@@ -176,6 +176,9 @@
                                                 <state key="normal" title="Action">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="startWorkout" destination="8TI-IZ-HbV" eventType="touchUpInside" id="Zpe-7Z-sTG"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

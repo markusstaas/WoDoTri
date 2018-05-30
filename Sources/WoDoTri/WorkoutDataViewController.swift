@@ -22,26 +22,20 @@ final class WorkoutDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(MeasurementTableViewCell.preferredNib, forCellReuseIdentifier: MeasurementTableViewCell.preferredReuseIdentifier)
+        let displayLink = CADisplayLink(target: self, selector: #selector(updateDuration(for:)))
+        displayLink.add(to: .main, forMode: .commonModes)
     }
 
-//    override init() {
-//        super.init()
-//        self.displayLink = CADisplayLink(target: self, selector: #selector(tick(sender:)))
-//        displayLink.isPaused = true
-//        displayLink.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
-//        self.elapsedTime = 0.0
-//        formatter.timeZone = TimeZone(abbreviation: "GMT")!
-//        formatter.dateFormat = "HH:mm:ss"
-//    }
-//
-//    deinit {
-//        displayLink.invalidate()
-//    }
-//
-//    @objc private func tick(sender: CADisplayLink) {
-//        elapsedTime = elapsedTime + displayLink.duration
-//        callback?()
-//    }
+    @objc private func updateDuration(for displayLink: CADisplayLink) {
+        let indexPath = IndexPath(row: 1, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) else {
+            return
+        }
+        guard let measurementCell = cell as? MeasurementTableViewCell else {
+            fatalError("Invalid table view cell.")
+        }
+        measurementCell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)
+    }
 
 }
 
@@ -55,7 +49,7 @@ extension WorkoutDataViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MeasurementTableViewCell.preferredReuseIdentifier, for: indexPath) as? MeasurementTableViewCell else {
-            fatalError("Unknown table view cell.")
+            fatalError("Invalid table view cell.")
         }
         switch indexPath.row {
         case 0: cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
