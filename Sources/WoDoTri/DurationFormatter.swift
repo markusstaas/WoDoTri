@@ -3,19 +3,19 @@ import Foundation
 protocol DurationFormatterDataSource: AnyObject {
 
     func duration(for durationFormatter: DurationFormatter) -> Double
+
 }
 
 final class DurationFormatter {
 
     weak var dataSource: DurationFormatterDataSource?
-    let valueFormatter = DateComponentsFormatter()
+    private let valueFormatter = DateComponentsFormatter()
 
     init(dataSource: DurationFormatterDataSource) {
         self.dataSource = dataSource
     }
 
     var property: String {
-
         return NSLocalizedString("Duration", comment: "")
     }
 
@@ -27,10 +27,6 @@ final class DurationFormatter {
         valueFormatter.allowedUnits = [.hour, .minute, .second]
         valueFormatter.zeroFormattingBehavior = .pad
         return valueFormatter.string(from: duration)!
-    }
-
-    var unit: String {
-        return NSLocalizedString("HH:MM:SS", comment: "")
     }
 
 }

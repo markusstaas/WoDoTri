@@ -37,7 +37,7 @@ final class WorkoutDataViewController: UITableViewController, VelocityFormatterD
         case 0: // Speed
              cell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
         case 1: // Time
-            cell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: durationFormatter.unit)
+            cell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)
         case 2: // Avg. Speed
             cell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
         case 3: // Distance
