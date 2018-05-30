@@ -9,7 +9,7 @@ protocol DurationFormatterDataSource: AnyObject {
 final class DurationFormatter {
 
     weak var dataSource: DurationFormatterDataSource?
-    let valueFormatter = DateComponentsFormatter()
+    private let valueFormatter = DateComponentsFormatter()
 
     init(dataSource: DurationFormatterDataSource) {
         self.dataSource = dataSource
