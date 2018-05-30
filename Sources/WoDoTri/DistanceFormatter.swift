@@ -17,10 +17,6 @@ final class DistanceFormatter {
     }
 
     var property: String {
-        guard dataSource != nil else {
-            assertionFailure()
-            return ""
-        }
         return NSLocalizedString("Distance", comment: "")
     }
 
@@ -47,11 +43,6 @@ final class DistanceFormatter {
     }
 
     var unit: String {
-        guard dataSource != nil else {
-            assertionFailure()
-            return ""
-        }
-
         if Locale.current.usesMetricSystem {
             return NSLocalizedString("km", comment: "")
         } else {
