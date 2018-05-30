@@ -43,11 +43,9 @@ final class DistanceFormatter {
     }
 
     var unit: String {
-        if Locale.current.usesMetricSystem {
-            return NSLocalizedString("km", comment: "")
-        } else {
-            return NSLocalizedString("mi", comment: "")
-        }
+        return Locale.current.usesMetricSystem
+            ? NSLocalizedString("km", comment: "")
+            : NSLocalizedString("mi", comment: "")
     }
 
 }
