@@ -3,6 +3,7 @@ import Foundation
 protocol DurationFormatterDataSource: AnyObject {
 
     func duration(for durationFormatter: DurationFormatter) -> Double
+
 }
 
 final class DurationFormatter {
@@ -15,7 +16,6 @@ final class DurationFormatter {
     }
 
     var property: String {
-
         return NSLocalizedString("Duration", comment: "")
     }
 
