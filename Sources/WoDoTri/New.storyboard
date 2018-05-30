@@ -135,7 +135,7 @@
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJw-Nc-9GX">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                                                         <connections>
-                                                            <segue destination="Moz-P9-F9P" kind="embed" id="pss-mM-0DP"/>
+                                                            <segue destination="scL-wD-8Xa" kind="embed" id="O7K-7w-JBo"/>
                                                         </connections>
                                                     </containerView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb7-Qr-DQI">
@@ -208,22 +208,37 @@
             <point key="canvasLocation" x="879" y="89"/>
         </scene>
         <!--Workout Data View Controller-->
-        <scene sceneID="S5Q-bo-1cW">
+        <scene sceneID="Ggc-Zs-Z8S">
             <objects>
-                <tableViewController id="Moz-P9-F9P" customClass="WorkoutDataViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vcw-lN-FFR">
+                <viewController id="scL-wD-8Xa" customClass="WorkoutDataViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vEi-hR-6Sl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dl4-fM-Qu3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="scL-wD-8Xa" id="z3v-dQ-VIZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Moz-P9-F9P" id="4sP-UF-rd2"/>
-                            <outlet property="delegate" destination="Moz-P9-F9P" id="BLN-8X-bbg"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="39D-Sd-bbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="dl4-fM-Qu3" firstAttribute="top" secondItem="vEi-hR-6Sl" secondAttribute="top" id="1zt-MY-Hb8"/>
+                            <constraint firstItem="dl4-fM-Qu3" firstAttribute="leading" secondItem="vEi-hR-6Sl" secondAttribute="leading" id="f5v-xN-Mxc"/>
+                            <constraint firstItem="dl4-fM-Qu3" firstAttribute="bottom" secondItem="vEi-hR-6Sl" secondAttribute="bottom" id="ioE-FI-zLr"/>
+                            <constraint firstAttribute="trailing" secondItem="dl4-fM-Qu3" secondAttribute="trailing" id="wwz-4U-7PE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bbq-zd-YIb"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="dl4-fM-Qu3" id="2md-mW-fqX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocN-at-kls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1821.5999999999999" y="-179.46026986506749"/>
+            <point key="canvasLocation" x="1822" y="-162"/>
         </scene>
         <!--Workout Map View Controller-->
         <scene sceneID="E2q-1x-QqT">
