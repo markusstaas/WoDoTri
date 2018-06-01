@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+import CoreLocation
 
 protocol WorkoutViewControllerDataSource: AnyObject {
 
@@ -13,6 +14,10 @@ final class WorkoutViewController: UIViewController {
 
     private var workout: Workout!
     private let persistentContainer = NSPersistentContainer(name: "WorkoutLog")
+    private let locationManager = CLLocationManager()
+    private var updateTimer: Timer!
+    private let updateInterval: TimeInterval = 0.1
+    private var workoutDataViewController: WorkoutDataViewController?
 
     @IBOutlet private var primaryActionButton: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
@@ -21,22 +26,30 @@ final class WorkoutViewController: UIViewController {
 
     override func viewDidLoad() {
         super .viewDidLoad()
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
+        updateTimer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true) { [weak self] _ in
+            self?.workout.updateDuration()
+            self?.workoutDataViewController?.updateView()
+        }
     }
 
     // MARK: - Handling Storyboard Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if let workoutDataViewController = segue.destination as? WorkoutDataViewController {
-            workoutDataViewController.dataSource = self
+        if let destinationWorkoutDataViewController = segue.destination as? WorkoutDataViewController {
+            destinationWorkoutDataViewController.dataSource = self
+            workoutDataViewController = destinationWorkoutDataViewController
         }
     }
 
     @IBAction private func startWorkout() {
         workout.isPaused = false
+        workout.updateDuration()
     }
 
 }
@@ -68,8 +81,17 @@ extension WorkoutViewController: WorkoutDataViewControllerDataSource {
     }
 
     func workoutDuration(for workoutDataViewController: WorkoutDataViewController) -> Double {
-        workout.updateDuration()
         return workout.duration
+    }
+
+}
+
+// MARK: - Managing CLLocationManager
+
+extension WorkoutViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locations.forEach(workout.addLocation)
     }
 
 }
