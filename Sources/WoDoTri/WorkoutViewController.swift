@@ -15,8 +15,9 @@ final class WorkoutViewController: UIViewController {
     private var workout: Workout!
     private let persistentContainer = NSPersistentContainer(name: "WorkoutLog")
     private let locationManager = CLLocationManager()
-    private var locationUpdateTimer: Timer!
-    private let locationUpdateInterval: TimeInterval = 0.1
+    private var updateTimer: Timer!
+    private let updateInterval: TimeInterval = 0.1
+    private var workoutDataViewController: WorkoutDataViewController?
 
     @IBOutlet private var primaryActionButton: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
@@ -30,8 +31,9 @@ final class WorkoutViewController: UIViewController {
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
-        locationUpdateTimer = Timer.scheduledTimer(withTimeInterval: locationUpdateInterval, repeats: true) { [weak workout] _ in
-            workout?.updateDuration()
+        updateTimer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true) { [weak self] _ in
+            self?.workout.updateDuration()
+            self?.workoutDataViewController?.updateView()
         }
     }
 
@@ -39,8 +41,9 @@ final class WorkoutViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if let workoutDataViewController = segue.destination as? WorkoutDataViewController {
-            workoutDataViewController.dataSource = self
+        if let destinationWorkoutDataViewController = segue.destination as? WorkoutDataViewController {
+            destinationWorkoutDataViewController.dataSource = self
+            workoutDataViewController = destinationWorkoutDataViewController
         }
     }
 
