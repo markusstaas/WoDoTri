@@ -15,6 +15,7 @@ final class WorkoutViewController: UIViewController {
     private var workout: Workout!
     private let persistentContainer = NSPersistentContainer(name: "WorkoutLog")
     private let locationManager = CLLocationManager()
+    private var locationUpdateTimer: Timer!
 
     @IBOutlet private var primaryActionButton: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
@@ -28,6 +29,9 @@ final class WorkoutViewController: UIViewController {
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
+        locationUpdateTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak workout] _ in
+            workout?.updateDuration()
+        }
     }
 
     // MARK: - Handling Storyboard Segues
@@ -41,6 +45,7 @@ final class WorkoutViewController: UIViewController {
 
     @IBAction private func startWorkout() {
         workout.isPaused = false
+        workout.updateDuration()
     }
 
 }
@@ -72,7 +77,6 @@ extension WorkoutViewController: WorkoutDataViewControllerDataSource {
     }
 
     func workoutDuration(for workoutDataViewController: WorkoutDataViewController) -> Double {
-        workout.updateDuration()
         return workout.duration
     }
 
