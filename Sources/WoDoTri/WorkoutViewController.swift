@@ -68,7 +68,8 @@ extension WorkoutViewController: WorkoutDataViewControllerDataSource {
     }
 
     func workoutDuration(for workoutDataViewController: WorkoutDataViewController) -> Double {
-        return workout.getDuration()
+        workout.updateDuration()
+        return workout.duration
     }
 
 }

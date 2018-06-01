@@ -7,7 +7,7 @@ final class Workout: NSManagedObject {
 
     @NSManaged private var workoutTypeDescription: String
     @NSManaged private(set) var distance: Double
-    @NSManaged private var duration: Double
+    @NSManaged private(set) var duration: Double
     @NSManaged var isPaused: Bool
     @NSManaged private(set) var currentLocation: WorkoutLocation?
     @NSManaged private(set) var locationHistory: Set<WorkoutLocation>
@@ -30,12 +30,7 @@ final class Workout: NSManagedObject {
         distance += newLocation.distance(from: oldLocation)
     }
 
-    func getDuration() -> TimeInterval {
-        updateDuration()
-        return duration
-    }
-
-    private func updateDuration() {
+    func updateDuration() {
         guard !isPaused else {
             return
         }
