@@ -22,11 +22,13 @@ final class WorkoutDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(MeasurementTableViewCell.preferredNib, forCellReuseIdentifier: MeasurementTableViewCell.preferredReuseIdentifier)
-        let displayLink = CADisplayLink(target: self, selector: #selector(updateDuration(for:)))
-        displayLink.add(to: .main, forMode: .commonModes)
     }
 
-    @objc private func updateDuration(for displayLink: CADisplayLink) {
+    func updateView() {
+        updateDurationIfVisible()
+    }
+
+    private func updateDurationIfVisible() {
         let indexPath = IndexPath(row: 1, section: 0)
         guard let cell = tableView.cellForRow(at: indexPath) else {
             return

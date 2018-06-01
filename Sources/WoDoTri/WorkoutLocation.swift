@@ -8,6 +8,7 @@ final class WorkoutLocation: NSManagedObject {
     @NSManaged private(set) var isWorkoutPaused: Bool
     @NSManaged private(set) var latitude: Double
     @NSManaged private(set) var longitude: Double
+    @NSManaged private(set) var speed: Double
     @NSManaged private(set) var timestamp: Date
     @NSManaged private(set) var currentInWorkout: Workout?
     @NSManaged private(set) var workout: Workout
@@ -19,6 +20,7 @@ final class WorkoutLocation: NSManagedObject {
         isWorkoutPaused = workout.isPaused
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
+        speed = location.speed
         timestamp = location.timestamp
         currentInWorkout = workout
         self.workout = workout
