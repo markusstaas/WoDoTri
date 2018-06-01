@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+import CoreLocation
 
 protocol WorkoutViewControllerDataSource: AnyObject {
 
@@ -13,6 +14,7 @@ final class WorkoutViewController: UIViewController {
 
     private var workout: Workout!
     private let persistentContainer = NSPersistentContainer(name: "WorkoutLog")
+    private let locationManager = CLLocationManager()
 
     @IBOutlet private var primaryActionButton: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
@@ -21,6 +23,8 @@ final class WorkoutViewController: UIViewController {
 
     override func viewDidLoad() {
         super .viewDidLoad()
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
@@ -70,6 +74,16 @@ extension WorkoutViewController: WorkoutDataViewControllerDataSource {
     func workoutDuration(for workoutDataViewController: WorkoutDataViewController) -> Double {
         workout.updateDuration()
         return workout.duration
+    }
+
+}
+
+// MARK: - Managing CLLocationManager
+
+extension WorkoutViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locations.forEach(workout.addLocation)
     }
 
 }
