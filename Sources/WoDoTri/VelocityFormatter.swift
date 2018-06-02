@@ -129,6 +129,7 @@ final class VelocityFormatter {
             let valueNumber = NSNumber(value: value)
             valueFormatter.minimumFractionDigits = 1
             valueFormatter.maximumFractionDigits = 1
+            valueFormatter.numberStyle = .decimal
             return valueFormatter.string(from: valueNumber) ?? ""
         }
     }
