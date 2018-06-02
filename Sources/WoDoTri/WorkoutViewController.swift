@@ -103,7 +103,6 @@ extension WorkoutViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locations.forEach(workout.addLocation)
         instantVelocity = Double(locationManager.location!.speed)
-        print(instantVelocity)
     }
 
 }
