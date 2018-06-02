@@ -28,7 +28,6 @@ final class WorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super .viewDidLoad()
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         persistentContainer.loadPersistentStores { _, _ in }
