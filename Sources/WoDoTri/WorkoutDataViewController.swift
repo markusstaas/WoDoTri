@@ -5,7 +5,7 @@ protocol WorkoutDataViewControllerDataSource: AnyObject {
     func workoutType(for workoutDataViewController: WorkoutDataViewController) -> WorkoutType
     func workoutDistance(for workoutDataViewController: WorkoutDataViewController) -> Double
     func workoutDuration(for workoutDataViewController: WorkoutDataViewController) -> Double
-
+    func workoutInstantVelocity(for workoutDataViewController: WorkoutDataViewController) -> Double
 }
 
 final class WorkoutDataViewController: UIViewController {
@@ -25,8 +25,21 @@ final class WorkoutDataViewController: UIViewController {
     }
 
     func updateView() {
+        updateVelocityIfVisible()
         updateDurationIfVisible()
+        updateAverageVelocityIfVisible()
         updateDistanceIfVisible()
+    }
+
+    private func updateVelocityIfVisible() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) else {
+            return
+        }
+        guard let measurementCell = cell as? MeasurementTableViewCell else {
+            fatalError("Invalid table view cell")
+        }
+        measurementCell.updateMeasurement(property: velocityFormatter.property, value: velocityFormatter.value, unit: velocityFormatter.unit)
     }
 
     private func updateDurationIfVisible() {
@@ -38,6 +51,17 @@ final class WorkoutDataViewController: UIViewController {
             fatalError("Invalid table view cell.")
         }
         measurementCell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)
+    }
+
+    private func updateAverageVelocityIfVisible() {
+        let indexPath = IndexPath(row: 2, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) else {
+            return
+        }
+        guard let measurementCell = cell as? MeasurementTableViewCell else {
+            fatalError("Invalid table view cell")
+        }
+        measurementCell.updateMeasurement(property: averageVelocityFormatter.property, value: averageVelocityFormatter.value, unit: averageVelocityFormatter.unit)
     }
 
     private func updateDistanceIfVisible() {
@@ -89,6 +113,9 @@ extension WorkoutDataViewController: VelocityFormatterDataSource {
         return dataSource.workoutDistance(for: self)
     }
 
+    func instantVelocity(for velocityFormatter: VelocityFormatter) -> Double {
+        return dataSource.workoutInstantVelocity(for: self)
+    }
 }
 
 extension WorkoutDataViewController: VelocityFormatterDelegate {
