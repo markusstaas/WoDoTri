@@ -4,6 +4,7 @@ protocol VelocityFormatterDataSource: AnyObject {
 
     func duration(for velocityFormatter: VelocityFormatter) -> Double
     func distance(for velocityFormatter: VelocityFormatter) -> Double
+    func instantVelocity(for velocityFormatter: VelocityFormatter) -> Double
 
 }
 
@@ -67,6 +68,7 @@ final class VelocityFormatter {
                 return ""
         }
 
+        let propertyType = delegate.propertyType(for: self)
         let unitType = delegate.unitType(for: self)
         let isMetric = Locale.current.usesMetricSystem
 
@@ -88,13 +90,47 @@ final class VelocityFormatter {
             durationDivisor = 60
         }
 
-        let distance = dataSource.distance(for: self) / distanceDivisor
-        let duration = dataSource.duration(for: self) / durationDivisor
+        if propertyType == .averageVelocity {
+            let distance = dataSource.distance(for: self) / distanceDivisor
+            let duration = dataSource.duration(for: self) / durationDivisor
 
-        let value = duration != 0 ? distance / duration : 0
-        let valueNumber = NSNumber(value: value)
+            var value: Double {
+                if duration != 0 {
+                    switch unitType {
+                    case .distancePerDuration:
+                        return distance / duration
+                    case .durationPerDistance:
+                        return duration / distance
+                    }
+                } else {
+                    return 0.0
+                }
+            }
 
-        return valueFormatter.string(from: valueNumber) ?? ""
+            let valueNumber = NSNumber(value: value)
+            valueFormatter.minimumFractionDigits = 1
+            valueFormatter.maximumFractionDigits = 1
+            valueFormatter.numberStyle = .decimal
+            return valueFormatter.string(from: valueNumber) ?? ""
+
+        } else {
+            let distance = dataSource.instantVelocity(for: self) / distanceDivisor
+            let duration = 1 / durationDivisor
+
+            var value: Double {
+                switch unitType {
+                case .distancePerDuration:
+                    return distance / duration
+                case .durationPerDistance:
+                    return duration / distance
+                }
+            }
+
+            let valueNumber = NSNumber(value: value)
+            valueFormatter.minimumFractionDigits = 1
+            valueFormatter.maximumFractionDigits = 1
+            return valueFormatter.string(from: valueNumber) ?? ""
+        }
     }
 
     var unit: String {

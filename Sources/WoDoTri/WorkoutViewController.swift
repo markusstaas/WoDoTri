@@ -17,6 +17,7 @@ final class WorkoutViewController: UIViewController {
     private let locationManager = CLLocationManager()
     private var updateTimer: Timer!
     private let updateInterval: TimeInterval = 0.1
+    private var instantVelocity: Double!
     private var workoutDataViewController: WorkoutDataViewController?
 
     @IBOutlet private var primaryActionButton: UIButton!
@@ -85,6 +86,13 @@ extension WorkoutViewController: WorkoutDataViewControllerDataSource {
     func workoutDuration(for workoutDataViewController: WorkoutDataViewController) -> Double {
         return workout.duration
     }
+    func workoutInstantVelocity(for workoutDataViewController: WorkoutDataViewController) -> Double {
+        if let instantVelocity = instantVelocity {
+        return instantVelocity
+        } else {
+            return 0
+        }
+    }
 
 }
 
@@ -94,6 +102,8 @@ extension WorkoutViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locations.forEach(workout.addLocation)
+        instantVelocity = Double(locationManager.location!.speed)
+        print(instantVelocity)
     }
 
 }
