@@ -28,6 +28,8 @@ final class WorkoutViewController: UIViewController {
         super .viewDidLoad()
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
