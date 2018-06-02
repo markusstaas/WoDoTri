@@ -26,6 +26,7 @@ final class WorkoutDataViewController: UIViewController {
 
     func updateView() {
         updateDurationIfVisible()
+        updateDistanceIfVisible()
     }
 
     private func updateDurationIfVisible() {
@@ -37,6 +38,17 @@ final class WorkoutDataViewController: UIViewController {
             fatalError("Invalid table view cell.")
         }
         measurementCell.updateMeasurement(property: durationFormatter.property, value: durationFormatter.value, unit: nil)
+    }
+
+    private func updateDistanceIfVisible() {
+        let indexPath = IndexPath(row: 3, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) else {
+            return
+        }
+        guard let measurementCell = cell as? MeasurementTableViewCell else {
+            fatalError("Invalid table view cell.")
+        }
+        measurementCell.updateMeasurement(property: distanceFormatter.property, value: distanceFormatter.value, unit: distanceFormatter.unit)
     }
 
 }
