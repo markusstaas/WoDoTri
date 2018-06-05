@@ -31,7 +31,8 @@ final class WorkoutViewController: UIViewController {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 20
-        
+        locationManager.activityType = .fitness
+
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
