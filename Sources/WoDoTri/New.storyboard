@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DHf-Ze-Wzx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DHf-Ze-Wzx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -250,7 +250,28 @@
                     <view key="view" contentMode="scaleToFill" id="Rx7-m9-JAt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jeT-R4-ysp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                            </mapView>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loE-2u-jB6">
+                                <rect key="frame" x="0.0" y="464" width="375" height="75"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="CUq-e9-nyL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="jeT-R4-ysp" secondAttribute="bottom" id="DFc-Hd-9tr"/>
+                            <constraint firstItem="jeT-R4-ysp" firstAttribute="top" secondItem="Rx7-m9-JAt" secondAttribute="top" id="Kw5-XI-oHB"/>
+                            <constraint firstItem="loE-2u-jB6" firstAttribute="leading" secondItem="jDW-sv-07q" secondAttribute="leading" id="c9u-EY-FDX"/>
+                            <constraint firstItem="jeT-R4-ysp" firstAttribute="leading" secondItem="Rx7-m9-JAt" secondAttribute="leading" id="hbv-LB-g70"/>
+                            <constraint firstItem="loE-2u-jB6" firstAttribute="bottom" secondItem="Rx7-m9-JAt" secondAttribute="bottom" id="m2J-hP-cnh"/>
+                            <constraint firstItem="loE-2u-jB6" firstAttribute="leading" secondItem="jeT-R4-ysp" secondAttribute="leading" id="u3k-2N-WvU"/>
+                            <constraint firstAttribute="trailing" secondItem="jeT-R4-ysp" secondAttribute="trailing" id="v45-eL-QcV"/>
+                            <constraint firstItem="loE-2u-jB6" firstAttribute="trailing" secondItem="jeT-R4-ysp" secondAttribute="trailing" id="wri-vq-fC2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jDW-sv-07q"/>
                     </view>
                 </viewController>
@@ -299,7 +320,7 @@
                     <viewLayoutGuide key="safeArea" id="Lvw-N3-HdO"/>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="1822" y="430"/>
+            <point key="canvasLocation" x="1821.5999999999999" y="429.53523238380814"/>
         </scene>
     </scenes>
     <resources>
