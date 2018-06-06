@@ -27,13 +27,7 @@ final class WorkoutViewController: UIViewController {
 
     override func viewDidLoad() {
         super .viewDidLoad()
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        locationManager.distanceFilter = 20
-        locationManager.activityType = .fitness
-        locationManager.showsBackgroundLocationIndicator = true
-
+        startLocationManager()
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
@@ -41,6 +35,17 @@ final class WorkoutViewController: UIViewController {
             self?.workout.updateDuration()
             self?.workoutDataViewController?.updateView()
         }
+    }
+
+    // MARK: - Initialize Location Manager
+
+    private func startLocationManager() {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.activityType = .fitness
+        locationManager.distanceFilter = 20
+        locationManager.showsBackgroundLocationIndicator = true
     }
 
     // MARK: - Handling Storyboard Segues
