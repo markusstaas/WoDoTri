@@ -251,7 +251,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jeT-R4-ysp">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeT-R4-ysp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                             </mapView>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loE-2u-jB6">
@@ -274,6 +274,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jDW-sv-07q"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="jeT-R4-ysp" id="wSh-GJ-80P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weq-Mt-7Mb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="TCP-AW-ujx">

@@ -18,7 +18,9 @@ final class WorkoutViewController: UIViewController {
     private var updateTimer: Timer!
     private let updateInterval: TimeInterval = 0.1
     private var instantVelocity: Double!
+    private var currentLocation = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     private var workoutDataViewController: WorkoutDataViewController?
+    private var workoutMapViewController: WorkoutMapViewController?
 
     @IBOutlet private var primaryActionButton: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
@@ -34,6 +36,7 @@ final class WorkoutViewController: UIViewController {
         updateTimer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true) { [weak self] _ in
             self?.workout.updateDuration()
             self?.workoutDataViewController?.updateView()
+            self?.workoutMapViewController?.updateView()
         }
     }
 
@@ -55,6 +58,10 @@ final class WorkoutViewController: UIViewController {
         if let destinationWorkoutDataViewController = segue.destination as? WorkoutDataViewController {
             destinationWorkoutDataViewController.dataSource = self
             workoutDataViewController = destinationWorkoutDataViewController
+        }
+        if let destinationWorkoutMapViewController = segue.destination as? WorkoutMapViewController {
+            destinationWorkoutMapViewController.dataSource = self
+            workoutMapViewController = destinationWorkoutMapViewController
         }
     }
 
@@ -104,6 +111,15 @@ extension WorkoutViewController: WorkoutDataViewControllerDataSource {
 
 }
 
+// MARK: - Managing WorkoutMapViewController
+
+extension WorkoutViewController: WorkoutMapViewControllerDataSource {
+
+    func currentLocation(for workoutMapViewController: WorkoutMapViewController) -> CLLocationCoordinate2D {
+        return currentLocation
+    }
+}
+
 // MARK: - Managing CLLocationManager
 
 extension WorkoutViewController: CLLocationManagerDelegate {
@@ -111,6 +127,7 @@ extension WorkoutViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locations.forEach(workout.addLocation)
         instantVelocity = Double(locationManager.location!.speed)
+        currentLocation = locationManager.location!.coordinate
     }
 
 }
