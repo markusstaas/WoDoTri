@@ -282,6 +282,7 @@
                         <viewLayoutGuide key="safeArea" id="jDW-sv-07q"/>
                     </view>
                     <connections>
+                        <outlet property="centerOnMap" destination="kiK-4I-9Xj" id="WQ2-hf-zIE"/>
                         <outlet property="mapView" destination="jeT-R4-ysp" id="wSh-GJ-80P"/>
                     </connections>
                 </viewController>
