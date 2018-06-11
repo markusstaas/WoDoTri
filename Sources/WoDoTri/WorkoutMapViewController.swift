@@ -12,17 +12,13 @@ final class WorkoutMapViewController: UIViewController {
     weak var dataSource: WorkoutMapViewControllerDataSource!
 
     override func viewDidLoad() {
-        let region = MKCoordinateRegionMakeWithDistance(dataSource.currentLocation(for: self), 500, 500)
-        mapView.setRegion(region, animated: true)
+        if let userLocation = mapView.userLocation.location?.coordinate {
+            let region = MKCoordinateRegionMakeWithDistance(userLocation, 500, 500)
+            mapView.setRegion(region, animated: true)
+        }
         mapView.showsScale = true
         mapView.showsCompass = true
+        mapView.isZoomEnabled = false
         mapView.userTrackingMode = .followWithHeading
     }
-
-    func updateView() {
-
-    }
-}
-
-extension WorkoutMapViewController: MKMapViewDelegate {
 }
