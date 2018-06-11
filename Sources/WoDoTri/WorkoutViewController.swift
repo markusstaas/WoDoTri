@@ -28,7 +28,6 @@ final class WorkoutViewController: UIViewController {
 
     override func viewDidLoad() {
         super .viewDidLoad()
-        startLocationManager()
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
@@ -60,6 +59,7 @@ final class WorkoutViewController: UIViewController {
     }
 
     @IBAction private func startWorkout() {
+        startLocationManager()
         workout.isPaused = false
         workout.updateDuration()
     }
