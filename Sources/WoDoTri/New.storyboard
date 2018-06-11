@@ -260,6 +260,14 @@
                                     <constraint firstAttribute="height" constant="75" id="CUq-e9-nyL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiK-4I-9Xj">
+                                <rect key="frame" x="16" y="426" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Re-Center"/>
+                                <connections>
+                                    <action selector="centerOnMapTapped:" destination="sgl-sS-kJe" eventType="touchUpInside" id="Cdd-BN-fXD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="jeT-R4-ysp" secondAttribute="bottom" id="DFc-Hd-9tr"/>
