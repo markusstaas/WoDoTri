@@ -40,5 +40,4 @@ final class Workout: NSManagedObject {
         }
         lastUpdatedDurationAt = now
     }
-
 }
