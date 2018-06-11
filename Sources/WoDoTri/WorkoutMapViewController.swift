@@ -1,15 +1,11 @@
 import UIKit
 import MapKit
 
-protocol WorkoutMapViewControllerDataSource: AnyObject {
-    func currentLocation(for workoutMapViewController: WorkoutMapViewController) -> CLLocationCoordinate2D
-}
 
 final class WorkoutMapViewController: UIViewController {
 
     @IBOutlet weak private var mapView: MKMapView!
-
-    weak var dataSource: WorkoutMapViewControllerDataSource!
+    
 
     override func viewDidLoad() {
         if let userLocation = mapView.userLocation.location?.coordinate {
