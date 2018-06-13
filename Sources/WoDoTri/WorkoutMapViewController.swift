@@ -13,7 +13,7 @@ final class WorkoutMapViewController: UIViewController {
 =======
     @IBOutlet weak private var centerMapOnUserLocationButton: UIButton!
 
-    @IBAction func centerOnMapTapped() {
+    @IBAction func centerMapOnUserLocation() {
         mapView.userTrackingMode = .followWithHeading
         centerMapOnUserLocationButton.isHidden = true
     }

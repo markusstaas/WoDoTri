@@ -265,7 +265,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Re-Center"/>
                                 <connections>
-                                    <action selector="centerOnMapTapped:" destination="sgl-sS-kJe" eventType="touchUpInside" id="Cdd-BN-fXD"/>
+                                    <action selector="centerMapOnUserLocation" destination="sgl-sS-kJe" eventType="touchUpInside" id="Avg-bb-JZV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -282,6 +282,10 @@
                         <viewLayoutGuide key="safeArea" id="jDW-sv-07q"/>
                     </view>
                     <connections>
+<<<<<<< ours
+=======
+                        <outlet property="centerMapOnUserLocationButton" destination="kiK-4I-9Xj" id="o33-6U-XNM"/>
+>>>>>>> theirs
                         <outlet property="mapView" destination="jeT-R4-ysp" id="wSh-GJ-80P"/>
                     </connections>
                 </viewController>
