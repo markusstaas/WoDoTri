@@ -17,6 +17,7 @@ final class WorkoutViewController: UIViewController {
     private let locationManager = CLLocationManager()
     private var updateTimer: Timer!
     private let updateInterval: TimeInterval = 0.1
+    private let locationDistanceFilter: CLLocationDistance = 20
     private var instantVelocity: Double!
     private var currentLocation = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     private var workoutDataViewController: WorkoutDataViewController?
@@ -52,7 +53,7 @@ final class WorkoutViewController: UIViewController {
     @IBAction private func startWorkout() {
         locationManager.startUpdatingLocation()
         locationManager.activityType = .fitness
-        locationManager.distanceFilter = 20
+        locationManager.distanceFilter = locationDistanceFilter
         locationManager.showsBackgroundLocationIndicator = true
         workout.isPaused = false
         workout.updateDuration()
