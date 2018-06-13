@@ -38,8 +38,12 @@ final class WorkoutMapViewController: UIViewController {
     }
 
     @objc private func showCenterMapOnUserLocationButton(gestureRecognizer: UIGestureRecognizer) {
+<<<<<<< ours
 >>>>>>> theirs
         if gestureRecognizer.state == UIGestureRecognizerState.began {
+=======
+        if gestureRecognizer.state == .began {
+>>>>>>> theirs
             centerMapOnUserLocationButton.isHidden = false
         }
     }
