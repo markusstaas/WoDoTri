@@ -37,7 +37,7 @@ final class WorkoutViewController: UIViewController {
         }
     }
 
-    // MARK: - Initialize Location Manager
+    // MARK: - Initializing Location Manager
 
     private func startLocationManager() {
         locationManager.delegate = self
