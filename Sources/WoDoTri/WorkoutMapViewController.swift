@@ -17,6 +17,7 @@ final class WorkoutMapViewController: UIViewController {
         mapView.userTrackingMode = .followWithHeading
         centerMapOnUserLocationButton.isHidden = true
     }
+
     override func viewDidLoad() {
 
         let mapDragRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.didDragMap(gestureRecognizer:)))
