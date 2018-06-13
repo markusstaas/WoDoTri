@@ -17,7 +17,9 @@ final class WorkoutViewController: UIViewController {
     private let locationManager = CLLocationManager()
     private var updateTimer: Timer!
     private let updateInterval: TimeInterval = 0.1
+    private let locationDistanceFilter: CLLocationDistance = 20
     private var instantVelocity: Double!
+    private var currentLocation = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     private var workoutDataViewController: WorkoutDataViewController?
 
     @IBOutlet private var primaryActionButton: UIButton!
@@ -29,7 +31,6 @@ final class WorkoutViewController: UIViewController {
         super .viewDidLoad()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
@@ -50,6 +51,10 @@ final class WorkoutViewController: UIViewController {
     }
 
     @IBAction private func startWorkout() {
+        locationManager.startUpdatingLocation()
+        locationManager.activityType = .fitness
+        locationManager.distanceFilter = locationDistanceFilter
+        locationManager.showsBackgroundLocationIndicator = true
         workout.isPaused = false
         workout.updateDuration()
     }

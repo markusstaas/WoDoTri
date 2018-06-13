@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DHf-Ze-Wzx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DHf-Ze-Wzx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -250,56 +249,49 @@
                     <view key="view" contentMode="scaleToFill" id="Rx7-m9-JAt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jeT-R4-ysp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="539"/>
+                            </mapView>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loE-2u-jB6">
+                                <rect key="frame" x="0.0" y="464" width="375" height="75"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="CUq-e9-nyL"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiK-4I-9Xj">
+                                <rect key="frame" x="16" y="426" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Re-Center"/>
+                                <connections>
+                                    <action selector="centerMapOnUserLocation" destination="sgl-sS-kJe" eventType="touchUpInside" id="Avg-bb-JZV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="jeT-R4-ysp" secondAttribute="bottom" id="DFc-Hd-9tr"/>
+                            <constraint firstItem="jeT-R4-ysp" firstAttribute="top" secondItem="Rx7-m9-JAt" secondAttribute="top" id="Kw5-XI-oHB"/>
+                            <constraint firstItem="loE-2u-jB6" firstAttribute="leading" secondItem="jDW-sv-07q" secondAttribute="leading" id="c9u-EY-FDX"/>
+                            <constraint firstItem="jeT-R4-ysp" firstAttribute="leading" secondItem="Rx7-m9-JAt" secondAttribute="leading" id="hbv-LB-g70"/>
+                            <constraint firstItem="loE-2u-jB6" firstAttribute="bottom" secondItem="Rx7-m9-JAt" secondAttribute="bottom" id="m2J-hP-cnh"/>
+                            <constraint firstItem="loE-2u-jB6" firstAttribute="leading" secondItem="jeT-R4-ysp" secondAttribute="leading" id="u3k-2N-WvU"/>
+                            <constraint firstAttribute="trailing" secondItem="jeT-R4-ysp" secondAttribute="trailing" id="v45-eL-QcV"/>
+                            <constraint firstItem="loE-2u-jB6" firstAttribute="trailing" secondItem="jeT-R4-ysp" secondAttribute="trailing" id="wri-vq-fC2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jDW-sv-07q"/>
                     </view>
+                    <connections>
+<<<<<<< ours
+=======
+                        <outlet property="centerMapOnUserLocationButton" destination="kiK-4I-9Xj" id="o33-6U-XNM"/>
+>>>>>>> theirs
+                        <outlet property="mapView" destination="jeT-R4-ysp" id="wSh-GJ-80P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weq-Mt-7Mb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="TCP-AW-ujx">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PYP-xk-uSM">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velocity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ana-Mt-i7E">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huE-gw-2Ry">
-                                    <rect key="frame" x="0.0" y="20.5" width="375" height="48.5"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Km8-NV-cuI">
-                                            <rect key="frame" x="155.5" y="8" width="64" height="32.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPA-Gk-GXU">
-                                            <rect key="frame" x="227.5" y="27" width="14.5" height="8.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="7"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="hPA-Gk-GXU" firstAttribute="leading" secondItem="Km8-NV-cuI" secondAttribute="trailing" constant="8" symbolic="YES" id="4Cg-aZ-9Ra"/>
-                                        <constraint firstItem="Km8-NV-cuI" firstAttribute="centerX" secondItem="huE-gw-2Ry" secondAttribute="centerX" id="Ulq-x3-rd9"/>
-                                        <constraint firstItem="hPA-Gk-GXU" firstAttribute="firstBaseline" secondItem="Km8-NV-cuI" secondAttribute="firstBaseline" id="aHY-fq-rru"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Km8-NV-cuI" secondAttribute="bottom" id="fBF-7U-gkc"/>
-                                        <constraint firstItem="Km8-NV-cuI" firstAttribute="top" secondItem="huE-gw-2Ry" secondAttribute="topMargin" id="tjY-Lj-KAT"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                    <viewLayoutGuide key="safeArea" id="Lvw-N3-HdO"/>
-                </stackView>
             </objects>
-            <point key="canvasLocation" x="1822" y="430"/>
+            <point key="canvasLocation" x="1821.5999999999999" y="429.53523238380814"/>
         </scene>
     </scenes>
     <resources>
