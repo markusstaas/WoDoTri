@@ -19,21 +19,26 @@ final class WorkoutMapViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-
-        let mapDragRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.didDragMap(gestureRecognizer:)))
+        let mapDragRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.showCenterMapOnUserLocationButton(gestureRecognizer:)))
         mapDragRecognizer.delegate = self
-
         centerMapOnUserLocationButton.isHidden = true
 >>>>>>> theirs
         mapView.userTrackingMode = .followWithHeading
         mapView.showsScale = true
         mapView.showsCompass = true
         mapView.isZoomEnabled = false
+<<<<<<< ours
 
     }
 <<<<<<< ours
 =======
     @objc private func didDragMap(gestureRecognizer: UIGestureRecognizer) {
+=======
+        mapView.addGestureRecognizer(mapDragRecognizer)
+    }
+
+    @objc private func showCenterMapOnUserLocationButton(gestureRecognizer: UIGestureRecognizer) {
+>>>>>>> theirs
         if gestureRecognizer.state == UIGestureRecognizerState.began {
             centerMapOnUserLocationButton.isHidden = false
         }
