@@ -176,7 +176,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="startWorkout" destination="8TI-IZ-HbV" eventType="touchUpInside" id="Zpe-7Z-sTG"/>
+                                                    <action selector="startOrPauseWorkout" destination="8TI-IZ-HbV" eventType="touchUpInside" id="Iaq-vd-w6o"/>
                                                 </connections>
                                             </button>
                                         </subviews>

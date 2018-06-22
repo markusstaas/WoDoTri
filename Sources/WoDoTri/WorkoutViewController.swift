@@ -50,13 +50,38 @@ final class WorkoutViewController: UIViewController {
         }
     }
 
-    @IBAction private func startWorkout() {
+    @IBAction private func startOrPauseWorkout() {
+        if workout.isPaused {
+            startWorkout()
+        } else {
+            pauseWorkout()
+        }
+
+    }
+
+    private func pauseWorkout() {
+        workout.isPaused = true
+        setPrimaryActionButtonLabel()
+
+    }
+
+    private func startWorkout() {
         locationManager.startUpdatingLocation()
         locationManager.activityType = .fitness
         locationManager.distanceFilter = locationDistanceFilter
         locationManager.showsBackgroundLocationIndicator = true
         workout.isPaused = false
         workout.updateDuration()
+        setPrimaryActionButtonLabel()
+    }
+
+    private func setPrimaryActionButtonLabel() {
+        if !workout.isPaused {
+            primaryActionButton.setTitle("Pause", for: UIControlState.normal)
+        } else {
+            primaryActionButton.setTitle("Start", for: UIControlState.normal)
+        }
+
     }
 
 }
