@@ -34,10 +34,7 @@ final class WorkoutViewController: UIViewController {
         persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
-        updateTimer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true) { [weak self] _ in
-            self?.workout.updateDuration()
-            self?.workoutDataViewController?.updateView()
-        }
+        setPrimaryActionButtonLabel()
     }
 
     // MARK: - Handling Storyboard Segues
@@ -50,19 +47,29 @@ final class WorkoutViewController: UIViewController {
         }
     }
 
+    // MARK: - Managing Timer
+
+    private func createTimer() {
+        updateTimer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true) { [weak self] _ in
+            self?.workout.updateDuration()
+            self?.workoutDataViewController?.updateView()
+        }
+    }
+
+    // MARK: - Managing Start and Pause 
+
     @IBAction private func startOrPauseWorkout() {
         if workout.isPaused {
             startWorkout()
         } else {
             pauseWorkout()
         }
-
     }
 
     private func pauseWorkout() {
         workout.isPaused = true
+        workout.updateDuration()
         setPrimaryActionButtonLabel()
-
     }
 
     private func startWorkout() {
@@ -71,7 +78,7 @@ final class WorkoutViewController: UIViewController {
         locationManager.distanceFilter = locationDistanceFilter
         locationManager.showsBackgroundLocationIndicator = true
         workout.isPaused = false
-        workout.updateDuration()
+        createTimer()
         setPrimaryActionButtonLabel()
     }
 
