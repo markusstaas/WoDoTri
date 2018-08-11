@@ -32,6 +32,7 @@ final class Workout: NSManagedObject {
 
     func updateDuration() {
         guard !isPaused else {
+            lastUpdatedDurationAt = Date()
             return
         }
         let now = Date()
