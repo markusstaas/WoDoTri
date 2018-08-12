@@ -8,7 +8,7 @@ protocol WorkoutViewControllerDataSource: AnyObject {
 
 }
 
-final class WorkoutViewController: UIViewController {
+final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate {
 
     weak var dataSource: WorkoutViewControllerDataSource!
 
@@ -21,6 +21,8 @@ final class WorkoutViewController: UIViewController {
     private var instantVelocity: Double!
     private var currentLocation = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     private var workoutDataViewController: WorkoutDataViewController?
+    private var workoutFinishViewController: WorkoutFinishViewController?
+    private let workoutFinishViewControllerSegueIdentifier = "Workout Finish View Controller Segue"
 
     @IBOutlet private var primaryActionButton: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
@@ -45,6 +47,10 @@ final class WorkoutViewController: UIViewController {
             destinationWorkoutDataViewController.dataSource = self
             workoutDataViewController = destinationWorkoutDataViewController
         }
+        if let destinationWorkoutFinishViewController = segue.destination as? WorkoutFinishViewController {
+            workoutFinishViewController = destinationWorkoutFinishViewController
+            destinationWorkoutFinishViewController.delegate = self
+        }
     }
 
     // MARK: - Managing Timer
@@ -58,7 +64,7 @@ final class WorkoutViewController: UIViewController {
 
     // MARK: - Managing Start and Pause 
 
-    @IBAction private func startOrPauseWorkout() {
+    @IBAction func startOrPauseWorkout() {
         if workout.isPaused {
             startWorkout()
         } else {
@@ -70,6 +76,7 @@ final class WorkoutViewController: UIViewController {
         workout.isPaused = true
         workout.updateDuration()
         setPrimaryActionButtonLabel()
+        performSegue(withIdentifier: workoutFinishViewControllerSegueIdentifier, sender: self)
     }
 
     private func startWorkout() {
