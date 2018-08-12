@@ -203,6 +203,7 @@
                     <connections>
                         <outlet property="pageControl" destination="8ol-0n-lOF" id="wHR-ur-cNR"/>
                         <outlet property="primaryActionButton" destination="6on-hY-Q1t" id="bRP-EB-Wl6"/>
+                        <segue destination="I6X-oT-RHn" kind="presentation" identifier="Workout Finish View Controller Segue" modalTransitionStyle="coverVertical" id="tKA-ga-YJ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNX-62-2G6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,6 +242,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocN-at-kls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1822" y="-162"/>
+        </scene>
+        <!--Workout Finish View Controller-->
+        <scene sceneID="rkN-1j-8Vx">
+            <objects>
+                <viewController id="I6X-oT-RHn" customClass="WorkoutFinishViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JoN-sk-S8r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="qZf-7n-F74">
+                                <rect key="frame" x="87.5" y="283.5" width="200" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Paused" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqC-lC-MHk">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="4qc-RV-5HJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r78-v7-CLf">
+                                        <rect key="frame" x="0.0" y="90" width="200" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wL-kE-2m6">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                <state key="normal" title="Resume"/>
+                                                <connections>
+                                                    <action selector="startWorkout" destination="I6X-oT-RHn" eventType="touchUpInside" id="7UX-dm-van"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9b-ov-JTR">
+                                                <rect key="frame" x="100" y="0.0" width="100" height="30"/>
+                                                <state key="normal" title="Finish"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="8wL-kE-2m6" secondAttribute="bottom" id="03M-C1-sDy"/>
+                                            <constraint firstItem="8wL-kE-2m6" firstAttribute="leading" secondItem="r78-v7-CLf" secondAttribute="leading" id="BhY-65-HgX"/>
+                                            <constraint firstItem="K9b-ov-JTR" firstAttribute="leading" secondItem="8wL-kE-2m6" secondAttribute="trailing" id="DBK-57-pBv"/>
+                                            <constraint firstItem="8wL-kE-2m6" firstAttribute="top" secondItem="r78-v7-CLf" secondAttribute="top" id="Znu-z0-hNs"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="r78-v7-CLf" firstAttribute="leading" secondItem="qZf-7n-F74" secondAttribute="leading" id="92d-qc-9Ik"/>
+                                    <constraint firstAttribute="trailing" secondItem="r78-v7-CLf" secondAttribute="trailing" id="FHQ-hR-SSz"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qZf-7n-F74" firstAttribute="centerY" secondItem="gD5-Ne-WkA" secondAttribute="centerY" id="OQ3-lN-Cho"/>
+                            <constraint firstItem="qZf-7n-F74" firstAttribute="centerX" secondItem="gD5-Ne-WkA" secondAttribute="centerX" id="dgM-zV-aUW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gD5-Ne-WkA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Irn-P5-xJ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2785" y="89"/>
         </scene>
         <!--Workout Map View Controller-->
         <scene sceneID="E2q-1x-QqT">
