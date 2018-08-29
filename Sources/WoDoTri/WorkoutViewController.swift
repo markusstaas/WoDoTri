@@ -5,7 +5,6 @@ import CoreLocation
 protocol WorkoutViewControllerDataSource: AnyObject {
 
     func workoutType(for workoutViewController: WorkoutViewController) -> WorkoutType
-
 }
 
 final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate {
@@ -21,6 +20,7 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
     private var instantVelocity: Double!
     private var currentLocation = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     private var workoutDataViewController: WorkoutDataViewController?
+    private var workoutMapViewController: WorkoutMapViewController?
     private var workoutFinishViewController: WorkoutFinishViewController?
     private let workoutFinishViewControllerSegueIdentifier = "Workout Finish View Controller Segue"
 
@@ -46,6 +46,10 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
         if let destinationWorkoutDataViewController = segue.destination as? WorkoutDataViewController {
             destinationWorkoutDataViewController.dataSource = self
             workoutDataViewController = destinationWorkoutDataViewController
+        }
+        if let destinationWorkoutMapViewController = segue.destination as? WorkoutMapViewController {
+            destinationWorkoutMapViewController.dataSource = self
+            workoutMapViewController = destinationWorkoutMapViewController
         }
         if let destinationWorkoutFinishViewController = segue.destination as? WorkoutFinishViewController {
             workoutFinishViewController = destinationWorkoutFinishViewController
@@ -135,6 +139,20 @@ extension WorkoutViewController: WorkoutDataViewControllerDataSource {
         } else {
             return 0
         }
+    }
+
+}
+
+// MARK: - Managing WorkoutMapViewController
+
+extension WorkoutViewController: WorkoutMapViewControllerDataSource {
+
+    func locationHistory(for workoutMapViewController: WorkoutMapViewController) -> Set<WorkoutLocation> {
+        return workout.locationHistory
+    }
+
+    func currenLocation(for workoutMapViewController: WorkoutMapViewController) -> WorkoutLocation {
+        return (workout?.currentLocation)!
     }
 
 }
