@@ -2,24 +2,11 @@
 
 import UIKit
 
-protocol StartWorkoutButtonDelegate: AnyObject {
-    func startOrPauseWorkout()
-}
-
-class WorkoutFinishViewController: UIViewController {
-
-    weak var delegate: StartWorkoutButtonDelegate?
-
-    @IBAction func startWorkout() {
-        self.delegate?.startOrPauseWorkout()
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func finishWorkout() {
-    }
+class WorkoutFinishedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+
 }

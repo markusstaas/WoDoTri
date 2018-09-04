@@ -21,8 +21,8 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
     private var currentLocation = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     private var workoutDataViewController: WorkoutDataViewController?
     private var workoutMapViewController: WorkoutMapViewController?
-    private var workoutFinishViewController: WorkoutFinishViewController?
-    private let workoutFinishViewControllerSegueIdentifier = "Workout Finish View Controller Segue"
+    private var workoutPausedViewController: WorkoutPausedViewController?
+    private let workoutPausedViewControllerSegueIdentifier = "Workout Paused View Controller Segue"
 
     @IBOutlet private var primaryActionButton: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
@@ -51,9 +51,9 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
             destinationWorkoutMapViewController.dataSource = self
             workoutMapViewController = destinationWorkoutMapViewController
         }
-        if let destinationWorkoutFinishViewController = segue.destination as? WorkoutFinishViewController {
-            workoutFinishViewController = destinationWorkoutFinishViewController
-            destinationWorkoutFinishViewController.delegate = self
+        if let destinationWorkoutPausedViewController = segue.destination as? WorkoutPausedViewController {
+            workoutPausedViewController = destinationWorkoutPausedViewController
+            destinationWorkoutPausedViewController.delegate = self
         }
     }
 
@@ -80,7 +80,7 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
         workout.isPaused = true
         workout.updateDuration()
         setPrimaryActionButtonLabel()
-        performSegue(withIdentifier: workoutFinishViewControllerSegueIdentifier, sender: self)
+        performSegue(withIdentifier: workoutPausedViewControllerSegueIdentifier, sender: self)
     }
 
     private func startWorkout() {
