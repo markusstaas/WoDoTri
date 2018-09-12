@@ -27,7 +27,6 @@ final class WorkoutTypeViewController: UIViewController {
             workoutViewController.dataSource = self
         }
     }
-
 }
 
 // MARK: - Managing WorkoutViewController
