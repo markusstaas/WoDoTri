@@ -47,14 +47,13 @@ import SafariServices
 
         public typealias UITransion = (_ controller: SFSafariViewController, _ handler: SafariURLHandler) -> Void
 
-        open let oauthSwift: OAuthSwift
+        weak open var oauthSwift: OAuthSwift?
         open var present: UITransion
         open var dismiss: UITransion
         /// retains observers
         var observers = [String: NSObjectProtocol]()
 
         open var factory: (_ URL: URL) -> SFSafariViewController = {URL in
-            print(URL)
             return SFSafariViewController(url: URL)
         }
 
@@ -124,7 +123,7 @@ import SafariServices
         /// Clear internal observers on authentification flow
         open func clearObservers() {
             clearLocalObservers()
-            self.oauthSwift.removeCallbackNotificationObserver()
+            self.oauthSwift?.removeCallbackNotificationObserver()
         }
 
         open func clearLocalObservers() {
