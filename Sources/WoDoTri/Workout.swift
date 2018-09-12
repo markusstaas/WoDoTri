@@ -39,6 +39,7 @@ final class Workout: NSManagedObject {
         if let lastUpdatedDurationAtIfExists = lastUpdatedDurationAt {
             duration += now.timeIntervalSince(lastUpdatedDurationAtIfExists)
         }
+
         lastUpdatedDurationAt = now
     }
 }

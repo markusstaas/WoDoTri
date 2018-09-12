@@ -37,6 +37,7 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
         setPrimaryActionButtonLabel()
+
     }
 
     // MARK: - Handling Storyboard Segues
@@ -54,6 +55,7 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
         if let destinationWorkoutPausedViewController = segue.destination as? WorkoutPausedViewController {
             workoutPausedViewController = destinationWorkoutPausedViewController
             destinationWorkoutPausedViewController.delegate = self
+            destinationWorkoutPausedViewController.dataSource = self
         }
     }
 
@@ -153,6 +155,32 @@ extension WorkoutViewController: WorkoutMapViewControllerDataSource {
 
     func currenLocation(for workoutMapViewController: WorkoutMapViewController) -> WorkoutLocation {
         return (workout?.currentLocation)!
+    }
+
+}
+
+// MARK: - Managing WorkoutPausedViewController
+
+extension WorkoutViewController: WorkoutPausedViewControllerDataSource {
+
+    func workoutContext(for workoutPausedViewController: WorkoutPausedViewController) -> NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+
+    func workoutType(for workoutPausedViewController: WorkoutPausedViewController) -> WorkoutType {
+        return workout.workoutType
+    }
+
+    func workoutDistance(for workoutPausedViewController: WorkoutPausedViewController) -> Double {
+        return workout.distance
+    }
+
+    func workoutDuration(for workoutPausedViewController: WorkoutPausedViewController) -> Double {
+        return workout.duration
+    }
+
+    func workoutLocationHistory(for workoutPausedViewController: WorkoutPausedViewController) -> Set<WorkoutLocation> {
+        return workout.locationHistory
     }
 
 }

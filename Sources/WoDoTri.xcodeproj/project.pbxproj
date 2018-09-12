@@ -25,7 +25,7 @@
 		289508A61FB570B400353860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289508A51FB570B400353860 /* Assets.xcassets */; };
 		289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289508A71FB570B400353860 /* LaunchScreen.storyboard */; };
 		289508B81FB575D200353860 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B71FB575D200353860 /* ActivityViewController.swift */; };
-		289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B91FB5761A00353860 /* HistoryViewController.swift */; };
+		289508BA1FB5761A00353860 /* WorkoutLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B91FB5761A00353860 /* WorkoutLogViewController.swift */; };
 		289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508BB1FB57A5600353860 /* ActivityMapViewController.swift */; };
 		28A199A12022BC5500E7B715 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1999D2022BC5500E7B715 /* Workout.swift */; };
 		28A199A22022BC5500E7B715 /* WorkoutLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */; };
@@ -63,7 +63,7 @@
 		289508A81FB570B400353860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		289508AA1FB570B400353860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		289508B71FB575D200353860 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		289508B91FB5761A00353860 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		289508B91FB5761A00353860 /* WorkoutLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLogViewController.swift; sourceTree = "<group>"; };
 		289508BB1FB57A5600353860 /* ActivityMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityMapViewController.swift; sourceTree = "<group>"; };
 		28A1999D2022BC5500E7B715 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLocation.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */,
 				287E690420DD28E100849E20 /* GPXFormatter.swift */,
-				289508B91FB5761A00353860 /* HistoryViewController.swift */,
+				289508B91FB5761A00353860 /* WorkoutLogViewController.swift */,
 				652768FB1FD5070500353CC9 /* HistoryDetailViewController.swift */,
 				28F33377200C53F400272462 /* SettingsViewController.swift */,
 				28B06B9C20159739004050C1 /* MapViewController.swift */,
@@ -359,7 +359,7 @@
 				287F0812208E0C66001A99D3 /* MeasurementTableViewCell.swift in Sources */,
 				287E014420E23B2100B2E6B2 /* GPXFormatterConstants.swift in Sources */,
 				65084EB61FC5124100EDA74A /* WorkoutLog.xcdatamodeld in Sources */,
-				289508BA1FB5761A00353860 /* HistoryViewController.swift in Sources */,
+				289508BA1FB5761A00353860 /* WorkoutLogViewController.swift in Sources */,
 				28A199A22022BC5500E7B715 /* WorkoutLocation.swift in Sources */,
 				65FFABF51FD3CF6B006D6435 /* WorkoutType.swift in Sources */,
 				28A199A12022BC5500E7B715 /* Workout.swift in Sources */,
