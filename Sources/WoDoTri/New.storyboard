@@ -347,6 +347,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edz-ED-1Ch">
                                                 <rect key="frame" x="142" y="0.0" width="142" height="30"/>
                                                 <state key="normal" title="Save Workout to Log"/>
+                                                <connections>
+                                                    <action selector="saveWorkoutToLog:" destination="kra-ha-OP1" eventType="touchUpInside" id="jf3-tM-Eel"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
