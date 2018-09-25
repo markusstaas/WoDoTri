@@ -1,57 +1,63 @@
-////  Copyright © 2017 Markus Staas. All rights reserved.
-//
-//import UIKit
-//import CoreData
-//
-//final class HistoryViewController: UITableViewController {
-//
-//    @IBOutlet private var historyTableView: UITableView!
-//    private var activities: [Workout] = []
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        title = "Past Workouts"
-//    }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        let entity = NSEntityDescription.entity(forEntityName: "Activity", in: CoreDataStack.context)
-//        let fetchRequest: NSFetchRequest<Workout> = Activity.fetchRequest()
-//        fetchRequest.entity = entity
-//        let sortDescriptor = NSSortDescriptor(key: #keyPath(Workout.timestamp), ascending: false)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-//
-//        do {
-//            activities = try CoreDataStack.context.fetch(fetchRequest)
-//
-//        } catch  let error {
-//            //handle error
-//            print(error)
-//        }
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return activities.count
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let workout = activities[indexPath.row]
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
-//        cell.textLabel?.text = FormatDisplay.date(workout.value(forKey: "timestamp") as? Date)
-//        cell.detailTextLabel?.text = workout.value(forKey: "type") as? String
-//        return cell
-//    }
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let activityDetailViewController = segue.destination as? HistoryDetailViewController else {
-//            preconditionFailure("Unknown segue")
-//        }
-//        activityDetailViewController.activity = selectedActivity!
-//    }
-//
-//    private var selectedActivity: Workout? {
-//        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
-//        return activities[indexPath.row]
-//    }
-//
-//}
+//  Copyright © 2017 Markus Staas. All rights reserved.
+
+import UIKit
+import CoreData
+
+final class WorkoutLogViewController: UITableViewController {
+
+    @IBOutlet private var historyTableView: UITableView!
+    private var workouts: [NSManagedObject] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Workout Log"
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+
+        super.viewWillAppear(animated)
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+
+        let managedContext = appDelegate.persistentContainer.viewContext
+
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Workout")
+        //let sortDescriptor = NSSortDescriptor(key: "lastUpdateDurationAt", ascending: false)
+        //let sortDescriptor = NSSortDescriptor(key: #keyPath(Workout.lastUpdatedDurationAt), ascending: false)
+        //fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            workouts = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return workouts.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let workout = workouts[indexPath.row]
+        //let workoutDate = workout.value(forKey: "timestampWorkoutStarted") as? String
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
+        cell.textLabel?.text = workout.value(forKeyPath: "workoutTypeDescription") as? String
+        //cell.detailTextLabel?.text = workout.value(forKey: "timestampWorkoutStarted") as? String
+        return cell
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let workoutLogDetailViewController = segue.destination as? WorkoutLogDetailViewController else {
+            preconditionFailure("Unknown segue")
+        }
+        workoutLogDetailViewController.workout = selectedActivity!
+
+    }
+
+    private var selectedActivity: NSManagedObject? {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
+        return workouts[indexPath.row]
+    }
+
+}

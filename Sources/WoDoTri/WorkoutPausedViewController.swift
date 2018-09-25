@@ -14,8 +14,6 @@ protocol WorkoutPausedViewControllerDataSource: AnyObject {
     func workoutDistance(for workoutPausedViewController: WorkoutPausedViewController) -> Double
     func workoutDuration(for workoutPausedViewController: WorkoutPausedViewController) -> Double
     func workoutLocationHistory(for workoutPausedViewController: WorkoutPausedViewController) -> Set<WorkoutLocation>
-    func workoutContext(for workoutPausedViewController: WorkoutPausedViewController) -> NSManagedObjectContext
-
 }
 
 class WorkoutPausedViewController: UIViewController {
@@ -55,10 +53,6 @@ class WorkoutPausedViewController: UIViewController {
 // MARK: - Managing WorkoutFinishedViewController
 
 extension WorkoutPausedViewController: WorkoutFinishedViewControllerDataSource {
-
-    func workoutContext(for workoutFinishedViewController: WorkoutFinishedViewController) -> NSManagedObjectContext {
-        return (dataSource?.workoutContext(for: self))!
-    }
 
     func workoutType(for workoutFinishedViewController: WorkoutFinishedViewController) -> WorkoutType {
         return (dataSource?.workoutType(for: self))!

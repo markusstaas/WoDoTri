@@ -6,8 +6,8 @@ import CoreLocation
 final class WorkoutLocation: NSManagedObject {
 
     @NSManaged private(set) var isWorkoutPaused: Bool
-    @NSManaged private(set) var latitude: Double
-    @NSManaged private(set) var longitude: Double
+    @NSManaged private(set) var latitude: CLLocationDegrees
+    @NSManaged private(set) var longitude: CLLocationDegrees
     @NSManaged private(set) var speed: Double
     @NSManaged private(set) var timestamp: Date
     @NSManaged private(set) var currentInWorkout: Workout?

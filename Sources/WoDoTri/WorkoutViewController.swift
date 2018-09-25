@@ -11,8 +11,9 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
 
     weak var dataSource: WorkoutViewControllerDataSource!
 
+    weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
+
     private var workout: Workout!
-    private let persistentContainer = NSPersistentContainer(name: "WorkoutLog")
     private let locationManager = CLLocationManager()
     private var updateTimer: Timer!
     private let updateInterval: TimeInterval = 0.1
@@ -33,9 +34,9 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
         super .viewDidLoad()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        persistentContainer.loadPersistentStores { _, _ in }
+        //appDelegate?.persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
-        workout = Workout(workoutType: workoutType, managedObjectContext: persistentContainer.viewContext)
+        workout = Workout(workoutType: workoutType, managedObjectContext: (appDelegate?.persistentContainer.viewContext)!)
         setPrimaryActionButtonLabel()
 
     }
@@ -162,10 +163,6 @@ extension WorkoutViewController: WorkoutMapViewControllerDataSource {
 // MARK: - Managing WorkoutPausedViewController
 
 extension WorkoutViewController: WorkoutPausedViewControllerDataSource {
-
-    func workoutContext(for workoutPausedViewController: WorkoutPausedViewController) -> NSManagedObjectContext {
-        return persistentContainer.viewContext
-    }
 
     func workoutType(for workoutPausedViewController: WorkoutPausedViewController) -> WorkoutType {
         return workout.workoutType
