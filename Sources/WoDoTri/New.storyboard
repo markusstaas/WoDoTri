@@ -15,12 +15,13 @@
         <!--Navigation Controller-->
         <scene sceneID="7Ji-4q-qTS">
             <objects>
-                <navigationController id="DHf-Ze-Wzx" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="DHf-Ze-Wzx" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nM6-TW-u0O">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T3N-Qn-g6Z">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -31,7 +32,7 @@
             </objects>
             <point key="canvasLocation" x="-697" y="87"/>
         </scene>
-        <!--Workout Type View Controller-->
+        <!--Test 1-->
         <scene sceneID="l19-KN-epl">
             <objects>
                 <viewController id="5k5-js-e8j" customClass="WorkoutTypeViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,16 +41,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="44e-bI-rTL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4EA-A9-1Fg">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WorkoutTypes/Ride" translatesAutoresizingMaskIntoConstraints="NO" id="zBg-ha-MeX">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIt-p8-OaT">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
                                                 <connections>
                                                     <action selector="pickWorkoutTypeRide" destination="5k5-js-e8j" eventType="touchUpInside" id="x1K-Li-Jq0"/>
                                                 </connections>
@@ -68,13 +69,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQc-PP-89u">
-                                        <rect key="frame" x="0.0" y="301.5" width="375" height="301.5"/>
+                                        <rect key="frame" x="0.0" y="279.5" width="375" height="279.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WorkoutTypes/Run" translatesAutoresizingMaskIntoConstraints="NO" id="UWT-tU-FEZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eH-71-bsM">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
                                                 <connections>
                                                     <action selector="pickWorkoutTypeRun" destination="5k5-js-e8j" eventType="touchUpInside" id="mIL-z8-slS"/>
                                                 </connections>
@@ -105,7 +106,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="28G-r3-PQx"/>
                     </view>
-                    <navigationItem key="navigationItem" id="shR-33-Vje"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="fUI-0R-e5b">
+                            <connections>
+                                <segue destination="g3d-eN-5TQ" kind="show" id="RCa-UP-Oac"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Test 1" id="shR-33-Vje">
+                        <barButtonItem key="backBarButtonItem" title="JAJAJA" id="Dtj-VJ-W3n"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="8TI-IZ-HbV" kind="presentation" identifier="Workout View Controller Segue" id="mtd-wD-5dT"/>
                     </connections>
@@ -113,6 +124,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6KN-ej-vqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="92" y="89"/>
+        </scene>
+        <!--Workout Log View Controller-->
+        <scene sceneID="Qnd-2c-Xbf">
+            <objects>
+                <tableViewController id="g3d-eN-5TQ" customClass="WorkoutLogViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xSR-Ac-442">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="historyCell" textLabel="rcc-RY-VN6" detailTextLabel="Cjs-hT-g4c" style="IBUITableViewCellStyleValue2" id="79A-1e-qye">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="79A-1e-qye" id="BLW-46-9CN">
+                                    <rect key="frame" x="0.0" y="0.0" width="327" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rcc-RY-VN6">
+                                            <rect key="frame" x="16" y="14" width="91" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cjs-hT-g4c">
+                                            <rect key="frame" x="113" y="14" width="35" height="16"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="g3d-eN-5TQ" id="84f-O4-azv"/>
+                            <outlet property="delegate" destination="g3d-eN-5TQ" id="01q-sY-0hJ"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="historyTableView" destination="xSR-Ac-442" id="LQI-3b-g1c"/>
+                        <segue destination="OTR-h8-Oz7" kind="show" id="16b-WB-5jo"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hS-J5-933" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105" y="893"/>
+        </scene>
+        <!--Workout Log Detail View Controller-->
+        <scene sceneID="2fH-Dl-S3m">
+            <objects>
+                <viewController id="OTR-h8-Oz7" customClass="WorkoutLogDetailViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="suk-y8-3bd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7me-Md-1nL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rMo-Gx-h95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="993" y="893"/>
         </scene>
         <!--Workout View Controller-->
         <scene sceneID="ffO-Ws-QgV">
@@ -327,6 +401,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FPz-iJ-znM">
+                                <rect key="frame" x="0.0" y="60" width="375" height="505"/>
+                            </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="P6v-5v-7IW">
                                 <rect key="frame" x="45.5" y="570" width="284" height="97"/>
                                 <subviews>
@@ -348,7 +425,7 @@
                                                 <rect key="frame" x="142" y="0.0" width="142" height="30"/>
                                                 <state key="normal" title="Save Workout to Log"/>
                                                 <connections>
-                                                    <action selector="saveWorkoutToLog:" destination="kra-ha-OP1" eventType="touchUpInside" id="jf3-tM-Eel"/>
+                                                    <action selector="saveWorkoutToLog:" destination="kra-ha-OP1" eventType="touchUpInside" id="tPq-Zi-gd4"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -361,13 +438,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Yr8-ct-g95" firstAttribute="trailing" secondItem="FPz-iJ-znM" secondAttribute="trailing" id="0ia-be-VyO"/>
+                            <constraint firstItem="P6v-5v-7IW" firstAttribute="top" secondItem="FPz-iJ-znM" secondAttribute="bottom" constant="5" id="83l-B2-Tyv"/>
                             <constraint firstItem="Z2Z-Ym-jls" firstAttribute="centerX" secondItem="xjD-0L-Mfc" secondAttribute="centerX" id="CwI-4d-zYA"/>
+                            <constraint firstItem="FPz-iJ-znM" firstAttribute="top" secondItem="Z2Z-Ym-jls" secondAttribute="bottom" constant="10" id="RIj-xN-lpV"/>
+                            <constraint firstItem="FPz-iJ-znM" firstAttribute="leading" secondItem="Yr8-ct-g95" secondAttribute="leading" id="buk-rA-XvM"/>
                             <constraint firstItem="Z2Z-Ym-jls" firstAttribute="top" secondItem="Yr8-ct-g95" secondAttribute="top" id="hXf-4P-OeO"/>
                             <constraint firstItem="Yr8-ct-g95" firstAttribute="bottom" secondItem="P6v-5v-7IW" secondAttribute="bottom" id="m7u-gX-fR3"/>
                             <constraint firstItem="P6v-5v-7IW" firstAttribute="centerX" secondItem="xjD-0L-Mfc" secondAttribute="centerX" id="ts4-t0-Pdg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yr8-ct-g95"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="FPz-iJ-znM" id="PP8-P7-whS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hrc-9W-npE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
