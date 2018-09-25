@@ -19,7 +19,6 @@ class WorkoutFinishedViewController: UIViewController, MKMapViewDelegate {
     weak var dataSource: WorkoutFinishedViewControllerDataSource?
     @IBOutlet weak var mapView: MKMapView!
 
-
     @IBAction func saveWorkoutToLog(_ sender: Any) {
         appDelegate?.saveContext()
 //        let alert = UIAlertController(

@@ -43,6 +43,7 @@ final class WorkoutLogViewController: UITableViewController {
         //let workoutDate = workout.value(forKey: "timestampWorkoutStarted") as? String
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
         cell.textLabel?.text = workout.value(forKeyPath: "workoutTypeDescription") as? String
+        cell.detailTextLabel?.text = "This is a test"
         //cell.detailTextLabel?.text = workout.value(forKey: "timestampWorkoutStarted") as? String
         return cell
     }
