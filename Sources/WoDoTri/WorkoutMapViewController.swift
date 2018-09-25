@@ -17,17 +17,26 @@ final class WorkoutMapViewController: UIViewController {
     @IBAction func centerMapOnUserLocation() {
         mapView.userTrackingMode = .followWithHeading
         centerMapOnUserLocationButton.isHidden = true
+        let span = MKCoordinateSpanMake(1.0, 1.0)
+        let location = CLLocationCoordinate2D(latitude: mapView.userLocation.coordinate.latitude, longitude: mapView.userLocation.coordinate.longitude)
+        let coordinateRegion = MKCoordinateRegion(center: location, span: span)
+        mapView.setRegion(coordinateRegion, animated: false)
+
     }
 
     override func viewDidLoad() {
-        centerMapOnUserLocation()
+        loadMap()
+    }
+
+    private func loadMap() {
+        mapView.delegate = self
         mapView.showsScale = true
         mapView.showsCompass = true
-        mapView.isZoomEnabled = false
+        mapView.isZoomEnabled = true
         let mapDragRecognizer = UIPanGestureRecognizer(target: self, action: #selector(showCenterMapOnUserLocationButton(gestureRecognizer:)))
         mapDragRecognizer.delegate = self
+        centerMapOnUserLocationButton.isHidden = true
         self.mapView.addGestureRecognizer(mapDragRecognizer)
-
     }
 
     @objc private func showCenterMapOnUserLocationButton(gestureRecognizer: UIGestureRecognizer) {
@@ -47,17 +56,22 @@ extension WorkoutMapViewController: UIGestureRecognizerDelegate {
 }
 
 extension WorkoutMapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        guard let polyline = overlay as? MKPolyline else {
-            return MKOverlayRenderer(overlay: overlay)
-        }
-        let renderer = MKPolylineRenderer(polyline: polyline)
-        renderer.strokeColor = .blue
-        renderer.lineWidth = 3
-        return renderer
-    }
-}
 
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        mapView.userTrackingMode = .followWithHeading
+    }
+
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        guard let polyline = overlay as? MKPolyline else {
+//            return MKOverlayRenderer(overlay: overlay)
+//        }
+//        let renderer = MKPolylineRenderer(polyline: polyline)
+//        renderer.strokeColor = .blue
+//        renderer.lineWidth = 3
+//        return renderer
+//    }
+}
+//
 //extension WorkoutMapViewController: CLLocationManagerDelegate {
 //
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
