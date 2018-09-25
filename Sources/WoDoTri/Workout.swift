@@ -12,9 +12,11 @@ final class Workout: NSManagedObject {
     @NSManaged private(set) var currentLocation: WorkoutLocation?
     @NSManaged private(set) var locationHistory: Set<WorkoutLocation>
     @NSManaged private(set) var lastUpdatedDurationAt: Date?
+    @NSManaged private(set) var workoutStartedAt: Date?
 
     convenience init(workoutType: WorkoutType, managedObjectContext: NSManagedObjectContext) {
         self.init(entity: Workout.entity(), insertInto: managedObjectContext)
+        workoutStartedAt = Date()
         workoutTypeDescription = workoutType.rawValue
     }
 

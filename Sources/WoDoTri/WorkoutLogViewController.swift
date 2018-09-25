@@ -7,6 +7,7 @@ final class WorkoutLogViewController: UITableViewController {
 
     @IBOutlet private var historyTableView: UITableView!
     private var workouts: [NSManagedObject] = []
+    private let workoutLogDetailViewControllerSegueIdentifier = "Workout Detail Log View Controller Segue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,9 @@ final class WorkoutLogViewController: UITableViewController {
         }
 
         let managedContext = appDelegate.persistentContainer.viewContext
-
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Workout")
-        //let sortDescriptor = NSSortDescriptor(key: "lastUpdateDurationAt", ascending: false)
-        //let sortDescriptor = NSSortDescriptor(key: #keyPath(Workout.lastUpdatedDurationAt), ascending: false)
-        //fetchRequest.sortDescriptors = [sortDescriptor]
+        let sortDescriptor = NSSortDescriptor(key: "workoutStartedAt", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         do {
             workouts = try managedContext.fetch(fetchRequest)
         } catch let error as NSError {
@@ -40,25 +39,34 @@ final class WorkoutLogViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let workout = workouts[indexPath.row]
-        //let workoutDate = workout.value(forKey: "timestampWorkoutStarted") as? String
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
         cell.textLabel?.text = workout.value(forKeyPath: "workoutTypeDescription") as? String
-        cell.detailTextLabel?.text = "This is a test"
-        //cell.detailTextLabel?.text = workout.value(forKey: "timestampWorkoutStarted") as? String
+        let workoutDate = workout.value(forKeyPath: "workoutStartedAt")
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.long
+        formatter.timeStyle = .medium
+        // swiftlint:disable force_cast
+        let dateString = formatter.string(from: workoutDate as! Date)
+        cell.detailTextLabel?.text = dateString
         return cell
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let workoutLogDetailViewController = segue.destination as? WorkoutLogDetailViewController else {
-            preconditionFailure("Unknown segue")
-        }
-        workoutLogDetailViewController.workout = selectedActivity!
+    // MARK: - Handling Storyboard Segues
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let workoutLogDetailViewController = segue.destination as? WorkoutLogDetailViewController {
+            workoutLogDetailViewController.workout = selectedActivity!
+        }
     }
 
     private var selectedActivity: NSManagedObject? {
         guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
         return workouts[indexPath.row]
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: workoutLogDetailViewControllerSegueIdentifier, sender: self)
     }
 
 }
