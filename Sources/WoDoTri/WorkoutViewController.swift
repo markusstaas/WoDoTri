@@ -98,9 +98,9 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
 
     private func setPrimaryActionButtonLabel() {
         if !workout.isPaused {
-            primaryActionButton.setTitle("Pause", for: UIControlState.normal)
+            primaryActionButton.setTitle("Pause", for: UIControl.State.normal)
         } else {
-            primaryActionButton.setTitle("Start", for: UIControlState.normal)
+            primaryActionButton.setTitle("Start", for: UIControl.State.normal)
         }
 
     }

@@ -26,7 +26,7 @@ class WorkoutPausedViewController: UIViewController {
 
     @IBAction func startWorkout() {
         self.delegate?.startOrPauseWorkout()
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func finishWorkout() {

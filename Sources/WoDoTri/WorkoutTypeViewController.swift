@@ -19,6 +19,10 @@ final class WorkoutTypeViewController: UIViewController {
         performSegue(withIdentifier: workoutViewControllerSegueIdentifier, sender: self)
     }
 
+    override func viewDidLoad() {
+
+    }
+
     // MARK: - Handling Storyboard Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
