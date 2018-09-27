@@ -17,7 +17,7 @@ final class WorkoutMapViewController: UIViewController {
     @IBAction func centerMapOnUserLocation() {
         mapView.userTrackingMode = .followWithHeading
         centerMapOnUserLocationButton.isHidden = true
-        let span = MKCoordinateSpanMake(1.0, 1.0)
+        let span = MKCoordinateSpan.init(latitudeDelta: 1.0, longitudeDelta: 1.0)
         let location = CLLocationCoordinate2D(latitude: mapView.userLocation.coordinate.latitude, longitude: mapView.userLocation.coordinate.longitude)
         let coordinateRegion = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(coordinateRegion, animated: false)
@@ -40,7 +40,7 @@ final class WorkoutMapViewController: UIViewController {
     }
 
     @objc private func showCenterMapOnUserLocationButton(gestureRecognizer: UIGestureRecognizer) {
-        if gestureRecognizer.state ==  UIGestureRecognizerState.began {
+        if gestureRecognizer.state ==  UIGestureRecognizer.State.began {
             centerMapOnUserLocationButton.isHidden = false
         }
     }

@@ -12,7 +12,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         app: UIApplication,
                      open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         if url.host == "oauth-callback" {
             OAuthSwift.handle(url: url)
         } else {
@@ -23,7 +23,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
 
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         return true
     }
@@ -66,6 +66,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    func resetContext () {
+        let context = persistentContainer.viewContext
+        context.reset()
     }
 
 }

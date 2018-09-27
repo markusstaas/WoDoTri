@@ -40,7 +40,8 @@ final class WorkoutLogViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let workout = workouts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
-        cell.textLabel?.text = workout.value(forKeyPath: "workoutTypeDescription") as? String
+        let workoutTypeDescriptionText = workout.value(forKeyPath: "workoutTypeDescription") as? String
+        cell.textLabel?.text = workoutTypeDescriptionText?.capitalized
         let workoutDate = workout.value(forKeyPath: "workoutStartedAt")
         let formatter = DateFormatter()
         formatter.dateStyle = DateFormatter.Style.long

@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-697" y="87"/>
         </scene>
-        <!--Test 1-->
+        <!--New Workout-->
         <scene sceneID="l19-KN-epl">
             <objects>
-                <viewController id="5k5-js-e8j" customClass="WorkoutTypeViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="New Workout" id="5k5-js-e8j" customClass="WorkoutTypeViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wY4-tA-xe1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,15 +107,13 @@
                         <viewLayoutGuide key="safeArea" id="28G-r3-PQx"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Item" id="fUI-0R-e5b">
+                        <barButtonItem title="Workout Log" id="fUI-0R-e5b">
                             <connections>
                                 <segue destination="g3d-eN-5TQ" kind="show" id="RCa-UP-Oac"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Test 1" id="shR-33-Vje">
-                        <barButtonItem key="backBarButtonItem" title="JAJAJA" id="Dtj-VJ-W3n"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="New Workout" id="shR-33-Vje"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="8TI-IZ-HbV" kind="presentation" identifier="Workout View Controller Segue" id="mtd-wD-5dT"/>
@@ -125,20 +123,20 @@
             </objects>
             <point key="canvasLocation" x="92" y="89"/>
         </scene>
-        <!--Workout Log View Controller-->
+        <!--Workout Log-->
         <scene sceneID="Qnd-2c-Xbf">
             <objects>
-                <tableViewController id="g3d-eN-5TQ" customClass="WorkoutLogViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Workout Log" id="g3d-eN-5TQ" customClass="WorkoutLogViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xSR-Ac-442">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="historyCell" textLabel="rcc-RY-VN6" detailTextLabel="fgf-Od-8kZ" style="IBUITableViewCellStyleSubtitle" id="79A-1e-qye">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="historyCell" textLabel="rcc-RY-VN6" detailTextLabel="fgf-Od-8kZ" style="IBUITableViewCellStyleSubtitle" id="79A-1e-qye">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="79A-1e-qye" id="BLW-46-9CN">
-                                    <rect key="frame" x="0.0" y="0.0" width="327" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rcc-RY-VN6">
@@ -173,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="105" y="893"/>
         </scene>
-        <!--Workout Log Detail View Controller-->
+        <!--Workout-->
         <scene sceneID="2fH-Dl-S3m">
             <objects>
-                <viewController id="OTR-h8-Oz7" customClass="WorkoutLogDetailViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Workout" id="OTR-h8-Oz7" customClass="WorkoutLogDetailViewController" customModule="WoDoTri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="suk-y8-3bd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,6 +416,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="142" height="30"/>
                                                 <state key="normal" title="Delete Workout"/>
                                                 <connections>
+                                                    <action selector="deleteWorkout:" destination="kra-ha-OP1" eventType="touchUpInside" id="nr5-Rb-Ly9"/>
                                                     <action selector="startWorkout" destination="I6X-oT-RHn" eventType="touchUpInside" id="vLJ-iP-v7e"/>
                                                 </connections>
                                             </button>
@@ -451,11 +450,12 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="FPz-iJ-znM" id="PP8-P7-whS"/>
+                        <segue destination="DHf-Ze-Wzx" kind="show" identifier="Home View Controller Segue" id="WXA-dT-cEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hrc-9W-npE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3828" y="89"/>
+            <point key="canvasLocation" x="3974" y="99"/>
         </scene>
         <!--Workout Map View Controller-->
         <scene sceneID="E2q-1x-QqT">

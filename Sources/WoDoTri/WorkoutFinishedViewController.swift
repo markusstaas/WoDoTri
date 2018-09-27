@@ -17,17 +17,21 @@ class WorkoutFinishedViewController: UIViewController, MKMapViewDelegate {
     private var coords = [CLLocationCoordinate2D]()
     weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     weak var dataSource: WorkoutFinishedViewControllerDataSource?
+    private let homeViewControllerSegueIdentifier = "Home View Controller Segue"
+
     @IBOutlet weak var mapView: MKMapView!
 
     @IBAction func saveWorkoutToLog(_ sender: Any) {
         appDelegate?.saveContext()
-//        let alert = UIAlertController(
-//            title: "Error",
-//            message: "Sorry, this activity has no locations saved",
-//            preferredStyle: .alert
-//        )
-//        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-//        present(alert, animated: true)
+        performSegue(withIdentifier: homeViewControllerSegueIdentifier, sender: self)
+    }
+
+    @IBAction func deleteWorkout(_ sender: Any) {
+        let workoutEntity = NSEntityDescription.entity(forEntityName: "Workout", in: (appDelegate?.persistentContainer.viewContext)!)
+        let workoutObject = NSManagedObject(entity: workoutEntity!, insertInto: appDelegate?.persistentContainer.viewContext)
+        appDelegate?.persistentContainer.viewContext.delete(workoutObject)
+        appDelegate?.persistentContainer.viewContext.reset()
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -39,10 +43,9 @@ class WorkoutFinishedViewController: UIViewController, MKMapViewDelegate {
             coords.append(coordItem)
                 }
         loadMap()
-
     }
 
-        private func mapRegion() -> MKCoordinateRegion? {
+    private func mapRegion() -> MKCoordinateRegion? {
 
             let latitudes = coords.map { location -> Double in
                 let location = location
@@ -64,22 +67,11 @@ class WorkoutFinishedViewController: UIViewController, MKMapViewDelegate {
             return MKCoordinateRegion(center: center, span: span)
         }
 
-        private func loadMap() {
-            guard
-                coords.count > 0,
-                let region = mapRegion()
-                else {
-                    let alert = UIAlertController(
-                        title: "Error",
-                        message: "Sorry, this activity has no locations saved",
-                        preferredStyle: .alert
-                    )
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                    present(alert, animated: true)
-                    return
-            }
+    private func loadMap() {
+        if let region = mapRegion() {
             mapView.setRegion(region, animated: true)
-            mapView.add(polyLine())
+            mapView.addOverlay(polyLine())
+            }
         }
 
         private func polyLine() -> MKPolyline {
