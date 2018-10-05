@@ -3,59 +3,38 @@
 import Foundation
 
 final class GPXFormatter {
-// 1. Get Values
-    private let timeStamp: Date!
-    private let workoutType: WorkoutType!
-   // private let locationHistory: Set<WorkoutLocation>
 
-    init(timeStamp: Date, workoutType: WorkoutType) {
-        self.timeStamp = timeStamp
+    private let workoutType: WorkoutType!
+    private let locationHistory: Set<WorkoutLocation>!
+    private let workoutStartedAt: Date!
+
+    init(workoutType: WorkoutType, locationHistory: Set<WorkoutLocation>, workoutStartedAt: Date) {
         self.workoutType = workoutType
-      //  self.locationHistory = Set<WorkoutLocation>
+        self.locationHistory = locationHistory
+        self.workoutStartedAt = workoutStartedAt
     }
 
     func makeGPX() -> String {
-        var GPXString = "<?XML \(GPXFormatterConstants.Key.XMLVersion)=\"\(GPXFormatterConstants.Value.XMLVersion)\" "
-        GPXString.append("\(GPXFormatterConstants.Key.Encoding)=\"\(GPXFormatterConstants.Value.Encoding)\" ?>")
-        GPXString.append("<gpx \(GPXFormatterConstants.Key.GPXVersion)=\"\(GPXFormatterConstants.Value.GPXVersion)\" ")
-        GPXString.append("\(GPXFormatterConstants.Key.Creator)=\"\(GPXFormatterConstants.Value.Creator)\" ")
-        GPXString.append("\(GPXFormatterConstants.Key.XMLNS)=\"\(GPXFormatterConstants.Value.XMLNS)\" ")
-        GPXString.append("\(GPXFormatterConstants.Key.XSI)=\"\(GPXFormatterConstants.Value.XSI)\" ")
-        GPXString.append("\(GPXFormatterConstants.Key.GTE)=\"\(GPXFormatterConstants.Value.GTE)\" ")
-        GPXString.append("\(GPXFormatterConstants.Key.SchemaLocation)=\"\(GPXFormatterConstants.Value.SchemaLocation)\" >")
-        GPXString.append("<trk><activity_type>\(workoutType)</activity_type></trk>")
+        let timeStampFormatter = DateFormatter()
+        timeStampFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
+        let workoutDate = timeStampFormatter.string(from: workoutStartedAt)
+        var gpxString = """
+        <?xml \(GPXFormatterConstants.Key.XMLVersion)=\"\(GPXFormatterConstants.Value.XMLVersion)\" \(GPXFormatterConstants.Key.Encoding)=\"\(GPXFormatterConstants.Value.Encoding)\" ?>
+        <gpx \(GPXFormatterConstants.Key.GPXVersion)=\"\(GPXFormatterConstants.Value.GPXVersion)\" \(GPXFormatterConstants.Key.Creator)=\"\(GPXFormatterConstants.Value.Creator)\" \(GPXFormatterConstants.Key.XMLNS)=\"\(GPXFormatterConstants.Value.XMLNS)\" \(GPXFormatterConstants.Key.XSI)=\"\(GPXFormatterConstants.Value.XSI)\" \(GPXFormatterConstants.Key.SchemaLocation)=\"\(GPXFormatterConstants.Value.SchemaLocation)\" \(GPXFormatterConstants.Key.GPXTPX)=\"\(GPXFormatterConstants.Value.GPXTPX)\" \(GPXFormatterConstants.Key.GPXX)=\"\(GPXFormatterConstants.Value.GPXX)\" >
+        <metadata><time>\(workoutDate)</time></metadata>
+        <trk><activity_type>\(workoutType!)</activity_type>
+        <trkseg>
 
-       // for locations in locationHistory {
+        """
+        for location in locationHistory.sorted(by: ({$0.timestamp < $1.timestamp})) {
+            let formattedTimeStamp = timeStampFormatter.string(from: location.timestamp)
+            let newLine: String = String("""
+                <trkpt lat=\"\(String(format: "%.6f", location.latitude))\" lon=\"\(String(format: "%.6f", location.longitude))\"><time>\(formattedTimeStamp)</time></trkpt>
 
-        //}
-        print(timeStamp)
-        print(workoutType)
-        return GPXString
+                """)
+            gpxString.append(contentsOf: newLine)
+        }
+        gpxString.append("</trkseg></trk></gpx>")
+        return gpxString
     }
-
-    //    private func createStravaFile() {
-    //        let timeStampFormatter = DateFormatter()
-    //        timeStampFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
-//            var gpxText: String = String("""
-//                <?xml version=\"1.0\" encoding=\"UTF-8\"?><gpx version=\"1.1\"
-//                creator=\"WoDoTri\" xmlns=\"http://www.topografix.com/GPX/1/1\"
-//                xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-//                xmlns:gte=\"http://www.gpstrackeditor.com/xmlschemas/General/1\"
-//                xsi:schemaLocation=\"http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd\">
-//                <trk><activity_type>\"Ride\"</activity_type><trkseg>
-//                """)
-    //
-    //        for locations in workout.locationList {
-    //            //let formattedTimeStamp = timeStampFormatter.date(from: String(describing: locations.timestamp))
-    //            let formattedTimeStamp = timeStampFormatter.string(from: locations.timestamp)
-    //            let newLine: String = String("""
-    //                <trkpt lat=\"\(String(format: "%.6f", locations.coordinate.latitude))\
-    //                " lon=\"\(String(format: "%.6f", locations.coordinate.longitude))\">
-    //                <time>\(formattedTimeStamp)</time></trkpt>
-    //                """)
-    //            gpxText.append(contentsOf: newLine)
-    //        }
-    //
-    //        gpxText.append("</trkseg></trk></gpx>")
-
 }

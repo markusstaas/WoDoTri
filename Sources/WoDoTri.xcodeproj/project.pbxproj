@@ -158,9 +158,9 @@
 				28191EBD20BC2DDB0090A8E8 /* DurationFormatter.swift */,
 				2867324E20AB012800D3152F /* VelocityFormatter.swift */,
 				28942E1320B5EC5900DC5628 /* DistanceFormatter.swift */,
+				287E690420DD28E100849E20 /* GPXFormatter.swift */,
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */,
-				287E690420DD28E100849E20 /* GPXFormatter.swift */,
 				28F33377200C53F400272462 /* SettingsViewController.swift */,
 				28B06B9C20159739004050C1 /* MapViewController.swift */,
 			);
@@ -220,7 +220,6 @@
 				TargetAttributes = {
 					2895089A1FB570B400353860 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5552KJHMG4;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -429,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -480,7 +479,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

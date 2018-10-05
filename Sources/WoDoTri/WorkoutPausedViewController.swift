@@ -14,6 +14,7 @@ protocol WorkoutPausedViewControllerDataSource: AnyObject {
     func workoutDistance(for workoutPausedViewController: WorkoutPausedViewController) -> Double
     func workoutDuration(for workoutPausedViewController: WorkoutPausedViewController) -> Double
     func workoutLocationHistory(for workoutPausedViewController: WorkoutPausedViewController) -> Set<WorkoutLocation>
+    func workoutStartedAt(for workoutPausedViewController: WorkoutPausedViewController) -> Date
 }
 
 class WorkoutPausedViewController: UIViewController {
@@ -68,6 +69,10 @@ extension WorkoutPausedViewController: WorkoutFinishedViewControllerDataSource {
 
     func workoutLocationHistory(for workoutFinishedViewController: WorkoutFinishedViewController) -> Set<WorkoutLocation> {
         return (dataSource?.workoutLocationHistory(for: self))!
+    }
+
+    func workoutStartedAt(for workoutFinishedViewController: WorkoutFinishedViewController) -> Date {
+        return (dataSource?.workoutStartedAt(for: self))!
     }
 
 }

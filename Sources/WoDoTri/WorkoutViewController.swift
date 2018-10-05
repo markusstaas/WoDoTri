@@ -34,7 +34,6 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
         super .viewDidLoad()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        //appDelegate?.persistentContainer.loadPersistentStores { _, _ in }
         let workoutType = dataSource.workoutType(for: self)
         workout = Workout(workoutType: workoutType, managedObjectContext: (appDelegate?.persistentContainer.viewContext)!)
         setPrimaryActionButtonLabel()
@@ -83,6 +82,7 @@ final class WorkoutViewController: UIViewController, StartWorkoutButtonDelegate 
         workout.isPaused = true
         workout.updateDuration()
         setPrimaryActionButtonLabel()
+        locationManager.stopUpdatingLocation()
         performSegue(withIdentifier: workoutPausedViewControllerSegueIdentifier, sender: self)
     }
 
@@ -163,6 +163,10 @@ extension WorkoutViewController: WorkoutMapViewControllerDataSource {
 // MARK: - Managing WorkoutPausedViewController
 
 extension WorkoutViewController: WorkoutPausedViewControllerDataSource {
+
+    func workoutStartedAt(for workoutPausedViewController: WorkoutPausedViewController) -> Date {
+        return workout.workoutStartedAt
+    }
 
     func workoutType(for workoutPausedViewController: WorkoutPausedViewController) -> WorkoutType {
         return workout.workoutType

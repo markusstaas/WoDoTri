@@ -12,7 +12,7 @@ final class Workout: NSManagedObject {
     @NSManaged private(set) var currentLocation: WorkoutLocation?
     @NSManaged private(set) var locationHistory: Set<WorkoutLocation>
     @NSManaged private(set) var lastUpdatedDurationAt: Date?
-    @NSManaged private(set) var workoutStartedAt: Date?
+    @NSManaged private(set) var workoutStartedAt: Date
 
     convenience init(workoutType: WorkoutType, managedObjectContext: NSManagedObjectContext) {
         self.init(entity: Workout.entity(), insertInto: managedObjectContext)
@@ -21,7 +21,11 @@ final class Workout: NSManagedObject {
     }
 
     var workoutType: WorkoutType {
-        return WorkoutType(rawValue: workoutTypeDescription)!
+        if let workoutType = WorkoutType(rawValue: workoutTypeDescription) {
+            return workoutType
+        } else {
+            return .run
+        }
     }
 
     func addLocation(_ location: CLLocation) {
