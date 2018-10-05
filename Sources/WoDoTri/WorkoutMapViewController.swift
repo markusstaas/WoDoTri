@@ -10,18 +10,14 @@ protocol WorkoutMapViewControllerDataSource: AnyObject {
 final class WorkoutMapViewController: UIViewController {
 
     weak var dataSource: WorkoutMapViewControllerDataSource!
+    private var locationManager = CLLocationManager()
+    private var coords = [CLLocationCoordinate2D]()
 
     @IBOutlet weak private var mapView: MKMapView!
     @IBOutlet weak private var centerMapOnUserLocationButton: UIButton!
 
-    @IBAction func centerMapOnUserLocation() {
-        mapView.userTrackingMode = .followWithHeading
-        centerMapOnUserLocationButton.isHidden = true
-        let span = MKCoordinateSpan.init(latitudeDelta: 1.0, longitudeDelta: 1.0)
-        let location = CLLocationCoordinate2D(latitude: mapView.userLocation.coordinate.latitude, longitude: mapView.userLocation.coordinate.longitude)
-        let coordinateRegion = MKCoordinateRegion(center: location, span: span)
-        mapView.setRegion(coordinateRegion, animated: false)
-
+    @IBAction func initiateCenterMapOnUserLocation() {
+        centerMapOnUserLocation()
     }
 
     override func viewDidLoad() {
@@ -29,7 +25,6 @@ final class WorkoutMapViewController: UIViewController {
     }
 
     private func loadMap() {
-        mapView.delegate = self
         mapView.showsScale = true
         mapView.showsCompass = true
         mapView.isZoomEnabled = true
@@ -37,6 +32,17 @@ final class WorkoutMapViewController: UIViewController {
         mapDragRecognizer.delegate = self
         centerMapOnUserLocationButton.isHidden = true
         self.mapView.addGestureRecognizer(mapDragRecognizer)
+        centerMapOnUserLocation()
+    }
+
+    private func centerMapOnUserLocation() {
+        mapView.userTrackingMode = .followWithHeading
+        centerMapOnUserLocationButton.isHidden = true
+        let span = MKCoordinateSpan.init(latitudeDelta: 1.0, longitudeDelta: 1.0)
+        let location = CLLocationCoordinate2D(latitude: mapView.userLocation.coordinate.latitude, longitude: mapView.userLocation.coordinate.longitude)
+        let coordinateRegion = MKCoordinateRegion(center: location, span: span)
+        mapView.setRegion(coordinateRegion, animated: false)
+
     }
 
     @objc private func showCenterMapOnUserLocationButton(gestureRecognizer: UIGestureRecognizer) {
@@ -54,37 +60,3 @@ extension WorkoutMapViewController: UIGestureRecognizerDelegate {
         return true
     }
 }
-
-extension WorkoutMapViewController: MKMapViewDelegate {
-
-    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        mapView.userTrackingMode = .followWithHeading
-    }
-
-//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-//        guard let polyline = overlay as? MKPolyline else {
-//            return MKOverlayRenderer(overlay: overlay)
-//        }
-//        let renderer = MKPolylineRenderer(polyline: polyline)
-//        renderer.strokeColor = .blue
-//        renderer.lineWidth = 3
-//        return renderer
-//    }
-}
-//
-//extension WorkoutMapViewController: CLLocationManagerDelegate {
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        for newLocation in locations {
-//            let howRecent = newLocation.timestamp.timeIntervalSinceNow
-//            guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
-//            if let lastLocation = workout.locationList.last {
-//                let coordinates = [lastLocation.coordinate, newLocation.coordinate]
-//                mapView.add(MKPolyline(coordinates: coordinates, count: 2))
-//                let region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 500, 500)
-//                mapView.setRegion(region, animated: true)
-//            }
-//            workout.locationList.append(newLocation)
-//        }
-//    }
-//}

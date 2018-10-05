@@ -12,29 +12,6 @@
 //    var finalTimestamp: Date?
 //
 //    private let defaults = UserDefaults.standard
-//    private var activity: Activity!
-//    private let workout = Workout.shared
-//    private let stopwatch = StopWatch()
-//    private var coords = [CLLocationCoordinate2D]()
-//
-//    @IBOutlet private weak var activityTypeLabel: UILabel!
-//    @IBOutlet private weak var elapsedTimeLabel: UILabel!
-//    @IBOutlet private weak var avgPaceLabel: UILabel!
-//    @IBOutlet private weak var completedDistanceLabel: UILabel!
-//    @IBOutlet private weak var mapView: MKMapView!
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        activityTypeLabel.text = workout.activityType.description
-//        elapsedTimeLabel.text = "Duration: \(workout.durationString)"
-//        completedDistanceLabel.text = "Distance: \(workout.distanceText)"
-//        avgPaceLabel.text = "Average speed: \(workout.avgPaceString())"
-//        for location in workout.locationList {
-//            let coordItem: CLLocationCoordinate2D = location.coordinate
-//            coords.append(coordItem)
-//        }
-//        loadMap()
-//    }
 //
 //    @IBAction private func continueButtonPressed() {
 //       self.dismiss(animated: true, completion: nil)
@@ -45,12 +22,7 @@
 //        saveActivity()
 //        workout.activityState = .notStarted
 //    }
-//
-//    @IBAction private func discardButtonPressed(_ sender: Any) {
-//        stopwatch.reset()
-//        workout.activityState = .notStarted
-//        self.dismiss(animated: true, completion: nil)
-//    }
+
 //
 //    //////Core Data
 //    private func saveActivity() {
@@ -156,62 +128,3 @@
 //            )
 //        }
 //    }
-//
-//    private func mapRegion() -> MKCoordinateRegion? {
-//
-//        let latitudes = coords.map { location -> Double in
-//            let location = location
-//            return location.latitude
-//        }
-//
-//        let longitudes = coords.map { location -> Double in
-//            let location = location
-//            return location.longitude
-//        }
-//
-//        let maxLat = latitudes.max()!
-//        let minLat = latitudes.min()!
-//        let maxLong = longitudes.max()!
-//        let minLong = longitudes.min()!
-//        let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2, longitude: (minLong + maxLong) / 2)
-//        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3, longitudeDelta: (maxLong - minLong) * 1.3)
-//
-//        return MKCoordinateRegion(center: center, span: span)
-//    }
-//
-//    private func polyLine() -> MKPolyline {
-//        return MKPolyline(coordinates: coords, count: coords.count)
-//    }
-//
-//    private func loadMap() {
-//        guard
-//            coords.count > 0,
-//            let region = mapRegion()
-//            else {
-//                let alert = UIAlertController(
-//                    title: "Error",
-//                    message: "Sorry, this activity has no locations saved",
-//                    preferredStyle: .alert
-//                )
-//                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-//                present(alert, animated: true)
-//                return
-//        }
-//
-//        mapView.setRegion(region, animated: true)
-//        mapView.add(polyLine())
-//    }
-//
-//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-//        guard let polyline = overlay as? MKPolyline else {
-//            return MKOverlayRenderer(overlay: overlay)
-//        }
-//
-//        let renderer = MKPolylineRenderer(polyline: polyline)
-//        renderer.strokeColor = .purple
-//        renderer.lineWidth = 4
-//        return renderer
-//    }
-//
-//}
-//

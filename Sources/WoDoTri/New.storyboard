@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DHf-Ze-Wzx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DHf-Ze-Wzx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -178,13 +176,50 @@
                     <view key="view" contentMode="scaleToFill" id="suk-y8-3bd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lhf-wF-r58">
+                                <rect key="frame" x="0.0" y="74" width="375" height="549"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="479-QZ-YLx">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-zc-LTd">
+                                        <rect key="frame" x="0.0" y="37" width="375" height="250"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="i56-SE-YXq"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="OTR-h8-Oz7" id="hZ7-86-skG"/>
+                                        </connections>
+                                    </tableView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gID-ux-aaK">
+                                        <rect key="frame" x="0.0" y="295" width="375" height="254"/>
+                                    </mapView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Lhf-wF-r58" firstAttribute="trailing" secondItem="7me-Md-1nL" secondAttribute="trailing" id="73C-WZ-bdM"/>
+                            <constraint firstItem="Lhf-wF-r58" firstAttribute="leading" secondItem="7me-Md-1nL" secondAttribute="leading" id="QbO-Mk-seF"/>
+                            <constraint firstItem="Lhf-wF-r58" firstAttribute="bottom" secondItem="7me-Md-1nL" secondAttribute="bottom" id="WyG-fk-tEs"/>
+                            <constraint firstItem="Lhf-wF-r58" firstAttribute="top" secondItem="7me-Md-1nL" secondAttribute="top" constant="10" id="d8B-IV-SQo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7me-Md-1nL"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="gID-ux-aaK" id="baO-tw-4Ri"/>
+                        <outlet property="tableView" destination="SRu-zc-LTd" id="lZI-ce-bXW"/>
+                        <outlet property="workoutTypeLabel" destination="479-QZ-YLx" id="HQI-i3-2vF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rMo-Gx-h95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="993" y="893"/>
+            <point key="canvasLocation" x="992.79999999999995" y="892.80359820089961"/>
         </scene>
         <!--Workout View Controller-->
         <scene sceneID="ffO-Ws-QgV">
@@ -391,7 +426,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Z-Ym-jls">
-                                <rect key="frame" x="87" y="20" width="200" height="30"/>
+                                <rect key="frame" x="87.5" y="20" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="4y0-A5-43Q"/>
                                 </constraints>
@@ -408,6 +443,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtL-oM-kA3">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="30"/>
                                         <state key="normal" title="Share with Strava"/>
+                                        <connections>
+                                            <action selector="shareWorkout:" destination="kra-ha-OP1" eventType="touchUpInside" id="Rjq-u1-z3u"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wBb-TW-kbz">
                                         <rect key="frame" x="0.0" y="67" width="284" height="30"/>
@@ -480,7 +518,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Re-Center"/>
                                 <connections>
-                                    <action selector="centerMapOnUserLocation" destination="sgl-sS-kJe" eventType="touchUpInside" id="Xuh-s8-9ff"/>
+                                    <action selector="initiateCenterMapOnUserLocation" destination="sgl-sS-kJe" eventType="touchUpInside" id="0RE-Ww-NBF"/>
                                 </connections>
                             </button>
                         </subviews>
