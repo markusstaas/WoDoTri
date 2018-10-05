@@ -18,6 +18,7 @@ class WorkoutFinishedViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
 
     private var gpxFormatter: GPXFormatter?
+    private var gpxUploader: GPXUploader?
     private var coords = [CLLocationCoordinate2D]()
     weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     weak var dataSource: WorkoutFinishedViewControllerDataSource?
@@ -30,7 +31,7 @@ class WorkoutFinishedViewController: UIViewController {
 
     @IBAction func shareWorkout(_ sender: Any) {
         gpxFormatter = GPXFormatter(workoutType: (dataSource?.workoutType(for: self))!, locationHistory: (dataSource?.workoutLocationHistory(for: self))!, workoutStartedAt: (dataSource?.workoutStartedAt(for: self))!)
-        gpxFormatter?.makeGPX()
+        GPXUploader(gpxString: (gpxFormatter?.makeGPX())!).uploadWorkoutToStrava()
     }
 
     @IBAction func deleteWorkout(_ sender: Any) {
