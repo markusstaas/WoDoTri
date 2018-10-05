@@ -30,6 +30,7 @@
 		28A199A22022BC5500E7B715 /* WorkoutLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */; };
 		28B06B9D20159739004050C1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B06B9C20159739004050C1 /* MapViewController.swift */; };
 		28B2E4F5213E9A40003A8ED2 /* WorkoutFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2E4F4213E9A40003A8ED2 /* WorkoutFinishedViewController.swift */; };
+		28BC9E272167574300E30044 /* GPXUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BC9E262167574300E30044 /* GPXUploader.swift */; };
 		28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */; };
 		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
 		28F33378200C53F400272462 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F33377200C53F400272462 /* SettingsViewController.swift */; };
@@ -66,6 +67,7 @@
 		28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLocation.swift; sourceTree = "<group>"; };
 		28B06B9C20159739004050C1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		28B2E4F4213E9A40003A8ED2 /* WorkoutFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedViewController.swift; sourceTree = "<group>"; };
+		28BC9E262167574300E30044 /* GPXUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXUploader.swift; sourceTree = "<group>"; };
 		28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityFinishViewController.swift; sourceTree = "<group>"; };
 		28CD5B361FB83034009384C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		28F33377200C53F400272462 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				2867324E20AB012800D3152F /* VelocityFormatter.swift */,
 				28942E1320B5EC5900DC5628 /* DistanceFormatter.swift */,
 				287E690420DD28E100849E20 /* GPXFormatter.swift */,
+				28BC9E262167574300E30044 /* GPXUploader.swift */,
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */,
 				28F33377200C53F400272462 /* SettingsViewController.swift */,
@@ -346,6 +349,7 @@
 				2862332D211F2FA50036E0B9 /* WorkoutPausedViewController.swift in Sources */,
 				28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */,
 				2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */,
+				28BC9E272167574300E30044 /* GPXUploader.swift in Sources */,
 				287E690520DD28E100849E20 /* GPXFormatter.swift in Sources */,
 				287F0812208E0C66001A99D3 /* MeasurementTableViewCell.swift in Sources */,
 				287E014420E23B2100B2E6B2 /* GPXFormatterConstants.swift in Sources */,

@@ -22,7 +22,7 @@
 //        saveActivity()
 //        workout.activityState = .notStarted
 //    }
-
+//
 //
 //    //////Core Data
 //    private func saveActivity() {
