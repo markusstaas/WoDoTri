@@ -33,12 +33,14 @@ final class SettingsViewController: UITableViewController {
                     self.stravaSwitch.isOn = true
             },
                 failure: { error in
-                    print(error.localizedDescription)
+                    //print(error.localizedDescription)
+                    self.stravaSwitch.isOn = false
             }
             )
 
         } else {
             defaults.set(false, forKey: "ShareWithStrava")
+            stravaSwitch.isOn = false
         }
     }
 
@@ -51,5 +53,4 @@ final class SettingsViewController: UITableViewController {
             stravaSwitch.isOn = false
         }
     }
-
 }
