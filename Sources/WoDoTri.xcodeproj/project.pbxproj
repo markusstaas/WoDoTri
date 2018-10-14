@@ -26,9 +26,9 @@
 		289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289508A71FB570B400353860 /* LaunchScreen.storyboard */; };
 		289508BA1FB5761A00353860 /* WorkoutLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B91FB5761A00353860 /* WorkoutLogViewController.swift */; };
 		289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508BB1FB57A5600353860 /* ActivityMapViewController.swift */; };
+		289FE7EE2169F55000E28040 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FE7ED2169F55000E28040 /* CustomNavigationController.swift */; };
 		28A199A12022BC5500E7B715 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1999D2022BC5500E7B715 /* Workout.swift */; };
 		28A199A22022BC5500E7B715 /* WorkoutLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */; };
-		28B06B9D20159739004050C1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B06B9C20159739004050C1 /* MapViewController.swift */; };
 		28B2E4F5213E9A40003A8ED2 /* WorkoutFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2E4F4213E9A40003A8ED2 /* WorkoutFinishedViewController.swift */; };
 		28BC9E272167574300E30044 /* GPXUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BC9E262167574300E30044 /* GPXUploader.swift */; };
 		28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */; };
@@ -63,9 +63,9 @@
 		289508AA1FB570B400353860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		289508B91FB5761A00353860 /* WorkoutLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLogViewController.swift; sourceTree = "<group>"; };
 		289508BB1FB57A5600353860 /* ActivityMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityMapViewController.swift; sourceTree = "<group>"; };
+		289FE7ED2169F55000E28040 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		28A1999D2022BC5500E7B715 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLocation.swift; sourceTree = "<group>"; };
-		28B06B9C20159739004050C1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		28B2E4F4213E9A40003A8ED2 /* WorkoutFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedViewController.swift; sourceTree = "<group>"; };
 		28BC9E262167574300E30044 /* GPXUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXUploader.swift; sourceTree = "<group>"; };
 		28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityFinishViewController.swift; sourceTree = "<group>"; };
@@ -162,10 +162,10 @@
 				28942E1320B5EC5900DC5628 /* DistanceFormatter.swift */,
 				287E690420DD28E100849E20 /* GPXFormatter.swift */,
 				28BC9E262167574300E30044 /* GPXUploader.swift */,
+				289FE7ED2169F55000E28040 /* CustomNavigationController.swift */,
 				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
 				28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */,
 				28F33377200C53F400272462 /* SettingsViewController.swift */,
-				28B06B9C20159739004050C1 /* MapViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -343,9 +343,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				289508A11FB570B400353860 /* WorkoutTypeViewController.swift in Sources */,
+				289FE7EE2169F55000E28040 /* CustomNavigationController.swift in Sources */,
 				2895089F1FB570B400353860 /* AppDelegate.swift in Sources */,
 				28191EBE20BC2DDB0090A8E8 /* DurationFormatter.swift in Sources */,
-				28B06B9D20159739004050C1 /* MapViewController.swift in Sources */,
 				2862332D211F2FA50036E0B9 /* WorkoutPausedViewController.swift in Sources */,
 				28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */,
 				2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */,

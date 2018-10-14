@@ -20,7 +20,6 @@ final class GPXUploader {
                 "file": "@file.gpx",
                 "data_type": "gpx"
                         ]
-//https://www.strava.com/oauth/authorize?client_id=598&response_type=code&redirect_uri=triathlon://authorization&scope=write,view_private&state=mystate&approval_prompt=force"
         Alamofire.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in parameters {
                 multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
