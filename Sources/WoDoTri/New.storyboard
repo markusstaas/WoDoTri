@@ -608,8 +608,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SCP-Zj-ryT"/>
                         <sections>
-                            <tableViewSection headerTitle="Sharing" id="56O-Xp-N2k">
+                            <tableViewSection headerTitle="Header Title" id="XEo-Ad-nLP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a5S-as-HjX">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -619,35 +620,30 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strava" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsH-Rc-6nO">
-                                                    <rect key="frame" x="16" y="12" width="49" height="21"/>
+                                                    <rect key="frame" x="16" y="11" width="290" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cxE-Mh-Wjy">
-                                                    <rect key="frame" x="312" y="7" width="49" height="31"/>
+                                                    <rect key="frame" x="306" y="7" width="51" height="36.5"/>
                                                     <connections>
                                                         <action selector="stravaSwitchToggled:" destination="NPJ-UN-IX9" eventType="valueChanged" id="eFe-YH-yba"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="rsH-Rc-6nO" secondAttribute="trailing" constant="310" id="FU8-fa-xMA"/>
-                                                <constraint firstItem="cxE-Mh-Wjy" firstAttribute="leading" secondItem="NII-zh-NJt" secondAttribute="leading" constant="312" id="Kyd-Pw-5wA"/>
-                                                <constraint firstItem="cxE-Mh-Wjy" firstAttribute="top" secondItem="NII-zh-NJt" secondAttribute="top" constant="7" id="L03-Cx-ugg"/>
-                                                <constraint firstAttribute="trailing" secondItem="cxE-Mh-Wjy" secondAttribute="trailing" constant="16" id="eEn-ca-oXA"/>
-                                                <constraint firstItem="rsH-Rc-6nO" firstAttribute="leading" secondItem="NII-zh-NJt" secondAttribute="leading" constant="16" id="j1r-sE-KHO"/>
-                                                <constraint firstItem="rsH-Rc-6nO" firstAttribute="top" secondItem="NII-zh-NJt" secondAttribute="top" constant="12" id="xqo-Q1-EpL"/>
+                                                <constraint firstItem="rsH-Rc-6nO" firstAttribute="top" secondItem="NII-zh-NJt" secondAttribute="topMargin" id="6M5-Qy-T73"/>
+                                                <constraint firstItem="rsH-Rc-6nO" firstAttribute="bottom" secondItem="NII-zh-NJt" secondAttribute="bottomMargin" id="9DD-Gr-FTU"/>
+                                                <constraint firstAttribute="bottom" secondItem="cxE-Mh-Wjy" secondAttribute="bottom" id="Ed5-WS-eRh"/>
+                                                <constraint firstAttribute="trailing" secondItem="cxE-Mh-Wjy" secondAttribute="trailing" constant="20" id="QZg-Ki-RRQ"/>
+                                                <constraint firstItem="cxE-Mh-Wjy" firstAttribute="leading" secondItem="rsH-Rc-6nO" secondAttribute="trailing" id="Ws6-pI-wAG"/>
+                                                <constraint firstItem="cxE-Mh-Wjy" firstAttribute="leading" secondItem="rsH-Rc-6nO" secondAttribute="trailing" id="kWb-H6-Cnb"/>
+                                                <constraint firstItem="rsH-Rc-6nO" firstAttribute="leading" secondItem="NII-zh-NJt" secondAttribute="leadingMargin" id="o0B-Jy-GLh"/>
+                                                <constraint firstItem="cxE-Mh-Wjy" firstAttribute="top" secondItem="NII-zh-NJt" secondAttribute="top" constant="7" id="vnq-lk-b36"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fhK-EV-0ra">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fhK-EV-0ra" id="FWj-e5-8Xx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
+                                        <viewLayoutGuide key="safeArea" id="Dh6-7d-ANV"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
