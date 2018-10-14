@@ -8,7 +8,7 @@ class CustomNavigationController: UINavigationController {
         super.viewDidLoad()
         setBackgroundGraphics()
     }
-    
+
     private func setBackgroundGraphics() {
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()

@@ -387,8 +387,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedBG" translatesAutoresizingMaskIntoConstraints="NO" id="HR4-pY-VJW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="qZf-7n-F74">
-                                <rect key="frame" x="87.5" y="283.5" width="200" height="120"/>
+                                <rect key="frame" x="87.5" y="276.5" width="200" height="134"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Paused" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqC-lC-MHk">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
@@ -396,21 +399,23 @@
                                             <constraint firstAttribute="width" constant="200" id="4qc-RV-5HJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r78-v7-CLf">
-                                        <rect key="frame" x="0.0" y="90" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="90" width="200" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wL-kE-2m6">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Resume"/>
                                                 <connections>
                                                     <action selector="startWorkout" destination="I6X-oT-RHn" eventType="touchUpInside" id="7UX-dm-van"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9b-ov-JTR">
-                                                <rect key="frame" x="100" y="0.0" width="100" height="30"/>
+                                                <rect key="frame" x="100" y="0.0" width="100" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="Finish"/>
                                                 <connections>
                                                     <action selector="finishWorkout" destination="I6X-oT-RHn" eventType="touchUpInside" id="903-KO-s2p"/>
@@ -433,8 +438,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="HR4-pY-VJW" firstAttribute="leading" secondItem="gD5-Ne-WkA" secondAttribute="leading" id="DY4-kp-Zuw"/>
+                            <constraint firstItem="HR4-pY-VJW" firstAttribute="trailing" secondItem="gD5-Ne-WkA" secondAttribute="trailing" id="IKi-2I-drB"/>
                             <constraint firstItem="qZf-7n-F74" firstAttribute="centerY" secondItem="gD5-Ne-WkA" secondAttribute="centerY" id="OQ3-lN-Cho"/>
+                            <constraint firstItem="gD5-Ne-WkA" firstAttribute="bottom" secondItem="HR4-pY-VJW" secondAttribute="bottom" id="dfL-oZ-WOm"/>
                             <constraint firstItem="qZf-7n-F74" firstAttribute="centerX" secondItem="gD5-Ne-WkA" secondAttribute="centerX" id="dgM-zV-aUW"/>
+                            <constraint firstItem="HR4-pY-VJW" firstAttribute="top" secondItem="gD5-Ne-WkA" secondAttribute="top" id="pS2-ci-Fan"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gD5-Ne-WkA"/>
                     </view>
@@ -454,42 +463,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RedBG" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-Di-5Lx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2Z-Ym-jls">
                                 <rect key="frame" x="87.5" y="20" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="4y0-A5-43Q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FPz-iJ-znM">
                                 <rect key="frame" x="0.0" y="60" width="375" height="505"/>
                             </mapView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="P6v-5v-7IW">
-                                <rect key="frame" x="45.5" y="570" width="284" height="97"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="P6v-5v-7IW">
+                                <rect key="frame" x="51.5" y="570" width="272" height="97"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtL-oM-kA3">
-                                        <rect key="frame" x="0.0" y="0.0" width="284" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Share with Strava"/>
                                         <connections>
                                             <action selector="shareWorkout:" destination="kra-ha-OP1" eventType="touchUpInside" id="Rjq-u1-z3u"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wBb-TW-kbz">
-                                        <rect key="frame" x="0.0" y="67" width="284" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="wBb-TW-kbz">
+                                        <rect key="frame" x="0.0" y="57" width="272" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5T-Z3-1pv">
-                                                <rect key="frame" x="0.0" y="0.0" width="142" height="30"/>
-                                                <state key="normal" title="Delete Workout"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="117" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <state key="normal" title="Discard"/>
                                                 <connections>
                                                     <action selector="deleteWorkout:" destination="kra-ha-OP1" eventType="touchUpInside" id="nr5-Rb-Ly9"/>
                                                     <action selector="startWorkout" destination="I6X-oT-RHn" eventType="touchUpInside" id="vLJ-iP-v7e"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edz-ED-1Ch">
-                                                <rect key="frame" x="142" y="0.0" width="142" height="30"/>
-                                                <state key="normal" title="Save Workout to Log"/>
+                                                <rect key="frame" x="155" y="0.0" width="117" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <state key="normal" title="Save to Log"/>
                                                 <connections>
                                                     <action selector="saveWorkoutToLog:" destination="kra-ha-OP1" eventType="touchUpInside" id="tPq-Zi-gd4"/>
                                                 </connections>
@@ -505,13 +520,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Yr8-ct-g95" firstAttribute="trailing" secondItem="FPz-iJ-znM" secondAttribute="trailing" id="0ia-be-VyO"/>
+                            <constraint firstItem="dKH-Di-5Lx" firstAttribute="trailing" secondItem="Yr8-ct-g95" secondAttribute="trailing" id="7bd-wK-5wu"/>
                             <constraint firstItem="P6v-5v-7IW" firstAttribute="top" secondItem="FPz-iJ-znM" secondAttribute="bottom" constant="5" id="83l-B2-Tyv"/>
                             <constraint firstItem="Z2Z-Ym-jls" firstAttribute="centerX" secondItem="xjD-0L-Mfc" secondAttribute="centerX" id="CwI-4d-zYA"/>
+                            <constraint firstItem="Yr8-ct-g95" firstAttribute="bottom" secondItem="dKH-Di-5Lx" secondAttribute="bottom" id="EjO-wO-fXD"/>
                             <constraint firstItem="FPz-iJ-znM" firstAttribute="top" secondItem="Z2Z-Ym-jls" secondAttribute="bottom" constant="10" id="RIj-xN-lpV"/>
                             <constraint firstItem="FPz-iJ-znM" firstAttribute="leading" secondItem="Yr8-ct-g95" secondAttribute="leading" id="buk-rA-XvM"/>
+                            <constraint firstItem="dKH-Di-5Lx" firstAttribute="top" secondItem="Yr8-ct-g95" secondAttribute="top" id="gcs-vH-XWa"/>
                             <constraint firstItem="Z2Z-Ym-jls" firstAttribute="top" secondItem="Yr8-ct-g95" secondAttribute="top" id="hXf-4P-OeO"/>
                             <constraint firstItem="Yr8-ct-g95" firstAttribute="bottom" secondItem="P6v-5v-7IW" secondAttribute="bottom" id="m7u-gX-fR3"/>
                             <constraint firstItem="P6v-5v-7IW" firstAttribute="centerX" secondItem="xjD-0L-Mfc" secondAttribute="centerX" id="ts4-t0-Pdg"/>
+                            <constraint firstItem="dKH-Di-5Lx" firstAttribute="leading" secondItem="Yr8-ct-g95" secondAttribute="leading" id="ygx-3f-f0P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yr8-ct-g95"/>
                     </view>
@@ -537,6 +556,15 @@
                             </mapView>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loE-2u-jB6">
                                 <rect key="frame" x="0.0" y="464" width="375" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;&lt;&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mot-Zt-ANI">
+                                        <rect key="frame" x="125" y="-7" width="124" height="82"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="68"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="CUq-e9-nyL"/>
@@ -640,6 +668,7 @@
     </scenes>
     <resources>
         <image name="BlueBG" width="375" height="667"/>
+        <image name="RedBG" width="375" height="667"/>
         <image name="WorkoutTypes/Ride" width="633" height="584"/>
         <image name="WorkoutTypes/Run" width="633" height="584"/>
     </resources>
