@@ -32,6 +32,7 @@ class WorkoutFinishedViewController: UIViewController {
     @IBAction func shareWorkout(_ sender: Any) {
         gpxFormatter = GPXFormatter(workoutType: (dataSource?.workoutType(for: self))!, locationHistory: (dataSource?.workoutLocationHistory(for: self))!, workoutStartedAt: (dataSource?.workoutStartedAt(for: self))!)
         GPXUploader(gpxString: (gpxFormatter?.makeGPX())!).uploadWorkoutToStrava()
+        performSegue(withIdentifier: homeViewControllerSegueIdentifier, sender: self)
     }
 
     @IBAction func deleteWorkout(_ sender: Any) {

@@ -25,14 +25,11 @@
 		289508A61FB570B400353860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289508A51FB570B400353860 /* Assets.xcassets */; };
 		289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289508A71FB570B400353860 /* LaunchScreen.storyboard */; };
 		289508BA1FB5761A00353860 /* WorkoutLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508B91FB5761A00353860 /* WorkoutLogViewController.swift */; };
-		289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289508BB1FB57A5600353860 /* ActivityMapViewController.swift */; };
 		289FE7EE2169F55000E28040 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289FE7ED2169F55000E28040 /* CustomNavigationController.swift */; };
 		28A199A12022BC5500E7B715 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1999D2022BC5500E7B715 /* Workout.swift */; };
 		28A199A22022BC5500E7B715 /* WorkoutLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */; };
 		28B2E4F5213E9A40003A8ED2 /* WorkoutFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2E4F4213E9A40003A8ED2 /* WorkoutFinishedViewController.swift */; };
 		28BC9E272167574300E30044 /* GPXUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BC9E262167574300E30044 /* GPXUploader.swift */; };
-		28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */; };
-		28CD5B371FB83034009384C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28CD5B361FB83034009384C2 /* Main.storyboard */; };
 		28F33378200C53F400272462 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F33377200C53F400272462 /* SettingsViewController.swift */; };
 		65084EB61FC5124100EDA74A /* WorkoutLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65084EB41FC5124100EDA74A /* WorkoutLog.xcdatamodeld */; };
 		652768FC1FD5070500353CC9 /* WorkoutLogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652768FB1FD5070500353CC9 /* WorkoutLogDetailViewController.swift */; };
@@ -62,14 +59,11 @@
 		289508A81FB570B400353860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		289508AA1FB570B400353860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		289508B91FB5761A00353860 /* WorkoutLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutLogViewController.swift; sourceTree = "<group>"; };
-		289508BB1FB57A5600353860 /* ActivityMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityMapViewController.swift; sourceTree = "<group>"; };
 		289FE7ED2169F55000E28040 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		28A1999D2022BC5500E7B715 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLocation.swift; sourceTree = "<group>"; };
 		28B2E4F4213E9A40003A8ED2 /* WorkoutFinishedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFinishedViewController.swift; sourceTree = "<group>"; };
 		28BC9E262167574300E30044 /* GPXUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXUploader.swift; sourceTree = "<group>"; };
-		28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityFinishViewController.swift; sourceTree = "<group>"; };
-		28CD5B361FB83034009384C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		28F33377200C53F400272462 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		62E9C52040660FC1E1C4841E /* Pods-WoDoTri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WoDoTri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WoDoTri/Pods-WoDoTri.debug.xcconfig"; sourceTree = "<group>"; };
 		65084EB51FC5124100EDA74A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -136,7 +130,6 @@
 		289508B11FB570F500353860 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				28CD5B361FB83034009384C2 /* Main.storyboard */,
 				289508A71FB570B400353860 /* LaunchScreen.storyboard */,
 				2829DEEA20878C320000C6D5 /* New.storyboard */,
 				287F0811208E0C66001A99D3 /* MeasurementTableViewCell.swift */,
@@ -163,8 +156,6 @@
 				287E690420DD28E100849E20 /* GPXFormatter.swift */,
 				28BC9E262167574300E30044 /* GPXUploader.swift */,
 				289FE7ED2169F55000E28040 /* CustomNavigationController.swift */,
-				289508BB1FB57A5600353860 /* ActivityMapViewController.swift */,
-				28CD5B341FB82209009384C2 /* ActivityFinishViewController.swift */,
 				28F33377200C53F400272462 /* SettingsViewController.swift */,
 			);
 			name = Controller;
@@ -256,7 +247,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28CD5B371FB83034009384C2 /* Main.storyboard in Resources */,
 				287F0814208E0CC4001A99D3 /* MeasurementTableViewCell.xib in Resources */,
 				289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */,
 				289508A61FB570B400353860 /* Assets.xcassets in Resources */,
@@ -347,7 +337,6 @@
 				2895089F1FB570B400353860 /* AppDelegate.swift in Sources */,
 				28191EBE20BC2DDB0090A8E8 /* DurationFormatter.swift in Sources */,
 				2862332D211F2FA50036E0B9 /* WorkoutPausedViewController.swift in Sources */,
-				28CD5B351FB82209009384C2 /* ActivityFinishViewController.swift in Sources */,
 				2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */,
 				28BC9E272167574300E30044 /* GPXUploader.swift in Sources */,
 				287E690520DD28E100849E20 /* GPXFormatter.swift in Sources */,
@@ -364,7 +353,6 @@
 				28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */,
 				28B2E4F5213E9A40003A8ED2 /* WorkoutFinishedViewController.swift in Sources */,
 				28F33378200C53F400272462 /* SettingsViewController.swift in Sources */,
-				289508BC1FB57A5600353860 /* ActivityMapViewController.swift in Sources */,
 				28942E1420B5EC5900DC5628 /* DistanceFormatter.swift in Sources */,
 				2801996C208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift in Sources */,
 			);
