@@ -13,6 +13,7 @@ final class GPXUploader {
     }
 
     func uploadWorkoutToStrava() {
+
             let stravaToken = defaults.value(forKey: "StravaToken")
             let uploadUrl = "https://www.strava.com/api/v3/uploads"
             let headers: HTTPHeaders = [ "Authorization": "Bearer \(stravaToken!)"]
