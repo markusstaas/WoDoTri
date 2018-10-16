@@ -30,17 +30,22 @@ class WorkoutFinishedViewController: UIViewController {
     }
 
     @IBAction func shareWorkout(_ sender: Any) {
-        gpxFormatter = GPXFormatter(workoutType: (dataSource?.workoutType(for: self))!, locationHistory: (dataSource?.workoutLocationHistory(for: self))!, workoutStartedAt: (dataSource?.workoutStartedAt(for: self))!)
-        GPXUploader(gpxString: (gpxFormatter?.makeGPX())!).uploadWorkoutToStrava()
-        performSegue(withIdentifier: homeViewControllerSegueIdentifier, sender: self)
+        checkForInternetConnection()
     }
 
     @IBAction func deleteWorkout(_ sender: Any) {
-        let workoutEntity = NSEntityDescription.entity(forEntityName: "Workout", in: (appDelegate?.persistentContainer.viewContext)!)
-        let workoutObject = NSManagedObject(entity: workoutEntity!, insertInto: appDelegate?.persistentContainer.viewContext)
-        appDelegate?.persistentContainer.viewContext.delete(workoutObject)
-        appDelegate?.persistentContainer.viewContext.reset()
-        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        let alert = UIAlertController(title: "Discard Workout?", message: "Please confirm that you want to discard this workout", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Discard", comment: "Default action"), style: .destructive, handler: { _ in
+            let workoutEntity = NSEntityDescription.entity(forEntityName: "Workout", in: (self.appDelegate?.persistentContainer.viewContext)!)
+            let workoutObject = NSManagedObject(entity: workoutEntity!, insertInto: self.appDelegate?.persistentContainer.viewContext)
+            self.appDelegate?.persistentContainer.viewContext.delete(workoutObject)
+            self.appDelegate?.persistentContainer.viewContext.reset()
+            self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel Action"), style: .cancel, handler: { _ in
+            self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -57,6 +62,23 @@ class WorkoutFinishedViewController: UIViewController {
             loadMap()
         }
 
+    }
+
+    private func checkForInternetConnection() {
+        if CheckInternetConnection.checkIfConnected() {
+            shareWorkout()
+        } else {
+            let alert = UIAlertController(title: "No Internet Conection", message: "To share this workout you need to be connected to the Internet", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    func shareWorkout() {
+        gpxFormatter = GPXFormatter(workoutType: (dataSource?.workoutType(for: self))!, locationHistory: (dataSource?.workoutLocationHistory(for: self))!, workoutStartedAt: (dataSource?.workoutStartedAt(for: self))!)
+        GPXUploader(gpxString: (gpxFormatter?.makeGPX())!).uploadWorkoutToStrava()
+        performSegue(withIdentifier: homeViewControllerSegueIdentifier, sender: self)
     }
 
 }

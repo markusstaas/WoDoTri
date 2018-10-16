@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2801996C208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2801996B208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift */; };
+		281733992173A0F30034F6D1 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281733982173A0F30034F6D1 /* CheckInternet.swift */; };
 		28191EBE20BC2DDB0090A8E8 /* DurationFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28191EBD20BC2DDB0090A8E8 /* DurationFormatter.swift */; };
 		2829DEEB20878C320000C6D5 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2829DEEA20878C320000C6D5 /* New.storyboard */; };
 		28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28329D7920459A6E008DF038 /* WorkoutViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		19B1C90D0844C028CE982DC0 /* Pods_WoDoTri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WoDoTri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2801996B208F4E0D00E95CEF /* UIFont+MonospacedDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+MonospacedDigits.swift"; sourceTree = "<group>"; };
+		281733982173A0F30034F6D1 /* CheckInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInternet.swift; path = ../../../../Downloads/CheckInternet/CheckInternet.swift; sourceTree = "<group>"; };
 		28191EBD20BC2DDB0090A8E8 /* DurationFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationFormatter.swift; sourceTree = "<group>"; };
 		2829DEEA20878C320000C6D5 /* New.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		28329D7920459A6E008DF038 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				28A1999D2022BC5500E7B715 /* Workout.swift */,
+				281733982173A0F30034F6D1 /* CheckInternet.swift */,
 				287E014320E23B2100B2E6B2 /* GPXFormatterConstants.swift */,
 				28A1999E2022BC5500E7B715 /* WorkoutLocation.swift */,
 				65FFABF41FD3CF6B006D6435 /* WorkoutType.swift */,
@@ -349,6 +352,7 @@
 				65084EB61FC5124100EDA74A /* WorkoutLog.xcdatamodeld in Sources */,
 				289508BA1FB5761A00353860 /* WorkoutLogViewController.swift in Sources */,
 				28A199A22022BC5500E7B715 /* WorkoutLocation.swift in Sources */,
+				281733992173A0F30034F6D1 /* CheckInternet.swift in Sources */,
 				65FFABF51FD3CF6B006D6435 /* WorkoutType.swift in Sources */,
 				28A199A12022BC5500E7B715 /* Workout.swift in Sources */,
 				652768FC1FD5070500353CC9 /* WorkoutLogDetailViewController.swift in Sources */,
