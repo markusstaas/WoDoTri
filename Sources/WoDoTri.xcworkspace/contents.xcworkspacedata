@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/markus/Documents/WoDoTri/Sources/README.md">
+   </FileRef>
+   <FileRef
       location = "group:WoDoTri.xcodeproj">
    </FileRef>
    <FileRef
