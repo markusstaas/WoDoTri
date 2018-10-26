@@ -14,7 +14,6 @@
 		28329D7A20459A6E008DF038 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28329D7920459A6E008DF038 /* WorkoutViewController.swift */; };
 		2839F4CC2046E2CD0065D0B0 /* WorkoutMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */; };
 		2839F4CE2046E3160065D0B0 /* WorkoutDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */; };
-		285F147C21733551003C9D1B /* ReadMe.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 285F147B21733551003C9D1B /* ReadMe.rtf */; };
 		2862332D211F2FA50036E0B9 /* WorkoutPausedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862332C211F2FA50036E0B9 /* WorkoutPausedViewController.swift */; };
 		2867324F20AB012800D3152F /* VelocityFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2867324E20AB012800D3152F /* VelocityFormatter.swift */; };
 		287E014420E23B2100B2E6B2 /* GPXFormatterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E014320E23B2100B2E6B2 /* GPXFormatterConstants.swift */; };
@@ -48,7 +47,6 @@
 		28329D7920459A6E008DF038 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		2839F4CB2046E2CD0065D0B0 /* WorkoutMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapViewController.swift; sourceTree = "<group>"; };
 		2839F4CD2046E3160065D0B0 /* WorkoutDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataViewController.swift; sourceTree = "<group>"; };
-		285F147B21733551003C9D1B /* ReadMe.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ReadMe.rtf; sourceTree = "<group>"; };
 		2862332C211F2FA50036E0B9 /* WorkoutPausedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutPausedViewController.swift; sourceTree = "<group>"; };
 		2867324E20AB012800D3152F /* VelocityFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityFormatter.swift; sourceTree = "<group>"; };
 		287E014320E23B2100B2E6B2 /* GPXFormatterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXFormatterConstants.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 		289508921FB570B400353860 = {
 			isa = PBXGroup;
 			children = (
-				285F147B21733551003C9D1B /* ReadMe.rtf */,
 				2895089D1FB570B400353860 /* WoDoTri */,
 				2895089C1FB570B400353860 /* Products */,
 				9F564A753C7B07F2B5D4F4AA /* Pods */,
@@ -256,7 +253,6 @@
 				287F0814208E0CC4001A99D3 /* MeasurementTableViewCell.xib in Resources */,
 				289508A91FB570B400353860 /* LaunchScreen.storyboard in Resources */,
 				289508A61FB570B400353860 /* Assets.xcassets in Resources */,
-				285F147C21733551003C9D1B /* ReadMe.rtf in Resources */,
 				2829DEEB20878C320000C6D5 /* New.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
