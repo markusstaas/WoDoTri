@@ -61,7 +61,6 @@ class WorkoutFinishedViewController: UIViewController {
         } else {
             loadMap()
         }
-
     }
 
     private func checkForInternetConnection() {
@@ -75,12 +74,12 @@ class WorkoutFinishedViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    func shareWorkout() {
+
+    private func shareWorkout() {
         gpxFormatter = GPXFormatter(workoutType: (dataSource?.workoutType(for: self))!, locationHistory: (dataSource?.workoutLocationHistory(for: self))!, workoutStartedAt: (dataSource?.workoutStartedAt(for: self))!)
         GPXUploader(gpxString: (gpxFormatter?.makeGPX())!).uploadWorkoutToStrava()
         performSegue(withIdentifier: homeViewControllerSegueIdentifier, sender: self)
     }
-
 }
 
 // MARK: - Managing MapView
