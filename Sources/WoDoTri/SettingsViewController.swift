@@ -32,8 +32,7 @@ final class SettingsViewController: UITableViewController {
                     self.defaults.set(credential.oauthToken, forKey: "StravaToken")
                     self.stravaSwitch.isOn = true
             },
-                failure: { error in
-                    //print(error.localizedDescription)
+                failure: { _ in
                     self.stravaSwitch.isOn = false
             }
             )

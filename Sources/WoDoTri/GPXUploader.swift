@@ -40,6 +40,9 @@ final class GPXUploader {
            encodingCompletion: { (result) in
             switch result {
             case .success(let upload, _, _):
+                upload.uploadProgress(closure: { (progress) in
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
                 upload.responseJSON { response in
                     print(response.description)
                     if let err = response.error {
