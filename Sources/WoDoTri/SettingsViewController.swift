@@ -13,8 +13,8 @@ final class SettingsViewController: UITableViewController {
         if stravaSwitch.isOn {
             // Create OAuth Object
             self.oauthswift = OAuth2Swift(
-                consumerKey: "REDACTED_KEY",
-                consumerSecret: "REDACTED_SECRET",
+                consumerKey: "",
+                consumerSecret: "",
                 authorizeUrl: "https://www.strava.com/oauth/authorize",
                 accessTokenUrl: "https://www.strava.com/oauth/token",
                 responseType: "code"
